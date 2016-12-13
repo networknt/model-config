@@ -1,0 +1,195 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "OAuth2 User Service",
+        "description": "OAuth2 User Service microservices endpoints.",
+        "contact": {
+            "email": "stevehu@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "oauth2.networknt.com",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "basePath": "/v1",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/oauth2/user": {
+            "post": {
+                "description": "Return a user object",
+                "operationId": "createUser",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "user_auth": [
+                            "user.w"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "description": "Return the updated user",
+                "operationId": "updateUser",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "user_auth": [
+                            "user.w"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/oauth2/user/{userId}": {
+            "delete": {
+                "description": "Delete a user by Id",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "User Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid userId supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                        "user_auth": [
+                            "user.w"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "description": "Get a user by Id",
+                "operationId": "getUser",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "User Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid userId supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                        "user_auth": [
+                            "user.r",
+                            "user.w"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/oauth2/password/{userId}": {
+            "post": {
+                "description": "Reset Password",
+                "operationId": "resetPassword",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "User Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                        "user_auth": [
+                            "user.w"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "user_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://localhost:8888/oauth2/code",
+            "flow": "implicit",
+            "scopes": {
+                "user.w": "write user",
+                "user.r": "read user"
+            }
+        }
+    },
+    "definitions": {
+        "User": {
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string",
+                    "description": "a unique id"
+                },
+                "firstName": {
+                    "type": "string",
+                    "description": "first name"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "last name"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "email address"
+                }
+            }
+        }
+    }
+}
