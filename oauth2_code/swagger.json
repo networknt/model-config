@@ -1,0 +1,136 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "OAuth2 Service Authorization Code",
+        "description": "OAuth2 Service that logs in user and provide authorization code.",
+        "contact": {
+            "email": "stevehu@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "oauth2.networknt.com",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "basePath": "/v1",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/oauth2/code": {
+            "get": {
+                "description": "Return 302 redirect with authorization code",
+                "operationId": "getAuthCode",
+                "parameters": [
+                    {
+                        "name": "response_type",
+                        "in": "query",
+                        "description": "The response type for authorization code",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "code"
+                        ]
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "description": "The client id for authorization code",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "redirect_uri",
+                        "in": "query",
+                        "description": "The redirect uri for authorization code",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "The user name for authorization code",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "The password for authorization code in clear text",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "Successful Operation"
+                    }
+                }
+            },
+            "post": {
+                "description": "Return 302 redirect with authorization code",
+                "operationId": "postAuthCode",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Authenticate and Authorization code body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AuthCode"
+                        }
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "Successful Operation"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "AuthCode": {
+            "type": "object",
+            "required": [
+                "response_type",
+                "client_id",
+                "username",
+                "password"
+            ],
+            "properties": {
+                "response_type": {
+                    "type": "string",
+                    "description": "response type",
+                    "enum": [
+                        "code"
+                    ]
+                },
+                "client_id": {
+                    "type": "string",
+                    "description": "client id"
+                },
+                "redirect_uri": {
+                    "type": "string",
+                    "description": "redirect uri"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "user name"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "password"
+                }
+            }
+        }
+    }
+}

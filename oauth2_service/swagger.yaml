@@ -25,6 +25,13 @@ paths:
     post:
       description: Return a service object
       operationId: createService
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Service object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Service"      
       responses:
         200:
           description: Successful response
@@ -36,6 +43,13 @@ paths:
     put:
       description: Return the updated service
       operationId: updateService
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Service object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Service"      
       responses:
         200:
           description: Successful response
@@ -110,19 +124,36 @@ securityDefinitions:
 definitions:
   Service:
     type: "object"
+    required:
+    - "serviceId"
+    - "serviceName"
+    - "serviceType"
+    - "scope"
     properties:
       serviceId:
         type: "string"
         description: "a unique service id"
+      serviceType:
+        type: "string"
+        description: "service type"
+        enum:
+        - "ms"
+        - "api"
       serviceName:
         type: "string"
         description: "service name"
+      serviceDesc:
+        type: "string"
+        description: "service description"
+      ownerId:
+        type: "string"
+        description: "service owner userId"
       ownerName:
         type: "string"
         description: "service owner name"
       ownerEmail:
         type: "string"
         description: "service owner email address"
-      scopes:
+      scope:
         type: "string"
         description: "service scopes separated by space"

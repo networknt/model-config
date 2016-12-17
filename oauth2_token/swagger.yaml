@@ -1,0 +1,42 @@
+swagger: '2.0'
+
+info:
+  version: "1.0.0"
+  title: OAuth2 Service Token Service
+  description: OAuth2 Service that issues access tokens. 
+  contact:
+    email: stevehu@gmail.com
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: oauth2.networknt.com
+schemes:
+  - http
+  - https
+basePath: /v1
+
+consumes:
+  - application/x-www-form-urlencoded   
+produces:
+  - application/json
+
+paths:
+  /oauth2/token:
+    post:
+      description: JSON object that contains access token
+      operationId: postToken
+      parameters:
+      - name: authorization
+        in: header
+        type: string
+        required: true      
+      - name: grant_type
+        type: string
+        required: true
+        in: formData
+      - name: code
+        type: string
+        in: formData
+      responses:
+        200:
+          description: "Successful Operation"
