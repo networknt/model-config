@@ -17,7 +17,6 @@
         "http",
         "https"
     ],
-    "basePath": "/v1",
     "consumes": [
         "application/json"
     ],
@@ -30,6 +29,12 @@
                 "description": "Return 302 redirect with authorization code",
                 "operationId": "getAuthCode",
                 "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
                     {
                         "name": "response_type",
                         "in": "query",
@@ -48,7 +53,7 @@
                         "type": "string"
                     },
                     {
-                        "name": "redirect_uri",
+                        "name": "redirect_url",
                         "in": "query",
                         "description": "The redirect uri for authorization code",
                         "required": false,
@@ -118,9 +123,9 @@
                     "type": "string",
                     "description": "client id"
                 },
-                "redirect_uri": {
+                "redirect_url": {
                     "type": "string",
-                    "description": "redirect uri"
+                    "description": "redirect url"
                 },
                 "username": {
                     "type": "string",
