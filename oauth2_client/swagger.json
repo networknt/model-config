@@ -17,7 +17,6 @@
         "http",
         "https"
     ],
-    "basePath": "/v1",
     "consumes": [
         "application/json"
     ],
@@ -29,6 +28,17 @@
             "post": {
                 "description": "Return a client object",
                 "operationId": "createClient",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Client object that needs to be added",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Client"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful response",
@@ -40,7 +50,7 @@
                 "security": [
                     {
                         "client_auth": [
-                            "client.w"
+                            "oauth.client.w"
                         ]
                     }
                 ]
@@ -48,6 +58,17 @@
             "put": {
                 "description": "Return the updated client",
                 "operationId": "updateClient",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Client object that needs to be added",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Client"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successful response",
@@ -59,7 +80,7 @@
                 "security": [
                     {
                         "client_auth": [
-                            "client.w"
+                            "oauth.client.w"
                         ]
                     }
                 ]
@@ -81,7 +102,7 @@
                 "security": [
                     {
                         "client_auth": [
-                            "client.r"
+                            "oauth.client.r"
                         ]
                     }
                 ]
@@ -111,7 +132,7 @@
                 "security": [
                     {
                         "client_auth": [
-                            "client.w"
+                            "oauth.client.w"
                         ]
                     }
                 ]
@@ -145,8 +166,8 @@
                 "security": [
                     {
                         "client_auth": [
-                            "client.r",
-                            "client.w"
+                            "oauth.client.r",
+                            "oauth.client.w"
                         ]
                     }
                 ]
@@ -159,14 +180,23 @@
             "authorizationUrl": "http://localhost:8888/oauth2/code",
             "flow": "implicit",
             "scopes": {
-                "client.w": "write client",
-                "client.r": "read client"
+                "oauth.client.w": "write oauth client",
+                "oauth.client.r": "read oauth client"
             }
         }
     },
     "definitions": {
         "Client": {
             "type": "object",
+            "required": [
+                "clientType",
+                "clientName",
+                "clientDesc",
+                "ownerId",
+                "ownerName",
+                "ownerEmail",
+                "scope"
+            ],
             "properties": {
                 "clientId": {
                     "type": "string",
@@ -176,9 +206,28 @@
                     "type": "string",
                     "description": "client secret"
                 },
+                "clientType": {
+                    "type": "string",
+                    "description": "client type",
+                    "enum": [
+                        "server",
+                        "mobile",
+                        "service",
+                        "standalone",
+                        "browser"
+                    ]
+                },
                 "clientName": {
                     "type": "string",
                     "description": "client name"
+                },
+                "clientDesc": {
+                    "type": "string",
+                    "description": "client description"
+                },
+                "ownerId": {
+                    "type": "string",
+                    "description": "client owner id"
                 },
                 "ownerName": {
                     "type": "string",
@@ -188,9 +237,9 @@
                     "type": "string",
                     "description": "client owner email address"
                 },
-                "scopes": {
+                "scope": {
                     "type": "string",
-                    "description": "client scopes separated by space"
+                    "description": "client scope separated by space"
                 }
             }
         }

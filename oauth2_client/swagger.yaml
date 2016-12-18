@@ -13,7 +13,6 @@ host: oauth2.networknt.com
 schemes:
   - http
   - https
-basePath: /v1
 
 consumes:
   - application/json
@@ -25,6 +24,13 @@ paths:
     post:
       description: Return a client object
       operationId: createClient
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Client object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Client"      
       responses:
         200:
           description: Successful response
@@ -32,10 +38,17 @@ paths:
             $ref: "#/definitions/Client"          
       security:
       - client_auth:
-        - "client.w"
+        - "oauth.client.w"
     put:
       description: Return the updated client
       operationId: updateClient
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Client object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Client"      
       responses:
         200:
           description: Successful response
@@ -43,7 +56,7 @@ paths:
             $ref: "#/definitions/Client"          
       security:
       - client_auth:
-        - "client.w"
+        - "oauth.client.w"
     get:
       description: Return all clients
       operationId: getAllClient
@@ -56,7 +69,7 @@ paths:
               $ref: "#/definitions/Client"
       security:
       - client_auth:
-        - "client.r"
+        - "oauth.client.r"
           
   /oauth2/client/{clientId}:
     delete:
@@ -75,7 +88,7 @@ paths:
           description: "Client not found"
       security:
         - client_auth:
-          - client.w
+          - oauth.client.w
     get:
       description: Get a client by Id
       operationId: getClient
@@ -96,8 +109,8 @@ paths:
           description: "Client not found"
       security:
         - client_auth:
-          - client.r
-          - client.w
+          - oauth.client.r
+          - oauth.client.w
 
 securityDefinitions:
   client_auth:
@@ -105,11 +118,19 @@ securityDefinitions:
     authorizationUrl: "http://localhost:8888/oauth2/code"
     flow: "implicit"
     scopes:
-      client.w: "write client"
-      client.r: "read client"
+      oauth.client.w: "write oauth client"
+      oauth.client.r: "read oauth client"
 definitions:
   Client:
     type: "object"
+    required:
+    - clientType
+    - clientName
+    - clientDesc
+    - ownerId
+    - ownerName
+    - ownerEmail
+    - scope
     properties:
       clientId:
         type: "string"
@@ -117,15 +138,30 @@ definitions:
       clientSecret:
         type: "string"
         description: "client secret"
+      clientType:
+        type: "string"
+        description: "client type"
+        enum:
+        - server
+        - mobile
+        - service
+        - standalone
+        - browser
       clientName:
         type: "string"
         description: "client name"
+      clientDesc:
+        type: "string"
+        description: "client description"
+      ownerId:
+        type: "string"
+        description: "client owner id"
       ownerName:
         type: "string"
         description: "client owner name"
       ownerEmail:
         type: "string"
         description: "client owner email address"
-      scopes:
+      scope:
         type: "string"
-        description: "client scopes separated by space"
+        description: "client scope separated by space"

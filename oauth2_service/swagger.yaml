@@ -13,7 +13,6 @@ host: oauth2.networknt.com
 schemes:
   - http
   - https
-basePath: /v1
 
 consumes:
   - application/json
@@ -39,7 +38,7 @@ paths:
             $ref: "#/definitions/Service"          
       security:
       - service_auth:
-        - "service.w"
+        - "oauth.service.w"
     put:
       description: Return the updated service
       operationId: updateService
@@ -57,7 +56,7 @@ paths:
             $ref: "#/definitions/Service"          
       security:
       - service_auth:
-        - "service.w"
+        - "oauth.service.w"
     get:
       description: Return all services
       operationId: getAllService
@@ -70,7 +69,7 @@ paths:
               $ref: "#/definitions/Service"
       security:
       - service_auth:
-        - "service.r"
+        - "oauth.service.r"
           
   /oauth2/service/{serviceId}:
     delete:
@@ -89,7 +88,7 @@ paths:
           description: "Service not found"
       security:
         - service_auth:
-          - service.w
+          - oauth.service.w
     get:
       description: Get a service by Id
       operationId: getService
@@ -110,8 +109,8 @@ paths:
           description: "Service not found"
       security:
         - service_auth:
-          - service.r
-          - service.w
+          - oauth.service.r
+          - oauth.service.w
 
 securityDefinitions:
   service_auth:
@@ -119,8 +118,8 @@ securityDefinitions:
     authorizationUrl: "http://localhost:8888/oauth2/code"
     flow: "implicit"
     scopes:
-      service.w: "write service"
-      service.r: "read service"
+      oauth.service.w: "write oauth service"
+      oauth.service.r: "read oauth service"
 definitions:
   Service:
     type: "object"

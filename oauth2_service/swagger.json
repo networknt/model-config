@@ -17,7 +17,6 @@
         "http",
         "https"
     ],
-    "basePath": "/v1",
     "consumes": [
         "application/json"
     ],
@@ -51,7 +50,7 @@
                 "security": [
                     {
                         "service_auth": [
-                            "service.w"
+                            "oauth.service.w"
                         ]
                     }
                 ]
@@ -81,7 +80,7 @@
                 "security": [
                     {
                         "service_auth": [
-                            "service.w"
+                            "oauth.service.w"
                         ]
                     }
                 ]
@@ -103,7 +102,7 @@
                 "security": [
                     {
                         "service_auth": [
-                            "service.r"
+                            "oauth.service.r"
                         ]
                     }
                 ]
@@ -133,7 +132,7 @@
                 "security": [
                     {
                         "service_auth": [
-                            "service.w"
+                            "oauth.service.w"
                         ]
                     }
                 ]
@@ -167,8 +166,8 @@
                 "security": [
                     {
                         "service_auth": [
-                            "service.r",
-                            "service.w"
+                            "oauth.service.r",
+                            "oauth.service.w"
                         ]
                     }
                 ]
@@ -181,8 +180,8 @@
             "authorizationUrl": "http://localhost:8888/oauth2/code",
             "flow": "implicit",
             "scopes": {
-                "service.w": "write service",
-                "service.r": "read service"
+                "oauth.service.w": "write oauth service",
+                "oauth.service.r": "read oauth service"
             }
         }
     },
