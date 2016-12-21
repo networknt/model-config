@@ -147,12 +147,6 @@ definitions:
       ownerId:
         type: "string"
         description: "service owner userId"
-      ownerName:
-        type: "string"
-        description: "service owner name"
-      ownerEmail:
-        type: "string"
-        description: "service owner email address"
       scope:
         type: "string"
         description: "service scopes separated by space"

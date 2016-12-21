@@ -128,8 +128,6 @@ definitions:
     - clientName
     - clientDesc
     - ownerId
-    - ownerName
-    - ownerEmail
     - scope
     properties:
       clientId:
@@ -156,12 +154,6 @@ definitions:
       ownerId:
         type: "string"
         description: "client owner id"
-      ownerName:
-        type: "string"
-        description: "client owner name"
-      ownerEmail:
-        type: "string"
-        description: "client owner email address"
       scope:
         type: "string"
         description: "client scope separated by space"
