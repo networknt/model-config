@@ -13,7 +13,6 @@ host: oauth2.networknt.com
 schemes:
   - http
   - https
-basePath: /v1
 
 consumes:
   - application/json
@@ -25,25 +24,35 @@ paths:
     post:
       description: Return a user object
       operationId: createUser
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "User object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/User"      
       responses:
         200:
           description: Successful response
-          schema:
-            $ref: "#/definitions/User"          
       security:
       - user_auth:
-        - "user.w"
+        - "oauth.user.w"
     put:
       description: Return the updated user
       operationId: updateUser
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "User object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/User"      
       responses:
         200:
           description: Successful response
-          schema:
-            $ref: "#/definitions/User"          
       security:
       - user_auth:
-        - "user.w"
+        - "oauth.user.w"
           
   /oauth2/user/{userId}:
     delete:
@@ -62,7 +71,7 @@ paths:
           description: "User not found"
       security:
         - user_auth:
-          - user.w
+          - oauth.user.w
     get:
       description: Get a user by Id
       operationId: getUser
@@ -83,13 +92,19 @@ paths:
           description: "User not found"
       security:
         - user_auth:
-          - user.r
-          - user.w
+          - oauth.user.r
+          - oauth.user.w
   /oauth2/password/{userId}:
     post:
       description: Reset Password
       operationId: resetPassword
       parameters:
+      - in: "body"
+        name: "body"
+        description: "Password object that needs to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Password"      
       - name: "userId"
         in: "path"
         description: "User Id"
@@ -100,7 +115,7 @@ paths:
           description: "User not found"
       security:
       - user_auth:
-        - "user.w"
+        - "oauth.user.w"
           
 securityDefinitions:
   user_auth:
@@ -108,15 +123,29 @@ securityDefinitions:
     authorizationUrl: "http://localhost:8888/oauth2/code"
     flow: "implicit"
     scopes:
-      user.w: "write user"
-      user.r: "read user"
+      oauth.user.w: "write user"
+      oauth.user.r: "read user"
 definitions:
   User:
     type: "object"
+    required:
+    - "userId"
+    - "userType"
+    - "firstName"
+    - "lastName"
+    - "email"
     properties:
       userId:
         type: "string"
         description: "a unique id"
+      userType:
+        type: "string"
+        description: "user type"
+        enum:
+        - "admin"
+        - "employee"
+        - "customer"
+        - "partner"
       firstName:
         type: "string"
         description: "first name"
@@ -126,3 +155,25 @@ definitions:
       email:
         type: "string"
         description: "email address"
+      password:
+        type: "string"
+        description: "password"
+      passwordConfirm:
+        type: "string"
+        description: "password confirm"
+  Password:
+    type: "object"
+    required:
+    - "password"
+    - "newPassword"
+    - "newPasswordConfirm"
+    properties:
+      password:
+        type: "string"
+        description: "existing password"
+      newPassword:
+        type: "string"
+        description: "new password"
+      newPasswordConfirm:
+        type: "string"
+        description: "new password confirm"

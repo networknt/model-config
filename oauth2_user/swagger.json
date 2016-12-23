@@ -17,7 +17,6 @@
         "http",
         "https"
     ],
-    "basePath": "/v1",
     "consumes": [
         "application/json"
     ],
@@ -29,18 +28,26 @@
             "post": {
                 "description": "Return a user object",
                 "operationId": "createUser",
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User object that needs to be added",
+                        "required": true,
                         "schema": {
                             "$ref": "#/definitions/User"
                         }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
                     }
                 },
                 "security": [
                     {
                         "user_auth": [
-                            "user.w"
+                            "oauth.user.w"
                         ]
                     }
                 ]
@@ -48,18 +55,26 @@
             "put": {
                 "description": "Return the updated user",
                 "operationId": "updateUser",
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User object that needs to be added",
+                        "required": true,
                         "schema": {
                             "$ref": "#/definitions/User"
                         }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
                     }
                 },
                 "security": [
                     {
                         "user_auth": [
-                            "user.w"
+                            "oauth.user.w"
                         ]
                     }
                 ]
@@ -89,7 +104,7 @@
                 "security": [
                     {
                         "user_auth": [
-                            "user.w"
+                            "oauth.user.w"
                         ]
                     }
                 ]
@@ -123,8 +138,8 @@
                 "security": [
                     {
                         "user_auth": [
-                            "user.r",
-                            "user.w"
+                            "oauth.user.r",
+                            "oauth.user.w"
                         ]
                     }
                 ]
@@ -135,6 +150,15 @@
                 "description": "Reset Password",
                 "operationId": "resetPassword",
                 "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Password object that needs to be added",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Password"
+                        }
+                    },
                     {
                         "name": "userId",
                         "in": "path",
@@ -151,7 +175,7 @@
                 "security": [
                     {
                         "user_auth": [
-                            "user.w"
+                            "oauth.user.w"
                         ]
                     }
                 ]
@@ -164,18 +188,35 @@
             "authorizationUrl": "http://localhost:8888/oauth2/code",
             "flow": "implicit",
             "scopes": {
-                "user.w": "write user",
-                "user.r": "read user"
+                "oauth.user.w": "write user",
+                "oauth.user.r": "read user"
             }
         }
     },
     "definitions": {
         "User": {
             "type": "object",
+            "required": [
+                "userId",
+                "userType",
+                "firstName",
+                "lastName",
+                "email"
+            ],
             "properties": {
                 "userId": {
                     "type": "string",
                     "description": "a unique id"
+                },
+                "userType": {
+                    "type": "string",
+                    "description": "user type",
+                    "enum": [
+                        "admin",
+                        "employee",
+                        "customer",
+                        "partner"
+                    ]
                 },
                 "firstName": {
                     "type": "string",
@@ -188,6 +229,36 @@
                 "email": {
                     "type": "string",
                     "description": "email address"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "password"
+                },
+                "passwordConfirm": {
+                    "type": "string",
+                    "description": "password confirm"
+                }
+            }
+        },
+        "Password": {
+            "type": "object",
+            "required": [
+                "password",
+                "newPassword",
+                "newPasswordConfirm"
+            ],
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "description": "existing password"
+                },
+                "newPassword": {
+                    "type": "string",
+                    "description": "new password"
+                },
+                "newPasswordConfirm": {
+                    "type": "string",
+                    "description": "new password confirm"
                 }
             }
         }
