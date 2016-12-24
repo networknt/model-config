@@ -17,7 +17,6 @@
         "http",
         "https"
     ],
-    "basePath": "/v1",
     "consumes": [
         "application/x-www-form-urlencoded"
     ],
