@@ -83,57 +83,56 @@
             "post": {
                 "description": "Return 302 redirect with authorization code",
                 "operationId": "postAuthCode",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
                 "parameters": [
                     {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Authenticate and Authorization code body",
+                        "name": "j_username",
+                        "in": "formData",
+                        "description": "User name",
                         "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/AuthCode"
-                        }
+                        "type": "string"
+                    },
+                    {
+                        "name": "j_password",
+                        "in": "formData",
+                        "description": "Password",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "response_type",
+                        "in": "formData",
+                        "description": "Response type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "code"
+                        ]
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "formData",
+                        "description": "Client Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "redirect_url",
+                        "in": "formData",
+                        "description": "Redirect Url",
+                        "required": false,
+                        "type": "string"
                     }
                 ],
                 "responses": {
                     "302": {
                         "description": "Successful Operation"
                     }
-                }
-            }
-        }
-    },
-    "definitions": {
-        "AuthCode": {
-            "type": "object",
-            "required": [
-                "response_type",
-                "client_id",
-                "username",
-                "password"
-            ],
-            "properties": {
-                "response_type": {
-                    "type": "string",
-                    "description": "response type",
-                    "enum": [
-                        "code"
-                    ]
-                },
-                "client_id": {
-                    "type": "string",
-                    "description": "client id"
-                },
-                "redirect_url": {
-                    "type": "string",
-                    "description": "redirect url"
-                },
-                "username": {
-                    "type": "string",
-                    "description": "user name"
-                },
-                "password": {
-                    "type": "string",
-                    "description": "password"
                 }
             }
         }
