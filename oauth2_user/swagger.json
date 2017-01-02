@@ -232,11 +232,23 @@
                 },
                 "password": {
                     "type": "string",
+                    "format": "password",
                     "description": "password"
                 },
                 "passwordConfirm": {
                     "type": "string",
+                    "format": "password",
                     "description": "password confirm"
+                },
+                "createDt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "create date time"
+                },
+                "updateDt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "update date time"
                 }
             }
         },
