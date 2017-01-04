@@ -28,6 +28,31 @@
             "get": {
                 "description": "Return all users",
                 "operationId": "getAllUsers",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "Pag size",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "query",
+                        "description": "Partial userId for filter",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation",
@@ -284,14 +309,17 @@
             "properties": {
                 "password": {
                     "type": "string",
+                    "format": "password",
                     "description": "existing password"
                 },
                 "newPassword": {
                     "type": "string",
+                    "format": "password",
                     "description": "new password"
                 },
                 "newPasswordConfirm": {
                     "type": "string",
+                    "format": "password",
                     "description": "new password confirm"
                 }
             }
