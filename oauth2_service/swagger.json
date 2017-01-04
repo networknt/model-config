@@ -222,6 +222,16 @@
                 "scope": {
                     "type": "string",
                     "description": "service scopes separated by space"
+                },
+                "createDt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "create date time"
+                },
+                "updateDt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "update date time"
                 }
             }
         }

@@ -21,6 +21,19 @@ produces:
 
 paths:
   /oauth2/user:
+    get:
+      description: Return all users
+      operationId: getAllUsers
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/User"
+      security:
+      - user_auth:
+        - "oauth.user.r"
     post:
       description: Return a user object
       operationId: createUser

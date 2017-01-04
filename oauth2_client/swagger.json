@@ -230,6 +230,20 @@
                 "scope": {
                     "type": "string",
                     "description": "client scope separated by space"
+                },
+                "redirectUrl": {
+                    "type": "string",
+                    "description": "redirect url"
+                },
+                "createDt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "create date time"
+                },
+                "updateDt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "update date time"
                 }
             }
         }
