@@ -215,6 +215,7 @@
             "type": "object",
             "required": [
                 "clientType",
+                "clientProfile",
                 "clientName",
                 "clientDesc",
                 "ownerId",
@@ -233,11 +234,20 @@
                     "type": "string",
                     "description": "client type",
                     "enum": [
-                        "server",
+                        "confidential",
+                        "public",
+                        "trusted"
+                    ]
+                },
+                "clientProfile": {
+                    "type": "string",
+                    "description": "client profile",
+                    "enum": [
+                        "webserver",
+                        "browser",
                         "mobile",
                         "service",
-                        "standalone",
-                        "browser"
+                        "batch"
                     ]
                 },
                 "clientName": {
