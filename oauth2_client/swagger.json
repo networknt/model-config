@@ -266,9 +266,9 @@
                     "type": "string",
                     "description": "client scope separated by space"
                 },
-                "redirectUrl": {
+                "redirectUri": {
                     "type": "string",
-                    "description": "redirect url"
+                    "description": "redirect uri"
                 },
                 "createDt": {
                     "type": "string",
