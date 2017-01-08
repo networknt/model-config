@@ -26,6 +26,7 @@ paths:
       operationId: getAuthCode
       parameters:
       - name: "Authorization"
+        description: "encoded username:password mandatory if Basic Authentication is used"
         in: "header"
         required: false
         type: "string"
@@ -41,7 +42,7 @@ paths:
         description: "The client id for authorization code"
         required: true
         type: "string"
-      - name: "redirect_url"
+      - name: "redirect_uri"
         in: "query"
         description: "The redirect uri for authorization code"
         required: false
@@ -54,6 +55,11 @@ paths:
       - name: "password"
         in: "query"
         description: "The password for authorization code in clear text"
+        required: false
+        type: "string"
+      - name: "state"
+        in: "query"
+        description: "to prevent cross-site request forgery"
         required: false
         type: "string"
       responses:
@@ -90,9 +96,14 @@ paths:
         description: "Client Id"
         required: true
         type: "string"
-      - name: "redirect_url"
+      - name: "redirect_uri"
         in: "formData"
-        description: "Redirect Url"
+        description: "Redirect Uri"
+        required: false
+        type: "string"
+      - name: "state"
+        in: "formData"
+        description: "to prevent cross-site request forgery"
         required: false
         type: "string"
       responses:

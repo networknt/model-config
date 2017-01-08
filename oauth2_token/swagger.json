@@ -31,6 +31,7 @@
                 "parameters": [
                     {
                         "name": "authorization",
+                        "description": "encoded client_id and client_secret pair",
                         "in": "header",
                         "type": "string",
                         "required": true
@@ -38,11 +39,41 @@
                     {
                         "name": "grant_type",
                         "type": "string",
+                        "enum": [
+                            "authorization_code",
+                            "client_credentials",
+                            "password"
+                        ],
                         "required": true,
                         "in": "formData"
                     },
                     {
                         "name": "code",
+                        "description": "used in authorization_code to specify the code",
+                        "type": "string",
+                        "in": "formData"
+                    },
+                    {
+                        "name": "username",
+                        "description": "mandatory in password grant type",
+                        "type": "string",
+                        "in": "formData"
+                    },
+                    {
+                        "name": "password",
+                        "description": "mandatory in password grant type",
+                        "type": "string",
+                        "in": "formData"
+                    },
+                    {
+                        "name": "scope",
+                        "description": "used by all flows to specify scope in the access token",
+                        "type": "string",
+                        "in": "formData"
+                    },
+                    {
+                        "name": "redirect_uri",
+                        "description": "used in authorization code if code endpoint with rediret_uri",
                         "type": "string",
                         "in": "formData"
                     }
