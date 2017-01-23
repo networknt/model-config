@@ -42,7 +42,8 @@
                         "enum": [
                             "authorization_code",
                             "client_credentials",
-                            "password"
+                            "password",
+                            "refresh_token"
                         ],
                         "required": true,
                         "in": "formData"
@@ -74,6 +75,12 @@
                     {
                         "name": "redirect_uri",
                         "description": "used in authorization code if code endpoint with rediret_uri",
+                        "type": "string",
+                        "in": "formData"
+                    },
+                    {
+                        "name": "refresh_token",
+                        "description": "refresh token used to get another access token",
                         "type": "string",
                         "in": "formData"
                     }
