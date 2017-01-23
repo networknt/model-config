@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.database",
+  "apiPackage":"com.networknt.database.handler",
+  "modelPackage":"com.networknt.database.model",
+  "artifactId": "database",
+  "groupId": "com.networknt"
+}
