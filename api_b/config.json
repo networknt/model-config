@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.apib",
+  "apiPackage":"com.networknt.apib.handler",
+  "modelPackage":"com.networknt.apib.model",
+  "artifactId": "apib",
+  "groupId": "com.networknt"
+}

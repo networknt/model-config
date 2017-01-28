@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.apia",
+  "apiPackage":"com.networknt.apia.handler",
+  "modelPackage":"com.networknt.apia.model",
+  "artifactId": "apia",
+  "groupId": "com.networknt"
+}

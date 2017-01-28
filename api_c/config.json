@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.apic",
+  "apiPackage":"com.networknt.apic.handler",
+  "modelPackage":"com.networknt.apic.model",
+  "artifactId": "apic",
+  "groupId": "com.networknt"
+}

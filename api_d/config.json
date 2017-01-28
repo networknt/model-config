@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.apid",
+  "apiPackage":"com.networknt.apid.handler",
+  "modelPackage":"com.networknt.apid.model",
+  "artifactId": "apid",
+  "groupId": "com.networknt"
+}
