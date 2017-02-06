@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.oauth.user",
+  "apiPackage":"com.networknt.oauth.user.handler",
+  "modelPackage":"com.networknt.oauth.user.model",
+  "artifactId": "oauth2-user",
+  "groupId": "com.networknt"
+}

@@ -21,7 +21,7 @@ function showHelp {
     echo "    where [input-dir] is the directory path containing the swagger.json file and config.json file"
     echo "          [output-dir] is the directory path where the output for the generated microservice will be located (required)"
     echo " "
-    echo "    example 1: ./generate.sh ~/networknt/swagger/database ~/networknt"
+    echo "    example 1: ./generate.sh ~/networknt/swagger/database ~/networknt/database"
     echo " "
 }
 

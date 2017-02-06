@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.oauth.token",
+  "apiPackage":"com.networknt.oauth.token.handler",
+  "modelPackage":"com.networknt.oauth.token.model",
+  "artifactId": "oauth2-refresh-token",
+  "groupId": "com.networknt"
+}
