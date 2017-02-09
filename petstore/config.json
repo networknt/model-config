@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.petstore",
+  "apiPackage":"com.networknt.petstore.handler",
+  "modelPackage":"com.networknt.petstore.model",
+  "artifactId": "petstore",
+  "groupId": "com.networknt"
+}
