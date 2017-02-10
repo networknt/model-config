@@ -1,0 +1,192 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Tech Empower Performance Benchmark",
+        "description": "A light-java implementation of benchmark",
+        "contact": {
+            "email": "stevehu@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "benchmark.networknt.com",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/json": {
+            "get": {
+                "description": "json serialization",
+                "operationId": "getJson",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/plaintext": {
+            "get": {
+                "description": "plain text serialization",
+                "operationId": "getPlainText",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/cache": {
+            "get": {
+                "description": "cache serialization",
+                "operationId": "getCache",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/db/mysql": {
+            "get": {
+                "description": "mysql single query",
+                "operationId": "getQueryMysql",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/queries/mysql": {
+            "get": {
+                "description": "mysql multiple query",
+                "operationId": "getQueriesMysql",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/fortunes/mysql": {
+            "get": {
+                "description": "mysql fortunes",
+                "operationId": "getFortunesMysql",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/updates/mysql": {
+            "get": {
+                "description": "mysql updates",
+                "operationId": "getUpdatesMysql",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/db/postgresql": {
+            "get": {
+                "description": "postgres single query",
+                "operationId": "getQueryPostgres",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/queries/postgresql": {
+            "get": {
+                "description": "postgres multiple query",
+                "operationId": "getQueriesPostgres",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/fortunes/postgresql": {
+            "get": {
+                "description": "postgres fortunes",
+                "operationId": "getFortunesPostgres",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/updates/postgres": {
+            "get": {
+                "description": "postgres updates",
+                "operationId": "getUpdatesPostgres",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/db/mongodb": {
+            "get": {
+                "description": "mongodb single query",
+                "operationId": "getQueryMongodb",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/queries/mongodb": {
+            "get": {
+                "description": "mongodb multiple query",
+                "operationId": "getQueriesMongodb",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/fortunes/mongodb": {
+            "get": {
+                "description": "mongodb fortunes",
+                "operationId": "getFortunesMongodb",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/updates/mongodb": {
+            "get": {
+                "description": "mongodb updates",
+                "operationId": "getUpdatesMongodb",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        }
+    }
+}

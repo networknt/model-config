@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.techempower",
+  "apiPackage":"com.networknt.techempower.handler",
+  "modelPackage":"com.networknt.techempower.model",
+  "artifactId": "techempower",
+  "groupId": "com.networknt"
+}
