@@ -45,17 +45,6 @@
                 }
             }
         },
-        "/cache": {
-            "get": {
-                "description": "cache serialization",
-                "operationId": "getCache",
-                "responses": {
-                    "200": {
-                        "description": "Successful response"
-                    }
-                }
-            }
-        },
         "/db/mysql": {
             "get": {
                 "description": "mysql single query",
@@ -133,54 +122,10 @@
                 }
             }
         },
-        "/updates/postgres": {
+        "/updates/postgresql": {
             "get": {
                 "description": "postgres updates",
                 "operationId": "getUpdatesPostgres",
-                "responses": {
-                    "200": {
-                        "description": "Successful response"
-                    }
-                }
-            }
-        },
-        "/db/mongodb": {
-            "get": {
-                "description": "mongodb single query",
-                "operationId": "getQueryMongodb",
-                "responses": {
-                    "200": {
-                        "description": "Successful response"
-                    }
-                }
-            }
-        },
-        "/queries/mongodb": {
-            "get": {
-                "description": "mongodb multiple query",
-                "operationId": "getQueriesMongodb",
-                "responses": {
-                    "200": {
-                        "description": "Successful response"
-                    }
-                }
-            }
-        },
-        "/fortunes/mongodb": {
-            "get": {
-                "description": "mongodb fortunes",
-                "operationId": "getFortunesMongodb",
-                "responses": {
-                    "200": {
-                        "description": "Successful response"
-                    }
-                }
-            }
-        },
-        "/updates/mongodb": {
-            "get": {
-                "description": "mongodb updates",
-                "operationId": "getUpdatesMongodb",
                 "responses": {
                     "200": {
                         "description": "Successful response"
