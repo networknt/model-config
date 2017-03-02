@@ -1,0 +1,80 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Light Config Server API",
+        "description": "API of light-config-server for services to get config files",
+        "contact": {
+            "email": "stevehu@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "config.networknt.com",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "basePath": "/v1",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/config/{service}/{profile}/{name}": {
+            "get": {
+                "description": "Return a config file in json format",
+                "operationId": "getConfig",
+                "parameters": [
+                    {
+                        "name": "service",
+                        "in": "path",
+                        "description": "Service Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "profile",
+                        "in": "path",
+                        "description": "Profile(dev, dit, sit, uat, prod)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Name of config file",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                },
+                "security": [
+                    {
+                        "light_config_auth": [
+                            "light.config.r"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "light_config_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://localhost:8080/oauth2/code",
+            "flow": "implicit",
+            "scopes": {
+                "light.config.r": "read config access"
+            }
+        }
+    }
+}
