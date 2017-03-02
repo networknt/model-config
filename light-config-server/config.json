@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.config.server",
+  "apiPackage":"com.networknt.config.server.handler",
+  "modelPackage":"com.networknt.config.server.model",
+  "artifactId": "config-server",
+  "groupId": "com.networknt"
+}
