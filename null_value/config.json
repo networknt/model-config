@@ -1,0 +1,7 @@
+{
+  "invokerPackage": "com.networknt.demo.value",
+  "apiPackage":"com.networknt.demo.value.handler",
+  "modelPackage":"com.networknt.demo.value.model",
+  "artifactId": "demo-value",
+  "groupId": "com.networknt"
+}

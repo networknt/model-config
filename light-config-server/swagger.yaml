@@ -21,11 +21,16 @@ produces:
   - application/json
 
 paths:
-  /config/{service}/{profile}/{name}:
+  /config/{version}/{profile}/{service}:
     get:
       description: Return a config file in json format
       operationId: getConfig
       parameters:
+      - name: "version"
+        in: "path"
+        description: "Framewrok Version"
+        required: true
+        type: "string"
       - name: "service"
         in: "path"
         description: "Service Id"
@@ -34,11 +39,6 @@ paths:
       - name: "profile"
         in: "path"
         description: "Profile(dev, dit, sit, uat, prod)"
-        required: true
-        type: "string"
-      - name: "name"
-        in: "path"
-        description: "Name of config file"
         required: true
         type: "string"
       responses:
