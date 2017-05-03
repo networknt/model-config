@@ -1,55 +1,100 @@
 #!/bin/bash
 
 #
-# Purpose:  Dockerized swagger-codegen to generate microservices from swagger specification
+# Purpose:  Dockerized light-codegen to generate microservices for light-java-rest, light-java-graphql
+# and light-java-hybrid
 #
 # Author:  Eric Broda, Steve Hu
 #
 # Parameters:
-#   $1:  Input directory that contains swagger.yaml and config.json
-#   $2:  Output directory for generated code
+#   $1:  Framework that include light-java-rest, light-java-graphql, light-java-hybrid-server, light-java-hybrid-service
+#   $2:  Input directory that contains model/schema and config.json
+#   $3:  Output directory for generated code
 #
-xINPUTDIR=$1
-xOUTPUTDIR=$2
+
+xFRAMEWORK=$1
+xINPUTDIR=$2
+xOUTPUTDIR=$3
 
 function showHelp {
     echo " "
     echo "Error: $1"
     echo " "
-    echo "    generate.sh [input-dir] [output-dir]"
+    echo "    generate.sh [framework] [input-dir] [output-dir]"
     echo " "
-    echo "    where [input-dir] is the directory path containing the swagger.json file and config.json file"
+    echo "    where [framework] is the light-java framework for the target project"
+    echo "          [input-dir] is the directory path containing the schema/model file and config.json file"
     echo "          [output-dir] is the directory path where the output for the generated microservice will be located (required)"
     echo " "
-    echo "    example 1: ./generate.sh ~/networknt/swagger/database ~/networknt/database"
+    echo "    example 1: ./generate.sh light-java-rest ~/networknt/model-config/rest/petstore /tmp/petstore"
     echo " "
 }
 
 if [ -z $1 ]; then
+    showHelp "[framework] parameter is missing"
+    exit
+fi
+
+if [ -z $2 ]; then
     showHelp "[input-dir] parameter is missing"
     exit
 fi
 
-if [ -z "$2" ]; then
+if [ -z $3 ]; then
     showHelp "[output-dir] parameter is missing"
     exit
 fi
 
-echo "INFO: Generating client, using:"
+echo "INFO: Generating project, using:"
+echo "      - framework: $xFRAMEWORK"
 echo "      - input-dir: $xINPUTDIR"
 echo "      - output-dir: $xOUTPUTDIR"
 
 
 # Using networknt capability
-echo "INFO: Running: networknt/swagger-codegen generate "
+echo "INFO: Running: networknt/light-codegen"
+
+if [ $1 = "light-java-rest"]; then
 docker run -it \
-    -v $xINPUTDIR:/swagger-api/swagger \
-    -v $xOUTPUTDIR:/swagger-api/out \
-    networknt/swagger-codegen generate \
-    -l light-java \
-    -c /swagger-api/swagger/config.json \
-    -i /swagger-api/swagger/swagger.yaml \
-    -o /swagger-api/out/generated
+    -v $xINPUTDIR:/light-api/input \
+    -v $xOUTPUTDIR:/light-api/out \
+    networknt/light-codegen \
+    -f light-java-rest \
+    -c /light-api/input/config.json \
+    -m /light-api/input/swagger.json \
+    -o /light-api/out/generated
+fi
+
+if [ $1 = "light-java-graphql"]; then
+docker run -it \
+    -v $xINPUTDIR:/light-api/input \
+    -v $xOUTPUTDIR:/light-api/out \
+    networknt/light-codegen \
+    -f light-java-graphql \
+    -c /light-api/input/config.json \
+    -o /light-api/out/generated
+fi
+
+if [ $1 = "light-java-hybrid-server"]; then
+docker run -it \
+    -v $xINPUTDIR:/light-api/input \
+    -v $xOUTPUTDIR:/light-api/out \
+    networknt/light-codegen \
+    -f light-java-hybrid-server \
+    -c /light-api/input/config.json \
+    -o /light-api/out/generated
+fi
+
+if [ $1 = "light-java-hybrid-service"]; then
+docker run -it \
+    -v $xINPUTDIR:/light-api/input \
+    -v $xOUTPUTDIR:/light-api/out \
+    networknt/light-codegen \
+    -f light-java-hybrid-service \
+    -c /light-api/input/config.json \
+    -m /light-api/input/schema.json \
+    -o /light-api/out/generated
+fi
 
 echo "INFO: Running: mvn install"
 echo "OUTPUT PATH: $OUTPUTDIR"
