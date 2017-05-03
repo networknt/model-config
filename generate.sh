@@ -54,7 +54,7 @@ echo "      - output-dir: $xOUTPUTDIR"
 # Using networknt capability
 echo "INFO: Running: networknt/light-codegen"
 
-if [ $1 = "light-java-rest"]; then
+if [ $1 = "light-java-rest" ]; then
 docker run -it \
     -v $xINPUTDIR:/light-api/input \
     -v $xOUTPUTDIR:/light-api/out \
@@ -65,7 +65,7 @@ docker run -it \
     -o /light-api/out/generated
 fi
 
-if [ $1 = "light-java-graphql"]; then
+if [ $1 = "light-java-graphql" ]; then
 docker run -it \
     -v $xINPUTDIR:/light-api/input \
     -v $xOUTPUTDIR:/light-api/out \
@@ -75,7 +75,7 @@ docker run -it \
     -o /light-api/out/generated
 fi
 
-if [ $1 = "light-java-hybrid-server"]; then
+if [ $1 = "light-java-hybrid-server" ]; then
 docker run -it \
     -v $xINPUTDIR:/light-api/input \
     -v $xOUTPUTDIR:/light-api/out \
@@ -85,7 +85,7 @@ docker run -it \
     -o /light-api/out/generated
 fi
 
-if [ $1 = "light-java-hybrid-service"]; then
+if [ $1 = "light-java-hybrid-service" ]; then
 docker run -it \
     -v $xINPUTDIR:/light-api/input \
     -v $xOUTPUTDIR:/light-api/out \
@@ -96,9 +96,4 @@ docker run -it \
     -o /light-api/out/generated
 fi
 
-echo "INFO: Running: mvn install"
-echo "OUTPUT PATH: $OUTPUTDIR"
-cd $xOUTPUTDIR/generated
-mvn clean install
-
-echo "INFO: Running: Generated microservice"
+echo "Code generation is completed"
