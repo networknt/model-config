@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "version": "1.0.0",
-        "title": "Light-Java-Rest Database Tutorial",
+        "title": "light-rest-4j Database Tutorial",
         "description": "A demo on how to connect, query and update Oracle/Mysql/Postgres.",
         "contact": {
             "email": "stevehu@gmail.com"
