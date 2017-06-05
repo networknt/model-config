@@ -1,0 +1,11 @@
+{
+  "rootPackage": "com.networknt.query",
+  "handlerPackage":"com.networknt.query.handler",
+  "modelPackage":"com.networknt.query.model",
+  "artifactId": "eventuate-query",
+  "groupId": "com.networknt",
+  "name": "query",
+  "version": "1.3.1",
+  "overwriteHandler": false,
+  "overwriteHandlerTest": false
+}

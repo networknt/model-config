@@ -1,0 +1,11 @@
+{
+  "rootPackage": "com.networknt.command",
+  "handlerPackage":"com.networknt.command.handler",
+  "modelPackage":"com.networknt.command.model",
+  "artifactId": "eventuate-command",
+  "groupId": "com.networknt",
+  "name": "command",
+  "version": "1.3.1",
+  "overwriteHandler": false,
+  "overwriteHandlerTest": false
+}
