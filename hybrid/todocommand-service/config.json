@@ -1,0 +1,11 @@
+{
+  "rootPackage": "com.networknt.command",
+  "handlerPackage":"com.networknt.command.handler",
+  "modelPackage":"com.networknt.command.model",
+  "artifactId": "eventuate-todo-command-hybrid",
+  "groupId": "com.networknt",
+  "name": "command-hybridservice",
+  "version": "0.1.0",
+  "overwriteHandler": false,
+  "overwriteHandlerTest": false
+}

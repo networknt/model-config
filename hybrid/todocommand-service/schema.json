@@ -1,0 +1,76 @@
+{
+  "host": "lightapi.net",
+  "service": "todo",
+  "action": [
+   {
+    "name": "delete",
+    "version": "0.1.0",
+    "handler": "DeleteTodo",
+    "scope" : "todo.w",    
+    "schema" : {
+      "title" : "Service",
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "id"]
+    },
+    "scope" : "todo.w"
+  },
+  {
+      "name": "create",
+      "version": "0.1.0",
+      "handler": "CreateTodo",
+      "scope" : "todo.w",
+      "schema" : {
+      "title" : "Service",
+      "type" : "object",
+      "properties" : {
+        "title" : {
+          "type" : "string"
+        },
+        "completed" : {
+          "type" : "boolean"
+        },
+        "order" : {
+          "description" : "order of todo in the todo list",
+          "type" : "integer",
+          "minimum" : 0
+        }
+      },
+      "required" : [ "title" ]
+    },
+    "scope" : "todo.w"
+  },
+{
+      "name": "update",
+      "version": "0.1.0",
+      "handler": "UpdateTodo",
+      "scope" : "todo.w",
+      "schema" : {
+      "title" : "Service",
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "completed" : {
+          "type" : "boolean"
+        },
+        "order" : {
+          "description" : "order of todo in the todo list",
+          "type" : "integer",
+          "minimum" : 0
+        }
+      },
+      "required" : [ "id" ]
+    },
+    "scope" : "todo.w"
+  }
+  ]
+}

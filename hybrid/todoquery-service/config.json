@@ -1,0 +1,11 @@
+{
+  "rootPackage": "com.networknt.query",
+  "handlerPackage":"com.networknt.query.handler",
+  "modelPackage":"com.networknt.query.model",
+  "artifactId": "eventuate-todo-query-hybrid",
+  "groupId": "com.networknt",
+  "name": "query-hybridservice",
+  "version": "0.1.0",
+  "overwriteHandler": false,
+  "overwriteHandlerTest": false
+}

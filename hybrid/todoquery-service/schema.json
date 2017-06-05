@@ -1,0 +1,33 @@
+{
+  "host": "lightapi.net",
+  "service": "todo",
+  "action": [
+ {
+    "name": "gettodo",
+    "version": "0.1.0",
+    "handler": "GetTodoById",
+    "scope" : "todo.r", 
+    "schema" : {
+      "title" : "Service",
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "id" ]
+    },
+    "scope" : "todo.r"
+  },
+ {
+     "name": "gettodos",
+     "version": "0.1.0",
+     "handler": "GetAllTodos",
+    "scope" : "todo.r", 
+    "schema" : {
+      "title" : "Service"
+    },
+    "scope" : "todo.r"
+  }
+  ]
+}
