@@ -32,6 +32,9 @@ paths:
             type: array
             items:
               type: string
+          examples: {
+            "application/json": ["Message 1","Message 2"]
+          }
       security:
         - b_auth:
           - api_b.w

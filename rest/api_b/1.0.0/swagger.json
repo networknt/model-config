@@ -1,0 +1,71 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API B for microservices demo",
+        "description": "API B is called by API A and it will call API D to get data",
+        "contact": {
+            "email": "stevehu@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "b.networknt.com",
+    "schemes": [
+        "http"
+    ],
+    "basePath": "/v1",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/data": {
+            "get": {
+                "description": "Return an array of strings collected from down stream APIs",
+                "operationId": "listData",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "ArrayOfStrings",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "examples": {
+                            "application/json": [
+                                "Message 1",
+                                "Message 2"
+                            ]
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "b_auth": [
+                            "api_b.w",
+                            "api_b.r"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "b_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://localhost:8080/oauth2/code",
+            "flow": "implicit",
+            "scopes": {
+                "api_b.w": "write access",
+                "api_b.r": "read access"
+            }
+        }
+    }
+}

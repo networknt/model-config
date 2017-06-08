@@ -1,7 +1,12 @@
 {
-  "invokerPackage": "com.networknt.apid",
-  "apiPackage":"com.networknt.apid.handler",
+  "rootPackage": "com.networknt.apid",
+  "handlerPackage":"com.networknt.apid.handler",
   "modelPackage":"com.networknt.apid.model",
   "artifactId": "apid",
-  "groupId": "com.networknt"
+  "groupId": "com.networknt",
+  "name": "apid",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true
 }

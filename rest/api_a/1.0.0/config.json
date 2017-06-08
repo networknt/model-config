@@ -1,7 +1,12 @@
 {
-  "invokerPackage": "com.networknt.apia",
-  "apiPackage":"com.networknt.apia.handler",
+  "rootPackage": "com.networknt.apia",
+  "handlerPackage":"com.networknt.apia.handler",
   "modelPackage":"com.networknt.apia.model",
   "artifactId": "apia",
-  "groupId": "com.networknt"
+  "groupId": "com.networknt",
+  "name": "apia",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true
 }

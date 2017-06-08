@@ -1,7 +1,12 @@
 {
-  "invokerPackage": "com.networknt.apib",
-  "apiPackage":"com.networknt.apib.handler",
+  "rootPackage": "com.networknt.apib",
+  "handlerPackage":"com.networknt.apib.handler",
   "modelPackage":"com.networknt.apib.model",
   "artifactId": "apib",
-  "groupId": "com.networknt"
+  "groupId": "com.networknt",
+  "name": "apib",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true
 }
