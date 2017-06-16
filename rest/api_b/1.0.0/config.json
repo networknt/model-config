@@ -1,12 +1,22 @@
 {
+  "name": "apib",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "apib",
   "rootPackage": "com.networknt.apib",
   "handlerPackage":"com.networknt.apib.handler",
   "modelPackage":"com.networknt.apib.model",
-  "artifactId": "apib",
-  "groupId": "com.networknt",
-  "name": "apib",
-  "version": "1.0.0",
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
-  "overwriteModel": true
+  "overwriteModel": true,
+  "httpPort": 7002,
+  "enableHttp": true,
+  "httpsPort": 7442,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": true
 }

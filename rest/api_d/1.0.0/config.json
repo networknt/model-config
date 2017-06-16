@@ -1,12 +1,22 @@
 {
+  "name": "apid",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "apid",
   "rootPackage": "com.networknt.apid",
   "handlerPackage":"com.networknt.apid.handler",
   "modelPackage":"com.networknt.apid.model",
-  "artifactId": "apid",
-  "groupId": "com.networknt",
-  "name": "apid",
-  "version": "1.0.0",
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
-  "overwriteModel": true
+  "overwriteModel": true,
+  "httpPort": 7004,
+  "enableHttp": true,
+  "httpsPort": 7444,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": true
 }

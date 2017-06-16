@@ -1,12 +1,22 @@
 {
+  "name": "apic",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "apic",
   "rootPackage": "com.networknt.apic",
   "handlerPackage":"com.networknt.apic.handler",
   "modelPackage":"com.networknt.apic.model",
-  "artifactId": "apic",
-  "groupId": "com.networknt",
-  "name": "apic",
-  "version": "1.0.0",
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
-  "overwriteModel": true
+  "overwriteModel": true,
+  "httpPort": 7003,
+  "enableHttp": true,
+  "httpsPort": 7443,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": true
 }
