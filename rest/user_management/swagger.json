@@ -18,7 +18,7 @@
   "consumes" : [ "application/json" ],
   "produces" : [ "application/json" ],
   "paths" : {
-    "/users" : {
+    "/getUsers" : {
       "get" : {
         "description" : "Return an array of user",
         "operationId" : "getAll",
@@ -41,7 +41,7 @@
         "x-contentType" : "application/json"
       }
     },
-    "/users/{id}" : {
+    "/getUser/{id}" : {
       "get" : {
         "description" : "Return a user by Id",
         "operationId" : "getById",
@@ -93,7 +93,7 @@
         "x-contentType" : "application/json"
       }
     },
-    "/users" : {
+    "/addUser" : {
       "post": {
         "description": "Return a user object with Id",
         "operationId": "add",
@@ -161,7 +161,7 @@
         "x-contentType": "application/json"
       }
     },
-    "/users" : {
+    "/changeUser" : {
         "put" : {
           "description" : "Return the updated user object",
           "operationId" : "update",
@@ -172,7 +172,16 @@
               "description": "The user id for update",
               "required": true,
               "type": "long"
+            },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "new user object for update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
             }
+          }            
           ],
           "responses" : {
             "200" : {
@@ -189,9 +198,9 @@
           "x-contentType" : "application/json"
         }
       },
-    "/users" : {
+    "/userAction" : {
       "put" : {
-        "description" : "Return the updated user object",
+        "description" : "Return the  user object",
         "operationId" : "update",
         "parameters" : [
           {
@@ -224,7 +233,7 @@
         "x-contentType" : "application/json"
       }
     },
-    "/user/{id}" : {
+    "/deleteUser/{id}" : {
       "delete" : {
         "description" : "Delete a user by Id",
         "operationId" : "deleteById",
@@ -250,9 +259,9 @@
         "x-contentType" : "application/json"
       }
     },
-    "/delete/{id}" : {
+    "/removeSession/{id}" : {
       "delete" : {
-        "description" : "Delete a session by Id",
+        "description" : "Remove a session by Id",
         "operationId" : "deleteById",
         "parameters" : [ {
           "name" : "id",
