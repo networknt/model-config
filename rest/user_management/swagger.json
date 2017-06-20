@@ -322,8 +322,18 @@
           "type" : "string",
           "description" : "firstName of the user"
         },
+        "gender": {
+          "type": "string",
+          "description": "user gender type",
+          "enum": [
+            "FEMALE",
+            "MALE",
+            "UNKNOWN"
+          ]
+        },
         "birthday" : {
-          "type" : "date",
+          "type": "string",
+          "format": "date-time",
           "description" : "birthday of the user"
         }
       }
