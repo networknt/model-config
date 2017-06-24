@@ -34,7 +34,7 @@
                         "description": "encoded client_id and client_secret pair",
                         "in": "header",
                         "type": "string",
-                        "required": true
+                        "required": false
                     },
                     {
                         "name": "grant_type",
@@ -43,9 +43,22 @@
                             "authorization_code",
                             "client_credentials",
                             "password",
-                            "refresh_token"
+                            "refresh_token",
+                            "client_authenticated_user"
                         ],
                         "required": true,
+                        "in": "formData"
+                    },
+                    {
+                        "name": "client_id",
+                        "description": "used as alternative to authentication header for client authentication",
+                        "type": "string",
+                        "in": "formData"
+                    },
+                    {
+                        "name": "client_secret",
+                        "description": "used as alternative to authentication header for client authentication",
+                        "type": "string",
                         "in": "formData"
                     },
                     {
@@ -83,6 +96,12 @@
                         "description": "refresh token used to get another access token",
                         "type": "string",
                         "in": "formData"
+                    },
+                    {
+                        "name": "code_verifier",
+                        "description": "PKCE code verifier",
+                        "type": "string",
+                        "in": "formData"
                     }
                 ],
                 "responses": {
@@ -90,6 +109,16 @@
                         "description": "Successful Operation"
                     }
                 }
+            }
+        },
+        "/health": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "parameters": []
             }
         }
     }

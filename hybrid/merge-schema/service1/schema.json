@@ -1,0 +1,25 @@
+{
+  "host": "lightapi.net",
+  "service": "service1",
+  "action": [
+    {
+      "name": "query",
+      "version": "0.1.0",
+      "handler": "QuerySide",
+      "scope" : "query.r",
+      "schema": {
+        "title": "Service1",
+        "type": "object",
+        "properties": {
+          "q1": {
+            "type": "string"
+          },
+          "q2": {
+            "type": "string"
+          }
+        },
+        "required": ["q1", "q2"]
+      }
+    }
+  ]
+}

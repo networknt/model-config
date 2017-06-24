@@ -1,0 +1,9 @@
+{
+  "rootPackage": "com.networknt.merger",
+  "handlerPackage":"com.networknt.merger.handler",
+  "modelPackage":"com.networknt.merger.model",
+  "artifactId": "merger",
+  "groupId": "com.networknt",
+  "name": "merger",
+  "version": "1.0.0"
+}

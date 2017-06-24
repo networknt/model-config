@@ -1,11 +1,11 @@
 {
-  "rootPackage": "com.networknt.petstore",
-  "handlerPackage":"com.networknt.petstore.handler",
-  "modelPackage":"com.networknt.petstore.model",
-  "artifactId": "petstore",
+  "rootPackage": "com.networknt.gservice",
+  "handlerPackage":"com.networknt.gservice.handler",
+  "modelPackage":"com.networknt.gservice.model",
+  "artifactId": "gservice",
   "groupId": "com.networknt",
-  "name": "petstore",
-  "version": "1.0.1",
-  "overwriteHandler": false,
-  "overwriteHandlerTest": false
+  "name": "gservice",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true
 }

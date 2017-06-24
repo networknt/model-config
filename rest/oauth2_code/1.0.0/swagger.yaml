@@ -67,6 +67,16 @@ paths:
         description: "scope of the request"
         required: false
         type: "string"
+      - name: "code_challenge"
+        in: "query"
+        description: "PKCE code challenge"
+        required: false
+        type: "string"
+      - name: "code_challenge_method"
+        in: "query"
+        description: "PKCE code challenge method"
+        required: false
+        type: "string"
       responses:
         302:
           description: "Successful Operation"
@@ -112,8 +122,18 @@ paths:
         required: false
         type: "string"
       - name: "scope"
-        in: "query"
+        in: "formData"
         description: "scope of the request"
+        required: false
+        type: "string"
+      - name: "code_challenge"
+        in: "formData"
+        description: "PKCE code challenge"
+        required: false
+        type: "string"
+      - name: "code_challenge_method"
+        in: "formData"
+        description: "PKCE code challenge method"
         required: false
         type: "string"
       responses:
