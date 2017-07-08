@@ -18,3 +18,13 @@ and there is no extra dependency. Anything extra wil be added manually in the po
 module later on. 
 
 
+The command to generate the server:
+
+```
+java -jar codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-server -o ~/networknt/light-portal/hybrid-server -c ~/networknt/model-config/hybrid/portal-server/config.json
+```
+
+Please note that you have to checkout [model-config](https://github.com/networknt/model-config) 
+and [light-portal](https://github.com/networknt/light-portal) in the same workspace
+networknt. 
+
