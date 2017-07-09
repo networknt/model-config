@@ -1,0 +1,44 @@
+{
+  "host": "lightapi.net",
+  "service": "certification",
+  "action": [
+    {
+      "name": "certify",
+      "version": "0.1.0",
+      "handler": "Endpoint",
+      "scope" : "cert.endpoint.r",
+      "schema": {
+        "title": "Endpoint Certification",
+        "type": "object",
+        "properties": {
+          "serverInfoUrl": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string"
+          }
+        },
+        "required": ["serverInfoUrl"]
+      }
+    },
+    {
+      "name": "certify",
+      "version": "0.1.0",
+      "handler": "Registry",
+      "scope" : "cert.registry.r",
+      "schema": {
+        "title": "Registry Certification",
+        "type": "object",
+        "properties": {
+          "registryUrl": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string"
+          }
+        },
+        "required": ["registryUrl"]
+      }
+    }
+  ]
+}
