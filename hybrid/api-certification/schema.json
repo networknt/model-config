@@ -3,7 +3,7 @@
   "service": "certification",
   "action": [
     {
-      "name": "certify",
+      "name": "certifyEndpoint",
       "version": "0.1.0",
       "handler": "Endpoint",
       "scope" : "cert.endpoint.r",
@@ -22,7 +22,7 @@
       }
     },
     {
-      "name": "certify",
+      "name": "certifyRegistry",
       "version": "0.1.0",
       "handler": "Registry",
       "scope" : "cert.registry.r",
