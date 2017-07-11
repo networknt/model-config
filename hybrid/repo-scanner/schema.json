@@ -1,0 +1,28 @@
+{
+  "host": "lightapi.net",
+  "service": "scanner",
+  "action": [
+    {
+      "name": "scanGitHubRepo",
+      "version": "0.1.0",
+      "handler": "GitHubRepoScanner",
+      "scope" : "github.scanner.r",
+      "schema": {
+        "title": "GitHub Repository Scanner",
+        "type": "object",
+        "properties": {
+          "repoUrl": {
+            "type": "string"
+          },
+          "oauth2Token": {
+            "type": "string"
+          },
+          "configUrl": {
+            "type": "string"
+          }
+        },
+        "required": ["repoUrl"]
+      }
+    }
+  ]
+}

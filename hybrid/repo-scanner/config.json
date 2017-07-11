@@ -1,0 +1,11 @@
+{
+  "rootPackage": "com.networknt.portal.scanner",
+  "handlerPackage":"com.networknt.portal.scanner.handler",
+  "modelPackage":"com.networknt.portal.scanner.model",
+  "artifactId": "scanner",
+  "groupId": "com.networknt.portal",
+  "name": "scanner",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true
+}
