@@ -1,0 +1,11 @@
+{
+  "rootPackage": "com.networknt.todolist.query",
+  "handlerPackage":"com.networknt.todolist.query.handler",
+  "modelPackage":"com.networknt.todolist.query.model",
+  "artifactId": "hybrid-query",
+  "groupId": "com.networknt",
+  "name": "hybrid-query",
+  "version": "0.1.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true
+}
