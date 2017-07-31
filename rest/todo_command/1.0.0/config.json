@@ -1,0 +1,22 @@
+{
+  "name": "rest-command",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "rest-command",
+  "rootPackage": "com.networknt.todolist.restcommand",
+  "handlerPackage":"com.networknt.todolist.restcommand.handler",
+  "modelPackage":"com.networknt.todolist.restcommand.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": false,
+  "httpPort": 8083,
+  "enableHttp": true,
+  "httpsPort": 8483,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": true,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}

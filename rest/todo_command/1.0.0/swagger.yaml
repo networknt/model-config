@@ -24,6 +24,12 @@ paths:
     post:
       description: Return a todo object with Id
       operationId: add
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: "#/definitions/Todo"
       responses:
         200:
           description: Successful response
@@ -35,6 +41,12 @@ paths:
     put:
       description: Return the updated todo object
       operationId: update
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: "#/definitions/Todo"
       responses:
         200:
           description: Successful response

@@ -1,0 +1,22 @@
+{
+  "name": "rest-query",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "rest-query",
+  "rootPackage": "com.networknt.todolist.restquery",
+  "handlerPackage":"com.networknt.todolist.restquery.handler",
+  "modelPackage":"com.networknt.todolist.restquery.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": false,
+  "httpPort": 8082,
+  "enableHttp": true,
+  "httpsPort": 8482,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": true,
+  "supportPostgresql": false,
+  "supportH2ForTest": true,
+  "supportClient": false
+}
