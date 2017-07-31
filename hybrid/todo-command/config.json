@@ -1,11 +1,11 @@
 {
-  "rootPackage": "com.networknt.command",
-  "handlerPackage":"com.networknt.command.handler",
-  "modelPackage":"com.networknt.command.model",
-  "artifactId": "eventuate-todo-command-hybrid",
+  "rootPackage": "com.networknt.todolist.command",
+  "handlerPackage":"com.networknt.todolist.command.handler",
+  "modelPackage":"com.networknt.todolist.command.model",
+  "artifactId": "hybrid-command",
   "groupId": "com.networknt",
-  "name": "command-hybridservice",
+  "name": "hybrid-command",
   "version": "0.1.0",
-  "overwriteHandler": false,
-  "overwriteHandlerTest": false
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true
 }
