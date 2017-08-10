@@ -5,5 +5,15 @@
   "artifactId": "merger",
   "groupId": "com.networknt",
   "name": "merger",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "httpPort": 8080,
+  "enableHttp": true,
+  "httpsPort": 8443,
+  "enableHttps": false,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
 }
