@@ -2,7 +2,7 @@
   "name": "user-management",
   "version": "0.1.0",
   "groupId": "com.networknt",
-  "artifactId": "0.1.0",
+  "artifactId": "user-management",
   "rootPackage": "com.networknt.portal.usermanagement",
   "handlerPackage":"com.networknt.portal.usermanagement.handler",
   "modelPackage":"com.networknt.portal.usermanagement.model",
