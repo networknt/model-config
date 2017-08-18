@@ -34,6 +34,12 @@
                         "description": "successful operation",
                         "schema": {
                             "$ref": "#/definitions/RandomNumber"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 123,
+                                "randomNumber": 456
+                            }
                         }
                     }
                 },
@@ -68,6 +74,18 @@
                             "items": {
                                 "$ref": "#/definitions/RandomNumber"
                             }
+                        },
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id": 123,
+                                    "randomNumber": 456
+                                },
+                                {
+                                    "id": 567,
+                                    "randomNumber": 789
+                                }
+                            ]
                         }
                     }
                 },
@@ -102,6 +120,18 @@
                             "items": {
                                 "$ref": "#/definitions/RandomNumber"
                             }
+                        },
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id": 123,
+                                    "randomNumber": 456
+                                },
+                                {
+                                    "id": 567,
+                                    "randomNumber": 789
+                                }
+                            ]
                         }
                     }
                 },
