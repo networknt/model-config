@@ -1,7 +1,22 @@
 {
-  "invokerPackage": "com.networknt.database",
-  "apiPackage":"com.networknt.database.handler",
-  "modelPackage":"com.networknt.database.model",
+  "name": "database",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
   "artifactId": "database",
-  "groupId": "com.networknt"
+  "rootPackage": "com.networknt.database",
+  "handlerPackage":"com.networknt.database.handler",
+  "modelPackage":"com.networknt.database.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 8080,
+  "enableHttp": true,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": true,
+  "supportMysql": true,
+  "supportPostgresql": true,
+  "supportH2ForTest": true,
+  "supportClient": false
 }
