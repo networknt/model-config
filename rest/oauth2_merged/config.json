@@ -1,0 +1,22 @@
+{
+  "name": "light-oauth2",
+  "groupId": "com.networknt",
+  "version": "1.0.0",
+  "artifactId": "light-oauth2",
+  "rootPackage": "com.networknt.oauth",
+  "handlerPackage":"com.networknt.oauth.handler",
+  "modelPackage":"com.networknt.oauth.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": false,
+  "httpPort": 6880,
+  "enableHttp": false,
+  "httpsPort": 6880,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": true,
+  "supportMysql": true,
+  "supportPostgresql": true,
+  "supportH2ForTest": true,
+  "supportClient": true
+}
