@@ -42,7 +42,7 @@
       },
      "post": {
         "description": "Return a user object with Id",
-        "operationId": "add",
+        "operationId": "addUser",
         "parameters": [
           {
             "in": "body",
@@ -74,15 +74,8 @@
       },
      "put" : {
           "description" : "Return the updated user object",
-          "operationId" : "update",
+          "operationId" : "updateUser",
           "parameters" : [
-            {
-              "name": "id",
-              "in": "body",
-              "description": "The user id for update",
-              "required": true,
-              "type": "long"
-            },
           {
             "in": "body",
             "name": "body",
@@ -111,13 +104,13 @@
     "/user/{id}" : {
       "get" : {
         "description" : "Return a user by Id",
-        "operationId" : "getById",
+        "operationId" : "getUserById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
           "description" : "ID of user",
           "required" : true,
-          "type" : "long"
+          "type" : "number"
         } ],
         "responses" : {
           "200" : {
@@ -135,13 +128,13 @@
       },
       "delete" : {
         "description" : "Delete a user by Id",
-        "operationId" : "deleteById",
+        "operationId" : "deleteUserById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
           "description" : "ID of user",
           "required" : true,
-          "type" : "long"
+          "type" : "number"
         } ],
         "responses" : {
           "400" : {
@@ -213,14 +206,14 @@
    "/userAction/{id}/{token}" : {
       "put" : {
         "description" : "Return the  user object",
-        "operationId" : "update",
+        "operationId" : "confirmUser",
         "parameters" : [
           {
             "name": "id",
             "in": "path",
             "description": "The user id for update",
             "required": true,
-            "type": "long"
+            "type": "number"
           },
           {
             "name": "token",
@@ -245,16 +238,16 @@
         "x-contentType" : "application/json"
       }
     },
-    "/session/{id}" : {
+    "/session/{sessionId}" : {
       "get" : {
         "description" : "Return a session by Id",
-        "operationId" : "getById",
+        "operationId" : "getBySessionId",
         "parameters" : [ {
-          "name" : "id",
+          "name" : "sessionId",
           "in" : "path",
           "description" : "ID of session",
           "required" : true,
-          "type" : "long"
+          "type" : "number"
         } ],
         "responses" : {
           "200" : {
@@ -272,13 +265,13 @@
       },
       "delete" : {
         "description" : "Remove a session by Id",
-        "operationId" : "deleteById",
+        "operationId" : "deleteSessionById",
         "parameters" : [ {
-          "name" : "id",
+          "name" : "sessionId",
           "in" : "path",
           "description" : "ID of session",
           "required" : true,
-          "type" : "long"
+          "type" : "number"
         } ],
         "responses" : {
           "400" : {
@@ -299,7 +292,7 @@
     "/session" : {
       "post": {
         "description": "Return a session object with Id",
-        "operationId": "add",
+        "operationId": "createSession",
         "parameters": [
           {
             "in": "body",
@@ -387,7 +380,7 @@
       "type" : "object",
       "properties" : {
         "id" : {
-          "type" : "long",
+          "type" : "number",
           "description" : "a UUID generated"
         },
         "screenName" : {
@@ -415,12 +408,12 @@
     "Session" : {
       "type" : "object",
       "properties" : {
-        "id" : {
-          "type" : "long",
+        "sessionId" : {
+          "type" : "number",
           "description" : "a UUID generated"
         },
         "userId" : {
-          "type" : "long",
+          "type" : "number",
           "description" : "userId with the session"
         },
         "token" : {
