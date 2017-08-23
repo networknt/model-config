@@ -18,7 +18,7 @@
   "consumes" : [ "application/json" ],
   "produces" : [ "application/json" ],
   "paths" : {
-    "/getUsers" : {
+    "/user" : {
       "get" : {
         "description" : "Return an array of user",
         "operationId" : "getAll",
@@ -39,62 +39,8 @@
         } ],
         "x-accepts" : "application/json",
         "x-contentType" : "application/json"
-      }
-    },
-    "/getUser/{id}" : {
-      "get" : {
-        "description" : "Return a user by Id",
-        "operationId" : "getById",
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "description" : "ID of user",
-          "required" : true,
-          "type" : "long"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Successful response",
-            "schema" : {
-              "$ref" : "#/definitions/User"
-            }
-          }
-        },
-        "security" : [ {
-          "user_auth" : [ "user.r" ]
-        } ],
-        "x-accepts" : "application/json",
-        "x-contentType" : "application/json"
-      }
-    },
-    "/session/{id}" : {
-      "get" : {
-        "description" : "Return a session by Id",
-        "operationId" : "getById",
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "description" : "ID of session",
-          "required" : true,
-          "type" : "long"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Successful response",
-            "schema" : {
-              "$ref" : "#/definitions/Session"
-            }
-          }
-        },
-        "security" : [ {
-          "session_auth" : [ "session.r" ]
-        } ],
-        "x-accepts" : "application/json",
-        "x-contentType" : "application/json"
-      }
-    },
-    "/addUser" : {
-      "post": {
+      },
+     "post": {
         "description": "Return a user object with Id",
         "operationId": "add",
         "parameters": [
@@ -125,44 +71,8 @@
         ],
         "x-accepts": "application/json",
         "x-contentType": "application/json"
-      }
-    },
-    "/session" : {
-      "post": {
-        "description": "Return a session object with Id",
-        "operationId": "add",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Created session object",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Session"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/Session"
-            }
-          }
-        },
-        "security": [
-          {
-            "session_auth": [
-              "session.r", "session.w"
-            ]
-          }
-        ],
-        "x-accepts": "application/json",
-        "x-contentType": "application/json"
-      }
-    },
-    "/changeUser" : {
-        "put" : {
+      },
+     "put" : {
           "description" : "Return the updated user object",
           "operationId" : "update",
           "parameters" : [
@@ -197,27 +107,18 @@
           "x-accepts" : "application/json",
           "x-contentType" : "application/json"
         }
-      },
-    "/userAction" : {
-      "put" : {
-        "description" : "Return the  user object",
-        "operationId" : "update",
-        "parameters" : [
-          {
-            "name": "id",
-            "in": "body",
-            "description": "The user id for update",
-            "required": true,
-            "type": "long"
-          },
-          {
-            "name": "token",
-            "in": "body",
-            "description": "The user token for update",
-            "required": true,
-            "type": "string"
-          }
-        ],
+    },
+    "/user/{id}" : {
+      "get" : {
+        "description" : "Return a user by Id",
+        "operationId" : "getById",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of user",
+          "required" : true,
+          "type" : "long"
+        } ],
         "responses" : {
           "200" : {
             "description" : "Successful response",
@@ -227,13 +128,11 @@
           }
         },
         "security" : [ {
-          "user_auth" : [ "user.r",  "user.w" ]
+          "user_auth" : [ "user.r" ]
         } ],
         "x-accepts" : "application/json",
         "x-contentType" : "application/json"
-      }
-    },
-    "/deleteUser/{id}" : {
+      },
       "delete" : {
         "description" : "Delete a user by Id",
         "operationId" : "deleteById",
@@ -257,9 +156,120 @@
         } ],
         "x-accepts" : "application/json",
         "x-contentType" : "application/json"
+      }      
+    },
+    "/user/findByEmail" : {
+      "get" : {
+        "description" : "Return a user by email",
+        "operationId" : "getByEmail",
+        "parameters" : [ {
+          "name" : "email",
+          "in" : "query",
+          "description" : "unqiue email of user",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "$ref" : "#/definitions/User"
+            }
+          }
+        },
+        "security" : [ {
+          "user_auth" : [ "user.r" ]
+        } ],
+        "x-accepts" : "application/json",
+        "x-contentType" : "application/json"
+      }
+    },   
+    "/user/findByName" : {
+      "get" : {
+        "description" : "Return a user by user name",
+        "operationId" : "getByName",
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "query",
+          "description" : "login name of user",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "$ref" : "#/definitions/User"
+            }
+          }
+        },
+        "security" : [ {
+          "user_auth" : [ "user.r" ]
+        } ],
+        "x-accepts" : "application/json",
+        "x-contentType" : "application/json"
+      }
+    },  
+   "/userAction/{id}/{token}" : {
+      "put" : {
+        "description" : "Return the  user object",
+        "operationId" : "update",
+        "parameters" : [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The user id for update",
+            "required": true,
+            "type": "long"
+          },
+          {
+            "name": "token",
+            "in": "path",
+            "description": "The user token for update",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "$ref" : "#/definitions/User"
+            }
+          }
+        },
+        "security" : [ {
+          "user_auth" : [ "user.r",  "user.w" ]
+        } ],
+        "x-accepts" : "application/json",
+        "x-contentType" : "application/json"
       }
     },
-    "/removeSession/{id}" : {
+    "/session/{id}" : {
+      "get" : {
+        "description" : "Return a session by Id",
+        "operationId" : "getById",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of session",
+          "required" : true,
+          "type" : "long"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "schema" : {
+              "$ref" : "#/definitions/Session"
+            }
+          }
+        },
+        "security" : [ {
+          "session_auth" : [ "session.r" ]
+        } ],
+        "x-accepts" : "application/json",
+        "x-contentType" : "application/json"
+      },
       "delete" : {
         "description" : "Remove a session by Id",
         "operationId" : "deleteById",
@@ -283,6 +293,41 @@
         } ],
         "x-accepts" : "application/json",
         "x-contentType" : "application/json"
+      }
+      
+    },
+    "/session" : {
+      "post": {
+        "description": "Return a session object with Id",
+        "operationId": "add",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created session object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Session"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Session"
+            }
+          }
+        },
+        "security": [
+          {
+            "session_auth": [
+              "session.r", "session.w"
+            ]
+          }
+        ],
+        "x-accepts": "application/json",
+        "x-contentType": "application/json"
       }
     }
   },
