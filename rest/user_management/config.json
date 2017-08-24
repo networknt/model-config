@@ -16,7 +16,7 @@
   "enableRegistry": false,
   "supportOracle": false,
   "supportMysql": false,
-  "supportPostgresql": false,
-  "supportH2ForTest": false,
+  "supportPostgresql": true,
+  "supportH2ForTest": true,
   "supportClient": false
 }

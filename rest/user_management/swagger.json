@@ -301,13 +301,13 @@
                 "x-contentType": "application/json"
             }
         },
-        "/session/{sessionId}": {
+        "/session/{id}": {
             "get": {
                 "description": "Return a session by Id",
                 "operationId": "getBySessionId",
                 "parameters": [
                     {
-                        "name": "sessionId",
+                        "name": "id",
                         "in": "path",
                         "description": "ID of session",
                         "required": true,
@@ -337,7 +337,7 @@
                 "operationId": "deleteById",
                 "parameters": [
                     {
-                        "name": "sessionId",
+                        "name": "id",
                         "in": "path",
                         "description": "ID of session",
                         "required": true,
@@ -460,6 +460,10 @@
                 "id": {
                     "type": "number",
                     "description": "a UUID generated"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "user host indicator the organization for user"
                 },
                 "screenName": {
                     "type": "string",
