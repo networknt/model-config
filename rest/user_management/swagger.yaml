@@ -33,7 +33,7 @@ paths:
               $ref: '#/definitions/User'
       security:
         - user_auth:
-            - user.r
+            - user.a
       x-accepts: application/json
       x-contentType: application/json
     post:
@@ -53,7 +53,6 @@ paths:
             $ref: '#/definitions/User'
       security:
         - user_auth:
-            - user.r
             - user.w
       x-accepts: application/json
       x-contentType: application/json
@@ -74,14 +73,13 @@ paths:
             $ref: '#/definitions/User'
       security:
         - user_auth:
-            - user.r
             - user.w
       x-accepts: application/json
       x-contentType: application/json
   '/user/{id}':
     get:
       tags:
-        - pet
+        - user
       summary: Find User by ID
       description: Returns a single User
       operationId: getUserById
@@ -132,7 +130,7 @@ paths:
         - user_auth:
             - user.r
             - user.w
-  /user/findByEmail:
+  /user/email:
     get:
       description: Return a user by email
       operationId: getByEmail
@@ -150,9 +148,7 @@ paths:
       security:
         - user_auth:
             - user.r
-      x-accepts: application/json
-      x-contentType: application/json
-  /user/findByName:
+  /user/name:
     get:
       description: Return a user by user name
       operationId: getByName
@@ -268,6 +264,7 @@ securityDefinitions:
     scopes:
       user.r: read user
       user.w: write user
+      user.a: admin user
   session_auth:
     type: oauth2
     authorizationUrl: 'http://localhost:8080/oauth2/code'
@@ -275,6 +272,7 @@ securityDefinitions:
     scopes:
       session.r: read session
       session.w: write session
+      session.a: admin session
 definitions:
   ContactData:
     type: object
