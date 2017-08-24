@@ -56,26 +56,6 @@ paths:
             - user.w
       x-accepts: application/json
       x-contentType: application/json
-    put:
-      description: Return the updated user object
-      operationId: updateUser
-      parameters:
-        - in: body
-          name: body
-          description: new user object for update
-          required: true
-          schema:
-            $ref: '#/definitions/User'
-      responses:
-        '200':
-          description: Successful response
-          schema:
-            $ref: '#/definitions/User'
-      security:
-        - user_auth:
-            - user.w
-      x-accepts: application/json
-      x-contentType: application/json
   '/user/{id}':
     get:
       tags:
@@ -105,6 +85,32 @@ paths:
       security:
         - user_auth:
             - user.r
+    put:
+      description: Return the updated user object
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          description: ID of User to return
+          required: true
+          type: number
+          format: int64
+        - name: body
+          in: body
+          description: new user object for update
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/User'
+      security:
+        - user_auth:
+            - user.w
+      x-accepts: application/json
+      x-contentType: application/json
     delete:
       tags:
         - user
@@ -168,17 +174,12 @@ paths:
             - user.r
       x-accepts: application/json
       x-contentType: application/json
-  '/userAction/{id}/{token}':
+  '/user/token/{id}':
     put:
       description: Return the  user object
       operationId: confirmUser
       parameters:
         - name: id
-          in: path
-          description: The user id for update
-          required: true
-          type: number
-        - name: token
           in: path
           description: The user token for update
           required: true
