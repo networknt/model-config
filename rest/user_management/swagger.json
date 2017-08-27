@@ -268,6 +268,40 @@
                 "x-contentType": "application/json"
             }
         },
+        "/user/login": {
+            "put": {
+                "description": "User login process",
+                "operationId": "loginUser",
+                "parameters": [
+                    {
+                       "in": "body",
+                        "name": "body",
+                        "description": "user login form object for login",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LoginForm"
+                        }
+                    }                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "user_auth": [
+                            "user.r", "user.w"
+                        ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            }
+        },
         "/user/token/{id}": {
             "put": {
                 "description": "Return the  user object",
@@ -276,9 +310,9 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "The user id for update",
+                        "description": "The token id for user active",
                         "required": true,
-                        "type": "number"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -486,6 +520,23 @@
                 }
             }
         },
+        "LoginForm": {
+            "type": "object",
+            "properties": {
+                "nameOrEmail": {
+                    "type": "string",
+                    "description": "user screenName or email for login"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "user password for user login"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "token with the user login"
+                }
+            }
+        },        
         "Session": {
             "type": "object",
             "properties": {

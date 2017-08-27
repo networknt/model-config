@@ -95,8 +95,8 @@ paths:
           required: true
           type: number
           format: int64
-        - name: body
-          in: body
+        - in: body
+          name: body
           description: new user object for update
           required: true
           schema:
@@ -174,6 +174,28 @@ paths:
             - user.r
       x-accepts: application/json
       x-contentType: application/json
+  /user/login:
+    put:
+      description: User login process
+      operationId: loginUser
+      parameters:
+        - in: body
+          name: body
+          description: user login form object for login
+          required: true
+          schema:
+            $ref: '#/definitions/LoginForm'
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/User'
+      security:
+        - user_auth:
+            - user.r
+            - user.w
+      x-accepts: application/json
+      x-contentType: application/json
   '/user/token/{id}':
     put:
       description: Return the  user object
@@ -181,7 +203,7 @@ paths:
       parameters:
         - name: id
           in: path
-          description: The user token for update
+          description: The token id for user active
           required: true
           type: string
       responses:
@@ -321,6 +343,18 @@ definitions:
         description: raw password of user
       contactData:
         $ref: '#/definitions/ContactData'
+  LoginForm:
+    type: object
+    properties:
+      nameOrEmail:
+        type: string
+        description: user screenName or email for login
+      password:
+        type: string
+        description: user password for user login
+      token:
+        type: string
+        description: token with the user login
   Session:
     type: object
     properties:
