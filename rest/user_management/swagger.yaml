@@ -56,26 +56,6 @@ paths:
             - user.w
       x-accepts: application/json
       x-contentType: application/json
-    put:
-      description: Return the updated user object
-      operationId: updateUser
-      parameters:
-        - in: body
-          name: body
-          description: new user object for update
-          required: true
-          schema:
-            $ref: '#/definitions/User'
-      responses:
-        '200':
-          description: Successful response
-          schema:
-            $ref: '#/definitions/User'
-      security:
-        - user_auth:
-            - user.w
-      x-accepts: application/json
-      x-contentType: application/json
   '/user/{id}':
     get:
       tags:
@@ -105,6 +85,32 @@ paths:
       security:
         - user_auth:
             - user.r
+    put:
+      description: Return the updated user object
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          description: ID of User to return
+          required: true
+          type: number
+          format: int64
+        - in: body
+          name: body
+          description: new user object for update
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/User'
+      security:
+        - user_auth:
+            - user.w
+      x-accepts: application/json
+      x-contentType: application/json
     delete:
       tags:
         - user
@@ -168,19 +174,36 @@ paths:
             - user.r
       x-accepts: application/json
       x-contentType: application/json
-  '/userAction/{id}/{token}':
+  /user/login:
+    put:
+      description: User login process
+      operationId: loginUser
+      parameters:
+        - in: body
+          name: body
+          description: user login form object for login
+          required: true
+          schema:
+            $ref: '#/definitions/LoginForm'
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/User'
+      security:
+        - user_auth:
+            - user.r
+            - user.w
+      x-accepts: application/json
+      x-contentType: application/json
+  '/user/token/{id}':
     put:
       description: Return the  user object
       operationId: confirmUser
       parameters:
         - name: id
           in: path
-          description: The user id for update
-          required: true
-          type: number
-        - name: token
-          in: path
-          description: The user token for update
+          description: The token id for user active
           required: true
           type: string
       responses:
@@ -194,12 +217,12 @@ paths:
             - user.w
       x-accepts: application/json
       x-contentType: application/json
-  '/session/{sessionId}':
+  '/session/{id}':
     get:
       description: Return a session by Id
       operationId: getBySessionId
       parameters:
-        - name: sessionId
+        - name: id
           in: path
           description: ID of session
           required: true
@@ -218,7 +241,7 @@ paths:
       description: Remove a session by Id
       operationId: deleteById
       parameters:
-        - name: sessionId
+        - name: id
           in: path
           description: ID of session
           required: true
@@ -303,6 +326,9 @@ definitions:
       id:
         type: number
         description: a UUID generated
+      host:
+        type: string
+        description: user host indicator the organization for user
       screenName:
         type: string
         description: screenName of user
@@ -317,6 +343,18 @@ definitions:
         description: raw password of user
       contactData:
         $ref: '#/definitions/ContactData'
+  LoginForm:
+    type: object
+    properties:
+      nameOrEmail:
+        type: string
+        description: user screenName or email for login
+      password:
+        type: string
+        description: user password for user login
+      token:
+        type: string
+        description: token with the user login
   Session:
     type: object
     properties:
