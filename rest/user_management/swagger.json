@@ -303,7 +303,7 @@
             }
         },
         "/user/token/{id}": {
-            "put": {
+            "get": {
                 "description": "Return the  user object",
                 "operationId": "confirmUser",
                 "parameters": [
