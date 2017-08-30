@@ -2,7 +2,7 @@
   "name": "rest-query",
   "version": "0.1.0",
   "groupId": "com.networknt",
-  "artifactId": "user-management",
+  "artifactId": "user-management-restquery",
   "rootPackage": "com.networknt.portal.usermanagement.restquery",
   "handlerPackage":"com.networknt.portal.usermanagement.restquery.handler",
   "modelPackage":"com.networknt.portal.usermanagement.restquery.model",

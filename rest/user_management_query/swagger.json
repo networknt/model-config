@@ -70,8 +70,7 @@
                         "in": "path",
                         "description": "ID of User to return",
                         "required": true,
-                        "type": "number",
-                        "format": "int64"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -243,7 +242,7 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "number",
+                    "type": "string",
                     "description": "a UUID generated"
                 },
                 "host": {

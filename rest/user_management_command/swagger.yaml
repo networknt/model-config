@@ -1,10 +1,10 @@
 swagger: '2.0'
 info:
   description: >-
-    User Management service API is a microserice that used for user management
-    on light-portal  built on top of light-4j framework.
+    User Management service command side API is a microserice that used for user
+    management on light-portal  built on top of light-4j framework.
   version: 1.0.0
-  title: User Management service API
+  title: User Management command service API
   contact:
     email: stevehu@gmail.com
   license:
@@ -20,22 +20,6 @@ produces:
   - application/json
 paths:
   /user:
-    get:
-      description: Return an array of user
-      operationId: getAll
-      parameters: []
-      responses:
-        '200':
-          description: Successful response
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/User'
-      security:
-        - user_auth:
-            - user.a
-      x-accepts: application/json
-      x-contentType: application/json
     post:
       description: Return a user object with Id
       operationId: addUser
@@ -57,34 +41,6 @@ paths:
       x-accepts: application/json
       x-contentType: application/json
   '/user/{id}':
-    get:
-      tags:
-        - user
-      summary: Find User by ID
-      description: Returns a single User
-      operationId: getUserById
-      produces:
-        - application/xml
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          description: ID of User to return
-          required: true
-          type: number
-          format: int64
-      responses:
-        '200':
-          description: Successful response
-          schema:
-            $ref: '#/definitions/User'
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: User not found
-      security:
-        - user_auth:
-            - user.r
     put:
       description: Return the updated user object
       operationId: updateUser
@@ -93,8 +49,7 @@ paths:
           in: path
           description: ID of User to return
           required: true
-          type: number
-          format: int64
+          type: string
         - in: body
           name: body
           description: new user object for update
@@ -125,8 +80,7 @@ paths:
           in: path
           description: ID of User to return
           required: true
-          type: number
-          format: int64
+          type: string
       responses:
         '400':
           description: Invalid ID supplied
@@ -136,66 +90,6 @@ paths:
         - user_auth:
             - user.r
             - user.w
-  /user/email:
-    get:
-      description: Return a user by email
-      operationId: getByEmail
-      parameters:
-        - name: email
-          in: query
-          description: unqiue email of user
-          required: true
-          type: string
-      responses:
-        '200':
-          description: Successful response
-          schema:
-            $ref: '#/definitions/User'
-      security:
-        - user_auth:
-            - user.r
-  /user/name:
-    get:
-      description: Return a user by user name
-      operationId: getByName
-      parameters:
-        - name: name
-          in: query
-          description: login name of user
-          required: true
-          type: string
-      responses:
-        '200':
-          description: Successful response
-          schema:
-            $ref: '#/definitions/User'
-      security:
-        - user_auth:
-            - user.r
-      x-accepts: application/json
-      x-contentType: application/json
-  /user/login:
-    put:
-      description: User login process
-      operationId: loginUser
-      parameters:
-        - in: body
-          name: body
-          description: user login form object for login
-          required: true
-          schema:
-            $ref: '#/definitions/LoginForm'
-      responses:
-        '200':
-          description: Successful response
-          schema:
-            $ref: '#/definitions/User'
-      security:
-        - user_auth:
-            - user.r
-            - user.w
-      x-accepts: application/json
-      x-contentType: application/json
   '/user/token/{id}':
     get:
       description: Return the  user object
@@ -217,68 +111,6 @@ paths:
             - user.w
       x-accepts: application/json
       x-contentType: application/json
-  '/session/{id}':
-    get:
-      description: Return a session by Id
-      operationId: getBySessionId
-      parameters:
-        - name: id
-          in: path
-          description: ID of session
-          required: true
-          type: number
-      responses:
-        '200':
-          description: Successful response
-          schema:
-            $ref: '#/definitions/Session'
-      security:
-        - session_auth:
-            - session.r
-      x-accepts: application/json
-      x-contentType: application/json
-    delete:
-      description: Remove a session by Id
-      operationId: deleteById
-      parameters:
-        - name: id
-          in: path
-          description: ID of session
-          required: true
-          type: number
-      responses:
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Session not found
-      security:
-        - session_auth:
-            - session.r
-            - session.w
-      x-accepts: application/json
-      x-contentType: application/json
-  /session:
-    post:
-      description: Return a session object with Id
-      operationId: createSession
-      parameters:
-        - in: body
-          name: body
-          description: Created session object
-          required: true
-          schema:
-            $ref: '#/definitions/Session'
-      responses:
-        '200':
-          description: Successful response
-          schema:
-            $ref: '#/definitions/Session'
-      security:
-        - session_auth:
-            - session.r
-            - session.w
-      x-accepts: application/json
-      x-contentType: application/json
 securityDefinitions:
   user_auth:
     type: oauth2
@@ -288,14 +120,6 @@ securityDefinitions:
       user.r: read user
       user.w: write user
       user.a: admin user
-  session_auth:
-    type: oauth2
-    authorizationUrl: 'http://localhost:8080/oauth2/code'
-    flow: implicit
-    scopes:
-      session.r: read session
-      session.w: write session
-      session.a: admin session
 definitions:
   ContactData:
     type: object
@@ -324,7 +148,7 @@ definitions:
     type: object
     properties:
       id:
-        type: number
+        type: string
         description: a UUID generated
       host:
         type: string
@@ -355,15 +179,3 @@ definitions:
       token:
         type: string
         description: token with the user login
-  Session:
-    type: object
-    properties:
-      sessionId:
-        type: number
-        description: a UUID generated
-      userId:
-        type: number
-        description: userId with the session
-      token:
-        type: string
-        description: token with the session
