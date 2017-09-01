@@ -147,7 +147,14 @@
                         "description": "The token id for user active",
                         "required": true,
                         "type": "string"
-                    }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "confirm token of user",
+                        "required": true,
+                        "type": "string"
+                    }                    
                 ],
                 "responses": {
                     "200": {
