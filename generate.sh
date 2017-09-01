@@ -26,7 +26,7 @@ function showHelp {
     echo "          [input-dir] is the directory path containing the schema/model file and config.json file"
     echo "          [output-dir] is the directory path where the output for the generated microservice will be located (required)"
     echo " "
-    echo "    example 1: ./generate.sh light-java-rest ~/networknt/model-config/rest/petstore /tmp/petstore"
+    echo "    example 1: ./generate.sh light-rest-4j ~/networknt/model-config/rest/petstore /tmp/petstore"
     echo " "
 }
 
@@ -54,7 +54,7 @@ echo "      - output-dir: $xOUTPUTDIR"
 # Using networknt capability
 echo "INFO: Running: networknt/light-codegen"
 
-if [ $1 = "light-java-rest" ]; then
+if [ $1 = "light-rest-4j" ]; then
 docker run -it \
     -v $xINPUTDIR:/light-api/input \
     -v $xOUTPUTDIR:/light-api/out \
@@ -65,32 +65,32 @@ docker run -it \
     -o /light-api/out/generated
 fi
 
-if [ $1 = "light-java-graphql" ]; then
+if [ $1 = "light-graphql-4j" ]; then
 docker run -it \
     -v $xINPUTDIR:/light-api/input \
     -v $xOUTPUTDIR:/light-api/out \
     networknt/light-codegen \
-    -f light-java-graphql \
+    -f light-graphql-4j \
     -c /light-api/input/config.json \
     -o /light-api/out/generated
 fi
 
-if [ $1 = "light-java-hybrid-server" ]; then
+if [ $1 = "light-hybrid-4j-server" ]; then
 docker run -it \
     -v $xINPUTDIR:/light-api/input \
     -v $xOUTPUTDIR:/light-api/out \
     networknt/light-codegen \
-    -f light-java-hybrid-server \
+    -f light-hybrid-4j-server \
     -c /light-api/input/config.json \
     -o /light-api/out/generated
 fi
 
-if [ $1 = "light-java-hybrid-service" ]; then
+if [ $1 = "light-hybrid-4j-service" ]; then
 docker run -it \
     -v $xINPUTDIR:/light-api/input \
     -v $xOUTPUTDIR:/light-api/out \
     networknt/light-codegen \
-    -f light-java-hybrid-service \
+    -f light-hybrid-4j-service \
     -c /light-api/input/config.json \
     -m /light-api/input/schema.json \
     -o /light-api/out/generated
