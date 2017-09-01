@@ -59,7 +59,7 @@ docker run -it \
     -v $xINPUTDIR:/light-api/input \
     -v $xOUTPUTDIR:/light-api/out \
     networknt/light-codegen \
-    -f light-java-rest \
+    -f light-rest-4j \
     -c /light-api/input/config.json \
     -m /light-api/input/swagger.json \
     -o /light-api/out/generated
