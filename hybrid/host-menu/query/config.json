@@ -1,0 +1,21 @@
+{
+  "rootPackage": "net.lightapi.menu.query",
+  "handlerPackage":"net.lightapi.menu.query.handler",
+  "modelPackage":"net.lightapi.menu.query.model",
+  "artifactId": "menu-query",
+  "groupId": "net.lightapi",
+  "name": "menu-query",
+  "version": "0.1.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8081,
+  "enableHttp": false,
+  "httpsPort": 8444,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}

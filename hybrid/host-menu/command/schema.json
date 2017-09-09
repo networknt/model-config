@@ -1,0 +1,69 @@
+{
+  "host": "lightapi.net",
+  "service": "menu",
+  "action": [
+    {
+      "name": "delete",
+      "version": "0.1.0",
+      "handler": "DeleteMenu",
+      "scope": "menu.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "create",
+      "version": "0.1.0",
+      "handler": "CreateMenu",
+      "scope": "menu.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "update",
+      "version": "0.1.0",
+      "handler": "UpdateMenu",
+      "scope": "menu.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    }
+  ]
+}
