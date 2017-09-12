@@ -1,0 +1,276 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "User Management service command side API is a microserice that used for user management on light-portal  built on top of light-4j framework.",
+        "version": "1.0.0",
+        "title": "User Management command service API",
+        "contact": {
+            "email": "stevehu@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "user.networknt.com",
+    "basePath": "/v1",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/user": {
+            "post": {
+                "description": "Return a user object with Id",
+                "operationId": "addUser",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Created user object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "user_auth": [
+                            "user.w"
+                        ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            }
+        },
+        "/user/{id}": {
+            "put": {
+                "description": "Return the updated user object",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of User to return",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "new user object for update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "user_auth": [
+                            "user.w"
+                        ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            },
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "delete user by ID",
+                "description": "delete a single User",
+                "operationId": "deleteUserById",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of User to return",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                },
+                "security": [
+                    {
+                        "user_auth": [
+                            "user.r",
+                            "user.w"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/user/token/{id}": {
+            "get": {
+                "description": "Return the  user object",
+                "operationId": "confirmUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The token id for user active",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "confirm token of user",
+                        "required": true,
+                        "type": "string"
+                    }                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "user_auth": [
+                            "user.r",
+                            "user.w"
+                        ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            }
+        }
+ 
+    },
+    "securityDefinitions": {
+        "user_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://localhost:8080/oauth2/code",
+            "flow": "implicit",
+            "scopes": {
+                "user.r": "read user",
+                "user.w": "write user",
+                "user.a": "admin user"
+            }
+        }
+
+    },
+    "definitions": {
+        "ContactData": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "email address of the user"
+                },
+                "firstName": {
+                    "type": "string",
+                    "description": "firstName of the user"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "firstName of the user"
+                },
+                "gender": {
+                    "type": "string",
+                    "description": "user gender type",
+                    "enum": [
+                        "FEMALE",
+                        "MALE",
+                        "UNKNOWN"
+                    ]
+                },
+                "birthday": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "birthday of the user"
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "a UUID generated"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "user host indicator the organization for user"
+                },
+                "screenName": {
+                    "type": "string",
+                    "description": "screenName of user"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "timezone name of user"
+                },
+                "locale": {
+                    "type": "string",
+                    "description": "locale display name of user"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "raw password of user"
+                },
+                "contactData": {
+                    "$ref": "#/definitions/ContactData"
+                }
+            }
+        },
+        "LoginForm": {
+            "type": "object",
+            "properties": {
+                "nameOrEmail": {
+                    "type": "string",
+                    "description": "user screenName or email for login"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "user password for user login"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "token with the user login"
+                }
+            }
+        }        
+     }
+}

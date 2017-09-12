@@ -1,0 +1,22 @@
+{
+  "name": "rest-command",
+  "version": "0.1.0",
+  "groupId": "com.networknt",
+  "artifactId": "user-management-restcommand",
+  "rootPackage": "com.networknt.portal.usermanagement.restcommand",
+  "handlerPackage":"com.networknt.portal.usermanagement.restcommand.handler",
+  "modelPackage":"com.networknt.portal.usermanagement.restcommand.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 8081,
+  "enableHttp": true,
+  "httpsPort": 8443,
+  "enableHttps": false,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": true,
+  "supportH2ForTest": true,
+  "supportClient": false
+}
