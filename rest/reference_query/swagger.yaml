@@ -1,0 +1,239 @@
+swagger: '2.0'
+info:
+  description: >-
+    Rerference Data service query side API is a microserice that used for
+    reference data project  built on top of light-4j framework.
+  version: 1.0.0
+  title: Reference query service API
+  contact:
+    email: stevehu@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: reference.networknt.com
+basePath: /v1
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  '/refTables/{host}':
+    get:
+      description: Return the reference data list for the host
+      operationId: getRefTables
+      parameters:
+        - name: host
+          in: path
+          description: The host which use the reference
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReferenceTable'
+      security:
+        - ref_auth:
+            - ref.r
+            - ref.w
+      x-accepts: application/json
+      x-contentType: application/json
+  '/refTable/{host}':
+    get:
+      description: Return the reference data for the host
+      operationId: getRefTableByNameOrId
+      parameters:
+        - name: host
+          in: path
+          description: The host which use the reference
+          required: true
+          type: string
+        - name: name
+          in: query
+          description: refernece table name
+          required: false
+          type: string
+        - name: id
+          in: query
+          description: confirm refernece table id
+          required: false
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ReferenceTable'
+      security:
+        - ref_auth:
+            - ref.r
+            - ref.w
+      x-accepts: application/json
+      x-contentType: application/json
+  '/refTable/name/{host}':
+    get:
+      description: Return the list of reference table name for the host
+      operationId: getRefTableNames
+      parameters:
+        - name: host
+          in: path
+          description: The host which use the reference
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            type: array
+            items:
+              type: string
+      security:
+        - ref_auth:
+            - ref.r
+            - ref.w
+      x-accepts: application/json
+      x-contentType: application/json
+  /refTable/host:
+    get:
+      description: Return the ALL registed host
+      operationId: getHosts
+      parameters: []
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            type: array
+            items:
+              type: string
+      security:
+        - ref_auth:
+            - ref.r
+            - ref.w
+      x-accepts: application/json
+      x-contentType: application/json
+  '/refValue/{id}':
+    get:
+      description: get reference value
+      operationId: getRefValue
+      parameters:
+        - name: id
+          in: path
+          description: The reference value Id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/ReferenceValue'
+      security:
+        - ref_auth:
+            - ref.r
+      x-accepts: application/json
+      x-contentType: application/json
+securityDefinitions:
+  ref_auth:
+    type: oauth2
+    authorizationUrl: 'http://localhost:8080/oauth2/code'
+    flow: implicit
+    scopes:
+      ref.r: read reference
+      ref.w: write reference
+definitions:
+  ValueLocale:
+    type: object
+    properties:
+      valueId:
+        type: string
+        description: reference value unique id
+      valueDesc:
+        type: string
+        description: reference value
+      language:
+        type: string
+        description: language for the value entry
+        enum:
+          - En
+          - Fr
+          - Cn
+          - Sp
+  Relation:
+    type: object
+    properties:
+      toValueId:
+        type: string
+        description: to reference value Id
+      type:
+        type: string
+        description: reference value relation type
+      relations:
+        $ref: '#/definitions/Relation'
+  ReferenceValue:
+    type: object
+    properties:
+      tableId:
+        type: string
+        description: reference table Id
+      valueId:
+        type: string
+        description: reference value Id
+      valueCode:
+        type: string
+        description: reference value code
+      displayOrder:
+        type: number
+        format: integer
+        description: reference value display order
+      startTime:
+        type: string
+        format: date-time
+        description: effective start Time
+      endTime:
+        type: string
+        format: date-time
+        description: effective end Time
+      relations:
+        $ref: '#/definitions/Relation'
+      locales:
+        $ref: '#/definitions/ValueLocale'
+  ReferenceTable:
+    type: object
+    properties:
+      tableId:
+        type: string
+        description: a UUID generated
+      host:
+        type: string
+        description: host indicator the organization for the reference
+      tableName:
+        type: string
+        description: reference table name
+      tableDesc:
+        type: string
+        description: reference table description
+      active:
+        type: boolean
+        description: reference active indicator
+      editable:
+        type: boolean
+        description: editable indicator
+      common:
+        type: boolean
+        description: commmon indicator
+      values:
+        $ref: '#/definitions/ReferenceValue'
+  RelationForm:
+    type: object
+    properties:
+      fromValueId:
+        type: string
+        description: relation from ref value Id
+      toValueId:
+        type: string
+        description: relation to ref value Id
+      type:
+        type: string
+        description: relation type

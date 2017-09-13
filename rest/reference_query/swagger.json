@@ -1,9 +1,9 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Rerference Data service command side API is a microserice that used for reference data project  built on top of light-4j framework.",
+        "description": "Rerference Data service query side API is a microserice that used for reference data project  built on top of light-4j framework.",
         "version": "1.0.0",
-        "title": "Reference command service API",
+        "title": "Reference query service API",
         "contact": {
             "email": "stevehu@gmail.com"
         },
@@ -24,106 +24,28 @@
         "application/json"
     ],
     "paths": {
-        "/refTable": {
-            "post": {
-                "description": "Add new reference Table",
-                "operationId": "addRefTable",
+        "/refTables/{host}": {
+            "get": {
+                "description": "Return the reference data list for the host",
+                "operationId": "getRefTables",
                 "parameters": [
                     {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Created new reference Table",
+                        "name": "host",
+                        "in": "path",
+                        "description": "The host which use the reference",
                         "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ReferenceTable"
-                        }
-                    }
-                ],
+                        "type": "string"
+                    }           
+               ],
                 "responses": {
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "$ref": "#/definitions/ReferenceTable"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ReferenceTable"
+                            }
                         }
-                    }
-                },
-                "security": [
-                    {
-                        "ref_auth": [
-                            "ref.w"
-                        ]
-                    }
-                ],
-                "x-accepts": "application/json",
-                "x-contentType": "application/json"
-            }
-        },
-        "/refTable/{id}": {
-            "put": {
-                "description": "Return the updated ref table object",
-                "operationId": "updateRefTable",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of reference table to return",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "new ref table object for update",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ReferenceTable"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/ReferenceTable"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "ref_auth": [
-                            "ref.w"
-                        ]
-                    }
-                ],
-                "x-accepts": "application/json",
-                "x-contentType": "application/json"
-            },
-            "delete": {
-                "tags": [
-                    "refTable"
-                ],
-                "summary": "delete reference table by ID",
-                "description": "delete a single reference table",
-                "operationId": "deleteRefTable",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of reference table",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "400": {
-                        "description": "Invalid ID supplied"
-                    },
-                    "404": {
-                        "description": "ref table not found"
                     }
                 },
                 "security": [
@@ -133,109 +55,44 @@
                             "ref.w"
                         ]
                     }
-                ]
-            }
-        },
-        "/refValue": {
-            "post": {
-                "description": "Add new reference value",
-                "operationId": "addRefValue",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "Created new reference va;lue",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ReferenceValue"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/ReferenceValue"
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "ref_auth": [
-                            "ref.w"
-                        ]
-                    }
                 ],
                 "x-accepts": "application/json",
                 "x-contentType": "application/json"
             }
         },
-        "/refValue/{id}": {
-            "put": {
-                "description": "Return the updated ref value object",
-                "operationId": "updateRefValue",
+        "/refTable/{host}": {
+            "get": {
+                "description": "Return the reference data for the host",
+                "operationId": "getRefTableByNameOrId",
                 "parameters": [
-                    {
-                        "name": "id",
+                   {
+                        "name": "host",
                         "in": "path",
-                        "description": "ID of reference value to return",
+                        "description": "The host which use the reference",
                         "required": true,
                         "type": "string"
-                    },
+                    } ,
                     {
-                        "in": "body",
-                        "name": "body",
-                        "description": "new ref value object for update",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ReferenceValue"
-                        }
-                    }
+                        "name": "name",
+                        "in": "query",
+                        "description": "refernece table name",
+                        "required": false,
+                        "type": "string"
+                    },       
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "confirm refernece table id",
+                        "required": false,
+                        "type": "string"
+                    }              
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "$ref": "#/definitions/ReferenceValue"
+                            "$ref": "#/definitions/ReferenceTable"
                         }
-                    }
-                },
-                "security": [
-                    {
-                        "ref_auth": [
-                            "ref.w"
-                        ]
-                    }
-                ],
-                "x-accepts": "application/json",
-                "x-contentType": "application/json"
-            },
-            "delete": {
-                "tags": [
-                    "refValue"
-                ],
-                "summary": "delete reference table by ID",
-                "description": "delete a single reference table",
-                "operationId": "deleteRefValue",
-                "produces": [
-                    "application/xml",
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of reference value",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "400": {
-                        "description": "Invalid ID supplied"
-                    },
-                    "404": {
-                        "description": "ref value not found"
                     }
                 },
                 "security": [
@@ -245,29 +102,32 @@
                             "ref.w"
                         ]
                     }
-                ]
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
             }
-        },
-        "/refValue/relation": {
-            "post": {
-                "description": "Return the  user object",
-                "operationId": "build new relationship",
+        },        
+            "/refTable/name/{host}": {
+            "get": {
+                "description": "Return the list of reference table name for the host",
+                "operationId": "getRefTableNames",
                 "parameters": [
                     {
-                        "in": "body",
-                        "name": "body",
-                        "description": "create relation form object for building relationship",
+                        "name": "host",
+                        "in": "path",
+                        "description": "The host which use the reference",
                         "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/RelationForm"
-                        }
-                    }
-                ],
+                        "type": "string"
+                    }           
+               ],
                 "responses": {
                     "200": {
                         "description": "Successful response",
                         "schema": {
-                            "$ref": "#/definitions/RelationForm"
+                            "type": "array",
+                            "items": {
+                               "type": "string"
+                            }
                         }
                     }
                 },
@@ -277,14 +137,74 @@
                             "ref.r",
                             "ref.w"
                         ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            }
+        },        
+        "/refTable/host": {
+            "get": {
+                "description": "Return the ALL registed host",
+                "operationId": "getHosts",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                             "type": "string"
+                        }
+                       }
+                    }
+                },
+                "security": [
+                    {
+                        "ref_auth": [
+                            "ref.r",
+                            "ref.w"
+                        ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            }
+        },
+         "/refValue/{id}": {
+            "get": {
+                "description": "get reference value",
+                "operationId": "getRefValue",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The reference value Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/ReferenceValue"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ref_auth": [
+                            "ref.r"
+                       ]
                     }
                 ],
                 "x-accepts": "application/json",
                 "x-contentType": "application/json"
             }
         }
- 
-    },
+
+   },
     "securityDefinitions": {
         "ref_auth": {
             "type": "oauth2",
