@@ -49,7 +49,7 @@
                 },
                 "security": [
                     {
-                        "user_auth": [
+                        "ref_auth": [
                             "ref.w"
                         ]
                     }
@@ -90,7 +90,7 @@
                 },
                 "security": [
                     {
-                        "user_auth": [
+                        "ref_auth": [
                             "ref.w"
                         ]
                     }
@@ -128,7 +128,7 @@
                 },
                 "security": [
                     {
-                        "user_auth": [
+                        "ref_auth": [
                             "ref.r",
                             "ref.w"
                         ]
@@ -161,7 +161,7 @@
                 },
                 "security": [
                     {
-                        "user_auth": [
+                        "ref_auth": [
                             "ref.w"
                         ]
                     }
@@ -202,7 +202,7 @@
                 },
                 "security": [
                     {
-                        "user_auth": [
+                        "ref_auth": [
                             "ref.w"
                         ]
                     }
@@ -216,7 +216,7 @@
                 ],
                 "summary": "delete reference table by ID",
                 "description": "delete a single reference table",
-                "operationId": "deleteRefTable",
+                "operationId": "deleteRefValue",
                 "produces": [
                     "application/xml",
                     "application/json"
@@ -240,7 +240,7 @@
                 },
                 "security": [
                     {
-                        "user_auth": [
+                        "ref_auth": [
                             "ref.r",
                             "ref.w"
                         ]
@@ -273,9 +273,9 @@
                 },
                 "security": [
                     {
-                        "user_auth": [
-                            "user.r",
-                            "user.w"
+                        "ref_auth": [
+                            "ref.r",
+                            "ref.w"
                         ]
                     }
                 ],
@@ -286,7 +286,7 @@
  
     },
     "securityDefinitions": {
-        "user_auth": {
+        "ref_auth": {
             "type": "oauth2",
             "authorizationUrl": "http://localhost:8080/oauth2/code",
             "flow": "implicit",
