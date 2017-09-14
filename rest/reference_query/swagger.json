@@ -253,7 +253,10 @@
                     "description": "reference value relation type"
                 },
                 "relations": {
-                    "$ref": "#/definitions/Relation"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Relation"
+                    }
                 }
             }
         },
@@ -288,10 +291,16 @@
                     "description": "effective end Time"
                 },
                 "relations": {
-                    "$ref": "#/definitions/Relation"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Relation"
+                    }
                 },
                 "locales": {
-                    "$ref": "#/definitions/ValueLocale"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ValueLocale"
+                    }
                 }
             }
         },
@@ -327,7 +336,10 @@
                     "description": "commmon indicator"
                 },
                 "values": {
-                    "$ref": "#/definitions/ReferenceValue"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ReferenceTable"
+                    }
                 }
             }
         },
