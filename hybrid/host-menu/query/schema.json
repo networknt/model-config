@@ -1,0 +1,33 @@
+{
+  "host": "lightapi.net",
+  "service": "menu",
+  "action": [
+    {
+      "name": "getMenu",
+      "version": "0.1.0",
+      "handler": "GetMenuById",
+      "scope": "menu.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getMenus",
+      "version": "0.1.0",
+      "handler": "GetAllMenus",
+      "scope": "menu.all.r",
+      "schema": {
+        "title": "Service"
+      }
+    }
+  ]
+}

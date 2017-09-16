@@ -1,0 +1,22 @@
+{
+  "name": "rest-command",
+  "version": "0.1.0",
+  "groupId": "com.networknt",
+  "artifactId": "reference-restcommand",
+  "rootPackage": "com.networknt.eventuate.reference.restcommand",
+  "handlerPackage":"com.networknt.eventuate.reference.restcommand.handler",
+  "modelPackage":"com.networknt.eventuate.reference.restcommand.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 8081,
+  "enableHttp": true,
+  "httpsPort": 8443,
+  "enableHttps": false,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": true,
+  "supportH2ForTest": true,
+  "supportClient": false
+}

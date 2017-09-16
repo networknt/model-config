@@ -1,0 +1,21 @@
+{
+  "rootPackage": "net.lightapi.menu.command",
+  "handlerPackage":"net.lightapi.menu.command.handler",
+  "modelPackage":"net.lightapi.menu.command.model",
+  "artifactId": "menu-command",
+  "groupId": "net.lightapi",
+  "name": "menu-command",
+  "version": "0.1.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}

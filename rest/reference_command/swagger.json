@@ -1,0 +1,445 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Rerference Data service command side API is a microserice that used for reference data project  built on top of light-4j framework.",
+        "version": "1.0.0",
+        "title": "Reference command service API",
+        "contact": {
+            "email": "stevehu@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "reference.networknt.com",
+    "basePath": "/v1",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/refTable": {
+            "post": {
+                "description": "Add new reference Table",
+                "operationId": "addRefTable",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Created new reference Table",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReferenceTable"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/ReferenceTable"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ref_auth": [
+                            "ref.w"
+                        ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            }
+        },
+        "/refTable/{id}": {
+            "put": {
+                "description": "Return the updated ref table object",
+                "operationId": "updateRefTable",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of reference table to return",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "new ref table object for update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReferenceTable"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/ReferenceTable"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ref_auth": [
+                            "ref.w"
+                        ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            },
+            "delete": {
+                "tags": [
+                    "refTable"
+                ],
+                "summary": "delete reference table by ID",
+                "description": "delete a single reference table",
+                "operationId": "deleteRefTable",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of reference table",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "ref table not found"
+                    }
+                },
+                "security": [
+                    {
+                        "ref_auth": [
+                            "ref.r",
+                            "ref.w"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/refValue": {
+            "post": {
+                "description": "Add new reference value",
+                "operationId": "addRefValue",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Created new reference va;lue",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReferenceValue"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/ReferenceValue"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ref_auth": [
+                            "ref.w"
+                        ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            }
+        },
+        "/refValue/{id}": {
+            "put": {
+                "description": "Return the updated ref value object",
+                "operationId": "updateRefValue",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of reference value to return",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "new ref value object for update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReferenceValue"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/ReferenceValue"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ref_auth": [
+                            "ref.w"
+                        ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            },
+            "delete": {
+                "tags": [
+                    "refValue"
+                ],
+                "summary": "delete reference table by ID",
+                "description": "delete a single reference table",
+                "operationId": "deleteRefValue",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of reference value",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "ref value not found"
+                    }
+                },
+                "security": [
+                    {
+                        "ref_auth": [
+                            "ref.r",
+                            "ref.w"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/refValue/relation": {
+            "post": {
+                "description": "Return the  user object",
+                "operationId": "build new relationship",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "create relation form object for building relationship",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RelationForm"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/RelationForm"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ref_auth": [
+                            "ref.r",
+                            "ref.w"
+                        ]
+                    }
+                ],
+                "x-accepts": "application/json",
+                "x-contentType": "application/json"
+            }
+        }
+ 
+    },
+    "securityDefinitions": {
+        "ref_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://localhost:8080/oauth2/code",
+            "flow": "implicit",
+            "scopes": {
+                "ref.r": "read reference",
+                "ref.w": "write reference"
+            }
+        }
+
+    },
+    "definitions": {
+        "ValueLocale": {
+            "type": "object",
+            "properties": {
+                "valueId": {
+                    "type": "string",
+                    "description": "reference value unique id"
+                },
+                "valueDesc": {
+                    "type": "string",
+                    "description": "reference value"
+                },
+                "language": {
+                    "type": "string",
+                    "description": "language for the value entry",
+                    "enum": [
+                        "En",
+                        "Fr",
+                        "Cn",
+                        "Sp"
+                    ]
+                }
+            }
+        },
+        "Relation": {
+            "type": "object",
+            "properties": {
+                "toValueId": {
+                    "type": "string",
+                    "description": "to reference value Id"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "reference value relation type"
+                },
+                "relations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Relation"
+                    }
+                }
+            }
+        },
+        "ReferenceValue": {
+            "type": "object",
+            "properties": {
+                "tableId": {
+                    "type": "string",
+                    "description": "reference table Id"
+                },
+                "valueId": {
+                    "type": "string",
+                    "description": "reference value Id"
+                },
+                "valueCode": {
+                    "type": "string",
+                    "description": "reference value code"
+                },
+                "displayOrder": {
+                    "type": "number",
+                    "format": "integer",
+                    "description": "reference value display order"
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "effective start Time"
+                },
+                "endTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "effective end Time"
+                },
+                "relations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Relation"
+                    }
+                },
+                "locales": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ValueLocale"
+                    }
+                }
+            }
+        },
+        "ReferenceTable": {
+            "type": "object",
+            "properties": {
+                "tableId": {
+                    "type": "string",
+                    "description": "a UUID generated"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "host indicator the organization for the reference"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "reference table name"
+                },
+                "tableDesc": {
+                    "type": "string",
+                    "description": "reference table description"
+                },
+                "active": {
+                    "type": "boolean",
+                    "description": "reference active indicator"
+                },
+                "editable": {
+                    "type": "boolean",
+                    "description": "editable indicator"
+                },
+                "common": {
+                    "type": "boolean",
+                    "description": "commmon indicator"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ReferenceTable"
+                    }
+                }
+            }
+        },
+        "RelationForm": {
+            "type": "object",
+            "properties": {
+                "fromValueId": {
+                    "type": "string",
+                    "description": "relation from ref value Id"
+                },
+                "toValueId": {
+                    "type": "string",
+                    "description": "relation to ref value Id"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "relation type"
+                }
+            }
+        }
+
+    }
+}
