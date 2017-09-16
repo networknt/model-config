@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
   description: >-
-    Rerference Data service command side API is a microserice that used for user
-    management on light-portal  built on top of light-4j framework.
+    Rerference Data service command side API is a microserice that used for
+    reference data project  built on top of light-4j framework.
   version: 1.0.0
   title: Reference command service API
   contact:
@@ -219,7 +219,9 @@ definitions:
         type: string
         description: reference value relation type
       relations:
-        $ref: '#/definitions/Relation'
+        type: array
+        items:
+          $ref: '#/definitions/Relation'
   ReferenceValue:
     type: object
     properties:
@@ -238,16 +240,18 @@ definitions:
         description: reference value display order
       startTime:
         type: string
-        format: date-time
         description: effective start Time
       endTime:
         type: string
-        format: date-time
         description: effective end Time
       relations:
-        $ref: '#/definitions/Relation'
+        type: array
+        items:
+          $ref: '#/definitions/Relation'
       locales:
-        $ref: '#/definitions/ValueLocale'
+        type: array
+        items:
+          $ref: '#/definitions/ValueLocale'
   ReferenceTable:
     type: object
     properties:
@@ -273,7 +277,9 @@ definitions:
         type: boolean
         description: commmon indicator
       values:
-        $ref: '#/definitions/ReferenceValue'
+        type: array
+        items:
+          $ref: '#/definitions/ReferenceTable'
   RelationForm:
     type: object
     properties:

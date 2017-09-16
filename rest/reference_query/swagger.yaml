@@ -96,7 +96,7 @@ paths:
             - ref.w
       x-accepts: application/json
       x-contentType: application/json
-  /refTable/host:
+  /refTable/hosts:
     get:
       description: Return the ALL registed host
       operationId: getHosts
@@ -170,7 +170,9 @@ definitions:
         type: string
         description: reference value relation type
       relations:
-        $ref: '#/definitions/Relation'
+        type: array
+        items:
+          $ref: '#/definitions/Relation'
   ReferenceValue:
     type: object
     properties:
@@ -189,16 +191,18 @@ definitions:
         description: reference value display order
       startTime:
         type: string
-        format: date-time
         description: effective start Time
       endTime:
         type: string
-        format: date-time
         description: effective end Time
       relations:
-        $ref: '#/definitions/Relation'
+        type: array
+        items:
+          $ref: '#/definitions/Relation'
       locales:
-        $ref: '#/definitions/ValueLocale'
+        type: array
+        items:
+          $ref: '#/definitions/ValueLocale'
   ReferenceTable:
     type: object
     properties:
@@ -224,7 +228,9 @@ definitions:
         type: boolean
         description: commmon indicator
       values:
-        $ref: '#/definitions/ReferenceValue'
+        type: array
+        items:
+          $ref: '#/definitions/ReferenceTable'
   RelationForm:
     type: object
     properties:
