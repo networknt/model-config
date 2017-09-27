@@ -5,28 +5,43 @@
     {
       "name": "getMenu",
       "version": "0.1.0",
-      "handler": "GetMenuById",
+      "handler": "GetMenuByHost",
       "scope": "menu.r",
       "schema": {
         "title": "Service",
         "type": "object",
         "properties": {
-          "id": {
+          "host": {
             "type": "string"
           }
         },
         "required": [
-          "id"
+          "host"
         ]
       }
     },
     {
-      "name": "getMenus",
+      "name": "getMenu",
       "version": "0.1.0",
-      "handler": "GetAllMenus",
+      "handler": "GetMenu",
       "scope": "menu.all.r",
       "schema": {
         "title": "Service"
+      }
+    },
+    {
+      "name": "getMenuItem",
+      "version": "0.1.0",
+      "handler": "GetMenuItem",
+      "scope": "menuItem.all.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string"
+          }
+        }
       }
     }
   ]

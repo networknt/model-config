@@ -1,7 +1,7 @@
 {
-  "rootPackage": "net.lightapi.menu.command",
-  "handlerPackage":"net.lightapi.menu.command.handler",
-  "modelPackage":"net.lightapi.menu.command.model",
+  "rootPackage": "net.lightapi.portal.menu.command",
+  "handlerPackage":"net.lightapi.portal.menu.command.handler",
+  "modelPackage":"net.lightapi.portal.menu.command.model",
   "artifactId": "menu-command",
   "groupId": "net.lightapi",
   "name": "menu-command",

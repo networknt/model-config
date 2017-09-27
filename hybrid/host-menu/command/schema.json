@@ -3,7 +3,7 @@
   "service": "menu",
   "action": [
     {
-      "name": "delete",
+      "name": "deleteMenu",
       "version": "0.1.0",
       "handler": "DeleteMenu",
       "scope": "menu.w",
@@ -11,17 +11,17 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "id": {
+          "host": {
             "type": "string"
           }
         },
         "required": [
-          "id"
+          "host"
         ]
       }
     },
     {
-      "name": "create",
+      "name": "createMenu",
       "version": "0.1.0",
       "handler": "CreateMenu",
       "scope": "menu.w",
@@ -34,6 +34,12 @@
           },
           "description": {
             "type": "string"
+          },
+          "contains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "required": [
@@ -42,7 +48,7 @@
       }
     },
     {
-      "name": "update",
+      "name": "updateMenu",
       "version": "0.1.0",
       "handler": "UpdateMenu",
       "scope": "menu.w",
@@ -50,18 +56,117 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string"
-          },
           "host": {
             "type": "string"
           },
           "description": {
             "type": "string"
+          },
+          "contains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "required": [
-          "id"
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "deleteMenuItem",
+      "version": "0.1.0",
+      "handler": "DeleteMenuItem",
+      "scope": "menuItem.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "menuItemId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "menuItemId"
+        ]
+      }
+    },
+    {
+      "name": "createMenuItem",
+      "version": "0.1.0",
+      "handler": "CreateMenuItem",
+      "scope": "menuItem.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "menuItemId": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "route": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "contains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "menuItemId", "label"
+        ]
+      }
+    },
+    {
+      "name": "updateMenuItem",
+      "version": "0.1.0",
+      "handler": "UpdateMenuItem",
+      "scope": "menuItem.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "menuItemId": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "route": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "contains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "menuItemId", "label"
         ]
       }
     }
