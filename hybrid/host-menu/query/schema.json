@@ -3,7 +3,7 @@
   "service": "menu",
   "action": [
     {
-      "name": "getMenu",
+      "name": "getMenuByHost",
       "version": "0.1.0",
       "handler": "GetMenuByHost",
       "scope": "menu.r",
