@@ -143,7 +143,7 @@
                 "x-contentType": "application/json"
             }
         },        
-        "/refTable/host": {
+        "/refTable/hosts": {
             "get": {
                 "description": "Return the ALL registed host",
                 "operationId": "getHosts",
@@ -282,12 +282,10 @@
                 },
                 "startTime": {
                     "type": "string",
-                    "format": "date-time",
                     "description": "effective start Time"
                 },
                 "endTime": {
                     "type": "string",
-                    "format": "date-time",
                     "description": "effective end Time"
                 },
                 "relations": {
