@@ -101,33 +101,42 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "menuItemId": {
-            "type": "string"
-          },
-          "host": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "route": {
-            "type": "string"
-          },
-          "roles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "contains": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "data": {
+            "type": "object",
+            "properties": {
+              "menuItemId": {
+                "type": "string"
+              },
+              "host": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "route": {
+                "type": "string"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "contains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "menuItemId",
+              "label"
+            ]
           }
         },
         "required": [
-          "menuItemId", "label"
+          "data"
         ]
       }
     },
