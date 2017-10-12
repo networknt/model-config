@@ -35,13 +35,7 @@
       "handler": "GetMenuItem",
       "scope": "menuItem.all.r",
       "schema": {
-        "title": "Service",
-        "type": "object",
-        "properties": {
-          "host": {
-            "type": "string"
-          }
-        }
+        "title": "Service"
       }
     }
   ]
