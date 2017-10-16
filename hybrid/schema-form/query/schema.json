@@ -1,0 +1,51 @@
+{
+  "host": "lightapi.net",
+  "service": "form",
+  "action": [
+    {
+      "name": "getFormsByHost",
+      "version": "0.1.0",
+      "handler": "GetFormsByHost",
+      "scope": "form.all.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "getForm",
+      "version": "0.1.0",
+      "handler": "GetForm",
+      "scope": "form.all.r",
+      "schema": {
+        "title": "Service"
+      }
+    },
+    {
+      "name": "getFormByName",
+      "version": "0.1.0",
+      "handler": "GetFormByName",
+      "scope": "form.all.r",
+      "schema": {
+        "title": "Service"
+      }
+    },    
+    {
+      "name": "getFormById",
+      "version": "0.1.0",
+      "handler": "GetFormById",
+      "scope": "form.all.r",
+      "schema": {
+        "title": "Service"
+      }
+    }
+  ]
+}

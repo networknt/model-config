@@ -1,0 +1,80 @@
+{
+  "host": "lightapi.net",
+  "service": "form",
+  "action": [
+    {
+      "name": "deleteForm",
+      "version": "0.1.0",
+      "handler": "DeleteForm",
+      "scope": "form.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "formId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "formId"
+        ]
+      }
+    },
+    {
+      "name": "createForm",
+      "version": "0.1.0",
+      "handler": "CreateForm",
+      "scope": "form.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string"
+          },        
+          "formId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "formId",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "updateForm",
+      "version": "0.1.0",
+      "handler": "UpdateForm",
+      "scope": "form.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string"
+          },
+          "formId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },          
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "host"
+        ]
+      }
+    }
+  ]
+}

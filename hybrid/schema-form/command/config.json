@@ -1,0 +1,21 @@
+{
+  "rootPackage": "net.lightapi.portal.form.command",
+  "handlerPackage":"net.lightapi.portal.form.command.handler",
+  "modelPackage":"net.lightapi.portal.form.command.model",
+  "artifactId": "form-command",
+  "groupId": "net.lightapi",
+  "name": "form-command",
+  "version": "0.1.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}

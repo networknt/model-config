@@ -1,0 +1,21 @@
+{
+  "rootPackage": "net.lightapi.portal.form.query",
+  "handlerPackage":"net.lightapi.portal.form.query.handler",
+  "modelPackage":"net.lightapi.portal.form.query.model",
+  "artifactId": "form-query",
+  "groupId": "net.lightapi",
+  "name": "form-query",
+  "version": "0.1.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8081,
+  "enableHttp": false,
+  "httpsPort": 8444,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}
