@@ -93,25 +93,25 @@
       "Action": {
             "type": "object",
             "properties": {
-                "category": {
+                "host": {
                     "type": "string",
-                    "description": "action category"
+                    "description": "action host"
                 },
-                "name": {
+                "service": {
                     "type": "string",
-                    "description": "action name"
+                    "description": "action service"
                 },
-                "readOnly": {
-                    "type": "boolean",
-                    "description": "indicate if it is readonly"
-                },
-                "title": {
+                "action": {
                     "type": "string",
-                    "description": "action title"
+                    "description": "action to do"
                 },
-                "success": {
+                "version": {
                     "type": "string",
-                    "description": "action success url forward"
+                    "description": "action version"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "action method"
                 }
             }
        },
