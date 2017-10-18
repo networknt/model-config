@@ -3,24 +3,6 @@
   "service": "form",
   "action": [
     {
-      "name": "getFormsByHost",
-      "version": "0.1.0",
-      "handler": "GetFormsByHost",
-      "scope": "form.all.r",
-      "schema": {
-        "title": "Service",
-        "type": "object",
-        "properties": {
-          "host": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "host"
-        ]
-      }
-    },
-    {
       "name": "getForm",
       "version": "0.1.0",
       "handler": "GetForm",
@@ -30,9 +12,9 @@
       }
     },
     {
-      "name": "getFormByName",
+      "name": "getFormByFormTitle",
       "version": "0.1.0",
-      "handler": "GetFormByName",
+      "handler": "GetFormByFormTitle",
       "scope": "form.all.r",
       "schema": {
         "title": "Service"

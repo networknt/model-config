@@ -28,24 +28,32 @@
       "schema": {
         "title": "Service",
         "type": "object",
-        "properties": {
-          "host": {
-            "type": "string"
-          },        
+        "properties": {       
           "formId": {
             "type": "string"
           },
-          "name": {
-            "type": "string"
+          "version": {
+            "type": "number",
+            "format": "integer"
           },
-          
+          "action": {
+             "$ref": "#/definitions/Action"
+          },
+          "schema": {
+             "$ref": "#/definitions/Schema"
+          },
+          "formFields": {
+               "type": "array",
+               "items": {
+                   "$ref": "#/definitions/FormField"
+                }        
+          },                       
           "description": {
             "type": "string"
           }
         },
         "required": [
-          "formId",
-          "host"
+          "formId"
         ]
       }
     },
@@ -58,23 +66,128 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "host": {
-            "type": "string"
-          },
           "formId": {
             "type": "string"
           },
-          "name": {
-            "type": "string"
+          "version": {
+            "type": "number",
+            "format": "integer"
+          },
+          "action": {
+             "$ref": "#/definitions/Action"
+          },
+          "schema": {
+             "$ref": "#/definitions/Schema"
           },          
           "description": {
             "type": "string"
           }
         },
         "required": [
-          "host"
+          "formId"
         ]
       }
     }
-  ]
+  ],
+  "definitions": {
+      "Action": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string",
+                    "description": "action category"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "action name"
+                },
+                "readOnly": {
+                    "type": "boolean",
+                    "description": "indicate if it is readonly"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "action title"
+                },
+                "success": {
+                    "type": "string",
+                    "description": "action success url forward"
+                }
+            }
+       },
+       "Property": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Property name"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "Property type"
+                },
+                "": {
+                    "type": "boolean",
+                    "description": "indicate if it is readonly"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Property type"
+                },
+                "maxItems": {
+                     "type": "number",
+                     "format": "integer",
+                    "description": "action success url forward"
+                }
+            }
+       },
+      "FormField": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "form field key"
+                },
+                "tyep": {
+                    "type": "string",
+                    "description": "form field type"
+                },
+                "multiple": {
+                    "type": "boolean",
+                    "description": "indicate if it is multiple"
+                },                
+                "rows": {
+                    "type": "string",
+                    "description": "form field row define"
+                }
+            }
+       },       
+      "Schema": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "schema type"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "action name"
+                },
+                "required": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }, 
+                    "description": "lis of required fields"
+                },
+                "properties": {
+                    "type": "array",
+                      "items": {
+                      "$ref": "#/definitions/Property"
+                    }, 
+                    "description": "list of form properties"
+                }
+            }
+       }    
+    }
 }
