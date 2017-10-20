@@ -10,16 +10,7 @@
       "schema": {
         "title": "Service"
       }
-    },
-    {
-      "name": "getFormByFormTitle",
-      "version": "0.1.0",
-      "handler": "GetFormByFormTitle",
-      "scope": "form.all.r",
-      "schema": {
-        "title": "Service"
-      }
-    },    
+    },   
     {
       "name": "getFormById",
       "version": "0.1.0",

@@ -30,8 +30,7 @@
         "type": "object",
         "properties": {       
           "version": {
-            "type": "number",
-            "format": "integer"
+            "type": "string"
           },
           "action": {
             "Action": {
@@ -124,7 +123,7 @@
                                "type": "string",
                                "description": "form field key"
                             },
-                          "tyep": {
+                          "type": {
                              "type": "string",
                              "description": "form field type"
                            },
@@ -161,8 +160,7 @@
             "type": "string"
           },
           "version": {
-            "type": "number",
-            "format": "integer"
+            "type": "string"
           },
           "action": {
             "Action": {
@@ -255,7 +253,7 @@
                                "type": "string",
                                "description": "form field key"
                             },
-                          "tyep": {
+                          "type": {
                              "type": "string",
                              "description": "form field type"
                            },
