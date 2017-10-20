@@ -29,23 +29,115 @@
         "title": "Service",
         "type": "object",
         "properties": {       
-          "formId": {
-            "type": "string"
-          },
           "version": {
             "type": "number",
             "format": "integer"
           },
           "action": {
-             "$ref": "#/definitions/Action"
+            "Action": {
+              "type": "object",
+              "properties": {
+                  "host": {
+                    "type": "string",
+                    "description": "action host"
+                  },
+                "service": {
+                    "type": "string",
+                    "description": "action service"
+                },
+                "action": {
+                    "type": "string",
+                    "description": "action to do"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "action version"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "action method"
+                }
+            }
+           }          
           },
           "schema": {
-             "$ref": "#/definitions/Schema"
+             "Schema": {
+                "type": "object",
+                "properties": {
+                   "type": {
+                       "type": "string",
+                       "description": "schema type"
+                    },
+                   "title": {
+                       "type": "string",
+                       "description": "action name"
+                    },
+                   "required": {
+                       "type": "array",
+                       "items": {
+                         "type": "string"
+                        }, 
+                       "description": "lis of required fields"
+                   },
+                   "properties": {
+                       "type": "array",
+                       "items": {
+                          "Property": {
+                          "type": "object",
+                          "properties": {  
+                             "name": {
+                             "type": "string",
+                             "description": "Property name"
+                           },
+                          "title": {
+                             "type": "string",
+                             "description": "Property type"
+                          },
+                         "readonly": {
+                              "type": "boolean",
+                              "description": "indicate if it is readonly"
+                          },
+                         "type": {
+                             "type": "string",
+                             "description": "Property type"
+                          },
+                         "maxItems": {
+                             "type": "number",
+                            "format": "integer",
+                            "description": "action success url forward"
+                          }
+                         }
+                      }                     
+                     }, 
+                     "description": "list of form properties"
+                   }
+            }
+           }              
           },
           "formFields": {
                "type": "array",
                "items": {
-                   "$ref": "#/definitions/FormField"
+                   "FormField": {
+                          "type": "object",
+                          "properties": {
+                           "key": {
+                               "type": "string",
+                               "description": "form field key"
+                            },
+                          "tyep": {
+                             "type": "string",
+                             "description": "form field type"
+                           },
+                          "multiple": {
+                              "type": "boolean",
+                              "description": "indicate if it is multiple"
+                          },                
+                         "rows": {
+                              "type": "string",
+                             "description": "form field row define"
+                          }
+                        }
+                   }                  
                 }        
           },                       
           "description": {
@@ -53,7 +145,6 @@
           }
         },
         "required": [
-          "formId"
         ]
       }
     },
@@ -74,29 +165,13 @@
             "format": "integer"
           },
           "action": {
-             "$ref": "#/definitions/Action"
-          },
-          "schema": {
-             "$ref": "#/definitions/Schema"
-          },          
-          "description": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "formId"
-        ]
-      }
-    }
-  ],
-  "definitions": {
-      "Action": {
-            "type": "object",
-            "properties": {
-                "host": {
+            "Action": {
+              "type": "object",
+              "properties": {
+                  "host": {
                     "type": "string",
                     "description": "action host"
-                },
+                  },
                 "service": {
                     "type": "string",
                     "description": "action service"
@@ -114,80 +189,97 @@
                     "description": "action method"
                 }
             }
-       },
-       "Property": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "Property name"
-                },
-                "title": {
-                    "type": "string",
-                    "description": "Property type"
-                },
-                "": {
-                    "type": "boolean",
-                    "description": "indicate if it is readonly"
-                },
-                "type": {
-                    "type": "string",
-                    "description": "Property type"
-                },
-                "maxItems": {
-                     "type": "number",
-                     "format": "integer",
-                    "description": "action success url forward"
-                }
-            }
-       },
-      "FormField": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "description": "form field key"
-                },
-                "tyep": {
-                    "type": "string",
-                    "description": "form field type"
-                },
-                "multiple": {
-                    "type": "boolean",
-                    "description": "indicate if it is multiple"
-                },                
-                "rows": {
-                    "type": "string",
-                    "description": "form field row define"
-                }
-            }
-       },       
-      "Schema": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "description": "schema type"
-                },
-                "title": {
-                    "type": "string",
-                    "description": "action name"
-                },
-                "required": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }, 
-                    "description": "lis of required fields"
-                },
+           }          
+          },
+          "schema": {        
+              "Schema": {
+                "type": "object",
                 "properties": {
-                    "type": "array",
-                      "items": {
-                      "$ref": "#/definitions/Property"
-                    }, 
-                    "description": "list of form properties"
-                }
+                   "type": {
+                       "type": "string",
+                       "description": "schema type"
+                    },
+                   "title": {
+                       "type": "string",
+                       "description": "action name"
+                    },
+                   "required": {
+                       "type": "array",
+                       "items": {
+                         "type": "string"
+                        }, 
+                       "description": "lis of required fields"
+                   },
+                   "properties": {
+                       "type": "array",
+                       "items": {
+                          "Property": {
+                          "type": "object",
+                          "properties": {  
+                             "name": {
+                             "type": "string",
+                             "description": "Property name"
+                           },
+                          "title": {
+                             "type": "string",
+                             "description": "Property type"
+                          },
+                         "readonly": {
+                              "type": "boolean",
+                              "description": "indicate if it is readonly"
+                          },
+                         "type": {
+                             "type": "string",
+                             "description": "Property type"
+                          },
+                         "maxItems": {
+                             "type": "number",
+                            "format": "integer",
+                            "description": "action success url forward"
+                          }
+                         }
+                      }                     
+                     }, 
+                     "description": "list of form properties"
+                   }
             }
-       }    
+           }               
+          },
+          "formFields": {
+               "type": "array",
+               "items": {
+                   "FormField": {
+                          "type": "object",
+                          "properties": {
+                           "key": {
+                               "type": "string",
+                               "description": "form field key"
+                            },
+                          "tyep": {
+                             "type": "string",
+                             "description": "form field type"
+                           },
+                          "multiple": {
+                              "type": "boolean",
+                              "description": "indicate if it is multiple"
+                          },                
+                         "rows": {
+                              "type": "string",
+                             "description": "form field row define"
+                          }
+                        }
+                   }   
+                }        
+          },                    
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "formId"
+        ]
+      }
     }
+  ]
+
 }
