@@ -15,9 +15,7 @@
   "enableHttps": true,
   "enableHttp2": true,
   "enableRegistry": false,
-  "supportOracle": false,
-  "supportMysql": false,
-  "supportPostgresql": false,
+  "supportDb": false,
   "supportH2ForTest": false,
   "supportClient": false
 }
