@@ -10,13 +10,18 @@
   "overwriteHandlerTest": true,
   "overwriteModel": true,
   "httpPort": 8080,
-  "enableHttp": true,
+  "enableHttp": false,
   "httpsPort": 8443,
   "enableHttps": true,
   "enableRegistry": false,
-  "supportOracle": true,
-  "supportMysql": true,
-  "supportPostgresql": true,
+  "supportDb": true,
+  "dbInfo": {
+    "name": "mysql",
+    "driverClassName": "com.mysql.jdbc.Driver",
+    "jdbcUrl": "jdbc:mysql://mysqldb:3306/oauth2?useSSL=false",
+    "username": "root",
+    "password": "my-secret-pw"
+  },
   "supportH2ForTest": true,
   "supportClient": false
 }
