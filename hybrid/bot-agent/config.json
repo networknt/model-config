@@ -1,0 +1,19 @@
+{
+  "rootPackage": "net.lightapi.bot.agent",
+  "handlerPackage":"net.lightapi.bot.agent.handler",
+  "modelPackage":"net.lightapi.bot.agent.model",
+  "artifactId": "bot-agent",
+  "groupId": "net.lightapi",
+  "name": "bot-agent",
+  "version": "0.1.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportDb": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}

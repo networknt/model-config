@@ -1,0 +1,70 @@
+{
+  "host": "lightapi.net",
+  "service": "agent",
+  "action": [
+    {
+      "name": "checkout",
+      "version": "0.1.0",
+      "handler": "Checkout",
+      "scope": "agent.w",
+      "schema": {
+        "title": "Checkout",
+        "type": "object",
+        "properties": {
+          "repository": {
+            "type": "string",
+            "description": "repository name on git server"
+          },
+          "branch": {
+            "type": "string",
+            "default": "develop",
+            "description": "branch name of the repository"
+          },
+          "cascade": {
+            "type": "boolean",
+            "default": "dev",
+            "description": "If checkout all dependent repositories defined in .light-bot.yml"
+          }
+        },
+        "required": [
+          "repository"
+        ]
+      }
+    },
+    {
+      "name": "build",
+      "version": "0.1.0",
+      "handler": "Build",
+      "scope": "agent.w",
+      "schema": {
+        "title": "Build",
+        "type": "object",
+        "properties": {
+          "repository": {
+            "type": "string",
+            "description": "repository name on git server"
+          },
+          "branch": {
+            "type": "string",
+            "default": "develop",
+            "description": "branch name of the repository"
+          },
+          "environment": {
+            "type": "string",
+            "enum": ["dev", "test", "prod"],
+            "default": "dev",
+            "description": "environment that the build is for"
+          },
+          "cascade": {
+            "type": "boolean",
+            "default": true,
+            "description": "If checkout all dependent repositories defined in .light-bot.yml"
+          }
+        },
+        "required": [
+          "repository"
+        ]
+      }
+    }
+  ]
+}
