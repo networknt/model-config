@@ -10,13 +10,11 @@
   "overwriteHandlerTest": true,
   "overwriteModel": true,
   "httpPort": 7003,
-  "enableHttp": true,
+  "enableHttp": false,
   "httpsPort": 7443,
   "enableHttps": true,
   "enableRegistry": false,
-  "supportOracle": false,
-  "supportMysql": false,
-  "supportPostgresql": false,
+  "supportDb": false,
   "supportH2ForTest": false,
   "supportClient": true
 }
