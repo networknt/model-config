@@ -10,7 +10,7 @@
   "overwriteHandlerTest": true,
   "overwriteModel": true,
   "httpPort": 7002,
-  "enableHttp": false,
+  "enableHttp": true,
   "httpsPort": 7442,
   "enableHttps": true,
   "enableRegistry": false,
