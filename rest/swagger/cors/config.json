@@ -1,0 +1,21 @@
+{
+  "name": "cors",
+  "version": "1.0.1",
+  "groupId": "com.networknt",
+  "artifactId": "cors",
+  "rootPackage": "com.networknt.cors",
+  "handlerPackage":"com.networknt.cors.handler",
+  "modelPackage":"com.networknt.cors.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableHttp2": true,
+  "enableRegistry": false,
+  "supportDb": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}

@@ -1,0 +1,155 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "CORS Demo",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://cors.lightapi.net/v1"
+    }
+  ],
+  "paths": {
+    "/getData": {
+      "get": {
+        "description": "Return an array of strings",
+        "operationId": "getData",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KeyValue"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cors_auth": [
+              "cors.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/postData": {
+      "post": {
+        "description": "Return an array of strings",
+        "operationId": "postData",
+        "requestBody": {
+          "description": "Key value pair",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeyValue"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeyValue"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cors_auth": [
+              "cors.r",
+              "cors.w"
+            ]
+          }
+        ]
+      }
+    },
+    "/putData": {
+      "post": {
+        "description": "Return an array of strings",
+        "operationId": "putData",
+        "requestBody": {
+          "description": "Key value pair",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeyValue"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeyValue"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cors_auth": [
+              "cors.r",
+              "cors.w"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "cors_auth": {
+        "type": "oauth2",
+        "description": "This API uses OAuth 2 with the client credential grant flow.",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://localhost:6882/token",
+            "scopes": {
+              "cors.w": "write",
+              "cors.r": "read"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "KeyValue": {
+        "type": "object",
+        "required": [
+          "key",
+          "value"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "key"
+          },
+          "value": {
+            "type": "string",
+            "description": "value"
+          }
+        }
+      }
+    }
+  }
+}
