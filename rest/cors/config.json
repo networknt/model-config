@@ -1,7 +1,0 @@
-{
-  "invokerPackage": "com.networknt.cors",
-  "apiPackage":"com.networknt.cors.handler",
-  "modelPackage":"com.networknt.cors.model",
-  "artifactId": "cors",
-  "groupId": "com.networknt"
-}
