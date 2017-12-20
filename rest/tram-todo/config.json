@@ -1,0 +1,22 @@
+{
+  "name": "tram-todo",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "tram-todo",
+  "rootPackage": "com.networknt.tram.todolist",
+  "handlerPackage":"com.networknt.tram.todolist.handler",
+  "modelPackage":"com.networknt.tram.todolist.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": false,
+  "httpPort": 8080,
+  "enableHttp": true,
+  "httpsPort": 8483,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": true,
+  "supportPostgresql": false,
+  "supportH2ForTest": true,
+  "supportClient": false
+}

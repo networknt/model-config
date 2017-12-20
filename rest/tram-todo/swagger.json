@@ -1,0 +1,252 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "TODO list tram test service API",
+        "description": "TODO list  service API is a microserice s for the TODO list example application built on top of light-tram-4j.",
+        "contact": {
+            "email": "stevehu@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "todoq.networknt.com",
+    "schemes": [
+        "http"
+    ],
+    "basePath": "/v1",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/todos": {
+            "post": {
+                "description": "Return a todo object with Id",
+                "operationId": "add",
+                "parameters": [                
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CreateTodoRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/Todo"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "todo_auth": [
+                            "todo.w"
+                        ]
+                    }
+                ]
+            }
+
+        },
+        "/todos/{id}": {
+            "put": {
+                "description": "Return the updated todo object",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of todo",
+                        "required": true,
+                        "type": "string"
+                    },                
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateTodoRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/Todo"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "todo_auth": [
+                            "todo.w"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "description": "Delete a todo by Id",
+                "operationId": "deleteById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of todo",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful delete"
+
+                    },                
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Todo not found"
+                    }
+                },
+                "security": [
+                    {
+                        "todo_auth": [
+                            "todo.w"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/todoviews": {
+            "get": {
+                "description": "Return list of todo object with Id",
+                "operationId": "query",
+                "parameters": [
+                 {
+                   "name": "searchValue",
+                   "in": "query",
+                   "description": "searchValue",
+                   "required": true,
+                   "type": "string"
+                 }
+               ],
+              "responses": {
+               "200": {
+                 "description": "OK",
+                 "schema": {
+                   "type": "array",
+                   "items": {
+                      "$ref": "#/definitions/TodoView"
+                   }
+                 }
+               }
+              },
+             "security": [
+                    {
+                        "todo_auth": [
+                            "todo.r"
+                        ]
+                    }
+                ]
+            }
+        }        
+    },
+    "securityDefinitions": {
+        "todo_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://localhost:8080/oauth2/code",
+            "flow": "implicit",
+            "scopes": {
+                "todo.w": "write todo",
+                 "todo.r": "read todo"
+            }
+        }
+    },
+    "definitions": {
+        "Todo": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "a UUID generated"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "title of todo"
+                },
+                "completed": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "executionOrder": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "TodoView": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "a UUID generated"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "title of todo"
+                },
+                "completed": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "executionOrder": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },        
+       "CreateTodoRequest": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "title of todo"
+                },
+                "completed": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "executionOrder": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+       "UpdateTodoRequest": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "title of todo"
+                },
+                "completed": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "executionOrder": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        }
+    }
+}
