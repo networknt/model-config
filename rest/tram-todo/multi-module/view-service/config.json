@@ -1,8 +1,8 @@
 {
-  "name": "tram-todo-view",
+  "name": "tram-todo-view-service",
   "version": "1.0.0",
   "groupId": "com.networknt",
-  "artifactId": "tram-todo-view",
+  "artifactId": "tram-todo-view-service",
   "rootPackage": "com.networknt.tram.todolist",
   "handlerPackage":"com.networknt.tram.todolist.view.handler",
   "modelPackage":"com.networknt.tram.todolist.model",

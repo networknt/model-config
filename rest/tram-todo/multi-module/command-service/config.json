@@ -1,8 +1,8 @@
 {
-  "name": "tram-todo-command",
+  "name": "tram-todo-command-service",
   "version": "1.0.0",
   "groupId": "com.networknt",
-  "artifactId": "tram-todo-command",
+  "artifactId": "tram-todo-command-service",
   "rootPackage": "com.networknt.tram.todolist",
   "handlerPackage":"com.networknt.tram.todolist.command.handler",
   "modelPackage":"com.networknt.tram.todolist.model",
