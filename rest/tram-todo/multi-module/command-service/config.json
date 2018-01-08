@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "groupId": "com.networknt",
   "artifactId": "tram-todo-command-service",
-  "rootPackage": "com.networknt.tram.todolist",
+  "rootPackage": "com.networknt.tram.todolist.command",
   "handlerPackage":"com.networknt.tram.todolist.command.handler",
   "modelPackage":"com.networknt.tram.todolist.model",
   "overwriteHandler": true,
