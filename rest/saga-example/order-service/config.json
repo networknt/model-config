@@ -1,0 +1,22 @@
+{
+  "name": "saga-order-service",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "saga-order-service",
+  "rootPackage": "com.networknt.saga.example.order.service",
+  "handlerPackage":"com.networknt.saga.example.order.service.handler",
+  "modelPackage":"com.networknt.saga.example.order.service.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": false,
+  "httpPort": 8082,
+  "enableHttp": true,
+  "httpsPort": 8483,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": true,
+  "supportPostgresql": false,
+  "supportH2ForTest": true,
+  "supportClient": false
+}
