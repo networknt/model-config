@@ -11,14 +11,21 @@
         "title": "Endpoint Certification",
         "type": "object",
         "properties": {
-          "serverInfoUrl": {
+          "host": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "token": {
             "type": "string"
           },
           "environment": {
-            "type": "string"
+            "type": "string", 
+            "enum": ["test", "prod"]
           }
         },
-        "required": ["serverInfoUrl"]
+        "required": ["host", "path"]
       }
     },
     {
@@ -34,7 +41,8 @@
             "type": "string"
           },
           "environment": {
-            "type": "string"
+            "type": "string",
+            "enum": ["test", "prod"]
           }
         },
         "required": ["registryUrl"]

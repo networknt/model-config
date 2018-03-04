@@ -26,5 +26,6 @@ Before running the command line utility, make sure you have light-codegen and mo
 
 
 ```
-java -jar codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o ~/networknt/light-portal/api-certification -m ~/networknt/model-config/hybrid/api-certification/schema.json -c ~/networknt/model-config/hybrid/api-certification/config.json
+cd ~/networknt
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o light-portal/api-certification -m model-config/hybrid/api-certification/schema.json -c model-config/hybrid/api-certification/config.json
 ```

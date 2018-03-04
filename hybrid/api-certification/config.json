@@ -9,13 +9,12 @@
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
   "httpPort": 8080,
-  "enableHttp": true,
-  "httpsPort": 8443,
-  "enableHttps": false,
+  "enableHttp": false,
+  "httpsPort": 8080,
+  "enableHttps": true,
   "enableRegistry": false,
-  "supportOracle": false,
-  "supportMysql": false,
-  "supportPostgresql": false,
+  "supportDb": false,
   "supportH2ForTest": false,
-  "supportClient": false
+  "supportClient": false,
+  "dockerOrganization": "networknt"
 }
