@@ -1,0 +1,20 @@
+{
+  "rootPackage": "net.lightapi.token",
+  "handlerPackage":"net.lightapi.token.handler",
+  "modelPackage":"net.lightapi.token.model",
+  "artifactId": "longlived-token",
+  "groupId": "net.lightapi",
+  "name": "longlived-token",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8080,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportDb": false,
+  "supportH2ForTest": false,
+  "supportClient": false,
+  "dockerOrganization": "networknt"
+}

@@ -1,0 +1,92 @@
+{
+  "host": "lightapi.net",
+  "service": "token",
+  "action": [
+    {
+      "name": "long-lived",
+      "version": "0.1.0",
+      "handler": "LongLived",
+      "scope" : "token.long.r",
+      "schema": {
+        "title": "Long Lived Token",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string", 
+            "enum": ["test", "prod"]
+          }
+        },
+        "required": ["host", "path"]
+      }
+    },
+    {
+      "name": "short-lived",
+      "version": "0.1.0",
+      "handler": "ShortLived",
+      "scope" : "token.short.r",
+      "schema": {
+        "title": "Short Lived Token",
+        "type": "object",
+        "properties": {
+          "registryUrl": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string",
+            "enum": ["test", "prod"]
+          }
+        },
+        "required": ["registryUrl"]
+      }
+    },
+    {
+      "name": "expired",
+      "version": "0.1.0",
+      "handler": "Expired",
+      "scope" : "token.expired.r",
+      "schema": {
+        "title": "Expired Token",
+        "type": "object",
+        "properties": {
+          "registryUrl": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string",
+            "enum": ["test", "prod"]
+          }
+        },
+        "required": ["registryUrl"]
+      }
+    },
+    {
+      "name": "custom",
+      "version": "0.1.0",
+      "handler": "Custom",
+      "scope" : "token.expired.r",
+      "schema": {
+        "title": "Expired Token",
+        "type": "object",
+        "properties": {
+          "registryUrl": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string",
+            "enum": ["test", "prod"]
+          }
+        },
+        "required": ["registryUrl"]
+      }
+    }
+  ]
+}

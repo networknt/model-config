@@ -39,7 +39,7 @@ components:
     ad_auth:
       type: oauth2
       flows:
-        implicit:
+        clientCredentials:
           authorizationUrl: 'http://localhost:8080/oauth2/code'
           scopes:
             ad.w: write access
