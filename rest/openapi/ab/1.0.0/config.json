@@ -1,0 +1,20 @@
+{
+  "name": "ab",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "ab",
+  "rootPackage": "com.networknt.ab",
+  "handlerPackage":"com.networknt.ab.handler",
+  "modelPackage":"com.networknt.ab.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 7002,
+  "enableHttp": false,
+  "httpsPort": 7442,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportDb": false,
+  "supportH2ForTest": false,
+  "supportClient": true
+}

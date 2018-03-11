@@ -1,0 +1,20 @@
+{
+  "name": "ad",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "ad",
+  "rootPackage": "com.networknt.ad",
+  "handlerPackage":"com.networknt.ad.handler",
+  "modelPackage":"com.networknt.ad.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 7004,
+  "enableHttp": false,
+  "httpsPort": 7444,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportDb": false,
+  "supportH2ForTest": false,
+  "supportClient": true
+}

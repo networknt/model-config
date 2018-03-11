@@ -1,0 +1,20 @@
+{
+  "name": "aa",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "aa",
+  "rootPackage": "com.networknt.aa",
+  "handlerPackage":"com.networknt.aa.handler",
+  "modelPackage":"com.networknt.aa.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 7001,
+  "enableHttp": false,
+  "httpsPort": 7441,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportDb": false,
+  "supportH2ForTest": false,
+  "supportClient": true
+}

@@ -1,0 +1,20 @@
+{
+  "name": "ac",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "ac",
+  "rootPackage": "com.networknt.ac",
+  "handlerPackage":"com.networknt.ac.handler",
+  "modelPackage":"com.networknt.ac.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 7003,
+  "enableHttp": false,
+  "httpsPort": 7443,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportDb": false,
+  "supportH2ForTest": false,
+  "supportClient": true
+}
