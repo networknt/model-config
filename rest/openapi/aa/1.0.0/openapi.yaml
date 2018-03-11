@@ -4,8 +4,7 @@ servers:
 info:
   version: 1.0.0
   title: API AA for aggregate microservices pattern
-  description: >-
-    API AA is called by consumer directly and it will call API AB, API AC and API AD to get data
+  description: API AA is called by consumer directly and it will call API AB, API AC and API AD to get data
   contact:
     email: stevehu@gmail.com
   license:
