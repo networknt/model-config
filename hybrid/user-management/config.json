@@ -1,0 +1,21 @@
+{
+  "rootPackage": "net.lightapi.portal.user.service",
+  "handlerPackage":"net.lightapi.portal.user.service.handler",
+  "modelPackage":"net.lightapi.portal.user.service.model",
+  "artifactId": "user-hybrid-service",
+  "groupId": "net.lightapi",
+  "name": "user-hybrid-service",
+  "version": "0.1.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8082,
+  "enableHttp": false,
+  "httpsPort": 8444,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}
