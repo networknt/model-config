@@ -126,7 +126,49 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "birthday of the user"
-                }
+                },
+               "addresses": {
+                  "type": "array",
+                  "items": {
+                   "AddressData": {
+                          "type": "object",
+                          "properties": {
+                           "country": {
+                               "type": "string",
+                               "description": "country name"
+                            },
+                          "state": {
+                             "type": "string",
+                             "description": "state name"
+                           },
+                          "city": {
+                             "type": "string",
+                             "description": "city name"
+                           },                                           
+                         "zipCode": {
+                              "type": "string",
+                             "description": "postal code"
+                          },
+                         "addressLine1": {
+                              "type": "string",
+                             "description": "address line1"
+                          },
+                         "addressLine2": {
+                              "type": "string",
+                             "description": "address line 2"
+                          }, 
+                         "addressType": {
+                              "type": "string",
+                             "description": "address type",
+                            "enum": [
+                               "BILLING",
+                               "SHIPPING"
+                               ]               
+                          }                                                    
+                        }
+                   }                  
+                }        
+             }  
             }
         }                            
         },
@@ -214,7 +256,49 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "birthday of the user"
-                }
+                },
+               "addresses": {
+                  "type": "array",
+                  "items": {
+                   "AddressData": {
+                          "type": "object",
+                          "properties": {
+                           "country": {
+                               "type": "string",
+                               "description": "country name"
+                            },
+                          "state": {
+                             "type": "string",
+                             "description": "state name"
+                           },
+                          "city": {
+                             "type": "string",
+                             "description": "city name"
+                           },                                           
+                         "zipCode": {
+                              "type": "string",
+                             "description": "postal code"
+                          },
+                         "addressLine1": {
+                              "type": "string",
+                             "description": "address line1"
+                          },
+                         "addressLine2": {
+                              "type": "string",
+                             "description": "address line 2"
+                          }, 
+                         "addressType": {
+                              "type": "string",
+                             "description": "address type",
+                            "enum": [
+                               "BILLING",
+                               "SHIPPING"
+                               ]               
+                          }                                                    
+                        }
+                   }                  
+                }        
+             }                  
             }
         }                            
         },

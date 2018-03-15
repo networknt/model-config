@@ -17,6 +17,6 @@ cloned to your working directory. Also, the light-portal project must be in the 
 working directory.
 
 ```
-java -jar codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o ~/networknt/light-portal/schema-form/hybrid-command -m ~/networknt/model-config/hybrid/schema-form/command/schema.json -c ~/networknt/model-config/hybrid/schema-form/command/config.json
+java -jar codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o ~/networknt/light-portal/user-management/hybrid-service -m ~/networknt/model-config/hybrid/user-management/schema.json -c ~/networknt/model-config/hybrid/user-management/config.json
 ```
 
