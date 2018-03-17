@@ -1,11 +1,11 @@
 {
-  "name": "petstore",
-  "version": "1.0.1",
-  "groupId": "com.networknt",
-  "artifactId": "petstore",
-  "rootPackage": "com.networknt.petstore",
-  "handlerPackage":"com.networknt.petstore.handler",
-  "modelPackage":"com.networknt.petstore.model",
+  "name": "tokenization",
+  "version": "1.0.0",
+  "groupId": "net.lightapi",
+  "artifactId": "tokenization",
+  "rootPackage": "net.lightapi.tokenization",
+  "handlerPackage":"net.lightapi.tokenization.handler",
+  "modelPackage":"net.lightapi.tokenization.model",
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
   "overwriteModel": true,
@@ -15,8 +15,15 @@
   "enableHttps": true,
   "enableHttp2": true,
   "enableRegistry": false,
-  "supportDb": false,
-  "supportH2ForTest": false,
+  "supportDb": true,
+  "dbInfo": {
+    "name": "mysql",
+    "driverClassName": "com.mysql.jdbc.Driver",
+    "jdbcUrl": "jdbc:mysql://mysql:3306/tokenization?useSSL=false",
+    "username": "mysqluser",
+    "password": "mysqlpw"
+  },
+  "supportH2ForTest": true,
   "supportClient": false,
   "dockerOrganization": "networknt"
 }
