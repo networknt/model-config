@@ -102,7 +102,15 @@
               ]
             }
           }
-        }
+        },
+        "security": [
+          {
+            "etransfer_auth": [
+              "etransfer.r",
+              "etransfer.w"
+            ]
+          }
+        ]
       }
     },
     "/user-registrations": {

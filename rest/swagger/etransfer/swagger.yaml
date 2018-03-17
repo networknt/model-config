@@ -69,6 +69,10 @@ paths:
             application/json:
               - code: 9999
                 message: Unknown application error
+      security:
+        - etransfer_auth:
+            - 'etransfer.r'
+            - 'etransfer.w'
   /user-registrations:
     parameters:
       - $ref: '#/parameters/accessToken'
