@@ -200,7 +200,8 @@ paths:
         '404':
           description: Pet not found
       security:
-        - api_key: []
+        - petstore_auth:
+            - 'read:pets'
     post:
       tags:
         - pet
@@ -321,7 +322,8 @@ paths:
               type: integer
               format: int32
       security:
-        - api_key: []
+        - petstore_auth:
+            - 'read:pets'
   /store/order:
     post:
       tags:
@@ -594,10 +596,6 @@ securityDefinitions:
     scopes:
       'write:pets': modify pets in your account
       'read:pets': read your pets
-  api_key:
-    type: apiKey
-    name: api_key
-    in: header
 definitions:
   Order:
     type: object

@@ -264,20 +264,22 @@
             },
             "examples": {
               "application/json": {
-                "photoUrls" : [ "aeiou" ],
-                "name" : "doggie",
-                "id" : 123456789,
-                "category" : {
-                  "name" : "aeiou",
-                  "id" : 123456789
+                "photoUrls": [
+                  "aeiou"
+                ],
+                "name": "doggie",
+                "id": 123456789,
+                "category": {
+                  "name": "aeiou",
+                  "id": 123456789
                 },
-                "tags" : [
+                "tags": [
                   {
-                    "name" : "aeiou",
-                    "id" : 123456789
+                    "name": "aeiou",
+                    "id": 123456789
                   }
                 ],
-                "status" : "aeiou"
+                "status": "aeiou"
               }
             }
           },
@@ -290,7 +292,9 @@
         },
         "security": [
           {
-            "api_key": []
+            "petstore_auth": [
+              "read:pets"
+            ]
           }
         ]
       },
@@ -473,7 +477,9 @@
         },
         "security": [
           {
-            "api_key": []
+            "petstore_auth": [
+              "read:pets"
+            ]
           }
         ]
       }
@@ -868,11 +874,6 @@
         "write:pets": "modify pets in your account",
         "read:pets": "read your pets"
       }
-    },
-    "api_key": {
-      "type": "apiKey",
-      "name": "api_key",
-      "in": "header"
     }
   },
   "definitions": {
