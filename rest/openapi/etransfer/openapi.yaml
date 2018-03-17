@@ -31,6 +31,10 @@ paths:
             type: string
       tags:
         - Authentication
+      security:
+        - etransfer_auth:
+            - 'etransfer.r'
+            - 'etransfer.w'
       responses:
         '200':
           description: Successful response

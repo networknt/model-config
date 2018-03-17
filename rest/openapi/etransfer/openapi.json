@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "servers": [
     {
-      "url": "https://gateway-web.beta.interac.ca/publicapi/api/v2"
+      "url": "/publicapi/api/v2"
     }
   ],
   "info": {
@@ -43,6 +43,14 @@
         ],
         "tags": [
           "Authentication"
+        ],
+        "security": [
+          {
+            "etransfer_auth": [
+              "etransfer.r",
+              "etransfer.w"
+            ]
+          }
         ],
         "responses": {
           "200": {
