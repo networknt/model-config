@@ -50,6 +50,14 @@
             "description": "Successful response",
             "schema": {
               "$ref": "#/definitions/AccessToken"
+            },
+            "examples": {
+              "application/json": {
+                "accessToken": "4863dc7c-2a00-11e8-b467-0ed5f89f718b",
+                "tokenType": "bearer",
+                "expiresIn": 600,
+                "scope": "etransfer.r etransfer.w"
+              }
             }
           },
           "400": {
@@ -3339,13 +3347,13 @@
     }
   },
   "securityDefinitions": {
-    "transfer_auth": {
+    "etransfer_auth": {
       "type": "oauth2",
       "authorizationUrl": "http://code.lightapi.net/oauth/authorize",
       "flow": "implicit",
       "scopes": {
-        "transfer.w": "write permission",
-        "transfer.r": "read permission"
+        "etransfer.w": "write permission",
+        "etransfer.r": "read permission"
       }
     }
   },
