@@ -32,6 +32,6 @@ An error response is returned.
 Issue the updated command.
 
 ```
-curl -k -H "grantType: client_credentials" -H "grantRequest: secret" https://localhost:8443/publicapi/api/v2/oauth/access-tokens
+curl -k -H "grantType: client_credentials" -H "grantRequest: secret" -H "thirdPartyAccessId: accessId" -H "requestId: requestId" https://localhost:8443/publicapi/api/v2/oauth/access-tokens
 
 ```
