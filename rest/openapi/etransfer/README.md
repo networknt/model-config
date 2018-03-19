@@ -40,7 +40,7 @@ curl -k -H "grantType: client_credentials" -H "grantRequest: secret" -H "thirdPa
 create a new client in light-oauth2 server.
 
 ```
-curl -k -H "Content-Type: application/json" -X POST -d '{"clientType":"public","clientProfile":"mobile","clientName":"AccountViewer","clientDesc":"Retail Online Banking Account Viewer","scope":"act.r act.w","redirectUri": "http://localhost:8080/authorization","ownerId":"admin"}' https://localhost:6884/oauth2/client
+curl -k -H "Content-Type: application/json" -X POST -d '{"clientType":"public","clientProfile":"mobile","clientName":"etransfer client","clientDesc":"client of etransfer","scope":"etransfer.r etransfter.w","redirectUri": "http://localhost:8080/authorization","ownerId":"admin"}' https://198.55.49.187:6884/oauth2/client
 
 ```
 
@@ -57,4 +57,5 @@ command with token:
 curl -k -H "Authorization: Bearer eyJraWQiOiIxMDAiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ1cm46Y29tOm5ldHdvcmtudDpvYXV0aDI6djEiLCJhdWQiOiJ1cm46Y29tLm5ldHdvcmtudCIsImV4cCI6MTgzNjgzNzUzOSwianRpIjoiWjRFLWRRazlHZTRkYUlscnJrMi1idyIsImlhdCI6MTUyMTQ3NzUzOSwibmJmIjoxNTIxNDc3NDE5LCJ2ZXJzaW9uIjoiMS4wIiwidXNlcl9pZCI6InN0ZXZlIiwidXNlcl90eXBlIjoiRU1QTE9ZRUUiLCJjbGllbnRfaWQiOiJmN2Q0MjM0OC1jNjQ3LTRlZmItYTUyZC00YzU3ODc0MjFlNzIiLCJzY29wZSI6WyJldHJhbnNmZXIuciIsImV0cmFuc2Zlci53Il19.cbn_ZZ_rAaE1N947mt4BwbbVj9mcuZuew6hWLPJbtOYLR_S4HIJaUCEYWt85E7XBuZzQOYz-QYwekH8ReHiJ5HTTf3wwgtJIaBQxwPpoBWy1TUoxo4s5ZlvEvCq5kjoE2PBpb0hhC0lZthkom9gcBDNBZWoKsdfzo30vN9Xsos81pHLt6jbWXEok-T7KNFAAAy0EPkbb1K0L6BPZZPmj8hlQUWqZYdxq_jI_vYo2rrY9JyQP2TRUz5vlGZx54gd0CfhIGpMwjgsZbttvEXZNB8HSkREJjjAj3myWToTqJwXnsN0CzwDnt520UKEIXSJMqYCWb6pHyk_RKX0EEs6woA" -H "grantType: client_credentials" -H "grantRequest: secret" -H "thirdPartyAccessId: accessId" -H "requestId: requestId" https://localhost:8443/publicapi/api/v2/oauth/access-tokens
 
 ```
+
 
