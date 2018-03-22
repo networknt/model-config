@@ -238,7 +238,7 @@
             "scopes": {
               "token.r": "Read-only action like detokenize or validate",
               "token.w": "Write action like tokenize",
-              "scheme.r" "Read-only for scheme endpoints"
+              "scheme.r": "Read-only for scheme endpoints"
             }
           }
         }
