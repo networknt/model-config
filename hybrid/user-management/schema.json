@@ -316,23 +316,18 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "LoginForm": {
-              "type": "object",
-              "properties": {
-                  "nameOrEmail": {
-                      "type": "string",
-                      "description": "user screenName or email for login"
-                  },
-                  "password": {
-                      "type": "string",
-                      "description": "user password for user login"
-                  },
-                  "token": {
-                      "type": "string",
-                      "description": "token with the user login"
-                  }
-              }                              
-          }
+            "nameOrEmail": {
+                  "type": "string",
+                  "description": "user screenName or email for login"
+             },
+             "password": {
+                  "type": "string",
+                  "description": "user password for user login"
+              },
+              "token": {
+                  "type": "string",
+                  "description": "token with the user login"
+              }
         },
         "required": [
           "nameOrEmail"

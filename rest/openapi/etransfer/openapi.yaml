@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - url: /publicapi/api/v2
+  - url: https://api.interac.ca/publicapi/api/v2
 info:
   version: 2.0.0
   title: e-Transfer Public API
