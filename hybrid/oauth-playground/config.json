@@ -1,0 +1,20 @@
+{
+  "rootPackage": "net.lightapi.portal.playground",
+  "handlerPackage":"net.lightapi.portal.playground.handler",
+  "modelPackage":"net.lightapi.portal.playground.model",
+  "artifactId": "playground",
+  "groupId": "net.lightapi.portal",
+  "name": "playground",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8080,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportDb": false,
+  "supportH2ForTest": false,
+  "supportClient": false,
+  "dockerOrganization": "networknt"
+}
