@@ -14,6 +14,12 @@
           "exp": {
             "type": "integer"
           },
+          "client_id": {
+            "type": "string"
+          },
+          "user_id": {
+            "type": "string"
+          },
           "scope": {
             "type": "array",
             "items": {
@@ -21,7 +27,7 @@
             }
           }
         },
-        "required": ["scope"]
+        "required": ["client_id", "scope"]
       }
     }
   ]
