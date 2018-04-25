@@ -1,0 +1,34 @@
+{
+  "host": "lightapi.net",
+  "service": "playground",
+  "action": [
+    {
+      "name": "generateJwt",
+      "version": "0.1.0",
+      "handler": "JwtToken",
+      "scope" : "jwt.r",
+      "schema": {
+        "title": "Generate test JWT token",
+        "type": "object",
+        "properties": {
+          "exp": {
+            "type": "integer"
+          },
+          "client_id": {
+            "type": "string"
+          },
+          "user_id": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["client_id", "scope"]
+      }
+    }
+  ]
+}

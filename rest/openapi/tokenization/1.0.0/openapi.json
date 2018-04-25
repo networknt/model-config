@@ -102,20 +102,11 @@
         }
       }
     },
-    "/{org}/{token}": {
+    "/token/{token}": {
       "get": {
-        "summary": "Detokenize from token to value",
+        "summary": "Detokenize from token to value, client_id in jwt token will map to a database",
         "operationId": "detokenize",
         "parameters": [
-          {
-            "name": "org",
-            "in": "path",
-            "required": true,
-            "description": "Organization identifier that map to separate database and cache",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "token",
             "in": "path",
@@ -156,15 +147,6 @@
         "operationId": "delete",
         "parameters": [
           {
-            "name": "org",
-            "in": "path",
-            "required": true,
-            "description": "Organization identifier that map to separate database and cache",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "token",
             "in": "path",
             "required": true,
@@ -203,21 +185,10 @@
         }
       }
     },
-    "/{org}": {
+    "/token": {
       "post": {
         "summary": "Tokenize input value to a token, if the value exists, the existing token will be returned",
         "operationId": "tokenize",
-        "parameters": [
-          {
-            "name": "org",
-            "in": "path",
-            "required": true,
-            "description": "Organization identifier that map to seperate database and cache",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "requestBody": {
           "description": "Tokenizer body",
           "required": true,
@@ -266,7 +237,8 @@
             "tokenUrl": "https://localhost:6882/token",
             "scopes": {
               "token.r": "Read-only action like detokenize or validate",
-              "token.w": "Write action like tokenize"
+              "token.w": "Write action like tokenize",
+              "scheme.r": "Read-only for scheme endpoints"
             }
           }
         }

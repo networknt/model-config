@@ -1,0 +1,90 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "MyService",
+    "license": {
+      "name": "Compagny"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://localhost:1234/compagny"
+    }
+  ],
+  "paths": {
+    "/pets": {
+      "post": {
+        "summary": "Create a pet",
+        "operationId": "createPets",
+        "security": [
+          {
+            "my_auth": [
+              "read:myAuth",
+              "write:myAuth"
+            ]
+          }
+        ],
+        "tags": [
+          "pets"
+        ],
+        "responses": {
+          "201": {
+            "description": "Null response"
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "my_auth": {
+        "type": "oauth2",
+        "description": "This API uses OAuth 2 with the client credential grant flow.",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://localhost:6882/token",
+            "scopes": {
+              "write:myAuth": "write access",
+              "read:myAuth": "read access"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Error": {
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
