@@ -28,7 +28,10 @@
       "schema": {
         "title": "Service",
         "type": "object",
-        "properties": {       
+        "properties": {   
+          "formId": {
+            "type": "string"
+          },            
           "version": {
             "type": "string"
           },
