@@ -296,3 +296,6 @@ definitions:
       redirectUri:
         type: string
         description: redirect uri
+      authenticateClass:
+        type: string
+        description: authenticate class
