@@ -1,0 +1,28 @@
+{
+  "name": "oauth2-client",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "oauth2-client",
+  "rootPackage": "com.networknt.oauth.client",
+  "handlerPackage":"com.networknt.oauth.client.handler",
+  "modelPackage":"com.networknt.oauth.client.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 6884,
+  "enableHttp": false,
+  "httpsPort": 6884,
+  "enableHttps": true,
+  "enableHttp2": true,
+  "enableRegistry": false,
+  "supportDb": true,
+  "dbInfo": {
+    "name": "mysql",
+    "driverClassName": "com.mysql.jdbc.Driver",
+    "jdbcUrl": "jdbc:mysql://mysqldb:3306/oauth2?useSSL=false",
+    "username": "root",
+    "password": "my-secret-pw"
+  },
+  "supportH2ForTest": true,
+  "supportClient": false
+}
