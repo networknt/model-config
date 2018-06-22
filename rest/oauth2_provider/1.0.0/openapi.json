@@ -98,7 +98,7 @@
         }
       }
     },
-    "/oauth2/provider/{clientId}": {
+    "/oauth2/provider/{providerId}": {
       "delete": {
         "summary": "delete a provider by providerId",
         "operationId": "deleteProviderById",
