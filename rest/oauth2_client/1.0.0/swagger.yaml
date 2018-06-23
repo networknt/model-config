@@ -300,3 +300,6 @@ definitions:
       authenticateClass:
         type: string
         description: authenticate class
+      derefClientId:
+        type: string
+        description: the client that can call de-reference token endpoint
