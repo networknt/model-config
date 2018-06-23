@@ -9,11 +9,11 @@
   },
   "servers": [
     {
-      "url": "http://light-oauth2.swagger.io/v1"
+      "url": "http://light-oauth2.swagger.io"
     }
   ],
   "paths": {
-    "/provider": {
+    "/oauth2/provider": {
       "post": {
         "summary": "Registe a new oauth provider ",
         "operationId": "createProvider",
@@ -168,7 +168,6 @@
     "schemas": {
       "Provider": {
         "required": [
-          "providerId",
           "endpoint"
         ],
         "properties": {
@@ -182,8 +181,7 @@
             "type": "string"
           },
           "providerName": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string"
           }
         }
       },
