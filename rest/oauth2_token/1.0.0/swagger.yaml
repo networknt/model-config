@@ -88,9 +88,16 @@ paths:
       responses:
         '200':
           description: Successful Operation
-  /health:
+  /oauth2/deref/{token}:
     get:
+      description: exchange by-reference token to a JWT
+      operationId: derefToken
+      parameters: 
+      - name: "token"
+        in: "path"
+        description: "by-reference token"
+        required: true
+        type: "string"
       responses:
         '200':
           description: successful operation
-      parameters: []
