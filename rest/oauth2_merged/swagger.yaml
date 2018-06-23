@@ -698,6 +698,7 @@ definitions:
         - confidential
         - public
         - trusted
+        - external
       clientProfile:
         type: "string"
         description: "client profile"
