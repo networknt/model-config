@@ -168,16 +168,16 @@
     "schemas": {
       "Provider": {
         "required": [
-          "endpoint"
+          "serverUrl"
         ],
         "properties": {
           "providerId": {
             "type": "string"
           },
-          "endpoint": {
+          "serverUrl": {
             "type": "string"
           },
-          "port": {
+          "uri": {
             "type": "string"
           },
           "providerName": {
