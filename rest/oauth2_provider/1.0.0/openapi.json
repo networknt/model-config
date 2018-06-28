@@ -209,11 +209,14 @@
     "schemas": {
       "Provider": {
         "required": [
+          "providerId",
           "serverUrl"
         ],
         "properties": {
           "providerId": {
-            "type": "string"
+            "type": "string",
+            "minLength": 2,
+             "maxLength": 2
           },
           "serverUrl": {
             "type": "string"
