@@ -1,0 +1,20 @@
+{
+  "rootPackage": "net.lightapi.config.server",
+  "handlerPackage":"net.lightapi.config.server.handler",
+  "modelPackage":"net.lightapi.config.server.model",
+  "artifactId": "config-server",
+  "groupId": "net.lightapi.config",
+  "name": "config-server",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8080,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportDb": false,
+  "supportH2ForTest": false,
+  "supportClient": true,
+  "dockerOrganization": "networknt"
+}

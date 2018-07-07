@@ -1,0 +1,490 @@
+{
+  "host": "lightapi.net",
+  "service": "config",
+  "action": [
+    {
+      "name": "retrieve-config",
+      "version": "0.1.0",
+      "handler": "RetrieveConfig",
+      "schema": {
+        "title": "Retrieve Config Zip File",
+        "type": "object",
+        "properties": {
+          "frameworkVersion": {
+            "type": "string"
+          },
+          "buildProfile": {
+            "type": "string"
+          },
+          "serviceId": {
+            "type": "string"
+          }
+        },
+        "required": ["frameworkVersion", "buildProfile", "serviceId"]
+      }
+    },
+    {
+      "name": "initialize-server",
+      "version": "0.1.0",
+      "handler": "InitializeServer",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Initialize Server Encryption Key",
+        "type": "object",
+        "properties": {
+          "keyOne": {
+            "type": "string"
+          },
+          "keyTwo": {
+            "type": "string"
+          }
+        },
+        "required": ["keyOne", "keyTwo"]
+      }
+    },
+    {
+      "name": "create-service",
+      "version": "0.1.0",
+      "handler": "CreateService",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Create a new service with meta data by service onwer",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          },
+          "encryptionAlgorithm": {
+            "type": "string",
+            "enum": ["AES"]
+          },
+          "encryptionSalt": {
+            "type": "string"
+          },
+          "templateRepository": {
+            "type": "string"
+          },
+          "serviceOwner": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId", "encryptionAlgorithm", "templateRepository", "serviceOwner"]
+      }
+    },
+    {
+      "name": "update-service",
+      "version": "0.1.0",
+      "handler": "UpdateService",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Update meta data for a created service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          },
+          "encryptionAlgorithm": {
+            "type": "string",
+            "enum": ["AES"]
+          },
+          "encryptionSalt": {
+            "type": "string"
+          },
+          "templateRepository": {
+            "type": "string"
+          },
+          "serviceOwner": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId", "encryptionAlgorithm", "templateRepository", "serviceOwner"]
+      }
+    },
+    {
+      "name": "delete-service",
+      "version": "0.1.0",
+      "handler": "DeleteService",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Delete a created service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId"]
+      }
+    },
+    {
+      "name": "query-service",
+      "version": "0.1.0",
+      "handler": "QueryService",
+      "scope" : "light.config.r",
+      "schema": {
+        "title": "Query meta data for a created service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId"]
+      }
+    },
+    {
+      "name": "create-common-value",
+      "version": "0.1.0",
+      "handler": "CreateCommonValue",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Create a new common key value entry",
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string",
+          }
+        },
+        "required": ["key", "value"]
+      }
+    },
+    {
+      "name": "update-common-value",
+      "version": "0.1.0",
+      "handler": "UpdateCommonValue",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Update a common key value entry",
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": ["key", "value"]
+      }
+    },
+    {
+      "name": "delete-common-value",
+      "version": "0.1.0",
+      "handler": "DeleteCommonValue",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Delete a common key value entry",
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": ["key"]
+      }
+    },
+    {
+      "name": "query-common-value",
+      "version": "0.1.0",
+      "handler": "QueryCommonValue",
+      "scope" : "light.config.r",
+      "schema": {
+        "title": "Query a common key value entry",
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": ["key"]
+      }
+    }
+    {
+      "name": "query-common-values",
+      "version": "0.1.0",
+      "handler": "QueryCommonValues",
+      "scope" : "light.config.r",
+      "schema": {
+        "title": "Query all common key value entries"
+      }
+    },
+    {
+      "name": "create-common-secret",
+      "version": "0.1.0",
+      "handler": "CreateCommonSecret",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Create a new common key secret entry",
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "secret": {
+            "type": "string",
+          }
+        },
+        "required": ["key", "secret"]
+      }
+    },
+    {
+      "name": "update-common-secret",
+      "version": "0.1.0",
+      "handler": "UpdateCommonSecret",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Update a common key secret entry",
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "secret": {
+            "type": "string"
+          }
+        },
+        "required": ["key", "secret"]
+      }
+    },
+    {
+      "name": "delete-common-secret",
+      "version": "0.1.0",
+      "handler": "DeleteCommonSecret",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Delete a common key secret entry",
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": ["key"]
+      }
+    },
+    {
+      "name": "query-common-secret",
+      "version": "0.1.0",
+      "handler": "QueryCommonSecret",
+      "scope" : "light.config.r",
+      "schema": {
+        "title": "Query a common key secret entry",
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": ["key"]
+      }
+    }
+    {
+      "name": "query-common-secrets",
+      "version": "0.1.0",
+      "handler": "QueryCommonSecrets",
+      "scope" : "light.config.r",
+      "schema": {
+        "title": "Query all common key secret entries"
+      }
+    },
+    {
+      "name": "create-service-value",
+      "version": "0.1.0",
+      "handler": "CreateServiceValue",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Create a new service specific key value entry",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string",
+          }
+        },
+        "required": ["serviceId", "key", "value"]
+      }
+    },
+    {
+      "name": "update-service-value",
+      "version": "0.1.0",
+      "handler": "UpdateServiceValue",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Update a service specific key value entry",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId", "key", "value"]
+      }
+    },
+    {
+      "name": "delete-service-value",
+      "version": "0.1.0",
+      "handler": "DeleteServiceValue",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Delete a service specific key value entry",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId", "key"]
+      }
+    },
+    {
+      "name": "query-service-value",
+      "version": "0.1.0",
+      "handler": "QueryServiceValue",
+      "scope" : "light.config.r",
+      "schema": {
+        "title": "Query a service specific key value entry",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId", "key"]
+      }
+    }
+    {
+      "name": "query-service-values",
+      "version": "0.1.0",
+      "handler": "QueryServiceValues",
+      "scope" : "light.config.r",
+      "schema": {
+        "title": "Query all service specific key value entries",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId"]
+      }
+    },
+    {
+      "name": "create-service-secret",
+      "version": "0.1.0",
+      "handler": "CreateServiceSecret",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Create a new service specific key secret entry",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "secret": {
+            "type": "string",
+          }
+        },
+        "required": ["serviceId", "key", "secret"]
+      }
+    },
+    {
+      "name": "update-service-secret",
+      "version": "0.1.0",
+      "handler": "UpdateServiceSecret",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Update a service specific key secret entry",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "secret": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId", "key", "secret"]
+      }
+    },
+    {
+      "name": "delete-service-secret",
+      "version": "0.1.0",
+      "handler": "DeleteServiceSecret",
+      "scope" : "light.config.w",
+      "schema": {
+        "title": "Delete a service specific key secret entry",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId", "key"]
+      }
+    },
+    {
+      "name": "query-service-secret",
+      "version": "0.1.0",
+      "handler": "QueryServiceSecret",
+      "scope" : "light.config.r",
+      "schema": {
+        "title": "Query a service specific key secret entry",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId", "key"]
+      }
+    }
+    {
+      "name": "query-service-secrets",
+      "version": "0.1.0",
+      "handler": "QueryServiceSecrets",
+      "scope" : "light.config.r",
+      "schema": {
+        "title": "Query all service specific key secret entries",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string"
+          }
+        },
+        "required": ["serviceId"]
+      }
+    }
+  ]
+}
