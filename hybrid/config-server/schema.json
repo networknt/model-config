@@ -73,6 +73,12 @@
           "templateRepository": {
             "type": "string"
           },
+          "profile": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },          
           "serviceOwner": {
             "type": "string"
           }
@@ -81,6 +87,8 @@
           "serviceId",
           "encryptionAlgorithm",
           "templateRepository",
+          "profile",
+          "version",
           "serviceOwner"
         ]
       }
@@ -179,6 +187,35 @@
         ]
       }
     },
+    {
+      "name": "create-common-values",
+      "version": "0.1.0",
+      "handler": "CreateCommonValues ",
+      "scope": "light.config.w",
+      "schema": {
+        "title": "Create a list of common key value entry",
+        "type": "object",
+        "properties": {
+          "configServiceId": {
+            "type": "string"
+          },
+          "connmanValues": {
+            "type": "array",
+            "items": {
+              "key": {
+                 "type": "string"
+                },
+              "value": {
+                "type": "string"
+              }            
+            }                    
+        },
+        "required": [
+          "configServiceId"
+        ]
+      }
+     }
+    },    
     {
       "name": "update-common-value",
       "version": "0.1.0",
@@ -361,6 +398,35 @@
         ]
       }
     },
+    {
+      "name": "create-service-values",
+      "version": "0.1.0",
+      "handler": "CreateServiceValues ",
+      "scope": "light.config.w",
+      "schema": {
+        "title": "Create a list of service key value entry",
+        "type": "object",
+        "properties": {
+          "configServiceId": {
+            "type": "string"
+          },
+          "connmanValues": {
+            "type": "array",
+            "items": {
+              "key": {
+                 "type": "string"
+                },
+              "value": {
+                "type": "string"
+              }            
+            }                    
+        },
+        "required": [
+          "configServiceId"
+        ]
+      }
+     }
+    },      
     {
       "name": "update-service-value",
       "version": "0.1.0",
