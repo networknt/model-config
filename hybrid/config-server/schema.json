@@ -10,10 +10,10 @@
         "title": "Retrieve Config Zip File",
         "type": "object",
         "properties": {
-          "frameworkVersion": {
+          "version": {
             "type": "string"
           },
-          "buildProfile": {
+          "profile": {
             "type": "string"
           },
           "serviceId": {
@@ -21,8 +21,8 @@
           }
         },
         "required": [
-          "frameworkVersion",
-          "buildProfile",
+          "version",
+          "profile",
           "serviceId"
         ]
       }
@@ -105,6 +105,12 @@
           "serviceId": {
             "type": "string"
           },
+          "profile": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },           
           "encryptionAlgorithm": {
             "type": "string",
             "enum": [
@@ -123,6 +129,8 @@
         },
         "required": [
           "serviceId",
+          "profile",
+          "version",          
           "encryptionAlgorithm",
           "templateRepository",
           "serviceOwner"
@@ -140,10 +148,18 @@
         "properties": {
           "serviceId": {
             "type": "string"
-          }
+          },
+          "profile": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }             
         },
         "required": [
-          "serviceId"
+          "serviceId",
+          "profile",
+          "version"          
         ]
       }
     },
@@ -158,218 +174,17 @@
         "properties": {
           "serviceId": {
             "type": "string"
-          }
+          },
+          "profile": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }            
         },
         "required": [
           "serviceId"
         ]
-      }
-    },
-    {
-      "name": "create-common-value",
-      "version": "0.1.0",
-      "handler": "CreateCommonValue",
-      "scope": "light.config.w",
-      "schema": {
-        "title": "Create a new common key value entry",
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "key",
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "create-common-values",
-      "version": "0.1.0",
-      "handler": "CreateCommonValues ",
-      "scope": "light.config.w",
-      "schema": {
-        "title": "Create a list of common key value entry",
-        "type": "object",
-        "properties": {
-          "configServiceId": {
-            "type": "string"
-          },
-          "connmanValues": {
-            "type": "array",
-            "items": {
-              "key": {
-                 "type": "string"
-                },
-              "value": {
-                "type": "string"
-              }            
-            }                    
-        },
-        "required": [
-          "configServiceId"
-        ]
-      }
-     }
-    },    
-    {
-      "name": "update-common-value",
-      "version": "0.1.0",
-      "handler": "UpdateCommonValue",
-      "scope": "light.config.w",
-      "schema": {
-        "title": "Update a common key value entry",
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "key",
-          "value"
-        ]
-      }
-    },
-    {
-      "name": "delete-common-value",
-      "version": "0.1.0",
-      "handler": "DeleteCommonValue",
-      "scope": "light.config.w",
-      "schema": {
-        "title": "Delete a common key value entry",
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "key"
-        ]
-      }
-    },
-    {
-      "name": "query-common-value",
-      "version": "0.1.0",
-      "handler": "QueryCommonValue",
-      "scope": "light.config.r",
-      "schema": {
-        "title": "Query a common key value entry",
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "key"
-        ]
-      }
-    },
-    {
-      "name": "query-common-values",
-      "version": "0.1.0",
-      "handler": "QueryCommonValues",
-      "scope": "light.config.r",
-      "schema": {
-        "title": "Query all common key value entries"
-      }
-    },
-    {
-      "name": "create-common-secret",
-      "version": "0.1.0",
-      "handler": "CreateCommonSecret",
-      "scope": "light.config.w",
-      "schema": {
-        "title": "Create a new common key secret entry",
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          },
-          "secret": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "key",
-          "secret"
-        ]
-      }
-    },
-    {
-      "name": "update-common-secret",
-      "version": "0.1.0",
-      "handler": "UpdateCommonSecret",
-      "scope": "light.config.w",
-      "schema": {
-        "title": "Update a common key secret entry",
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          },
-          "secret": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "key",
-          "secret"
-        ]
-      }
-    },
-    {
-      "name": "delete-common-secret",
-      "version": "0.1.0",
-      "handler": "DeleteCommonSecret",
-      "scope": "light.config.w",
-      "schema": {
-        "title": "Delete a common key secret entry",
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "key"
-        ]
-      }
-    },
-    {
-      "name": "query-common-secret",
-      "version": "0.1.0",
-      "handler": "QueryCommonSecret",
-      "scope": "light.config.r",
-      "schema": {
-        "title": "Query a common key secret entry",
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "key"
-        ]
-      }
-    },
-    {
-      "name": "query-common-secrets",
-      "version": "0.1.0",
-      "handler": "QueryCommonSecrets",
-      "scope": "light.config.r",
-      "schema": {
-        "title": "Query all common key secret entries"
       }
     },
     {
@@ -381,7 +196,7 @@
         "title": "Create a new service specific key value entry",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "configServiceId": {
             "type": "string"
           },
           "key": {
@@ -392,7 +207,7 @@
           }
         },
         "required": [
-          "serviceId",
+          "configServiceId",
           "key",
           "value"
         ]
@@ -401,7 +216,7 @@
     {
       "name": "create-service-values",
       "version": "0.1.0",
-      "handler": "CreateServiceValues ",
+      "handler": "CreateServiceValues",
       "scope": "light.config.w",
       "schema": {
         "title": "Create a list of service key value entry",
@@ -410,7 +225,7 @@
           "configServiceId": {
             "type": "string"
           },
-          "connmanValues": {
+          "values": {
             "type": "array",
             "items": {
               "key": {
@@ -436,7 +251,7 @@
         "title": "Update a service specific key value entry",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "configServiceId": {
             "type": "string"
           },
           "key": {
@@ -447,7 +262,7 @@
           }
         },
         "required": [
-          "serviceId",
+          "configServiceId",
           "key",
           "value"
         ]
@@ -462,7 +277,7 @@
         "title": "Delete a service specific key value entry",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "configServiceId": {
             "type": "string"
           },
           "key": {
@@ -470,11 +285,29 @@
           }
         },
         "required": [
-          "serviceId",
+          "configServiceId",
           "key"
         ]
       }
     },
+    {
+      "name": "delete-service-values",
+      "version": "0.1.0",
+      "handler": "DeleteServiceValues",
+      "scope": "light.config.w",
+      "schema": {
+        "title": "Delete services vy service Id",
+        "type": "object",
+        "properties": {
+          "configServiceId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "configServiceId"
+        ]
+      }
+    },    
     {
       "name": "query-service-value",
       "version": "0.1.0",
@@ -484,7 +317,7 @@
         "title": "Query a service specific key value entry",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "configServiceId": {
             "type": "string"
           },
           "key": {
@@ -492,7 +325,7 @@
           }
         },
         "required": [
-          "serviceId",
+          "configServiceId",
           "key"
         ]
       }
@@ -506,12 +339,12 @@
         "title": "Query all service specific key value entries",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "configServiceId": {
             "type": "string"
           }
         },
         "required": [
-          "serviceId"
+          "configServiceId"
         ]
       }
     },
@@ -524,7 +357,7 @@
         "title": "Create a new service specific key secret entry",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "configServiceId": {
             "type": "string"
           },
           "key": {
@@ -535,7 +368,7 @@
           }
         },
         "required": [
-          "serviceId",
+          "configServiceId",
           "key",
           "secret"
         ]
@@ -550,7 +383,7 @@
         "title": "Update a service specific key secret entry",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "configServiceId": {
             "type": "string"
           },
           "key": {
@@ -561,7 +394,7 @@
           }
         },
         "required": [
-          "serviceId",
+          "configServiceId",
           "key",
           "secret"
         ]
@@ -576,7 +409,7 @@
         "title": "Delete a service specific key secret entry",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "configServiceId": {
             "type": "string"
           },
           "key": {
@@ -584,7 +417,7 @@
           }
         },
         "required": [
-          "serviceId",
+          "configServiceId",
           "key"
         ]
       }
@@ -598,7 +431,7 @@
         "title": "Query a service specific key secret entry",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "configServiceId": {
             "type": "string"
           },
           "key": {
@@ -606,7 +439,7 @@
           }
         },
         "required": [
-          "serviceId",
+          "configServiceId",
           "key"
         ]
       }
@@ -620,12 +453,12 @@
         "title": "Query all service specific key secret entries",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "configServiceId": {
             "type": "string"
           }
         },
         "required": [
-          "serviceId"
+          "configServiceId"
         ]
       }
     }
