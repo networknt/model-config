@@ -177,14 +177,14 @@
     "SignRequest": {
       "type": "object",
       "required": [
-        "expires_in",
+        "expires",
         "payload"
       ],
       "properties": {
-        "expires_in": {
+        "expires": {
           "type": "integer",
           "format": "int32",
-          "description": "expires in second"
+          "description": "expires in seconds"
         },
         "payload": {
           "type": "object",
