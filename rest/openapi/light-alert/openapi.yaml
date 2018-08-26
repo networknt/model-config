@@ -1,0 +1,187 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: OpenAPI Alert Server
+  license:
+    name: MIT
+servers:
+  - url: 'https://alert.lightapi.net'
+paths:
+  /rules:
+    get:
+      summary: List all rules
+      operationId: listRules
+      tags:
+        - rules
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: Set offset to a particular record count
+          required: false
+          schema:
+            type: integer
+            format: int32
+      security:
+        - alert_auth:
+            - 'alert.r'
+      responses:
+        '200':
+          description: A paged array of rules
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rule'
+              example:
+                - id: 1
+                  name: rule1
+                  type: threshold
+                  min_events: 5
+                  frequency: 1m
+                  timeframe: 2d
+                  search: search one
+                  alerter: post to Azure event hub
+                - id: 2
+                  name: rule2
+                  type: list
+                  min_events: 3
+                  frequency: 40s
+                  timeframe: 1d
+                  search: search two
+                  alerter: alert email
+    post:
+      summary: Create a rule
+      operationId: createRule
+      requestBody:
+        description: Rule to be added
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rule'
+      tags:
+        - rules
+      security:
+        - petstore_auth:
+            - 'alert.r'
+            - 'alert.w'
+      responses:
+        '201':
+          description: Null response
+  '/rules/{ruleId}':
+    get:
+      summary: Info for a specific rule
+      operationId: getRuleById
+      tags:
+        - rules
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          description: The id of the rule to retrieve
+          schema:
+            type: string
+      security:
+        - alert_auth:
+            - 'alert.r'
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+              example:
+                - id: 1
+                  name: rule1
+                  type: threshold
+                  min_events: 5
+                  frequency: 1m
+                  timeframe: 2d
+                  search: search one
+                  alerter: post to Azure event hub
+    delete:
+      summary: Delete a specific pet
+      operationId: deleteRuleById
+      tags:
+        - rules
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          description: The id of the rule to delete
+          schema:
+            type: string
+      security:
+        - alert_auth:
+            - 'alert.w'
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+              examples:
+                response:
+                  value:
+                  - id: 1
+                    name: rule1
+                    type: threshold
+                    min_events: 5
+                    frequency: 1m
+                    timeframe: 2d
+                    search: search one
+                    alerter: post to Azure event hub
+components:
+  securitySchemes:
+    alert_auth:
+      type: oauth2
+      description: This API uses OAuth 2.0 with the client credential grant flow.
+      flows:
+        clientCredentials:
+          tokenUrl: 'https://localhost:6882/token'
+          scopes:
+            'alert.r': read rules
+            'alert.w': write rules
+  schemas:
+    Rule:
+      required:
+        - id
+        - name
+        - type
+        - min_events
+        - disabled
+        - frequency
+        - timeframe
+        - search
+        - alerter
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        min_events:
+          type: integer
+          format: int32
+        disabled:
+          type: boolean
+        frequency:
+          type: string
+        timeframe: 
+          type: string
+        search: 
+          type: string
+        alerter:
+          type: string
