@@ -36,16 +36,12 @@
         "title": "Initialize Server Encryption Key",
         "type": "object",
         "properties": {
-          "keyOne": {
-            "type": "string"
-          },
-          "keyTwo": {
+          "key": {
             "type": "string"
           }
         },
         "required": [
-          "keyOne",
-          "keyTwo"
+          "key"
         ]
       }
     },
