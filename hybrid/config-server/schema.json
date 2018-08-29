@@ -371,6 +371,35 @@
       }
     },
     {
+      "name": "create-service-secrets",
+      "version": "0.1.0",
+      "handler": "CreateServiceSecrets",
+      "scope": "light.config.w",
+      "schema": {
+        "title": "Create a list of service key secret value entry",
+        "type": "object",
+        "properties": {
+          "configServiceId": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "key": {
+                 "type": "string"
+                },
+              "value": {
+                "type": "string"
+              }            
+            }                    
+        },
+        "required": [
+          "configServiceId"
+        ]
+      }
+     }
+    },        
+    {
       "name": "update-service-secret",
       "version": "0.1.0",
       "handler": "UpdateServiceSecret",
