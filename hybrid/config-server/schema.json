@@ -455,7 +455,7 @@
       }
     },
     {
-      "name": "update-service-secret",
+      "name": "update-service-secrets",
       "version": "0.1.0",
       "handler": "UpdateServiceSecrets",
       "scope": "light.config.w",
