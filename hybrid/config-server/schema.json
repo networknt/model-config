@@ -265,6 +265,35 @@
       }
     },
     {
+      "name": "update-service-values",
+      "version": "0.1.0",
+      "handler": "UpdateServiceValues",
+      "scope": "light.config.w",
+      "schema": {
+        "title": "Update a list of service key value entry",
+        "type": "object",
+        "properties": {
+          "configServiceId": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "key": {
+                 "type": "string"
+                },
+              "value": {
+                "type": "string"
+              }            
+            }                    
+        },
+        "required": [
+          "configServiceId"
+        ]
+      }
+     }
+    },      
+    {
       "name": "delete-service-value",
       "version": "0.1.0",
       "handler": "DeleteServiceValue",
@@ -414,7 +443,7 @@
           "key": {
             "type": "string"
           },
-          "secret": {
+          "value": {
             "type": "string"
           }
         },
@@ -425,6 +454,35 @@
         ]
       }
     },
+    {
+      "name": "update-service-secret",
+      "version": "0.1.0",
+      "handler": "UpdateServiceSecrets",
+      "scope": "light.config.w",
+      "schema": {
+        "title": "Update a list of service key secret value entry",
+        "type": "object",
+        "properties": {
+          "configServiceId": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "key": {
+                 "type": "string"
+                },
+              "value": {
+                "type": "string"
+              }            
+            }                    
+        },
+        "required": [
+          "configServiceId"
+        ]
+      }
+     }
+    },       
     {
       "name": "delete-service-secret",
       "version": "0.1.0",
