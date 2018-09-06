@@ -1,0 +1,356 @@
+{
+  "host": "lightapi.net",
+  "service": "user",
+  "action": [
+    {
+      "name": "getUsers",
+      "version": "0.1.0",
+      "handler": "GetUsers",
+      "scope": "user.all.r",
+      "schema": {
+        "title": "Service"
+      }      
+    },   
+    {
+      "name": "getUserById",
+      "version": "0.1.0",
+      "handler": "GetUserById",
+      "scope": "user.all.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]        
+      }
+    },
+    {
+      "name": "getUserByEmail",
+      "version": "0.1.0",
+      "handler": "GetUserByEmail",
+      "scope": "user.all.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ]        
+      }
+    },
+    {
+      "name": "getUserByName",
+      "version": "0.1.0",
+      "handler": "GetUserByName",
+      "scope": "user.all.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]        
+      }
+    },
+    {
+      "name": "createUser",
+      "version": "0.1.0",
+      "handler": "GetNewUser",
+      "scope": "user.a",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "id": {
+              "type": "string",
+              "description": "a UUID generated"
+          },
+          "host": {
+              "type": "string",
+              "description": "user host indicator the organization for user"
+          },
+          "screenName": {
+              "type": "string",
+              "description": "screenName of user"
+          },
+          "timezone": {
+              "type": "string",
+              "description": "timezone name of user"
+          },
+          "locale": {
+               "type": "string",
+               "description": "locale display name of user"
+          },
+          "password": {
+               "type": "string",
+               "description": "raw password of user"
+          },    
+          "ContactData": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "email address of the user"
+                },
+                "firstName": {
+                    "type": "string",
+                    "description": "firstName of the user"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "firstName of the user"
+                },
+                "gender": {
+                    "type": "string",
+                    "description": "user gender type",
+                    "enum": [
+                        "FEMALE",
+                        "MALE",
+                        "UNKNOWN"
+                    ]
+                },
+                "birthday": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "birthday of the user"
+                },
+               "addresses": {
+                  "type": "array",
+                  "items": {
+                   "AddressData": {
+                          "type": "object",
+                          "properties": {
+                           "country": {
+                               "type": "string",
+                               "description": "country name"
+                            },
+                          "state": {
+                             "type": "string",
+                             "description": "state name"
+                           },
+                          "city": {
+                             "type": "string",
+                             "description": "city name"
+                           },                                           
+                         "zipCode": {
+                              "type": "string",
+                             "description": "postal code"
+                          },
+                         "addressLine1": {
+                              "type": "string",
+                             "description": "address line1"
+                          },
+                         "addressLine2": {
+                              "type": "string",
+                             "description": "address line 2"
+                          }, 
+                         "addressType": {
+                              "type": "string",
+                             "description": "address type",
+                            "enum": [
+                               "BILLING",
+                               "SHIPPING"
+                               ]               
+                          }                                                    
+                        }
+                   }                  
+                }        
+             }  
+            }
+        }                            
+        },
+        "required": [
+          "host"
+        ]        
+      }
+    },
+    {
+      "name": "deleteUserById",
+      "version": "0.1.0",
+      "handler": "DeleteUserById",
+      "scope": "user.a",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]        
+      }
+    },    
+    {
+      "name": "updateUser",
+      "version": "0.1.0",
+      "handler": "UpdateUserById",
+      "scope": "user.a",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "id": {
+              "type": "string",
+              "description": "a UUID generated"
+          },
+          "host": {
+              "type": "string",
+              "description": "user host indicator the organization for user"
+          },
+          "screenName": {
+              "type": "string",
+              "description": "screenName of user"
+          },
+          "timezone": {
+              "type": "string",
+              "description": "timezone name of user"
+          },
+          "locale": {
+               "type": "string",
+               "description": "locale display name of user"
+          },
+          "password": {
+               "type": "string",
+               "description": "raw password of user"
+          },    
+          "ContactData": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "email address of the user"
+                },
+                "firstName": {
+                    "type": "string",
+                    "description": "firstName of the user"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "firstName of the user"
+                },
+                "gender": {
+                    "type": "string",
+                    "description": "user gender type",
+                    "enum": [
+                        "FEMALE",
+                        "MALE",
+                        "UNKNOWN"
+                    ]
+                },
+                "birthday": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "birthday of the user"
+                },
+               "addresses": {
+                  "type": "array",
+                  "items": {
+                   "AddressData": {
+                          "type": "object",
+                          "properties": {
+                           "country": {
+                               "type": "string",
+                               "description": "country name"
+                            },
+                          "state": {
+                             "type": "string",
+                             "description": "state name"
+                           },
+                          "city": {
+                             "type": "string",
+                             "description": "city name"
+                           },                                           
+                         "zipCode": {
+                              "type": "string",
+                             "description": "postal code"
+                          },
+                         "addressLine1": {
+                              "type": "string",
+                             "description": "address line1"
+                          },
+                         "addressLine2": {
+                              "type": "string",
+                             "description": "address line 2"
+                          }, 
+                         "addressType": {
+                              "type": "string",
+                             "description": "address type",
+                            "enum": [
+                               "BILLING",
+                               "SHIPPING"
+                               ]               
+                          }                                                    
+                        }
+                   }                  
+                }        
+             }                  
+            }
+        }                            
+        },
+        "required": [
+          "id"
+        ]        
+      }
+    },  
+    {
+      "name": "loginUser",
+      "version": "0.1.0",
+      "handler": "loginUser",
+      "scope": "user.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+            "nameOrEmail": {
+                  "type": "string",
+                  "description": "user screenName or email for login"
+             },
+             "password": {
+                  "type": "string",
+                  "description": "user password for user login"
+              },
+              "token": {
+                  "type": "string",
+                  "description": "token with the user login"
+              }
+        },
+        "required": [
+          "nameOrEmail"
+        ]        
+      }
+    },   
+    {
+      "name": "confirmUser",
+      "version": "0.1.0",
+      "handler": "ConfirmUser",
+      "scope": "user.a",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "tokenId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tokenId"
+        ]        
+      }
+    }                          
+  ]
+}

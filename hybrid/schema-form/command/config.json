@@ -12,6 +12,7 @@
   "enableHttp": false,
   "httpsPort": 8443,
   "enableHttps": true,
+  "enableHttp2": true,
   "enableRegistry": false,
   "supportOracle": false,
   "supportMysql": false,
