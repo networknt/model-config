@@ -8,7 +8,7 @@
   "version": "0.1.0",
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
-  "httpPort": 8082,
+  "httpPort": 8083,
   "enableHttp": false,
   "httpsPort": 8445,
   "enableHttps": true,

@@ -3,185 +3,119 @@
   "service": "user",
   "action": [
     {
-      "name": "getUsers",
-      "version": "0.1.0",
-      "handler": "GetUsers",
-      "scope": "user.all.r",
-      "schema": {
-        "title": "Service"
-      }      
-    },   
-    {
-      "name": "getUserById",
-      "version": "0.1.0",
-      "handler": "GetUserById",
-      "scope": "user.all.r",
-      "schema": {
-        "title": "Service",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "id"
-        ]        
-      }
-    },
-    {
-      "name": "getUserByEmail",
-      "version": "0.1.0",
-      "handler": "GetUserByEmail",
-      "scope": "user.all.r",
-      "schema": {
-        "title": "Service",
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "email"
-        ]        
-      }
-    },
-    {
-      "name": "getUserByName",
-      "version": "0.1.0",
-      "handler": "GetUserByName",
-      "scope": "user.all.r",
-      "schema": {
-        "title": "Service",
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "name"
-        ]        
-      }
-    },
-    {
       "name": "createUser",
       "version": "0.1.0",
-      "handler": "GetNewUser",
-      "scope": "user.a",
+      "handler": "CreateUser",
+      "scope": "user.w",
       "schema": {
         "title": "Service",
         "type": "object",
         "properties": {
           "id": {
-              "type": "string",
-              "description": "a UUID generated"
+            "type": "string",
+            "description": "a UUID generated"
           },
           "host": {
-              "type": "string",
-              "description": "user host indicator the organization for user"
+            "type": "string",
+            "description": "user host indicator the organization for user"
           },
-          "screenName": {
-              "type": "string",
-              "description": "screenName of user"
+          "email": {
+            "type": "string",
+            "description": "user email address"
+          },
+          "userId": {
+            "type": "string",
+            "description": "screenName of user"
           },
           "timezone": {
-              "type": "string",
-              "description": "timezone name of user"
+            "type": "string",
+            "description": "timezone name of user"
           },
           "locale": {
-               "type": "string",
-               "description": "locale display name of user"
+            "type": "string",
+            "description": "locale display name of user"
           },
           "password": {
-               "type": "string",
-               "description": "raw password of user"
-          },    
-          "ContactData": {
-            "type": "object",
-            "properties": {
-                "email": {
+            "type": "string",
+            "description": "raw password of user"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "firstName of the user"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "firstName of the user"
+          },
+          "gender": {
+            "type": "string",
+            "description": "user gender type",
+            "enum": [
+              "FEMALE",
+              "MALE",
+              "UNKNOWN"
+            ]
+          },
+          "birthday": {
+            "type": "string",
+            "format": "date-time",
+            "description": "birthday of the user"
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "AddressData": {
+                "type": "object",
+                "properties": {
+                  "country": {
                     "type": "string",
-                    "description": "email address of the user"
-                },
-                "firstName": {
+                    "description": "country name"
+                  },
+                  "state": {
                     "type": "string",
-                    "description": "firstName of the user"
-                },
-                "lastName": {
+                    "description": "state name"
+                  },
+                  "city": {
                     "type": "string",
-                    "description": "firstName of the user"
-                },
-                "gender": {
+                    "description": "city name"
+                  },
+                  "zipCode": {
                     "type": "string",
-                    "description": "user gender type",
+                    "description": "postal code"
+                  },
+                  "addressLine1": {
+                    "type": "string",
+                    "description": "address line1"
+                  },
+                  "addressLine2": {
+                    "type": "string",
+                    "description": "address line 2"
+                  },
+                  "addressType": {
+                    "type": "string",
+                    "description": "address type",
                     "enum": [
-                        "FEMALE",
-                        "MALE",
-                        "UNKNOWN"
+                      "BILLING",
+                      "SHIPPING"
                     ]
-                },
-                "birthday": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "birthday of the user"
-                },
-               "addresses": {
-                  "type": "array",
-                  "items": {
-                   "AddressData": {
-                          "type": "object",
-                          "properties": {
-                           "country": {
-                               "type": "string",
-                               "description": "country name"
-                            },
-                          "state": {
-                             "type": "string",
-                             "description": "state name"
-                           },
-                          "city": {
-                             "type": "string",
-                             "description": "city name"
-                           },                                           
-                         "zipCode": {
-                              "type": "string",
-                             "description": "postal code"
-                          },
-                         "addressLine1": {
-                              "type": "string",
-                             "description": "address line1"
-                          },
-                         "addressLine2": {
-                              "type": "string",
-                             "description": "address line 2"
-                          }, 
-                         "addressType": {
-                              "type": "string",
-                             "description": "address type",
-                            "enum": [
-                               "BILLING",
-                               "SHIPPING"
-                               ]               
-                          }                                                    
-                        }
-                   }                  
-                }        
-             }  
+                  }
+                }
+              }
             }
-        }                            
+          }
         },
         "required": [
-          "host"
-        ]        
+          "host",
+          "userId",
+          "email"
+        ]
       }
     },
     {
       "name": "deleteUserById",
       "version": "0.1.0",
       "handler": "DeleteUserById",
-      "scope": "user.a",
+      "scope": "user.w",
       "schema": {
         "title": "Service",
         "type": "object",
@@ -192,153 +126,152 @@
         },
         "required": [
           "id"
-        ]        
+        ]
       }
-    },    
+    },
     {
       "name": "updateUser",
       "version": "0.1.0",
       "handler": "UpdateUserById",
-      "scope": "user.a",
+      "scope": "user.w",
       "schema": {
         "title": "Service",
         "type": "object",
         "properties": {
           "id": {
-              "type": "string",
-              "description": "a UUID generated"
+            "type": "string",
+            "description": "a UUID generated"
           },
           "host": {
-              "type": "string",
-              "description": "user host indicator the organization for user"
+            "type": "string",
+            "description": "user host indicator the organization for user"
           },
-          "screenName": {
-              "type": "string",
-              "description": "screenName of user"
+          "email": {
+            "type": "string",
+            "description": "email address of the user"
+          },
+          "userId": {
+            "type": "string",
+            "description": "screenName of user"
           },
           "timezone": {
-              "type": "string",
-              "description": "timezone name of user"
+            "type": "string",
+            "description": "timezone name of user"
           },
           "locale": {
-               "type": "string",
-               "description": "locale display name of user"
+            "type": "string",
+            "description": "locale display name of user"
           },
           "password": {
-               "type": "string",
-               "description": "raw password of user"
-          },    
-          "ContactData": {
-            "type": "object",
-            "properties": {
-                "email": {
+            "type": "string",
+            "description": "raw password of user"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "firstName of the user"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "firstName of the user"
+          },
+          "gender": {
+            "type": "string",
+            "description": "user gender type",
+            "enum": [
+              "FEMALE",
+              "MALE",
+              "UNKNOWN"
+            ]
+          },
+          "birthday": {
+            "type": "string",
+            "format": "date-time",
+            "description": "birthday of the user"
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "AddressData": {
+                "type": "object",
+                "properties": {
+                  "country": {
                     "type": "string",
-                    "description": "email address of the user"
-                },
-                "firstName": {
+                    "description": "country name"
+                  },
+                  "state": {
                     "type": "string",
-                    "description": "firstName of the user"
-                },
-                "lastName": {
+                    "description": "state name"
+                  },
+                  "city": {
                     "type": "string",
-                    "description": "firstName of the user"
-                },
-                "gender": {
+                    "description": "city name"
+                  },
+                  "zipCode": {
                     "type": "string",
-                    "description": "user gender type",
+                    "description": "postal code"
+                  },
+                  "addressLine1": {
+                    "type": "string",
+                    "description": "address line1"
+                  },
+                  "addressLine2": {
+                    "type": "string",
+                    "description": "address line 2"
+                  },
+                  "addressType": {
+                    "type": "string",
+                    "description": "address type",
                     "enum": [
-                        "FEMALE",
-                        "MALE",
-                        "UNKNOWN"
+                      "BILLING",
+                      "SHIPPING"
                     ]
-                },
-                "birthday": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "birthday of the user"
-                },
-               "addresses": {
-                  "type": "array",
-                  "items": {
-                   "AddressData": {
-                          "type": "object",
-                          "properties": {
-                           "country": {
-                               "type": "string",
-                               "description": "country name"
-                            },
-                          "state": {
-                             "type": "string",
-                             "description": "state name"
-                           },
-                          "city": {
-                             "type": "string",
-                             "description": "city name"
-                           },                                           
-                         "zipCode": {
-                              "type": "string",
-                             "description": "postal code"
-                          },
-                         "addressLine1": {
-                              "type": "string",
-                             "description": "address line1"
-                          },
-                         "addressLine2": {
-                              "type": "string",
-                             "description": "address line 2"
-                          }, 
-                         "addressType": {
-                              "type": "string",
-                             "description": "address type",
-                            "enum": [
-                               "BILLING",
-                               "SHIPPING"
-                               ]               
-                          }                                                    
-                        }
-                   }                  
-                }        
-             }                  
+                  }
+                }
+              }
             }
-        }                            
+          }
         },
         "required": [
-          "id"
-        ]        
+          "id",
+          "host",
+          "userId",
+          "email"
+        ]
       }
-    },  
+    },
     {
-      "name": "loginUser",
+      "name": "signInUser",
       "version": "0.1.0",
-      "handler": "loginUser",
-      "scope": "user.r",
+      "handler": "SignInUser",
+      "scope": "user.l",
       "schema": {
         "title": "Service",
         "type": "object",
         "properties": {
-            "nameOrEmail": {
-                  "type": "string",
-                  "description": "user screenName or email for login"
-             },
-             "password": {
-                  "type": "string",
-                  "description": "user password for user login"
-              },
-              "token": {
-                  "type": "string",
-                  "description": "token with the user login"
-              }
+          "userIdEmail": {
+            "type": "string",
+            "description": "userId or email for login"
+          },
+          "password": {
+            "type": "string",
+            "description": "user password for user login"
+          },
+          "rememberMe": {
+            "type": "boolean",
+            "description": "remember the user session for 30 days"
+          }
         },
         "required": [
-          "nameOrEmail"
-        ]        
+          "userIdEmail",
+          "password"
+        ]
       }
-    },   
+    },
     {
       "name": "confirmUser",
       "version": "0.1.0",
       "handler": "ConfirmUser",
-      "scope": "user.a",
+      "scope": "user.c",
       "schema": {
         "title": "Service",
         "type": "object",
@@ -349,8 +282,8 @@
         },
         "required": [
           "tokenId"
-        ]        
+        ]
       }
-    }                          
+    }
   ]
 }
