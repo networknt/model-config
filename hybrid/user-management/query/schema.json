@@ -3,6 +3,30 @@
   "service": "user",
   "action": [
     {
+      "name": "signInUser",
+      "version": "0.1.0",
+      "handler": "SignInUser",
+      "scope": "user.l",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "userIdEmail": {
+            "type": "string",
+            "description": "userId or email for login"
+          },
+          "password": {
+            "type": "string",
+            "description": "user password for user login"
+          }
+        },
+        "required": [
+          "userIdEmail",
+          "password"
+        ]
+      }
+    },
+    {
       "name": "getUsers",
       "version": "0.1.0",
       "handler": "GetUsers",

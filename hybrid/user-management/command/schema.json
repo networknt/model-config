@@ -250,34 +250,6 @@
       }
     },
     {
-      "name": "signInUser",
-      "version": "0.1.0",
-      "handler": "SignInUser",
-      "scope": "user.l",
-      "schema": {
-        "title": "Service",
-        "type": "object",
-        "properties": {
-          "userIdEmail": {
-            "type": "string",
-            "description": "userId or email for login"
-          },
-          "password": {
-            "type": "string",
-            "description": "user password for user login"
-          },
-          "rememberMe": {
-            "type": "boolean",
-            "description": "remember the user session for 30 days"
-          }
-        },
-        "required": [
-          "userIdEmail",
-          "password"
-        ]
-      }
-    },
-    {
       "name": "confirmUser",
       "version": "0.1.0",
       "handler": "ConfirmUser",
