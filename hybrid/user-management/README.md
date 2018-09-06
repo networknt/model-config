@@ -13,10 +13,20 @@ Here are the commands to generate the services within [light-codegen](https://gi
 directory.
 
 Before running the command line utility, make sure you have light-codegen and model-config 
-cloned to your working directory. Also, the light-portal project must be in the same 
-working directory.
+cloned to your working directory. 
+
+In most of the cases, I would regenerate the project to a separate folder and do full text comparison to merge the code. 
+
+generate the command side service
 
 ```
-java -jar codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o ~/networknt/light-portal/user-management/hybrid-service -m ~/networknt/model-config/hybrid/user-management/schema.json -c ~/networknt/model-config/hybrid/user-management/config.json
+cd ~/networknt
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o /tmp/hybrid-command -m model-config/hybrid/user-management/command/schema.json -c model-config/hybrid/user-management/command/config.json
 ```
 
+generate the query side service
+
+```
+cd ~/networknt
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o /tmp/hybrid-query -m model-config/hybrid/user-management/query/schema.json -c model-config/hybrid/user-management/query/config.json
+```

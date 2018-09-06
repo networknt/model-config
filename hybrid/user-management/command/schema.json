@@ -39,6 +39,10 @@
             "type": "string",
             "description": "raw password of user"
           },
+          "passwordConfirm": {
+            "type": "string",
+            "description": "password confirm of user"
+          },
           "firstName": {
             "type": "string",
             "description": "firstName of the user"
@@ -107,7 +111,9 @@
         "required": [
           "host",
           "userId",
-          "email"
+          "email",
+          "password",
+          "passwordConfirm"
         ]
       }
     },
@@ -165,6 +171,10 @@
           "password": {
             "type": "string",
             "description": "raw password of user"
+          },
+          "passwordConfirm": {
+            "type": "string",
+            "description": "password confirm of user"
           },
           "firstName": {
             "type": "string",
