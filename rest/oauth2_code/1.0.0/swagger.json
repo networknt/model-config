@@ -14,7 +14,6 @@
     },
     "host": "oauth2.networknt.com",
     "schemes": [
-        "http",
         "https"
     ],
     "consumes": [
