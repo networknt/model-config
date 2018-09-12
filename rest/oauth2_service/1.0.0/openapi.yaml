@@ -9,8 +9,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
-  - url: 'http://oauth2.networknt.com/'
-  - url: 'https://oauth2.networknt.com/'    
+  - url: 'https://oauth2.networknt.com'    
 paths:
   /oauth2/service:
     post:
