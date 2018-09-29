@@ -14,10 +14,7 @@
   },
   "servers": [
     {
-      "url": "http://oauth2.networknt.com/"
-    },
-    {
-      "url": "https://oauth2.networknt.com/"
+      "url": "https://oauth2.networknt.com"
     }
   ],
   "paths": {
