@@ -1,0 +1,279 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Partner Server for Light Blockchain",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://partner.networknt.com/"
+    }
+  ],
+  "paths": {
+    "/transactions/{currency}": {
+      "get": {
+        "summary": "List latest transactions",
+        "operationId": "queryTxs",
+        "tags": [
+          "txs"
+        ],
+        "parameters": [
+          {
+            "name": "currency",
+            "in": "path",
+            "description": "Currency name of for the blockchain",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "gluon"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "How many items to return at one time (max 100 and default 10)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset of transactions (default 0 which is from the last transaction)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paged array of txs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  }
+                },
+                "example": [
+                  {
+                    "c": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ],
+                    "d": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60",
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ]
+                  },
+                  {
+                    "c": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ],
+                    "d": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a list of new transactions in a batch",
+        "operationId": "createTransactions",
+        "parameters": [
+          {
+            "name": "currency",
+            "in": "path",
+            "description": "Currency name of for the blockchain",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "taiji"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Transactions in encoded format to add to the blockchain",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "txs"
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.r",
+              "tx.w"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Null response"
+          }
+        }
+      }
+    },
+    "/transaction/{currency}": {
+      "post": {
+        "summary": "Create a single transaction with a list of credit entries and debit entries",
+        "operationId": "createTransaction",
+        "parameters": [
+          {
+            "name": "currency",
+            "in": "path",
+            "description": "Currency name of for the blockchain",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "taiji"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Transaction in encoded format to add to the blockchain",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transaction"
+              }
+            }
+          }
+        },
+        "tags": [
+          "transactions"
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.r",
+              "tx.w"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Null response"
+          }
+        }
+      }
+    },
+    "/transaction/{txId}": {
+      "get": {
+        "summary": "Info for a specific pet",
+        "operationId": "showPetById",
+        "tags": [
+          "txs"
+        ],
+        "parameters": [
+          {
+            "name": "txId",
+            "in": "path",
+            "required": true,
+            "description": "The id of the pet to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "petstore_auth": [
+              "read:pets"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                },
+                "example": {
+                  "id": 1,
+                  "name": "Jessica Right",
+                  "tag": "pet"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "tx_auth": {
+        "type": "oauth2",
+        "description": "This API uses OAuth 2 with the client credential grant flow.",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://localhost:6882/token",
+            "scopes": {
+              "tx.r": "query txs",
+              "tx.w": "create tx"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Transaction": {
+        "properties": {
+          "d": {
+            "type": "array",
+            "items": {
+              "description": "debit entries",
+              "type": "string",
+              "minItems": 1
+            }
+          },
+          "c": {
+            "type": "array",
+            "items": {
+              "description": "credit entries",
+              "type": "string",
+              "minItems": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
