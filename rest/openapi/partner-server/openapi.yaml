@@ -49,14 +49,14 @@ paths:
                   $ref: '#/components/schemas/Transaction'
               example:
                 - c: 
-                  - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60': '+GKUAbkozMNSdDuYq6XvkZ4PhzHbR9KIDeC2s6dkAACAHKAh2FqR3tQLisfkUfvLAZy1rfu9ipj4WFX/fhxCwLQShaBfAq5WjpGu1FVFM86d6ZiBl4Ln+6ittKQXwT7V3kd3MA=='
+                  - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60'
                   d: 
-                  - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60': '+GKUAbkozMNSdDuYq6XvkZ4PhzHbR9KIDeC2s6dkAACAHKAh2FqR3tQLisfkUfvLAZy1rfu9ipj4WFX/fhxCwLQShaBfAq5WjpGu1FVFM86d6ZiBl4Ln+6ittKQXwT7V3kd3MA=='
-                  - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60': '+GKUAbkozMNSdDuYq6XvkZ4PhzHbR9KIDeC2s6dkAACAHKAh2FqR3tQLisfkUfvLAZy1rfu9ipj4WFX/fhxCwLQShaBfAq5WjpGu1FVFM86d6ZiBl4Ln+6ittKQXwT7V3kd3MA=='
+                  - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60'
+                  - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60'
                 - c: 
-                  - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60': '+GKUAbkozMNSdDuYq6XvkZ4PhzHbR9KIDeC2s6dkAACAHKAh2FqR3tQLisfkUfvLAZy1rfu9ipj4WFX/fhxCwLQShaBfAq5WjpGu1FVFM86d6ZiBl4Ln+6ittKQXwT7V3kd3MA=='
+                  - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60'
                   d:
-                  - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60': '+GKUAbkozMNSdDuYq6XvkZ4PhzHbR9KIDeC2s6dkAACAHKAh2FqR3tQLisfkUfvLAZy1rfu9ipj4WFX/fhxCwLQShaBfAq5WjpGu1FVFM86d6ZiBl4Ln+6ittKQXwT7V3kd3MA=='
+                  - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60'
     post:
       summary: Create a list of new transactions in a batch
       operationId: createTransactions
@@ -159,12 +159,14 @@ components:
         d:
           type: array
           items: 
-            description: debit entries
-            type: string
-            minItems: 1
+            $ref: '#/components/schemas/LedgerEntry'
         c:
           type: array
           items: 
-            description: credit entries
-            type: string
-            minItems: 1
+            $ref: '#/components/schemas/LedgerEntry'
+    LedgerEntry:
+      properties:
+        address: 
+          type: string
+        signedEntry:
+          type: string
