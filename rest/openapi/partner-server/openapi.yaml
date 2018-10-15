@@ -5,7 +5,7 @@ info:
   license:
     name: MIT
 servers:
-  - url: 'http://partner.networknt.com/'
+  - url: 'http://partner.networknt.com'
 paths:
   '/transactions/{currency}':
     get:
