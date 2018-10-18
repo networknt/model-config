@@ -29,7 +29,7 @@
             "schema": {
               "type": "string",
               "enum": [
-                "gluon"
+                "taiji"
               ]
             }
           },
@@ -74,6 +74,7 @@
                 },
                 "example": [
                   {
+                    "currency": "taiji",
                     "c": [
                       "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
                     ],
@@ -83,6 +84,7 @@
                     ]
                   },
                   {
+                    "currency": "taiji",
                     "c": [
                       "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
                     ],
@@ -145,24 +147,10 @@
         }
       }
     },
-    "/transaction/{currency}": {
+    "/transaction": {
       "post": {
         "summary": "Create a single transaction with a list of credit entries and debit entries",
         "operationId": "createTransaction",
-        "parameters": [
-          {
-            "name": "currency",
-            "in": "path",
-            "description": "Currency name of for the blockchain",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "taiji"
-              ]
-            }
-          }
-        ],
         "requestBody": {
           "description": "Transaction in encoded format to add to the blockchain",
           "required": true,
@@ -194,8 +182,8 @@
     },
     "/transaction/{txId}": {
       "get": {
-        "summary": "Info for a specific pet",
-        "operationId": "showPetById",
+        "summary": "Info for a specific transaction",
+        "operationId": "getTransactionById",
         "tags": [
           "txs"
         ],
@@ -204,7 +192,7 @@
             "name": "txId",
             "in": "path",
             "required": true,
-            "description": "The id of the pet to retrieve",
+            "description": "The id of the transaction to retrieve",
             "schema": {
               "type": "string"
             }
@@ -213,7 +201,7 @@
         "security": [
           {
             "petstore_auth": [
-              "read:pets"
+              "tx.r"
             ]
           }
         ],
@@ -256,6 +244,12 @@
     "schemas": {
       "Transaction": {
         "properties": {
+          "currency": {
+            "type": "string",
+            "enum": [
+              "taiji"
+            ]
+          },
           "d": {
             "type": "array",
             "items": {

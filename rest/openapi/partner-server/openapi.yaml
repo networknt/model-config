@@ -20,7 +20,7 @@ paths:
           required: true
           schema:
             type: string
-            enum: [gluon]
+            enum: [taiji]
         - name: limit
           in: query
           description: How many items to return at one time (max 100 and default 10) 
@@ -48,12 +48,14 @@ paths:
                 items:
                   $ref: '#/components/schemas/Transaction'
               example:
-                - c: 
+                - currency: taiji
+                  c: 
                   - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60'
                   d: 
                   - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60'
                   - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60'
-                - c: 
+                - currency: taiji
+                  c: 
                   - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60'
                   d:
                   - '0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60'
@@ -86,18 +88,10 @@ paths:
       responses:
         '201':
           description: Null response
-  '/transaction/{currency}':
+  '/transaction':
     post:
       summary: Create a single transaction with a list of credit entries and debit entries
       operationId: createTransaction
-      parameters:
-        - name: currency
-          in: path
-          description: Currency name of for the blockchain
-          required: true
-          schema:
-            type: string
-            enum: [taiji]
       requestBody:
         description: Transaction in encoded format to add to the blockchain
         required: true
@@ -117,20 +111,20 @@ paths:
     
   '/transaction/{txId}':
     get:
-      summary: Info for a specific pet
-      operationId: showPetById
+      summary: Info for a specific transaction
+      operationId: getTransactionById
       tags:
         - txs
       parameters:
         - name: txId
           in: path
           required: true
-          description: The id of the pet to retrieve
+          description: The id of the transaction to retrieve
           schema:
             type: string
       security:
         - petstore_auth:
-            - 'read:pets'
+            - 'tx.r'
       responses:
         '200':
           description: Expected response to a valid request
@@ -156,6 +150,9 @@ components:
   schemas:
     Transaction:
       properties:
+        currency: 
+          type: string
+          enum: [taiji]
         d:
           type: array
           items: 
