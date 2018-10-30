@@ -35,6 +35,9 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Water"
+              },
+              "example": {
+                "taiji": 100000000000
               }
             }
           }
@@ -81,7 +84,14 @@
         ],
         "responses": {
           "200": {
-            "description": "A snapshot of accounts for an address"
+            "description": "A snapshot of accounts for an address",
+            "content": {
+              "application/json": {
+                "example": {
+                  "taiji": 100000000000
+                }
+              }
+            }
           }
         }
       }
