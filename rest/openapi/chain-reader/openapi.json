@@ -1,0 +1,462 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Chain reader service for light blockchain",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://reader.networknt.com"
+    }
+  ],
+  "paths": {
+    "/account/{address}": {
+      "get": {
+        "summary": "Get all information about an address like currency accounts, balances and the last 10 transactions of each account.",
+        "operationId": "getAddress",
+        "tags": [
+          "address"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The blockchain address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paged array of accounts and txs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  }
+                },
+                "example": [
+                  {
+                    "currency": "taiji",
+                    "c": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ],
+                    "d": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60",
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ]
+                  },
+                  {
+                    "currency": "taiji",
+                    "c": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ],
+                    "d": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/account/{address}/{currency}": {
+      "get": {
+        "summary": "Get all information about an account for an address of balances and the last 10 transactions.",
+        "operationId": "getAccount",
+        "tags": [
+          "account"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The blockchain address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "path",
+            "description": "The currency account",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "taiji"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "How many items to return at one time (max 100 and default 10)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset of transactions (default 0 which is from the last transaction)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paged array of txs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  }
+                },
+                "example": [
+                  {
+                    "currency": "taiji",
+                    "c": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ],
+                    "d": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60",
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ]
+                  },
+                  {
+                    "currency": "taiji",
+                    "c": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ],
+                    "d": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transaction/{address}/{currency}": {
+      "get": {
+        "summary": "Get tranactions about an account for an address.",
+        "operationId": "getTransactionByAccount",
+        "tags": [
+          "transaction"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The blockchain address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "path",
+            "description": "The currency account",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "taiji"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "How many items to return at one time (max 100 and default 10)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset of transactions (default 0 which is from the last transaction)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paged array of txs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  }
+                },
+                "example": [
+                  {
+                    "currency": "taiji",
+                    "c": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ],
+                    "d": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60",
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ]
+                  },
+                  {
+                    "currency": "taiji",
+                    "c": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ],
+                    "d": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ledger/{currency}": {
+      "get": {
+        "summary": "Get last number of ledger entries from home bank which is the first 4 digits of your address.",
+        "operationId": "getLedgerByCurrency",
+        "tags": [
+          "getLedgerByCurrency"
+        ],
+        "parameters": [
+          {
+            "name": "currency",
+            "in": "path",
+            "description": "The currency",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "taiji"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "How many items to return at one time (max 1000 and default 10)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          }
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paged array of txs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  }
+                },
+                "example": [
+                  {
+                    "00007208c97fffee67c1186686f272ecf17f29e9": null,
+                    "id": 39,
+                    "toAddress": "00007208c97fffee67c1186686f272ecf17f29e9",
+                    "value": 1000000000000,
+                    "data": "",
+                    "signatureData": {
+                      "v": 28,
+                      "r": "QT0B8P2rNZo0D8bsJ35+92/o6VEUwqMKIqYrx6skU+w=",
+                      "s": "ZDnhhRpn+dEFXPcAG4VhfRA/1NkMAprkWXxECZsYb7I="
+                    },
+                    "from": "0000dd2548e2255da25c9a0bdbaa3bad81dbc559"
+                  },
+                  {
+                    "0000dd2548e2255da25c9a0bdbaa3bad81dbc559": null,
+                    "id": 38,
+                    "toAddress": "00007208c97fffee67c1186686f272ecf17f29e9",
+                    "value": 1000000000000,
+                    "data": "",
+                    "signatureData": {
+                      "v": 28,
+                      "r": "QT0B8P2rNZo0D8bsJ35+92/o6VEUwqMKIqYrx6skU+w=",
+                      "s": "ZDnhhRpn+dEFXPcAG4VhfRA/1NkMAprkWXxECZsYb7I="
+                    },
+                    "from": "0000dd2548e2255da25c9a0bdbaa3bad81dbc559"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ledger/{currency}/{ledgerId}": {
+      "get": {
+        "summary": "Info for a specific ledger entry for the home bank",
+        "operationId": "getLedgerById",
+        "tags": [
+          "ledgerById"
+        ],
+        "parameters": [
+          {
+            "name": "currency",
+            "in": "path",
+            "description": "The currency",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "taiji"
+              ]
+            }
+          },
+          {
+            "name": "ledgerId",
+            "in": "path",
+            "required": true,
+            "description": "The id of the ledger entry to from the home bank",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LedgerEntry"
+                },
+                "example": {
+                  "id": 1,
+                  "name": "Jessica Right",
+                  "tag": "pet"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "tx_auth": {
+        "type": "oauth2",
+        "description": "This API uses OAuth 2 with the client credential grant flow.",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://localhost:6882/token",
+            "scopes": {
+              "tx.r": "query txs",
+              "tx.w": "create tx"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Transaction": {
+        "properties": {
+          "currency": {
+            "type": "string",
+            "enum": [
+              "taiji"
+            ]
+          },
+          "d": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LedgerEntry"
+            }
+          },
+          "c": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LedgerEntry"
+            }
+          }
+        }
+      },
+      "LedgerEntry": {
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "signedEntry": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
