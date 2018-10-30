@@ -1,0 +1,133 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Taiji Faucet service for light blockchain",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://faucet.taiji.io"
+    }
+  ],
+  "paths": {
+    "/faucet/{address}": {
+      "post": {
+        "summary": "Faucet certain amount of coins to the address on testnet",
+        "operationId": "postAccount",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The blockchain address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Currency and amount",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Water"
+              }
+            }
+          }
+        },
+        "tags": [
+          "tx"
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.w"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Null response"
+          }
+        }
+      },
+      "get": {
+        "summary": "The snapshot for an address in the testnet",
+        "operationId": "getAccount",
+        "tags": [
+          "address"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The blockchain address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A snapshot of accounts for an address"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "tx_auth": {
+        "type": "oauth2",
+        "description": "This API uses OAuth 2 with the client credential grant flow.",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://localhost:6882/token",
+            "scopes": {
+              "tx.r": "query txs",
+              "tx.w": "create tx"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Water": {
+        "properties": {
+          "currency": {
+            "type": "string",
+            "enum": [
+              "taiji"
+            ]
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "SHELL",
+              "KSHELL",
+              "MSHELL",
+              "TAIJI",
+              "KTAIJI"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
