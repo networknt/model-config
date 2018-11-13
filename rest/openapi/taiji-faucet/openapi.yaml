@@ -57,6 +57,32 @@ paths:
             application/json:
               example:
                 taiji: 100000000000
+  '/faucet/{address}/{currency}':
+    get:
+      summary: The transactions for an address and currency in the testnet
+      operationId: getTransaction
+      tags:
+        - transaction
+      parameters:
+        - name: address
+          in: path
+          description: The blockchain address
+          required: true
+          schema:
+            type: string
+        - name: currency
+          in: path
+          description: The blockchain currency
+          required: true
+          schema:
+            type: string
+            enum: [taiji]
+      security:
+        - tx_auth:
+            - 'tx.r'
+      responses:
+        '200':
+          description: A list of ledger entries for an address and currency combination
 components:
   securitySchemes:
     tx_auth:
