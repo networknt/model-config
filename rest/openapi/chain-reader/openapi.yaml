@@ -251,6 +251,36 @@ paths:
                 id: 1
                 name: Jessica Right
                 tag: pet
+  '/fee/{currency}':
+    get:
+      summary: Fee structure for the currency and application associate to the currency
+      operationId: getFeeByCurrency
+      tags:
+        - feeByCurrency
+      parameters:
+        - name: currency
+          in: path
+          description: The currency
+          required: true
+          schema: 
+            type: string
+            enum: [taiji]
+      security:
+        - tx_auth:
+            - 'tx.r'
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fee'
+              example:
+                bankAddress: 000050f134b8B0Db3D9Cc3F6cB262D4d4445Ee28
+                innerChain: 1000
+                interChain: 5000
+                application: 1000000
+
 components:
   securitySchemes:
     tx_auth:
@@ -283,3 +313,17 @@ components:
           type: string
         signedEntry:
           type: string
+    Fee:
+      properties:
+        bankAddress: 
+          type: string
+        innerChain:
+          type: integer
+          format: int32
+        interChain:
+          type: integer
+          format: int32
+        application: 
+          type: integer
+          format: int32
+          
