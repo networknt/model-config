@@ -1,0 +1,334 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Chain reader service for light blockchain
+  license:
+    name: MIT
+servers:
+  - url: 'https://token.taiji.io'
+paths:
+  '/symbol/{symbol}':
+    get:
+      summary: Get token info based on symbol
+      operationId: getTokenBySymbol
+      tags:
+        - symbal
+      parameters:
+        - name: symbol
+          in: path
+          description: The token symbol
+          required: true
+          schema:
+            type: string
+      security:
+        - tk_auth:
+            - 'tk.r'
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+              example:
+                entityAddress: 000013f530cAE4301776A9c137c005A6303c386F
+                name: Light Token
+                symbol: LIGHT
+                totalSupply: 1000000000
+                decimals: 9
+  '/token':
+    get:
+      summary: Get all token info
+      operationId: getToken
+      tags:
+        - token
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100 and default 10) 
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: Offset of tokens (default 0 which is from the first token)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      security:
+        - tk_auth:
+            - 'tk.r'
+      responses:
+        '200':
+          description: All token info
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Token'
+              example:
+                - entityAddress: 000013f530cAE4301776A9c137c005A6303c386F
+                  name: Light Token
+                  symbol: LIGHT
+                  totalSupply: 1000000000
+                  decimals: 9
+
+  '/token/{address}':
+    get:
+      summary: Get token info by token address
+      operationId: getTokenByAddress
+      tags:
+        - tokenByAddress
+      parameters:
+        - name: address
+          in: path
+          description: The token entity address
+          required: true
+          schema:
+            type: string
+      security:
+        - tk_auth:
+            - 'tk.r'
+      responses:
+        '200':
+          description: Token info by the token address
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+              example:
+                entityAddress: 000013f530cAE4301776A9c137c005A6303c386F
+                name: Light Token
+                symbol: LIGHT
+                totalSupply: 1000000000
+                decimals: 9
+  '/account/{address}':
+    get:
+      summary: Token balance and allowance for the address
+      operationId: getAccountByAddress
+      tags:
+        - account
+      parameters:
+        - name: address
+          in: path
+          description: The blockchain address
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100 and default 10) 
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          description: Offset of transactions (default 0 which is from the first token)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      security:
+        - tk_auth:
+            - 'tk.r'
+      responses:
+        '200':
+          description: A paged array of tokens with balance and allowance.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+              example:
+                - entityAddress: 000013f530cAE4301776A9c137c005A6303c386F
+                  symbol: LIGHT
+                  balance: 1000
+                  allowance: 100
+  '/account/{address}/{symbol}':
+    get:
+      summary: Token balance and allowance for the address
+      operationId: getAccountBySymbol
+      tags:
+        - accountBySymbol
+      parameters:
+        - name: address
+          in: path
+          description: The blockchain address
+          required: true
+          schema:
+            type: string
+        - name: symbol
+          in: path
+          description: The token symbo
+          required: true
+          schema:
+            type: string
+      security:
+        - tk_auth:
+            - 'tk.r'
+      responses:
+        '200':
+          description: A token with balance and allowance for the symbol.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              example:
+                entityAddress: 000013f530cAE4301776A9c137c005A6303c386F
+                symbol: LIGHT
+                balance: 1000
+                allowance: 100
+  '/transaction/{address}':
+    get:
+      summary: Get token transactions for an address
+      operationId: getTransactionByAddress
+      tags:
+        - getTransactionByAddress
+      parameters:
+        - name: address
+          in: path
+          description: The blockchain address
+          required: true
+          schema: 
+            type: string
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 1000 and default 10) 
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 1000
+        - name: offset
+          in: query
+          description: Offset of transactions (default 0 which is from the last transaction)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      security:
+        - tk_auth:
+            - 'tk.r'
+      responses:
+        '200':
+          description: A paged array of txs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+              example:
+                - time: 30990239903903
+                  fromAddress: 00007208c97fffee67c1186686f272ecf17f29e9 
+                  toAddress: 00007208c97fffee67c1186686f272ecf17f29e9
+                  amount: 1000000000000
+  '/transaction/{address}/{symbol}':
+    get:
+      summary: Get token transactions for an address and symbol
+      operationId: getTransactionBySymbol
+      tags:
+        - getTransactionBySymbol
+      parameters:
+        - name: address
+          in: path
+          description: The blockchain address
+          required: true
+          schema: 
+            type: string
+        - name: symbol
+          in: path
+          description: The token symbol
+          required: true
+          schema: 
+            type: string
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 1000 and default 10) 
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 1000
+        - name: offset
+          in: query
+          description: Offset of transactions (default 0 which is from the last transaction)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      security:
+        - tk_auth:
+            - 'tk.r'
+      responses:
+        '200':
+          description: A paged array of txs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+              example:
+                - time: 30990239903903
+                  fromAddress: 00007208c97fffee67c1186686f272ecf17f29e9 
+                  toAddress: 00007208c97fffee67c1186686f272ecf17f29e9
+                  amount: 1000000000000
+components:
+  securitySchemes:
+    tk_auth:
+      type: oauth2
+      description: This API uses OAuth 2 with the client credential grant flow.
+      flows:
+        clientCredentials:
+          tokenUrl: 'https://localhost:6882/token'
+          scopes:
+            'tk.r': query txs
+            'tk.w': create tx
+  schemas:
+    Account:
+      properties:
+        entityAddress: 
+          type: string
+        symbol: 
+          type: string
+        balance: 
+          type: integer
+          format: int64
+        allowance:
+          type: integer
+          format: int64
+    Transaction:
+      properties:
+        time: 
+          type: integer
+          format: int64
+        fromAddress: 
+          type: string
+        toAddress:
+          type: string
+        amount:
+          type: integer
+          format: int64
+    Token:
+      properties:
+        entityAddress: 
+          type: string
+        name:
+          type: string
+        symbol: 
+          type: string
+        totalSupply:
+          type: integer
+          format: int64
+        decimals:
+          type: integer
+          format: int32
+          
