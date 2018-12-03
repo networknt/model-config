@@ -1,0 +1,83 @@
+{
+  "host": "taiji.io",
+  "service": "wallet",
+  "action": [
+    {
+      "name": "create",
+      "version": "1.0.0",
+      "handler": "CreateWallet",
+      "scope": "t.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "passwordConfirm": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "password",
+          "passwordConfirm",
+          "region"
+        ]
+      }
+    },
+    {
+      "name": "open",
+      "version": "1.0.0",
+      "handler": "OpenWallet",
+      "scope": "t.w",
+      "schema": {
+        "title": "Open Wallet",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "close",
+      "version": "1.0.0",
+      "handler": "CloseWallet",
+      "scope": "t.w",
+      "schema": {
+        "title": "Close Wallet",
+      }
+    },
+    {
+      "name": "reset",
+      "version": "1.0.0",
+      "handler": "ResetPassword",
+      "scope": "t.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "oldPassword": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          },
+          "newPasswordConfirm": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

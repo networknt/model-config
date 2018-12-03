@@ -1,0 +1,36 @@
+{
+  "host": "taiji.io",
+  "service": "currency",
+  "action": [
+    {
+      "name": "send",
+      "version": "1.0.0",
+      "handler": "SendCurrency",
+      "scope": "t.w",
+      "schema": {
+        "title": "Send Currency",
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "toAddress": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "integer"
+          },
+          "unit": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currency",
+          "toAddress",
+          "amount",
+          "unit"
+        ]
+      }
+    }
+  ]
+}

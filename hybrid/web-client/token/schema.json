@@ -1,0 +1,105 @@
+{
+  "host": "taiji.io",
+  "service": "token",
+  "action": [
+    {
+      "name": "create",
+      "version": "1.0.0",
+      "handler": "CreateToken",
+      "scope": "t.w",
+      "schema": {
+        "title": "Create Token",
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "totalSupply": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "decimals": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "currency",
+          "name",
+          "symbol",
+          "totalSupply",
+          "decimals"
+        ]
+      }
+    },
+    {
+      "name": "transfer",
+      "version": "1.0.0",
+      "handler": "TransferToken",
+      "scope": "t.w",
+      "schema": {
+        "title": "Transfer Token",
+        "type": "object",
+        "properties": {
+          "entityAddress": {
+            "type": "string"
+          },
+          "toAddress": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    {
+      "name": "approve",
+      "version": "1.0.0",
+      "handler": "ApproveToken",
+      "scope": "t.w",
+      "schema": {
+        "title": "Approve Token",
+        "type": "object",
+        "properties": {
+          "entityAddress": {
+            "type": "string"
+          },
+          "toAddress": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    {
+      "name": "withdraw",
+      "version": "1.0.0",
+      "handler": "WithdrawToken",
+      "scope": "t.w",
+      "schema": {
+        "title": "Withdraw Token",
+        "type": "object",
+        "properties": {
+          "entityAddress": {
+            "type": "string"
+          },
+          "fromAddress": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  ]
+}
