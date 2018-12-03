@@ -52,7 +52,7 @@
       "handler": "CloseWallet",
       "scope": "t.w",
       "schema": {
-        "title": "Close Wallet",
+        "title": "Close Wallet"
       }
     },
     {
