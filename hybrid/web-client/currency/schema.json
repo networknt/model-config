@@ -39,6 +39,24 @@
           "unit"
         ]
       }
+    },
+    {
+      "name": "balance",
+      "version": "1.0.0",
+      "handler": "GetBalance",
+      "scope": "t.r",
+      "schema": {
+        "title": "Currency Balance",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      }
     }
   ]
 }
