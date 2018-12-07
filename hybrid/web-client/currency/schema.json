@@ -57,6 +57,29 @@
           "address"
         ]
       }
+    },
+    {
+      "name": "transaction",
+      "version": "1.0.0",
+      "handler": "GetTransaction",
+      "scope": "t.r",
+      "schema": {
+        "title": "Currency Transaction",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string",
+            "enum": ["taiji"]
+          }
+        },
+        "required": [
+          "address",
+          "currency"
+        ]
+      }
     }
   ]
 }
