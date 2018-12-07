@@ -1,0 +1,11 @@
+{
+  "rootPackage": "com.home.test",
+  "handlerPackage":"com.home.test",
+  "modelPackage":"com.home.test",
+  "artifactId": "test",
+  "groupId": "com.home",
+  "name": "testservice",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true
+}
