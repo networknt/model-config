@@ -24,7 +24,7 @@
             "type": "string"
           },
           "amount": {
-            "type": "integer"
+            "type": "string"
           },
           "unit": {
             "type": "string"
