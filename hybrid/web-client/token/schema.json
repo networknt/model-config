@@ -14,6 +14,12 @@
           "currency": {
             "type": "string"
           },
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
           "name": {
             "type": "string"
           },
@@ -21,16 +27,16 @@
             "type": "string"
           },
           "totalSupply": {
-            "type": "integer",
-            "format": "int64"
+            "type": "string"
           },
           "decimals": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string"
           }
         },
         "required": [
           "currency",
+          "address",
+          "password",
           "name",
           "symbol",
           "totalSupply",
@@ -47,16 +53,29 @@
         "title": "Transfer Token",
         "type": "object",
         "properties": {
-          "entityAddress": {
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "tokenAddressOrSymbol": {
             "type": "string"
           },
           "toAddress": {
             "type": "string"
           },
           "amount": {
-            "type": "integer"
+            "type": "string"
           }
-        }
+        },
+        "required": [
+          "address",
+          "password",
+          "tokenAddressOrSymbol",
+          "toAddress",
+          "amount"
+        ]
       }
     },
     {
@@ -68,16 +87,29 @@
         "title": "Approve Token",
         "type": "object",
         "properties": {
-          "entityAddress": {
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "tokenAddressOrSymbol": {
             "type": "string"
           },
           "toAddress": {
             "type": "string"
           },
           "amount": {
-            "type": "integer"
+            "type": "string"
           }
-        }
+        },
+        "required": [
+          "address",
+          "password",
+          "tokenAddressOrSymbol",
+          "toAddress",
+          "amount"
+        ]
       }
     },
     {
@@ -89,16 +121,87 @@
         "title": "Withdraw Token",
         "type": "object",
         "properties": {
-          "entityAddress": {
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "tokenAddressOrSymbol": {
             "type": "string"
           },
           "fromAddress": {
             "type": "string"
           },
           "amount": {
-            "type": "integer"
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "password",
+          "tokenAddressOrSymbol",
+          "fromAddress",
+          "amount"
+        ]
+        
+      }
+    },
+    {
+      "name": "info",
+      "version": "1.0.0",
+      "handler": "TokenInfo",
+      "scope": "t.w",
+      "schema": {
+        "title": "Token Info",
+        "type": "object",
+        "properties": {
+          "tokenAddressOrSymbol": {
+            "type": "string"
           }
         }
+      }
+    },
+    {
+      "name": "account",
+      "version": "1.0.0",
+      "handler": "TokenAccount",
+      "scope": "t.r",
+      "schema": {
+        "title": "Token Account",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      }
+    },
+    {
+      "name": "transaction",
+      "version": "1.0.0",
+      "handler": "TokenTransaction",
+      "scope": "t.r",
+      "schema": {
+        "title": "Token Transaction",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ]
       }
     }
   ]
