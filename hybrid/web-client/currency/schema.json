@@ -72,12 +72,55 @@
           },
           "currency": {
             "type": "string",
-            "enum": ["taiji"]
+            "enum": [
+              "taiji"
+            ]
           }
         },
         "required": [
           "address",
           "currency"
+        ]
+      }
+    },
+    {
+      "name": "faucet",
+      "version": "1.0.0",
+      "handler": "CurrencyFaucet",
+      "scope": "t.w",
+      "schema": {
+        "title": "Currency Faucet",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "taiji"
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "SHELL",
+              "KSHELL",
+              "MSHELL",
+              "TAIJI",
+              "KTAIJI"
+            ]
+          }
+        },
+        "required": [
+          "address",
+          "amount",
+          "currency",
+          "unit"
         ]
       }
     }
