@@ -1,0 +1,257 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "KYC reader service for light blockchain",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://kyc.taiji.io"
+    }
+  ],
+  "paths": {
+    "/id/{id}": {
+      "get": {
+        "summary": "Get KYC based on id",
+        "operationId": "getKycById",
+        "tags": [
+          "id"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the owner or business",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "kr_auth": [
+              "kr.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kyc"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email/{email}": {
+      "get": {
+        "summary": "Get KYC by email",
+        "operationId": "getKycByEmail",
+        "tags": [
+          "email"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "description": "The email of the owner or business contact",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "kr_auth": [
+              "kr.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "KYC for the email",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kyc"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/address/{address}": {
+      "get": {
+        "summary": "Get KYC from address",
+        "operationId": "getKycByAddress",
+        "tags": [
+          "kycByAddress"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The KYC address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "kr_auth": [
+              "kr.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "KYC by the owner address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kyc"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/history/{address}": {
+      "get": {
+        "summary": "Get KYC history events for an address",
+        "operationId": "getHistoryByAddress",
+        "tags": [
+          "getHistoryByAddress"
+        ],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The blockchain address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "How many items to return at one time (max 1000 and default 10)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Offset of historical events (default 0 which is from the last event)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "security": [
+          {
+            "kr_auth": [
+              "kr.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paged array of txs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Kyc"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "kr_auth": {
+        "type": "oauth2",
+        "description": "This API uses OAuth 2 with the client credential grant flow.",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://localhost:6882/token",
+            "scopes": {
+              "kr.r": "query kyc"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Kyc": {
+        "properties": {
+          "currency": {
+            "type": "string",
+            "enum": [
+              "taiji"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "P",
+              "B"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

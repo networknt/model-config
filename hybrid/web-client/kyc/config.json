@@ -1,0 +1,22 @@
+{
+  "rootPackage": "io.taiji.client.kyc",
+  "handlerPackage":"io.taiji.client.kyc.handler",
+  "modelPackage":"io.taiji.client.kyc.model",
+  "artifactId": "kyc",
+  "groupId": "io.taiji",
+  "name": "kyc",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableHttp2": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": true
+}

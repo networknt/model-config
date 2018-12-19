@@ -1,0 +1,125 @@
+{
+  "host": "taiji.io",
+  "service": "kyc",
+  "action": [
+    {
+      "name": "create",
+      "version": "1.0.0",
+      "handler": "CreateKyc",
+      "scope": "k.w",
+      "schema": {
+        "title": "Create KYC",
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string",
+            "enum": ["taiji"]
+          },
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["P", "B"]
+          },
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items" "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currency",
+          "address",
+          "password",
+          "type",
+          "id",
+          "email",
+          "name"
+        ]
+      }
+    },
+    {
+      "name": "update",
+      "version": "1.0.0",
+      "handler": "UpdateKyc",
+      "scope": "t.w",
+      "schema": {
+        "title": "Update KYC",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "password"
+        ]
+      }
+    },
+    {
+      "name": "info",
+      "version": "1.0.0",
+      "handler": "KycInfo",
+      "scope": "t.w",
+      "schema": {
+        "title": "KYC Info",
+        "type": "object",
+        "properties": {
+          "addressOrIdOrEmail": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "addressOrIdOrEmail"
+        ]
+      }
+    },
+    {
+      "name": "events",
+      "version": "1.0.0",
+      "handler": "KycEvents",
+      "scope": "t.r",
+      "schema": {
+        "title": "KYC Events",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      }
+    }
+  ]
+}
