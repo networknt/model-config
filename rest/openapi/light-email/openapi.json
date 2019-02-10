@@ -2,14 +2,14 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "Swagger Petstore",
+    "title": "Email Sender",
     "license": {
       "name": "MIT"
     }
   },
   "servers": [
     {
-      "url": "http://petstore.swagger.io/v1"
+      "url": "http://email.networknt.com"
     }
   ],
   "paths": {
