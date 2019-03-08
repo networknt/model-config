@@ -1,6 +1,12 @@
-# model-config
-A repository contains all model definitions and light-codegen configuration files for all
-frameworks. 
+A repository contains all model definitions and light-codegen configuration files for all frameworks. 
+
+[Stack Overflow](https://stackoverflow.com/questions/tagged/light-4j) |
+[Google Group](https://groups.google.com/forum/#!forum/light-4j) |
+[Gitter Chat](https://gitter.im/networknt/light-4j) |
+[Subreddit](https://www.reddit.com/r/lightapi/) |
+[Youtube Channel](https://www.youtube.com/channel/UCHCRMWJVXw8iB7zKxF55Byw) |
+[Documentation](https://doc.networknt.com) |
+[Contribution Guide](https://doc.networknt.com/contribute/) |
 
 Usage:
 ```
@@ -22,5 +28,3 @@ model and config for all frameworks:
 - light-hybrid-4j-server
 - light-hybrid-4j-service
 - light-graphql-4j
-
-
