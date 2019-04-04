@@ -1,0 +1,22 @@
+{
+  "rootPackage": "com.networknt.scheduler.injector",
+  "handlerPackage":"com.networknt.scheduler.injector.handler",
+  "modelPackage":"com.networknt.scheduler.injector.model",
+  "artifactId": "injector-service",
+  "groupId": "com.networknt",
+  "name": "injector-service",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableHttp2": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": true
+}

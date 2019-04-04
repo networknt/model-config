@@ -1,0 +1,208 @@
+{
+  "host": "taiji.io",
+  "service": "token",
+  "action": [
+    {
+      "name": "create",
+      "version": "1.0.0",
+      "handler": "CreateToken",
+      "scope": "t.w",
+      "schema": {
+        "title": "Create Token",
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "totalSupply": {
+            "type": "string"
+          },
+          "decimals": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "currency",
+          "address",
+          "password",
+          "name",
+          "symbol",
+          "totalSupply",
+          "decimals"
+        ]
+      }
+    },
+    {
+      "name": "transfer",
+      "version": "1.0.0",
+      "handler": "TransferToken",
+      "scope": "t.w",
+      "schema": {
+        "title": "Transfer Token",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "tokenAddressOrSymbol": {
+            "type": "string"
+          },
+          "toAddress": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "password",
+          "tokenAddressOrSymbol",
+          "toAddress",
+          "amount"
+        ]
+      }
+    },
+    {
+      "name": "approve",
+      "version": "1.0.0",
+      "handler": "ApproveToken",
+      "scope": "t.w",
+      "schema": {
+        "title": "Approve Token",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "tokenAddressOrSymbol": {
+            "type": "string"
+          },
+          "toAddress": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "password",
+          "tokenAddressOrSymbol",
+          "toAddress",
+          "amount"
+        ]
+      }
+    },
+    {
+      "name": "withdraw",
+      "version": "1.0.0",
+      "handler": "WithdrawToken",
+      "scope": "t.w",
+      "schema": {
+        "title": "Withdraw Token",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "tokenAddressOrSymbol": {
+            "type": "string"
+          },
+          "fromAddress": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "password",
+          "tokenAddressOrSymbol",
+          "fromAddress",
+          "amount"
+        ]
+        
+      }
+    },
+    {
+      "name": "info",
+      "version": "1.0.0",
+      "handler": "TokenInfo",
+      "scope": "t.w",
+      "schema": {
+        "title": "Token Info",
+        "type": "object",
+        "properties": {
+          "tokenAddressOrSymbol": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "account",
+      "version": "1.0.0",
+      "handler": "TokenAccount",
+      "scope": "t.r",
+      "schema": {
+        "title": "Token Account",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      }
+    },
+    {
+      "name": "transaction",
+      "version": "1.0.0",
+      "handler": "TokenTransaction",
+      "scope": "t.r",
+      "schema": {
+        "title": "Token Transaction",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      }
+    }
+  ]
+}

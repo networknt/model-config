@@ -1,0 +1,80 @@
+{
+  "host": "com.networknt",
+  "service": "injector",
+  "action": [
+    {
+      "name": "create",
+      "version": "1.0.0",
+      "handler": "CreateSchedule",
+      "scope": "s.w",
+      "schema": {
+        "title": "Create Schedule",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "triggerTime": {
+            "type": "long"
+          },
+          "payload": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "triggerTime",
+          "payload"
+        ]
+      }
+    },
+    {
+      "name": "update",
+      "version": "1.0.0",
+      "handler": "UpdateSchedule",
+      "scope": "s.w",
+      "schema": {
+        "title": "Update Schedule",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "triggerTime": {
+            "type": "long"
+          },
+          "payload": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "triggerTime",
+          "payload"
+        ]
+      }
+    },
+    {
+      "name": "delete",
+      "version": "1.0.0",
+      "handler": "DeleteSchedule",
+      "scope": "s.w",
+      "schema": {
+        "title": "Delete Schedule",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    }
+  ]
+}
