@@ -1,0 +1,25 @@
+{
+  "host": "lightapi.net",
+  "service": "service2",
+  "action": [
+    {
+      "name": "command",
+      "version": "0.1.0",
+      "handler": "Command",
+      "scope" : "command.w",
+      "schema": {
+        "title": "Service2",
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": ["source", "target"]
+      }
+    }
+  ]
+}
