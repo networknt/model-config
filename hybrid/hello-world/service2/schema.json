@@ -20,6 +20,25 @@
         },
         "required": ["source", "target"]
       }
+    },
+    {
+      "name": "command",
+      "version": "0.1.1",
+      "handler": "Command",
+      "scope" : "command.w",
+      "schema": {
+        "title": "Service2",
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": ["source", "target"]
+      }
     }
   ]
 }

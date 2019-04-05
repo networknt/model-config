@@ -5,20 +5,36 @@
     {
       "name": "query",
       "version": "0.1.0",
-      "handler": "QuerySide",
+      "handler": "Query",
       "scope" : "query.r",
       "schema": {
         "title": "Service1",
         "type": "object",
         "properties": {
-          "q1": {
+          "param1": {
             "type": "string"
           },
-          "q2": {
+          "param2": {
             "type": "string"
           }
         },
-        "required": ["q1", "q2"]
+        "required": ["param1", "param2"]
+      }
+    },
+    {
+      "name": "info",
+      "version": "0.1.0",
+      "handler": "Info",
+      "scope" : "info.r",
+      "schema": {
+        "title": "Service1",
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "string"
+          }
+        },
+        "required": ["filter"]
       }
     }
   ]
