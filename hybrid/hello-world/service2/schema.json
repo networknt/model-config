@@ -5,7 +5,7 @@
     {
       "name": "command",
       "version": "0.1.0",
-      "handler": "Command",
+      "handler": "CommandOld",
       "scope" : "command.w",
       "schema": {
         "title": "Service2",
@@ -24,7 +24,7 @@
     {
       "name": "command",
       "version": "0.1.1",
-      "handler": "Command",
+      "handler": "CommandNew",
       "scope" : "command.w",
       "schema": {
         "title": "Service2",
