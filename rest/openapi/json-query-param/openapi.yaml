@@ -11,7 +11,10 @@ paths:
   /testEndPoint:
     get:
       parameters:
-        - $ref: '#/components/schemas/TestObject'
+        - in: query
+          name: TestObject
+          schema:
+            $ref: '#/components/schemas/TestObject'
       responses:
         '200':
           description: History something something
