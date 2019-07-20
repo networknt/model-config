@@ -54,14 +54,25 @@ echo "      - output-dir: $xOUTPUTDIR"
 # Using networknt capability
 echo "INFO: Running: networknt/light-codegen"
 
-if [ $1 = "light-rest-4j" ]; then
+if [ $1 = "swagger" ]; then
 docker run -it \
     -v $xINPUTDIR:/light-api/input \
     -v $xOUTPUTDIR:/light-api/out \
     networknt/light-codegen \
-    -f light-rest-4j \
+    -f swagger \
     -c /light-api/input/config.json \
     -m /light-api/input/swagger.json \
+    -o /light-api/out/generated
+fi
+
+if [ $1 = "openapi" ]; then
+docker run -it \
+    -v $xINPUTDIR:/light-api/input \
+    -v $xOUTPUTDIR:/light-api/out \
+    networknt/light-codegen \
+    -f openapi \
+    -c /light-api/input/config.json \
+    -m /light-api/input/openapi.yaml \
     -o /light-api/out/generated
 fi
 
