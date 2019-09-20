@@ -1,0 +1,41 @@
+{
+  "name": "compliance",
+  "version": "1.01.00",
+  "groupId": "party",
+  "artifactId": "compliance",
+  "rootPackage": "com.apitest.apitestspec",
+  "handlerPackage":"com.apitest.apitestspec.handler",
+  "modelPackage":"com.apitest.apitestspec.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 8080,
+  "enableHttp": true,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableRegistry": false,
+  "supportDb": true,
+  "dbInfo": {
+    "name": "oracle",
+    "driverClassName": "oracle.jdbc.pool.OracleDataSource",
+    "jdbcUrl": "jdbc:oracle:thin:@localhost:1521:XE",
+    "username": "SYSTEM",
+    "password": "oracle"
+  },
+  "supportH2ForTest": true,
+  "supportClient": true,
+  "generateEnvVars": {
+    "generate": true,
+    "skipArray": true,
+    "skipMap": true,
+    "exclude": [
+      "handler.yml",
+      "config.yml",
+      "values.yml",
+      "client.yml",
+      "datasource.yml",
+      "service.yml"
+    ]
+  }    
+}
+
