@@ -1,0 +1,22 @@
+{
+  "rootPackage": "com.networknt.codegen",
+  "handlerPackage":"com.networknt.codegen.handler",
+  "modelPackage":"com.networknt.codegen.model",
+  "artifactId": "codegen",
+  "groupId": "com.networknt",
+  "name": "codegen",
+  "version": "1.0.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableHttp2": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}

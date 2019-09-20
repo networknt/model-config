@@ -14,3 +14,6 @@ Before running the command line utility, make sure you have light-codegen and mo
 cd ~/networknt
 java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o light-config-server -m model-config/hybrid/config-server/schema.json -c model-config/hybrid/config-server/config.json
 ```
+
+A lot of our users don't know how to work with the light-hybrid-4j framework and we are going to implement the refactored light-config-server with light-rest-4j. The specification and config can be found in the rest/openapi/config-server folder.
+
