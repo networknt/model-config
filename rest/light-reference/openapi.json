@@ -1,0 +1,367 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Rerference API is a microserice that used for retrieval of dropdown list for SPA and Mobile application. It is built on top of light-4j framework.",
+    "version": "1.0.0",
+    "title": "Reference service API",
+    "contact": {
+      "email": "stevehu@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths": {
+    "/rtable/{host}": {
+      "get": {
+        "description": "Return the ref table list for the host",
+        "operationId": "getRefTables",
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "description": "The host which the reference table belongs to",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RefTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ref_auth": [
+              "ref.r",
+              "ref.w"
+            ]
+          }
+        ],
+        "x-accepts": "application/json",
+        "x-contentType": "application/json"
+      }
+    },
+    "/rdata/{host}": {
+      "get": {
+        "description": "Return the reference data for the host and table combination for the dropdown",
+        "operationId": "getRefDataByNameLanguage",
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "description": "The host which use the reference",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "refernece table name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "refernece data language",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefData"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ref_auth": [
+              "ref.r",
+              "ref.w"
+            ]
+          }
+        ],
+        "x-accepts": "application/json",
+        "x-contentType": "application/json"
+      }
+    },
+    "/rvalue/{host}": {
+      "get": {
+        "description": "Return the reference value for the host and table combination",
+        "operationId": "getRefDataByNameOrId",
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "description": "The host which uses the reference",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "refernece table name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "refernece table id",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefValue"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ref_auth": [
+              "ref.r",
+              "ref.w"
+            ]
+          }
+        ],
+        "x-accepts": "application/json",
+        "x-contentType": "application/json"
+      }
+    },
+    "/rhost": {
+      "get": {
+        "description": "Return the all registed hosts",
+        "operationId": "getHosts",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ref_auth": [
+              "ref.r",
+              "ref.w"
+            ]
+          }
+        ],
+        "x-accepts": "application/json",
+        "x-contentType": "application/json"
+      }
+    },
+    "/rvalue": {
+      "get": {
+        "description": "get reference value",
+        "operationId": "getRefValue",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The reference value Id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "The reference value language",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValueLocale"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ref_auth": [
+              "ref.r"
+            ]
+          }
+        ],
+        "x-accepts": "application/json",
+        "x-contentType": "application/json"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://ref.lightapi.net"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "ref_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "http://localhost:8080/oauth2/code",
+            "scopes": {
+              "ref.r": "read reference",
+              "ref.w": "write reference"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "RefData": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "reference value"
+          },
+          "label": {
+            "type": "string",
+            "description": "reference value label"
+          }
+        }
+      },
+      "RefValue": {
+        "type": "object",
+        "properties": {
+          "tableId": {
+            "type": "string",
+            "description": "reference table Id"
+          },
+          "valueId": {
+            "type": "string",
+            "description": "reference value Id"
+          },
+          "valueCode": {
+            "type": "string",
+            "description": "reference value code"
+          },
+          "displayOrder": {
+            "type": "number",
+            "format": "integer",
+            "description": "reference value display order"
+          },
+          "startTime": {
+            "type": "string",
+            "description": "effective start Time"
+          },
+          "endTime": {
+            "type": "string",
+            "description": "effective end Time"
+          }
+        }
+      },
+      "RefTable": {
+        "type": "object",
+        "properties": {
+          "tableId": {
+            "type": "string",
+            "description": "a UUID generated"
+          },
+          "host": {
+            "type": "string",
+            "description": "host indicator the organization for the reference"
+          },
+          "tableName": {
+            "type": "string",
+            "description": "reference table name"
+          },
+          "tableDesc": {
+            "type": "string",
+            "description": "reference table description"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "reference active indicator"
+          },
+          "editable": {
+            "type": "boolean",
+            "description": "editable indicator"
+          },
+          "common": {
+            "type": "boolean",
+            "description": "commmon indicator"
+          }
+        }
+      },
+      "ValueLocale": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "the value"
+          },
+          "language": {
+            "type": "string",
+            "description": "the language of label"
+          },
+          "label": {
+            "type": "string",
+            "description": "the label"
+          }
+        }
+      }
+    }
+  }
+}

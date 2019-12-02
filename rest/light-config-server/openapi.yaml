@@ -1,0 +1,270 @@
+openapi: 3.0.0
+
+servers:
+- description: SwaggerHub API Auto Mocking
+  url: https://virtserver.swaggerhub.com/config-server
+info:
+  description: Light Config Server API
+  version: "1.0.0"
+  title: Light Config Server API
+  contact:
+    email: santosh.aherkar@gmail.com
+tags:
+- name: config-server
+  description: Operations available in config server
+
+security:
+- basicAuth: []
+
+paths:
+  /services:
+    get:
+      tags:
+      - config-server
+      summary: Search for registered services in the config server
+      operationId: searchServices
+      description: Search for registered services in the config server
+      parameters:
+      - in: query
+        name: project_name
+        description: pass an optional search string for looking up inventory
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: skip
+        description: number of records to skip for pagination
+        required: false
+        schema:
+          type: integer
+          format: int32
+          minimum: 0
+      - in: query
+        name: limit
+        description: maximum number of records to return
+        required: false
+        schema:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 50
+      responses:
+        '200':
+          description: List of registered services
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Service'
+        '400':
+          description: bad input parameter
+        '401':
+          $ref: '#/components/schemas/UnauthorizedError'
+
+  "/configs/{project_name}/{project_version}/{service_name}/{service_version}/{environment}":
+    get:
+      tags:
+      - config-server
+      summary: Get service configs for the specified project, project version, service, service version and environment.
+      operationId: getServiceConfigs
+      description: Get service configs for the specified project, project version, service, service version and environment.
+      parameters:
+      - in: path
+        name: project_name
+        description: project name for the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: project_version
+        description: Project version for the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: service_name
+        description: Service name of the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: service_version
+        description: Version of the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: environment
+        description: Environment of the registered service
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns service configs for the specified project, project version, service, service version and environment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceConfigs'
+        '400':
+          description: bad input parameter
+        '401':
+          $ref: '#/components/schemas/UnauthorizedError'
+
+
+  "/certs/{project_name}/{project_version}/{service_name}/{service_version}/{environment}":
+    get:
+      tags:
+      - config-server
+      summary: Get certificates for the specified project, project version, service, service version and environment.
+      operationId: getServiceCertificates
+      description: Get certificates for the specified project, project version, service, service version and environment. File content is returned as Base64 encoded.
+      parameters:
+      - in: path
+        name: project_name
+        description: project name for the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: project_version
+        description: Project version for the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: service_name
+        description: Service name of the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: service_version
+        description: Version of the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: environment
+        description: Environment of the registered service
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns certificates for the specified project, project version, service, service version and environment. File content is returned as Base64 encoded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceConfigs'
+        '400':
+          description: bad input parameter
+        '401':
+          $ref: '#/components/schemas/UnauthorizedError'
+
+  "/files/{project_name}/{project_version}/{service_name}/{service_version}/{environment}":
+    get:
+      tags:
+      - config-server
+      summary: Get config files for the specified project, project version, service, service version and environment.
+      operationId: getServiceFiles
+      description: Get config files for the specified project, project version, service, service version and environment. File content is returned as Base64 encoded.
+      parameters:
+      - in: path
+        name: project_name
+        description: project name for the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: project_version
+        description: Project version for the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: service_name
+        description: Service name of the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: service_version
+        description: Version of the registered service
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: environment
+        description: Environment of the registered service
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns config files for the specified project, project version, service, service version and environment. File content is returned as Base64 encoded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceConfigs'
+        '400':
+          description: bad input parameter
+        '401':
+          $ref: '#/components/schemas/UnauthorizedError'
+
+components:
+
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+
+  schemas:
+    UnauthorizedError:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Not authorized"
+    Service:
+      type: object
+      required:
+        - projectName
+        - projectVersion
+        - serviceName
+        - serviceVersion
+        - environment
+      properties:
+        projectName:
+          type: string
+          description: Project name for the registered service
+          example: ECIF
+        projectVersion:
+          type: string
+          description: Project version for the registered service
+          example: v1
+        serviceName:
+          type: string
+          description: Service Name of the registered service
+          example: party-address
+        serviceVersion:
+          type: string
+          description: service Version of the registered service
+          example: v1
+        environment:
+          type: string
+          description: Environment of the registered service
+          example: DIT1
+    ServiceConfigs:
+      type: object
+      required:
+        - service
+      properties:
+        service:
+          type: Service
+          $ref: '#/components/schemas/Service'
+        configProperties:
+          type: object
+          description: Key-Value pairs of the config properties
+          additionalProperties: true
