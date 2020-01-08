@@ -1,0 +1,84 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "OpenAPI MQ Sender",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://nqsender.lightapi.net"
+    }
+  ],
+  "paths": {
+    "/send": {
+      "post": {
+        "summary": "Send a key/value pair",
+        "operationId": "send",
+        "requestBody": {
+          "description": "A key/value pair",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValueObject"
+              }
+            }
+          }
+        },
+        "tags": [
+          "send"
+        ],
+        "security": [
+          {
+            "mq_auth": [
+              "mq.w",
+              "mq.r"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Null response"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "mq_auth": {
+        "type": "oauth2",
+        "description": "This API uses OAuth 2.0 with the client credential grant flow.",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://localhost:6882/token",
+            "scopes": {
+              "mq.w": "write MQ sender",
+              "mq.r": "read MQ sender"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "ValueObject": {
+        "type": "object",
+        "required": [
+          "key",
+          "value"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

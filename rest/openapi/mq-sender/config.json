@@ -1,0 +1,22 @@
+{
+  "name": "mqsender",
+  "version": "1.0.0",
+  "groupId": "com.networknt",
+  "artifactId": "mqsender",
+  "rootPackage": "com.networknt.mqsender",
+  "handlerPackage":"com.networknt.mqsender.handler",
+  "modelPackage":"com.networknt.mqsender.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableHttp2": true,
+  "enableRegistry": false,
+  "supportDb": false,
+  "supportH2ForTest": false,
+  "supportClient": true,
+  "dockerOrganization": "networknt"
+}
