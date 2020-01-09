@@ -7,7 +7,7 @@ working directory. Also it assumes that model-config and light-example-4j are in
 ```
 cd ~/networknt
 rm -rf light-example-4j/rest/openapi/proxy-backend
-java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o light-example-4j/rest/openapi/proxy-backend -m model-config/rest/openapi/proxy-backend/openapi.json -c model-config/rest/openapi/proxy-backend/config.json
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o light-example-4j/rest/openapi/proxy-backend -m model-config/rest/openapi/proxy-backend/openapi.yaml -c model-config/rest/openapi/proxy-backend/config.json
 ```
 
 There is a Swagger 2.0 specification that can be found at swagger folder of the parent.
