@@ -1,8 +1,8 @@
 {
-  "name": "mqproducer",
+  "name": "producer",
   "version": "1.0.0",
   "groupId": "com.networknt",
-  "artifactId": "mqproducer",
+  "artifactId": "producer",
   "rootPackage": "com.networknt.mqproducer",
   "handlerPackage":"com.networknt.mqproducer.handler",
   "modelPackage":"com.networknt.mqproducer.model",
