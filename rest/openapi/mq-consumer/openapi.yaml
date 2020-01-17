@@ -7,12 +7,12 @@ info:
 servers:
   - url: 'http://nqreceiver.lightapi.net'
 paths:
-  /list:
+  /get:
     get:
-      summary: List all key/value pairs received
-      operationId: list
+      summary: List all key/value pairs received in the put endpoint of the producer
+      operationId: get
       tags:
-        - list
+        - get
       security:
         - mq_auth:
             - 'mq.r'
@@ -30,6 +30,30 @@ paths:
                   value: value1
                 - key: key2
                   value: value2
+  /sub:
+    get:
+      summary: List all key/value pairs received in the pub endpoint of the producer
+      operationId: sub
+      tags:
+        - sub
+      security:
+        - mq_auth:
+            - 'mq.r'
+      responses:
+        '200':
+          description: A list of ValueObject in JSON
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ValueObject'
+              example:
+                - key: key1
+                  value: value1
+                - key: key2
+                  value: value2
+
 components:
   securitySchemes:
     mq_auth:

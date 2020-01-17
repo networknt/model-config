@@ -13,10 +13,10 @@
     }
   ],
   "paths": {
-    "/send": {
+    "/put": {
       "post": {
-        "summary": "Send a key/value pair",
-        "operationId": "send",
+        "summary": "Put a key/value pair to a queue for receiver to get",
+        "operationId": "put",
         "requestBody": {
           "description": "A key/value pair",
           "required": true,
@@ -29,7 +29,40 @@
           }
         },
         "tags": [
-          "send"
+          "put"
+        ],
+        "security": [
+          {
+            "mq_auth": [
+              "mq.w",
+              "mq.r"
+            ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Null response"
+          }
+        }
+      }
+    },
+    "/pub": {
+      "post": {
+        "summary": "Publish a key/value pair to a topic for subscribers",
+        "operationId": "pub",
+        "requestBody": {
+          "description": "A key/value pair",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValueObject"
+              }
+            }
+          }
+        },
+        "tags": [
+          "pub"
         ],
         "security": [
           {
