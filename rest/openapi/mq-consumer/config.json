@@ -1,8 +1,8 @@
 {
-  "name": "consumer",
+  "name": "mqconsumer",
   "version": "1.0.0",
   "groupId": "com.networknt",
-  "artifactId": "consumer",
+  "artifactId": "mqconsumer",
   "rootPackage": "com.networknt.mqconsumer",
   "handlerPackage":"com.networknt.mqconsumer.handler",
   "modelPackage":"com.networknt.mqconsumer.model",
