@@ -13,14 +13,14 @@
     }
   },
   "paths": {
-    "/rtable/{host}": {
+    "/table": {
       "get": {
         "description": "Return the ref table list for the host",
-        "operationId": "getRefTables",
+        "operationId": "getRefTable",
         "parameters": [
           {
             "name": "host",
-            "in": "path",
+            "in": "query",
             "description": "The host which the reference table belongs to",
             "required": true,
             "schema": {
@@ -55,16 +55,16 @@
         "x-contentType": "application/json"
       }
     },
-    "/rdata/{host}": {
+    "/data": {
       "get": {
         "description": "Return the reference data for the host and table combination for the dropdown",
-        "operationId": "getRefDataByNameLanguage",
+        "operationId": "getRefData",
         "parameters": [
           {
             "name": "host",
-            "in": "path",
+            "in": "query",
             "description": "The host which use the reference",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -79,9 +79,27 @@
             }
           },
           {
-            "name": "language",
+            "name": "lang",
             "in": "query",
             "description": "refernece data language",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rela",
+            "in": "query",
+            "description": "relation id",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "relation from value",
             "required": false,
             "schema": {
               "type": "string"
@@ -112,14 +130,14 @@
         "x-contentType": "application/json"
       }
     },
-    "/rvalue/{host}": {
+    "/value": {
       "get": {
         "description": "Return the reference value for the host and table combination",
-        "operationId": "getRefDataByNameOrId",
+        "operationId": "getRefValue",
         "parameters": [
           {
             "name": "host",
-            "in": "path",
+            "in": "query",
             "description": "The host which uses the reference",
             "required": true,
             "schema": {
@@ -169,10 +187,10 @@
         "x-contentType": "application/json"
       }
     },
-    "/rhost": {
+    "/host": {
       "get": {
         "description": "Return the all registed hosts",
-        "operationId": "getHosts",
+        "operationId": "getHost",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -200,10 +218,10 @@
         "x-contentType": "application/json"
       }
     },
-    "/rvalue": {
+    "/locale": {
       "get": {
         "description": "get reference value",
-        "operationId": "getRefValue",
+        "operationId": "getRefLocale",
         "parameters": [
           {
             "name": "id",
@@ -246,11 +264,87 @@
         "x-accepts": "application/json",
         "x-contentType": "application/json"
       }
+    },
+    "/rtype": {
+      "get": {
+        "description": "get relation type",
+        "operationId": "getRefRelationType",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The relation id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RelationType"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ref_auth": [
+              "ref.r"
+            ]
+          }
+        ],
+        "x-accepts": "application/json",
+        "x-contentType": "application/json"
+      }
+    },
+    "/relation": {
+      "get": {
+        "description": "get relation",
+        "operationId": "getRefRelation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The relation id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Relation"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ref_auth": [
+              "ref.r"
+            ]
+          }
+        ],
+        "x-accepts": "application/json",
+        "x-contentType": "application/json"
+      }
     }
   },
   "servers": [
     {
-      "url": "http://ref.lightapi.net"
+      "url": "http://ref.lightapi.net/r"
     }
   ],
   "components": {
@@ -359,6 +453,40 @@
           "label": {
             "type": "string",
             "description": "the label"
+          }
+        }
+      },
+      "RelationType": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "relation id"
+          },
+          "name": {
+            "type": "string",
+            "description": "relation name"
+          },
+          "desc": {
+            "type": "string",
+            "description": "relation desc"
+          }
+        }
+      },
+      "Relation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "relation id"
+          },
+          "from": {
+            "type": "string",
+            "description": "from value id"
+          },
+          "to": {
+            "type": "string",
+            "description": "to value id"
           }
         }
       }
