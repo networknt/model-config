@@ -1,0 +1,85 @@
+{
+  "host": "lightapi.net",
+  "service": "user",
+  "action": [
+    {
+      "name": "queryUserByEmail",
+      "version": "0.1.0",
+      "handler": "QueryUserByEmail",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "user email address"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
+      "name": "queryUserByWallet",
+      "version": "0.1.0",
+      "handler": "QueryUserByWallet",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "taijiWallet": {
+            "type": "string",
+            "description": "user taiji wallet address"
+          }
+        },
+        "required": [
+          "taijiWallet"
+        ]
+      }
+    },
+    {
+      "name": "loginUser",
+      "version": "0.1.0",
+      "handler": "LoginUser",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      }
+    },
+    {
+      "name": "listUser",
+      "version": "0.1.0",
+      "handler": "ListUserByHost",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "user host indicator the organization for user"
+          }
+        },
+        "required": [
+          "host"
+        ]
+      }
+    }
+  ]
+}
