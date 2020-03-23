@@ -6,7 +6,7 @@
       "name": "createUser",
       "version": "0.1.0",
       "handler": "CreateUser",
-      "scope": "portal.w",
+      "skipAuth": true,
       "schema": {
         "title": "Service",
         "type": "object",
@@ -88,7 +88,10 @@
           "host",
           "email",
           "password",
-          "passwordConfirm"
+          "passwordConfirm",
+          "firstName",
+          "lastName",
+          "gender"          
         ]
       }
     },
@@ -186,14 +189,17 @@
         },
         "required": [
           "host",
-          "email"
+          "email",
+          "firstName",
+          "lastName",
+          "gender"
         ]
       }
     },
     {
-      "name": "resetPassword",
+      "name": "changePassword",
       "version": "0.1.0",
-      "handler": "ResetPassword",
+      "handler": "ChangePassword",
       "scope": "portal.w",
       "schema": {
         "title": "Service",
@@ -225,10 +231,63 @@
       }
     },
     {
+      "name": "forgetPassword",
+      "version": "0.1.0",
+      "handler": "ForgetPassword",
+      "skipAuth": true,
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "email address of the user"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
+      "name": "resetPassword",
+      "version": "0.1.0",
+      "handler": "ResetPassword",
+      "skipAuth": true,
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "email address of the user"
+          },
+          "token": {
+            "type": "string",
+            "description": "password reset token received from email"
+          },
+          "newPassword": {
+            "type": "string",
+            "description": "the new password"
+          },
+          "passwordConfirm": {
+            "type": "string",
+            "description": "password confirm of user"
+          }
+        },
+        "required": [
+          "email",
+          "token",
+          "newPassword",
+          "passwordConfirm"
+        ]
+      }
+    },
+    {
       "name": "confirmUser",
       "version": "0.1.0",
       "handler": "ConfirmUser",
-      "scope": "portal.w",
+      "skipAuth": true,
       "schema": {
         "title": "Service",
         "type": "object",
