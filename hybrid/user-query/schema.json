@@ -22,6 +22,25 @@
       }
     },
     {
+      "name": "getNonceByEmail",
+      "version": "0.1.0",
+      "handler": "GetNonceByEmail",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "user email address"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
       "name": "queryUserByWallet",
       "version": "0.1.0",
       "handler": "QueryUserByWallet",
