@@ -205,10 +205,6 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "email": {
-            "type": "string",
-            "description": "email address of the user"
-          },
           "oldPassword": {
             "type": "string",
             "description": "the old password"
@@ -223,7 +219,6 @@
           }
         },
         "required": [
-          "email",
           "oldPassword",
           "newPassword",
           "passwordConfirm"
