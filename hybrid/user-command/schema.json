@@ -87,6 +87,7 @@
         "required": [
           "host",
           "email",
+          "language",
           "password",
           "passwordConfirm",
           "firstName",
@@ -190,6 +191,7 @@
         "required": [
           "host",
           "email",
+          "language",
           "firstName",
           "lastName",
           "gender"
