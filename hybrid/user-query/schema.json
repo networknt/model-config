@@ -22,6 +22,25 @@
       }
     },
     {
+      "name": "queryUserById",
+      "version": "0.1.0",
+      "handler": "QueryUserById",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "A unique user id"
+          }
+        },
+        "required": [
+          "userId"
+        ]
+      }
+    },
+    {
       "name": "getNonceByEmail",
       "version": "0.1.0",
       "handler": "GetNonceByEmail",
