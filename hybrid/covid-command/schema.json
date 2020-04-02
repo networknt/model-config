@@ -1,0 +1,243 @@
+{
+  "host": "lightapi.net",
+  "service": "covid",
+  "action": [
+    {
+      "name": "createCityMap",
+      "version": "0.1.0",
+      "handler": "CreateCityMap",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "country name"
+          },
+          "province": {
+            "type": "string",
+            "description": "province or state name"
+          },
+          "city": {
+            "type": "string",
+            "description": "city name"
+          },
+          "latitude": {
+            "type": "string",
+            "description": "latitude"
+          },
+          "longitude": {
+            "type": "string",
+            "description": "longitude"
+          },
+          "zoom": {
+            "type": "integer",
+            "description": "initial zoom"
+          }
+        },
+        "required": [
+          "country",
+          "province",
+          "city",
+          "latitude",
+          "longitude",
+          "zoom"
+        ]
+      }
+    },
+    {
+      "name": "updateCityMap",
+      "version": "0.1.0",
+      "handler": "UpdateCityMap",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "country name"
+          },
+          "province": {
+            "type": "string",
+            "description": "province or state name"
+          },
+          "city": {
+            "type": "string",
+            "description": "city name"
+          },
+          "latitude": {
+            "type": "string",
+            "description": "latitude"
+          },
+          "longitude": {
+            "type": "string",
+            "description": "longitude"
+          },
+          "zoom": {
+            "type": "integer",
+            "description": "initial zoom"
+          }
+        },
+        "required": [
+          "country",
+          "province",
+          "city",
+          "latitude",
+          "longitude",
+          "zoom"
+        ]
+      }
+    },
+    {
+      "name": "deleteCityMap",
+      "version": "0.1.0",
+      "handler": "DeleteCityMap",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "country name"
+          },
+          "province": {
+            "type": "string",
+            "description": "province or state name"
+          },
+          "city": {
+            "type": "string",
+            "description": "city name"
+          }
+        },
+        "required": [
+          "country",
+          "province",
+          "city"
+        ]
+      }
+    },
+    {
+      "name": "createEntity",
+      "version": "0.1.0",
+      "handler": "CreateEntity",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "entity category"
+          },
+          "subcategory": {
+            "type": "string",
+            "description": "entity subcategory"
+          },
+          "latitude": {
+            "type": "string",
+            "description": "latitude"
+          },
+          "longitude": {
+            "type": "string",
+            "description": "longitude"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "introduction"
+          },
+        },
+        "required": [
+          "category",
+          "subcategory",
+          "latitude",
+          "longitude",
+          "intruduction"
+        ]
+      }
+    },
+    {
+      "name": "updateEntity",
+      "version": "0.1.0",
+      "handler": "UpdateEntity",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "entity category"
+          },
+          "subcategory": {
+            "type": "string",
+            "description": "entity subcategory"
+          },
+          "latitude": {
+            "type": "string",
+            "description": "latitude"
+          },
+          "longitude": {
+            "type": "string",
+            "description": "longitude"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "introduction"
+          }
+        },
+        "required": [
+          "category",
+          "subcategory",
+          "latitude",
+          "longitude",
+          "intruduction"
+        ]
+      }
+    },
+    {
+      "name": "deleteEntity",
+      "version": "0.1.0",
+      "handler": "DeleteEntity",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "email address of the user"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
+      "name": "updateStatus",
+      "version": "0.1.0",
+      "handler": "UpdateStatus",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "pattern": "^\\S+@\\S+$"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "status"
+        ]
+      }
+    }
+  ]
+}

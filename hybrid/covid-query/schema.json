@@ -1,0 +1,83 @@
+{
+  "host": "lightapi.net",
+  "service": "covid",
+  "action": [
+    {
+      "name": "getCity",
+      "version": "0.1.0",
+      "handler": "GetCity",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "country"
+          },
+          "province": {
+            "type": "string",
+            "description": "province"
+          },
+          "city": {
+            "type": "string",
+            "description": "city"
+          }
+        },
+        "required": [
+          "country",
+          "province",
+          "city"
+        ]
+      }
+    },
+    {
+      "name": "getEntity",
+      "version": "0.1.0",
+      "handler": "GetEntity",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "email"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
+      "name": "getCityMap",
+      "version": "0.1.0",
+      "handler": "GetCityMap",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "country"
+          },
+          "province": {
+            "type": "string",
+            "description": "province"
+          },
+          "city": {
+            "type": "string",
+            "description": "city"
+          }
+        },
+        "required": [
+          "country",
+          "province",
+          "city"
+        ]
+      }
+    }
+  ]
+}

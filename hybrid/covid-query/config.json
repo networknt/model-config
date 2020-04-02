@@ -1,0 +1,22 @@
+{
+  "rootPackage": "net.lightapi.portal.covid.query",
+  "handlerPackage":"net.lightapi.portal.covid.query.handler",
+  "modelPackage":"net.lightapi.portal.covid.query.model",
+  "artifactId": "covid-query",
+  "groupId": "net.lightapi",
+  "name": "covid-query",
+  "version": "0.1.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8082,
+  "enableHttp": false,
+  "httpsPort": 8444,
+  "enableHttps": true,
+  "enableHttp2": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}

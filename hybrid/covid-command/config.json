@@ -1,0 +1,22 @@
+{
+  "rootPackage": "net.lightapi.portal.covid.command",
+  "handlerPackage": "net.lightapi.portal.covid.command.handler",
+  "modelPackage": "net.lightapi.portal.covid.command.model",
+  "artifactId": "covid-command",
+  "groupId": "net.lightapi",
+  "name": "covid-command",
+  "version": "0.1.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8082,
+  "enableHttp": false,
+  "httpsPort": 8444,
+  "enableHttps": true,
+  "enableHttp2": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}
