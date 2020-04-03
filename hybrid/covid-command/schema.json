@@ -24,11 +24,11 @@
             "description": "city name"
           },
           "latitude": {
-            "type": "string",
+            "type": "number",
             "description": "latitude"
           },
           "longitude": {
-            "type": "string",
+            "type": "number",
             "description": "longitude"
           },
           "zoom": {
@@ -68,11 +68,11 @@
             "description": "city name"
           },
           "latitude": {
-            "type": "string",
+            "type": "number",
             "description": "latitude"
           },
           "longitude": {
-            "type": "string",
+            "type": "number",
             "description": "longitude"
           },
           "zoom": {
@@ -137,11 +137,11 @@
             "description": "entity subcategory"
           },
           "latitude": {
-            "type": "string",
+            "type": "number",
             "description": "latitude"
           },
           "longitude": {
-            "type": "string",
+            "type": "number",
             "description": "longitude"
           },
           "introduction": {
@@ -176,11 +176,11 @@
             "description": "entity subcategory"
           },
           "latitude": {
-            "type": "string",
+            "type": "number",
             "description": "latitude"
           },
           "longitude": {
-            "type": "string",
+            "type": "number",
             "description": "longitude"
           },
           "introduction": {
