@@ -54,7 +54,7 @@
       "name": "getCityMap",
       "version": "0.1.0",
       "handler": "GetCityMap",
-      "scope": "portal.r",
+      "skipAuth": true,
       "schema": {
         "title": "Service",
         "type": "object",
@@ -70,12 +70,21 @@
           "city": {
             "type": "string",
             "description": "city"
+          },
+          "category": {
+            "type": "string",
+            "description": "category"
+          },
+          "subcategory": {
+            "type": "string",
+            "description": "subcategory"
           }
         },
         "required": [
           "country",
           "province",
-          "city"
+          "city",
+          "category"
         ]
       }
     }

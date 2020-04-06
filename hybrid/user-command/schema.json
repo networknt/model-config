@@ -312,6 +312,79 @@
           "token"
         ]
       }
+    },
+    {
+      "name": "lockUser",
+      "version": "0.1.0",
+      "handler": "LockUser",
+      "skipAuth": true,
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "pattern": "^\\S+@\\S+$"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "reason"
+        ]
+      }
+    },
+    {
+      "name": "unlockUser",
+      "version": "0.1.0",
+      "handler": "UnlockUser",
+      "skipAuth": true,
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "pattern": "^\\S+@\\S+$"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "reason"
+        ]
+      }
+    },
+    {
+      "name": "sendMessage",
+      "version": "0.1.0",
+      "handler": "SendMessage",
+      "skipAuth": true,
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userId",
+          "subject",
+          "content"
+        ]
+      }
     }
+
   ]
 }
