@@ -317,7 +317,7 @@
       "name": "lockUser",
       "version": "0.1.0",
       "handler": "LockUser",
-      "skipAuth": true,
+      "scope": "portal.w",
       "schema": {
         "title": "Service",
         "type": "object",
@@ -340,7 +340,7 @@
       "name": "unlockUser",
       "version": "0.1.0",
       "handler": "UnlockUser",
-      "skipAuth": true,
+      "scope": "portal.w",
       "schema": {
         "title": "Service",
         "type": "object",
@@ -363,7 +363,7 @@
       "name": "sendMessage",
       "version": "0.1.0",
       "handler": "SendMessage",
-      "skipAuth": true,
+      "scope": "portal.w",
       "schema": {
         "title": "Service",
         "type": "object",
