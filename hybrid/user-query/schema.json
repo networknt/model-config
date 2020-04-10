@@ -119,6 +119,24 @@
       }
     },
     {
+      "name": "getNotification",
+      "version": "0.1.0",
+      "handler": "GetNotification",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
       "name": "listUser",
       "version": "0.1.0",
       "handler": "ListUserByHost",
