@@ -77,12 +77,6 @@ paths:
                   $ref: '#/components/schemas/Provider'
         '201':
           description: Null response
-        default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
   '/oauth2/provider/{providerId}':
     delete:
       summary: delete a provider by providerId
@@ -107,12 +101,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Provider'
-        default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
 components:
   securitySchemes:
     provider_auth:
@@ -126,6 +114,7 @@ components:
             'read:provider': read provider
   schemas:
     Provider:
+      type: object
       required:
         - serverUrl
       properties:
@@ -136,14 +125,4 @@ components:
         uri:
           type: string
         providerName:
-          type: string
-    Error:
-      required:
-        - code
-        - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
           type: string

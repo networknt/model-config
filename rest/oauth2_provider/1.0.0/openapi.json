@@ -27,11 +27,11 @@
               }
             }
           }
-        },        
+        },
         "tags": [
           "providers"
         ],
-       "security": [
+        "security": [
           {
             "provider_auth": [
               "read:provider",
@@ -54,7 +54,7 @@
             "description": "Null response"
           }
         }
-      },   
+      },
       "put": {
         "summary": "Update oauth provider ",
         "operationId": "updateProvider",
@@ -68,11 +68,11 @@
               }
             }
           }
-        },        
+        },
         "tags": [
           "providers"
         ],
-       "security": [
+        "security": [
           {
             "provider_auth": [
               "read:provider",
@@ -95,14 +95,14 @@
             "description": "Null response"
           }
         }
-      },        
+      },
       "get": {
         "summary": "Return list of registed oauth provider ",
         "operationId": "getProviders",
         "tags": [
           "providers"
         ],
-       "security": [
+        "security": [
           {
             "provider_auth": [
               "read:provider"
@@ -125,16 +125,6 @@
           },
           "201": {
             "description": "Null response"
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
           }
         }
       }
@@ -175,16 +165,6 @@
                 }
               }
             }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
           }
         }
       }
@@ -208,15 +188,13 @@
     },
     "schemas": {
       "Provider": {
+        "type": "object",
         "required": [
-          "providerId",
           "serverUrl"
         ],
         "properties": {
           "providerId": {
-            "type": "string",
-            "minLength": 2,
-             "maxLength": 2
+            "type": "string"
           },
           "serverUrl": {
             "type": "string"
@@ -228,22 +206,7 @@
             "type": "string"
           }
         }
-      },
-      "Error": {
-        "required": [
-          "code",
-          "message"
-        ],
-        "properties": {
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      }      
+      }
     }
   }
 }
