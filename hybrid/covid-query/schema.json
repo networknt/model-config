@@ -51,6 +51,44 @@
       }
     },
     {
+      "name": "getStatusByEmail",
+      "version": "0.1.0",
+      "handler": "GetStatusByEmail",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "email"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
+      "name": "getStatusByUserId",
+      "version": "0.1.0",
+      "handler": "GetStatusByUserId",
+      "skipAuth": true,
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "userId"
+          }
+        },
+        "required": [
+          "userId"
+        ]
+      }
+    },
+    {
       "name": "getCityMap",
       "version": "0.1.0",
       "handler": "GetCityMap",

@@ -147,7 +147,7 @@
           "introduction": {
             "type": "string",
             "description": "introduction"
-          },
+          }
         },
         "required": [
           "category",
@@ -223,20 +223,7 @@
       "scope": "portal.w",
       "schema": {
         "title": "Service",
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "pattern": "^\\S+@\\S+$"
-          },
-          "status": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "email",
-          "status"
-        ]
+        "type": "object"
       }
     }
   ]
