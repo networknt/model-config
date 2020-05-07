@@ -154,7 +154,7 @@
           "subcategory",
           "latitude",
           "longitude",
-          "intruduction"
+          "introduction"
         ]
       }
     },
@@ -193,7 +193,7 @@
           "subcategory",
           "latitude",
           "longitude",
-          "intruduction"
+          "introduction"
         ]
       }
     },
@@ -224,6 +224,30 @@
       "schema": {
         "title": "Service",
         "type": "object"
+      }
+    },
+    {
+      "name": "updatePeerStatus",
+      "version": "0.1.0",
+      "handler": "UpdatePeerStatus",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "The userId of the status owner"
+          },
+          "subjects": {
+            "type": "object",
+            "description": "The subjects of the status"
+          }
+        },
+        "required": [
+          "userId",
+          "subjects"
+        ]
       }
     }
   ]
