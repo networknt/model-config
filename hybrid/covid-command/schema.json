@@ -227,6 +227,16 @@
       }
     },
     {
+      "name": "updateWebsite",
+      "version": "0.1.0",
+      "handler": "UpdateWebsite",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object"
+      }
+    },
+    {
       "name": "updatePeerStatus",
       "version": "0.1.0",
       "handler": "UpdatePeerStatus",

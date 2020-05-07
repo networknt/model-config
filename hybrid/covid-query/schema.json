@@ -89,6 +89,44 @@
       }
     },
     {
+      "name": "getWebsiteByEmail",
+      "version": "0.1.0",
+      "handler": "GetWebsiteByEmail",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "email"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
+      "name": "getWebsiteByUserId",
+      "version": "0.1.0",
+      "handler": "GetWebsiteByUserId",
+      "skipAuth": true,
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "userId"
+          }
+        },
+        "required": [
+          "userId"
+        ]
+      }
+    },
+    {
       "name": "getCityMap",
       "version": "0.1.0",
       "handler": "GetCityMap",
