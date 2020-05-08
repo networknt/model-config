@@ -237,6 +237,26 @@
       }
     },
     {
+      "name": "deleteStatus",
+      "version": "0.1.0",
+      "handler": "DeleteStatus",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object"
+      }
+    },
+    {
+      "name": "deleteWebsite",
+      "version": "0.1.0",
+      "handler": "DeleteWebsite",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object"
+      }
+    },
+    {
       "name": "updatePeerStatus",
       "version": "0.1.0",
       "handler": "UpdatePeerStatus",
