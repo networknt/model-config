@@ -1,0 +1,22 @@
+{
+  "rootPackage": "net.lightapi.portal.payment.command",
+  "handlerPackage":"net.lightapi.portal.payment.command.handler",
+  "modelPackage":"net.lightapi.portal.payment.command.model",
+  "artifactId": "payment-command",
+  "groupId": "net.lightapi",
+  "name": "payment-command",
+  "version": "0.1.0",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "httpPort": 8082,
+  "enableHttp": false,
+  "httpsPort": 8444,
+  "enableHttps": true,
+  "enableHttp2": true,
+  "enableRegistry": false,
+  "supportOracle": false,
+  "supportMysql": false,
+  "supportPostgresql": false,
+  "supportH2ForTest": false,
+  "supportClient": false
+}
