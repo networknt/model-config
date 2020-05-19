@@ -384,7 +384,126 @@
           "content"
         ]
       }
+    },
+    {
+      "name": "createPayment",
+      "version": "0.1.0",
+      "handler": "CreatePayment",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "merchant user email address"
+          },
+          "sandbox": {
+            "type": "boolean",
+            "description": "Sandbox Environment"
+          },
+          "merchantId": {
+            "type": "string",
+            "description": "Merchant ID"
+          },
+          "publicKey": {
+            "type": "string",
+            "description": "Public Key"
+          },
+          "privateKey": {
+            "type": "string",
+            "description": "Private Key"
+          }
+        },
+        "required": [
+          "email",
+          "sandbox",
+          "mechantId",
+          "publicKey",
+          "privateKey"      
+        ]
+      }
+    },
+    {
+      "name": "deletePayment",
+      "version": "0.1.0",
+      "handler": "DeletePayment",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
+      "name": "updatePayment",
+      "version": "0.1.0",
+      "handler": "UpdatePayment",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "merchant user email address"
+          },
+          "sandbox": {
+            "type": "string",
+            "description": "Sandbox Environment"
+          },
+          "merchantId": {
+            "type": "string",
+            "description": "Merchant ID"
+          },
+          "publicKey": {
+            "type": "string",
+            "description": "Public Key"
+          },
+          "privateKey": {
+            "type": "string",
+            "description": "Private Key"
+          }
+        },
+        "required": [
+          "email",
+          "sandbox",
+          "mechantId",
+          "publicKey",
+          "privateKey"      
+        ]
+      }
+    },
+    {
+      "name": "paymentNonce",
+      "version": "0.1.0",
+      "handler": "PaymentNonce",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "merchant userId"
+          },
+          "nonce": {
+            "type": "string",
+            "description": "Payment method nonce"
+          }
+        },
+        "required": [
+          "userId",
+          "nonce"
+        ]
+      }
     }
-
   ]
 }
