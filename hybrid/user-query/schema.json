@@ -205,10 +205,53 @@
           "userId": {
             "type": "string",
             "description": "Merchant userId"
+          },
+          "merchantId": {
+            "type": "string",
+            "description": "Merchant Id"
           }
         },
         "required": [
-          "userId"
+          "userId",
+          "merchantId"
+        ]
+      }
+    },
+    {
+      "name": "getCustomerOrder",
+      "version": "0.1.0",
+      "handler": "GetCustomerOrder",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Customer Email"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
+    },
+    {
+      "name": "getMerchantOrder",
+      "version": "0.1.0",
+      "handler": "GetMerchantOrder",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Merchant Email"
+          }
+        },
+        "required": [
+          "email"
         ]
       }
     }

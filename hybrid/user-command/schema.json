@@ -386,63 +386,6 @@
       }
     },
     {
-      "name": "createPayment",
-      "version": "0.1.0",
-      "handler": "CreatePayment",
-      "scope": "portal.w",
-      "schema": {
-        "title": "Service",
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "description": "merchant user email address"
-          },
-          "sandbox": {
-            "type": "boolean",
-            "description": "Sandbox Environment"
-          },
-          "merchantId": {
-            "type": "string",
-            "description": "Merchant ID"
-          },
-          "publicKey": {
-            "type": "string",
-            "description": "Public Key"
-          },
-          "privateKey": {
-            "type": "string",
-            "description": "Private Key"
-          }
-        },
-        "required": [
-          "email",
-          "sandbox",
-          "mechantId",
-          "publicKey",
-          "privateKey"      
-        ]
-      }
-    },
-    {
-      "name": "deletePayment",
-      "version": "0.1.0",
-      "handler": "DeletePayment",
-      "scope": "portal.w",
-      "schema": {
-        "title": "Service",
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "email"
-        ]
-      }
-    },
-    {
       "name": "updatePayment",
       "version": "0.1.0",
       "handler": "UpdatePayment",
@@ -453,32 +396,36 @@
         "properties": {
           "email": {
             "type": "string",
-            "description": "merchant user email address"
+            "description": "Merchant user email address"
           },
-          "sandbox": {
-            "type": "string",
-            "description": "Sandbox Environment"
-          },
-          "merchantId": {
-            "type": "string",
-            "description": "Merchant ID"
-          },
-          "publicKey": {
-            "type": "string",
-            "description": "Public Key"
-          },
-          "privateKey": {
-            "type": "string",
-            "description": "Private Key"
+          "payments": {
+            "type": "array",
+            "description": "A list of payments"
           }
         },
         "required": [
-          "email",
-          "sandbox",
-          "mechantId",
-          "publicKey",
-          "privateKey"      
+          "payments"
         ]
+      }
+    },  
+    {
+      "name": "deletePayment",
+      "version": "0.1.0",
+      "handler": "DeletePayment",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "schema": {
+          "title": "Service",
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "description": "Merchant user email address"
+            }
+          }
+        }
       }
     },
     {
@@ -502,6 +449,78 @@
         "required": [
           "userId",
           "nonce"
+        ]
+      }
+    },
+    {
+      "name": "createOrder",
+      "version": "0.1.0",
+      "handler": "CreateOrder",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "merchant userId"
+          },
+          "order": {
+            "type": "object",
+            "description": "Order object"
+          }
+        },
+        "required": [
+          "userId",
+          "order"
+        ]
+      }
+    },
+    {
+      "name": "cancelOrder",
+      "version": "0.1.0",
+      "handler": "CancelOrder",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Customer email"
+          },
+          "orderId": {
+            "type": "object",
+            "description": "Order Id"
+          }
+        },
+        "required": [
+          "email",
+          "orderId"
+        ]
+      }
+    },
+    {
+      "name": "deliverOrder",
+      "version": "0.1.0",
+      "handler": "DeliverOrder",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Merchant email"
+          },
+          "orderId": {
+            "type": "object",
+            "description": "Order Id"
+          }
+        },
+        "required": [
+          "email",
+          "orderId"
         ]
       }
     }
