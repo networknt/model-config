@@ -229,10 +229,20 @@
           "email": {
             "type": "string",
             "description": "Customer Email"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
           }
         },
         "required": [
-          "email"
+          "email",
+          "offset",
+          "limit"
         ]
       }
     },
@@ -248,10 +258,25 @@
           "email": {
             "type": "string",
             "description": "Merchant Email"
+          },
+          "status": {
+            "type": "string",
+            "description": "Order Status"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
           }
         },
         "required": [
-          "email"
+          "email",
+          "status",
+          "offset",
+          "limit"
         ]
       }
     }

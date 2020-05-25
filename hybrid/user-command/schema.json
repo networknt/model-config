@@ -489,6 +489,10 @@
             "type": "string",
             "description": "Customer email"
           },
+          "merchantUserId": {
+            "type": "string",
+            "description": "Merchant User Id"
+          },
           "orderId": {
             "type": "object",
             "description": "Order Id"
@@ -512,6 +516,10 @@
           "email": {
             "type": "string",
             "description": "Merchant email"
+          },
+          "customerUserId": {
+            "type": "string",
+            "description": "Customer User Id"
           },
           "orderId": {
             "type": "object",
