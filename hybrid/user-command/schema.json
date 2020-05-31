@@ -531,6 +531,31 @@
           "orderId"
         ]
       }
+    },
+    {
+      "name": "updateRoles",
+      "version": "0.1.0",
+      "handler": "UpdateRoles",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "User email"
+          },
+          "roles": {
+            "type": "string",
+            "description": "A list of roles in string separated by space"
+          }
+        },
+        "required": [
+          "email",
+          "roles"
+        ]
+      }
     }
+
   ]
 }

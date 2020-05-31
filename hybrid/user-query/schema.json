@@ -279,6 +279,25 @@
           "limit"
         ]
       }
+    },
+    {
+      "name": "getRolesByEmail",
+      "version": "0.1.0",
+      "handler": "GetRolesByEmail",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Merchant Email"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      }
     }
   ]
 }
