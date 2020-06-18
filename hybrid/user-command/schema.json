@@ -522,12 +522,13 @@
             "description": "Customer User Id"
           },
           "orderId": {
-            "type": "object",
+            "type": "string",
             "description": "Order Id"
           }
         },
         "required": [
           "email",
+          "customerUserId",
           "orderId"
         ]
       }
