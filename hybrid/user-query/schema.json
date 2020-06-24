@@ -281,6 +281,37 @@
       }
     },
     {
+      "name": "getReference",
+      "version": "0.1.0",
+      "handler": "GetReference",
+      "skipAuth": true,
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Table name"
+          },
+          "lang": {
+            "type": "string",
+            "description": "Label language"
+          },
+          "rela": {
+            "type": "string",
+            "description": "Relationship name"
+          },
+          "from": {
+            "type": "string",
+            "description": "From value in rela"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    {
       "name": "getRolesByEmail",
       "version": "0.1.0",
       "handler": "GetRolesByEmail",

@@ -556,7 +556,73 @@
           "roles"
         ]
       }
+    },
+    {
+      "name": "createHost",
+      "version": "0.1.0",
+      "handler": "CreateHost",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host name"
+          },
+          "desc": {
+            "type": "string",
+            "description": "Host description"
+          }
+        },
+        "required": [
+          "host",
+          "desc"
+        ]
+      }
+    },
+    {
+      "name": "updateHost",
+      "version": "0.1.0",
+      "handler": "UpdateHost",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host name"
+          },
+          "desc": {
+            "type": "string",
+            "description": "Host description"
+          }
+        },
+        "required": [
+          "host",
+          "desc"
+        ]
+      }
+    },
+    {
+      "name": "deleteHost",
+      "version": "0.1.0",
+      "handler": "DeleteHost",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "host name"
+          }
+        },
+        "required": [
+          "host"
+        ]
+      }
     }
-
   ]
 }
