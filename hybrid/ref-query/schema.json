@@ -1,0 +1,159 @@
+{
+  "host": "lightapi.net",
+  "service": "ref",
+  "action": [
+    {
+      "name": "getTable",
+      "version": "0.1.0",
+      "handler": "GetTable",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host of table"
+          },
+          "active": {
+            "type": "string",
+            "description": "Active Flag"
+          },
+          "editable": {
+            "type": "string",
+            "description": "Editable Flag"
+          },
+          "common": {
+            "type": "string",
+            "description": "Common Flag"
+          }
+
+        },
+        "required": [
+          "offset",
+          "limit"
+        ]
+      }
+    },
+    {
+      "name": "getTableById",
+      "version": "0.1.0",
+      "handler": "GetTableById",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "tableId": {
+            "type": "string",
+            "description": "Table Id"
+          }
+        },
+        "required": [
+          "tableId"
+        ]
+      }
+    },
+    {
+      "name": "getValueByTableId",
+      "version": "0.1.0",
+      "handler": "GetValueByTableId",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "tableId": {
+            "type": "string",
+            "description": "Table Id"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "active": {
+            "type": "string",
+            "description": "Active Flag"
+          }
+        },
+        "required": [
+          "tableId"
+        ]
+      }
+    },
+    {
+      "name": "getLocaleById",
+      "version": "0.1.0",
+      "handler": "GetLocaleById",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "valueId": {
+            "type": "string",
+            "description": "Value Id"
+          }
+        },
+        "required": [
+          "valueId"
+        ]
+      }
+    },
+    {
+      "name": "getRelationType",
+      "version": "0.1.0",
+      "handler": "GetRelation",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          }
+        },
+        "required": [
+          "offset",
+          "limit"
+        ]
+      }
+    },
+    {
+      "name": "getRelationById",
+      "version": "0.1.0",
+      "handler": "GetRelationById",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "relationId": {
+            "type": "string",
+            "description": "Relation Id"
+          }
+        },
+        "required": [
+          "relationId"
+        ]
+      }
+    }
+  ]
+}

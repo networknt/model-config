@@ -1,0 +1,538 @@
+{
+  "host": "lightapi.net",
+  "service": "ref",
+  "action": [
+    {
+      "name": "createTable",
+      "version": "0.1.0",
+      "handler": "CreateTable",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "user host indicator the organization for user",
+            "enum": [
+              "lightapi.net"
+            ]
+          },
+          "tableId": {
+            "type": "string",
+            "description": "unique table identifier"
+          },
+          "tableName": {
+            "type": "string",
+            "description": "reference table name"
+          },
+          "tableDesc": {
+            "type": "string",
+            "description": "table description"
+          },
+          "active": {
+            "type": "string",
+            "description": "active flag",
+            "enum": [
+              "Y",
+              "N"
+            ]
+          },
+          "editable": {
+            "type": "string",
+            "description": "editable flag",
+            "enum": [
+              "Y",
+              "N"
+            ]
+          },
+          "common": {
+            "type": "string",
+            "description": "common flag",
+            "enum": [
+              "Y",
+              "N"
+            ]
+          }
+        },
+        "required": [
+          "host",
+          "tableId",
+          "tableName",
+          "tableDesc",
+          "active",
+          "editable",
+          "common"
+        ]
+      }
+    },
+    {
+      "name": "updateTable",
+      "version": "0.1.0",
+      "handler": "UpdateTable",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "user host indicator the organization for user",
+            "enum": [
+              "lightapi.net"
+            ]
+          },
+          "tableId": {
+            "type": "string",
+            "description": "unique table identifier"
+          },
+          "tableName": {
+            "type": "string",
+            "description": "reference table name"
+          },
+          "tableDesc": {
+            "type": "string",
+            "description": "table description"
+          },
+          "active": {
+            "type": "string",
+            "description": "active flag",
+            "enum": [
+              "Y",
+              "N"
+            ]
+          },
+          "editable": {
+            "type": "string",
+            "description": "editable flag",
+            "enum": [
+              "Y",
+              "N"
+            ]
+          },
+          "common": {
+            "type": "string",
+            "description": "common flag",
+            "enum": [
+              "Y",
+              "N"
+            ]
+          }
+        },
+        "required": [
+          "host",
+          "tableId",
+          "tableName",
+          "tableDesc",
+          "active",
+          "editable",
+          "common"
+        ]
+      }
+    },
+    {
+      "name": "deleteTable",
+      "version": "0.1.0",
+      "handler": "DeleteTable",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "tableId": {
+            "type": "string",
+            "description": "unique table identifier"
+          }
+        },
+        "required": [
+          "tableId"
+        ]
+      }
+    },
+    {
+      "name": "createValue",
+      "version": "0.1.0",
+      "handler": "CreateValue",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "valueId": {
+            "type": "string",
+            "description": "Value Id"
+          },
+          "tableId": {
+            "type": "string",
+            "description": "Table Id"
+          },
+          "valueCode": {
+            "type": "string",
+            "description": "Value Code"
+          },
+          "startTime": {
+            "type": "string",
+            "description": "Start Time"
+          },
+          "endTime": {
+            "type": "string",
+            "description": "End Time"
+          },
+          "displayOrder": {
+            "type": "string",
+            "description": "Display Order"
+          },
+          "active": {
+            "type": "string",
+            "description": "Active Flag"
+          }
+        },
+        "required": [
+          "valueId",
+          "tableId",
+          "valueCode",
+          "displayOrder",
+          "active"
+        ]
+      }
+    },
+    {
+      "name": "updateValue",
+      "version": "0.1.0",
+      "handler": "UpdateValue",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "valueId": {
+            "type": "string",
+            "description": "Value Id"
+          },
+          "tableId": {
+            "type": "string",
+            "description": "Table Id"
+          },
+          "valueCode": {
+            "type": "string",
+            "description": "Value Code"
+          },
+          "startTime": {
+            "type": "string",
+            "description": "Start Time"
+          },
+          "endTime": {
+            "type": "string",
+            "description": "End Time"
+          },
+          "displayOrder": {
+            "type": "string",
+            "description": "Display Order"
+          },
+          "active": {
+            "type": "string",
+            "description": "Active Flag"
+          }
+        },
+        "required": [
+          "valueId",
+          "tableId",
+          "valueCode",
+          "displayOrder",
+          "active"
+        ]
+      }
+    },
+    {
+      "name": "deleteValue",
+      "version": "0.1.0",
+      "handler": "DeleteValue",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "valueId": {
+            "type": "string",
+            "description": "Value Id"
+          }
+        },
+        "required": [
+          "valueId"
+        ]
+      }
+    },
+    {
+      "name": "createLocale",
+      "version": "0.1.0",
+      "handler": "CreateLocale",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "valueId": {
+            "type": "string",
+            "description": "Value Id"
+          },
+          "language": {
+            "type": "string",
+            "description": "value desc language"
+          },
+          "valueDesc": {
+            "type": "string",
+            "description": "value desc"
+          }
+        },
+        "required": [
+          "valueId",
+          "language",
+          "valueDesc"
+        ]
+      }
+    },
+    {
+      "name": "updateLocale",
+      "version": "0.1.0",
+      "handler": "UpdateLocale",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "valueId": {
+            "type": "string",
+            "description": "Value Id"
+          },
+          "language": {
+            "type": "string",
+            "description": "value desc language"
+          },
+          "valueDesc": {
+            "type": "string",
+            "description": "value desc"
+          }
+        },
+        "required": [
+          "valueId",
+          "language",
+          "valueDesc"
+        ]
+      }
+    },
+    {
+      "name": "deleteLocale",
+      "version": "0.1.0",
+      "handler": "DeleteLocale",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "valueId": {
+            "type": "string",
+            "description": "Value Id"
+          },
+          "language": {
+            "type": "string",
+            "description": "value desc language"
+          }
+        },
+        "required": [
+          "valueId",
+          "language"
+        ]
+      }
+    },
+    {
+      "name": "sendMessage",
+      "version": "0.1.0",
+      "handler": "SendMessage",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userId",
+          "subject",
+          "content"
+        ]
+      }
+    },
+    {
+      "name": "createRelationType",
+      "version": "0.1.0",
+      "handler": "CreateRelationType",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "relationId": {
+            "type": "string",
+            "description": "Relation Id"
+          },
+          "relationName": {
+            "type": "string",
+            "description": "Relation Name"
+          },
+          "relationDesc": {
+            "type": "string",
+            "description": "Relation Desc"
+          }
+        },
+        "required": [
+          "relationId",
+          "relationName",
+          "relationDesc"
+        ]
+      }
+    },
+    {
+      "name": "updateRelationType",
+      "version": "0.1.0",
+      "handler": "UpdateRelationType",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "relationId": {
+            "type": "string",
+            "description": "Relation Id"
+          },
+          "relationName": {
+            "type": "string",
+            "description": "Relation Name"
+          },
+          "relationDesc": {
+            "type": "string",
+            "description": "Relation Desc"
+          }
+        },
+        "required": [
+          "relationId",
+          "relationName",
+          "relationDesc"
+        ]
+      }
+    },
+    {
+      "name": "deleteRelationType",
+      "version": "0.1.0",
+      "handler": "DeleteRelationType",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "relationId": {
+            "type": "string",
+            "description": "Relation Id"
+          }
+        },
+        "required": [
+          "relationId"
+        ]
+      }
+    },
+    {
+      "name": "createRelation",
+      "version": "0.1.0",
+      "handler": "CreateRelation",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "relationId": {
+            "type": "string",
+            "description": "Relation Id"
+          },
+          "valueIdFrom": {
+            "type": "object",
+            "description": "Value Id From"
+          },
+          "valueIdTo": {
+            "type": "object",
+            "description": "Value Id To"
+          }
+        },
+        "required": [
+          "relationId",
+          "valueIdFrom",
+          "valueIdTo"
+        ]
+      }
+    },
+    {
+      "name": "updateRelation",
+      "version": "0.1.0",
+      "handler": "UpdateRelation",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "relationId": {
+            "type": "string",
+            "description": "Relation Id"
+          },
+          "valueIdFrom": {
+            "type": "object",
+            "description": "Value Id From"
+          },
+          "valueIdTo": {
+            "type": "object",
+            "description": "Value Id To"
+          }
+        },
+        "required": [
+          "relationId",
+          "valueIdFrom",
+          "valueIdTo"
+        ]
+      }
+    },
+    {
+      "name": "deleteRelation",
+      "version": "0.1.0",
+      "handler": "DeleteRelation",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "relationId": {
+            "type": "string",
+            "description": "Relation Id"
+          },
+          "valueIdFrom": {
+            "type": "object",
+            "description": "Value Id From"
+          },
+          "valueIdTo": {
+            "type": "object",
+            "description": "Value Id To"
+          }
+        },
+        "required": [
+          "relationId",
+          "valueIdFrom",
+          "valueIdTo"
+        ]
+      }
+    }
+  ]
+}
