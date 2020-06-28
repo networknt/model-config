@@ -179,7 +179,7 @@
             "description": "End Time"
           },
           "displayOrder": {
-            "type": "string",
+            "type": "integer",
             "description": "Display Order"
           },
           "active": {
@@ -226,7 +226,7 @@
             "description": "End Time"
           },
           "displayOrder": {
-            "type": "string",
+            "type": "integer",
             "description": "Display Order"
           },
           "active": {
@@ -341,32 +341,6 @@
         "required": [
           "valueId",
           "language"
-        ]
-      }
-    },
-    {
-      "name": "sendMessage",
-      "version": "0.1.0",
-      "handler": "SendMessage",
-      "scope": "portal.w",
-      "schema": {
-        "title": "Service",
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "string"
-          },
-          "subject": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "userId",
-          "subject",
-          "content"
         ]
       }
     },

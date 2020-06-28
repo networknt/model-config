@@ -115,7 +115,7 @@
     {
       "name": "getRelationType",
       "version": "0.1.0",
-      "handler": "GetRelation",
+      "handler": "GetRelationType",
       "scope": "portal.r",
       "schema": {
         "title": "Service",
@@ -145,12 +145,30 @@
         "title": "Service",
         "type": "object",
         "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
           "relationId": {
+            "type": "string",
+            "description": "Relation Id"
+          },
+          "valueIdFrom": {
+            "type": "string",
+            "description": "Relation Id"
+          },
+          "valueIdTo": {
             "type": "string",
             "description": "Relation Id"
           }
         },
         "required": [
+          "offset",
+          "limit",
           "relationId"
         ]
       }
