@@ -1,0 +1,22 @@
+{
+  "name": "accounts",
+  "version": "3.1.2",
+  "groupId": "com.brodagroup.api.tutorial",
+  "artifactId": "accounts",
+  "rootPackage": "com.brodagroup.api.tutorial",
+  "handlerPackage":"com.brodagroup.api.tutorial.handler",
+  "modelPackage":"com.brodagroup.api.tutorial.model",
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "httpPort": 8080,
+  "enableHttp": false,
+  "httpsPort": 8443,
+  "enableHttps": true,
+  "enableHttp2": true,
+  "enableRegistry": false,
+  "supportDb": true,
+  "supportH2ForTest": true,
+  "supportClient": true,
+  "dockerOrganization": "brodagroup"
+}
