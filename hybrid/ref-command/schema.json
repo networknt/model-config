@@ -13,10 +13,7 @@
         "properties": {
           "host": {
             "type": "string",
-            "description": "user host indicator the organization for user",
-            "enum": [
-              "lightapi.net"
-            ]
+            "description": "user host indicator the organization for user"
           },
           "tableId": {
             "type": "string",
@@ -77,10 +74,7 @@
         "properties": {
           "host": {
             "type": "string",
-            "description": "user host indicator the organization for user",
-            "enum": [
-              "lightapi.net"
-            ]
+            "description": "user host indicator the organization for user"
           },
           "tableId": {
             "type": "string",
