@@ -6,28 +6,36 @@
       "name": "generateJwt",
       "version": "0.1.0",
       "handler": "JwtToken",
-      "scope" : "jwt.r",
+      "scope" : "portal.r",
       "schema": {
-        "title": "Generate test JWT token",
+        "title": "Generate Test JWT Token",
         "type": "object",
         "properties": {
           "exp": {
-            "type": "integer"
+            "type": "integer",
+            "title": "Expire In Minute"
           },
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "title": "Client Id"
           },
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "title": "User Id"
+          },
+          "roles": {
+            "type": "string",
+            "title": "Roles"
           },
           "scope": {
             "type": "array",
             "items": {
-              "type": "string"
-            }
+              "type": "string",
+              "title": "Scope"
+            }          
           }
         },
-        "required": ["client_id", "scope"]
+        "required": ["clientId", "scope"]
       }
     }
   ]
