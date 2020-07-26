@@ -435,6 +435,10 @@
           "valueIdTo": {
             "type": "string",
             "description": "Value Id To"
+          },
+          "active": {
+            "type": "string",
+            "description": "Active Flag"
           }
         },
         "required": [
@@ -464,12 +468,17 @@
           "valueIdTo": {
             "type": "string",
             "description": "Value Id To"
+          },
+          "active": {
+            "type": "string",
+            "description": "Active Flag"
           }
         },
         "required": [
           "relationId",
           "valueIdFrom",
-          "valueIdTo"
+          "valueIdTo",
+          "active"
         ]
       }
     },
