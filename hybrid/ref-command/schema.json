@@ -429,11 +429,11 @@
             "description": "Relation Id"
           },
           "valueIdFrom": {
-            "type": "object",
+            "type": "string",
             "description": "Value Id From"
           },
           "valueIdTo": {
-            "type": "object",
+            "type": "string",
             "description": "Value Id To"
           }
         },
@@ -458,11 +458,11 @@
             "description": "Relation Id"
           },
           "valueIdFrom": {
-            "type": "object",
+            "type": "string",
             "description": "Value Id From"
           },
           "valueIdTo": {
-            "type": "object",
+            "type": "string",
             "description": "Value Id To"
           }
         },
@@ -487,11 +487,11 @@
             "description": "Relation Id"
           },
           "valueIdFrom": {
-            "type": "object",
+            "type": "string",
             "description": "Value Id From"
           },
           "valueIdTo": {
-            "type": "object",
+            "type": "string",
             "description": "Value Id To"
           }
         },
