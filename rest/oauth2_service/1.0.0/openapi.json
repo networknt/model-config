@@ -37,7 +37,7 @@
         "security": [
           {
             "service_auth": [
-              "oauth.service.w"
+              "portal.w"
             ]
           }
         ],
@@ -63,7 +63,7 @@
         "security": [
           {
             "service_auth": [
-              "oauth.service.w"
+              "portal.w"
             ]
           }
         ],
@@ -96,9 +96,9 @@
             }
           },
           {
-            "name": "serviceId",
+            "name": "host",
             "in": "query",
-            "description": "Partial serviceId for filter",
+            "description": "Partial host name for filter",
             "required": false,
             "schema": {
               "type": "string"
@@ -123,7 +123,7 @@
         "security": [
           {
             "service_auth": [
-              "oauth.service.r"
+              "portal.r"
             ]
           }
         ]
@@ -155,7 +155,7 @@
         "security": [
           {
             "service_auth": [
-              "oauth.service.w"
+              "portal.w"
             ]
           }
         ]
@@ -195,8 +195,8 @@
         "security": [
           {
             "service_auth": [
-              "oauth.service.r",
-              "oauth.service.w"
+              "portal.r",
+              "portal.w"
             ]
           }
         ]
@@ -225,7 +225,7 @@
         "security": [
           {
             "service_auth": [
-              "oauth.service.w"
+              "portal.w"
             ]
           }
         ],
@@ -269,7 +269,7 @@
         "security": [
           {
             "service_auth": [
-              "oauth.service.w"
+              "portal.w"
             ]
           }
         ]
@@ -312,8 +312,8 @@
         "security": [
           {
             "service_auth": [
-              "oauth.service.r",
-              "oauth.service.w"
+              "portal.r",
+              "portal.w"
             ]
           }
         ]
@@ -341,8 +341,8 @@
           "implicit": {
             "authorizationUrl": "http://localhost:8888/oauth2/code",
             "scopes": {
-              "oauth.service.w": "write oauth service",
-              "oauth.service.r": "read oauth service"
+              "portal.w": "write from light-portal",
+              "portal.r": "read from light-portal"
             }
           }
         }
@@ -355,7 +355,8 @@
           "serviceId",
           "serviceName",
           "serviceType",
-          "scope"
+          "ownerId",
+          "host"
         ],
         "properties": {
           "serviceId": {
@@ -366,7 +367,6 @@
             "type": "string",
             "description": "service type",
             "enum": [
-              "swagger",
               "openapi",
               "graphql",
               "hybrid"
@@ -384,19 +384,13 @@
             "type": "string",
             "description": "service owner userId"
           },
+          "host": {
+            "type": "string",
+            "description": "service host"
+          },
           "scope": {
             "type": "string",
-            "description": "service scopes separated by space"
-          },
-          "createDt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "create date time"
-          },
-          "updateDt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "update date time"
+            "description": "service scopes separated by space, only use it if all endpoints share the same scopes."
           }
         }
       },
