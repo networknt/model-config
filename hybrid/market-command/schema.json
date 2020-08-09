@@ -1,0 +1,363 @@
+{
+  "host": "lightapi.net",
+  "service": "market",
+  "action": [
+    {
+      "name": "createClient",
+      "version": "0.1.0",
+      "handler": "CreateClient",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host of the client that is an indicator of the organization"
+          },
+          "lob": {
+            "type": "string",
+            "description": "Line of Business"
+          },
+          "clientType": {
+            "type": "string",
+            "description": "Client Type",
+            "enum": [
+              "confidential",
+              "public",
+              "trusted",
+              "external"
+            ]
+          },
+          "clientProfile": {
+            "type": "string",
+            "description": "Client Profile",
+            "enum": [
+              "webserver",
+              "browser",
+              "mobile",
+              "service",
+              "batch"
+            ]
+          },
+          "clientName": {
+            "type": "string",
+            "description": "Client Name"
+          },
+          "clientDesc": {
+            "type": "string",
+            "description": "Client Description"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Scope"
+          },
+          "customClaim": {
+            "title": "Custom Claim",
+            "type": "string"
+          },
+          "redirectUri": {
+            "title": "Redirect URI",
+            "type": "string"
+          },
+          "authenticateClass": {
+            "title": "Authenticate Class",
+            "type": "string"
+          },
+          "derefClientId": {
+            "title": "Dereference Client ID",
+            "type": "string"
+          },
+          "serviceId": {
+            "title": "Reference Service Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "host",
+          "clientType",
+          "clientProfile",
+          "clientName",
+          "clientDesc",
+          "scope"
+        ]
+      }
+    },
+    {
+      "name": "updateClient",
+      "version": "0.1.0",
+      "handler": "UpdateClient",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "title": "Client Id",
+            "type": "string",
+            "readonly": true
+          },
+          "host": {
+            "type": "string",
+            "description": "Host of the client that is an indicator of the organization"
+          },
+          "lob": {
+            "type": "string",
+            "description": "Line of Business"
+          },
+          "clientType": {
+            "type": "string",
+            "description": "Client Type"
+          },
+          "clientProfile": {
+            "type": "string",
+            "description": "Client Profile"
+          },
+          "clientName": {
+            "type": "string",
+            "description": "Client Name"
+          },
+          "clientDesc": {
+            "type": "string",
+            "description": "Client Description"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Scope"
+          },
+          "customClaim": {
+            "title": "Custom Claim",
+            "type": "string"
+          },
+          "redirectUri": {
+            "title": "Redirect URI",
+            "type": "string"
+          },
+          "authenticateClass": {
+            "title": "Authenticate Class",
+            "type": "string"
+          },
+          "derefClientId": {
+            "title": "Dereference Client ID",
+            "type": "string"
+          },
+          "serviceId": {
+            "title": "Reference Service Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "clientId",
+          "host",
+          "clientType",
+          "clientProfile",
+          "clientName",
+          "clientDesc",
+          "scope"
+        ]
+      }
+    },
+    {
+      "name": "deleteClient",
+      "version": "0.1.0",
+      "handler": "DeleteClient",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "description": "Client Id"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "clientId",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "createService",
+      "version": "0.1.0",
+      "handler": "CreateService",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "lob": {
+            "type": "string",
+            "description": "Line of Business"
+          },
+          "style": {
+            "title": "API Style",
+            "type": "string",
+            "enum": [
+              "openapi",
+              "graphql",
+              "hybrid"
+            ]
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          },
+          "buildNumber": {
+            "type": "string",
+            "description": "Build Number"
+          },
+          "serviceName": {
+            "title": "Service Name",
+            "type": "string"
+          },
+          "serviceDesc": {
+            "type": "string",
+            "description": "Start Time"
+          },
+          "status": {
+            "title": "API Status",
+            "type": "string",
+            "enum": [
+              "published",
+              "implemented",
+              "deployed",
+              "decommissioned"
+            ]
+          },
+          "tags": {
+            "title": "Tags",
+            "type": "array",
+            "minItems": 0,
+            "maxItems": 10
+          },
+          "clientId": {
+            "title": "Client Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "host",
+          "style",
+          "serviceId",
+          "buildNumber",
+          "serviceName",
+          "serviceDesc",
+          "status"
+        ]
+      }
+    },
+    {
+      "name": "updateService",
+      "version": "0.1.0",
+      "handler": "UpdateService",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "lob": {
+            "type": "string",
+            "description": "Line of Business"
+          },
+          "style": {
+            "title": "API Style",
+            "type": "string",
+            "enum": [
+              "openapi",
+              "graphql",
+              "hybrid"
+            ]
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id",
+            "readonly": true
+          },
+          "buildNumber": {
+            "type": "string",
+            "description": "Build Number",
+            "readonly": true
+          },
+          "serviceName": {
+            "title": "Service Name",
+            "type": "string"
+          },
+          "serviceDesc": {
+            "type": "string",
+            "description": "Start Time"
+          },
+          "status": {
+            "title": "API Status",
+            "type": "string",
+            "enum": [
+              "published",
+              "implemented",
+              "deployed",
+              "decommissioned"
+            ]
+          },
+          "tags": {
+            "title": "Tags",
+            "type": "array",
+            "minItems": 0,
+            "maxItems": 10
+          },
+          "clientId": {
+            "title": "Client Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "host",
+          "style",
+          "serviceId",
+          "buildNumber",
+          "serviceName",
+          "serviceDesc",
+          "status"
+        ]
+      }
+    },
+    {
+      "name": "deleteService",
+      "version": "0.1.0",
+      "handler": "DeleteService",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          },
+          "buildNumber": {
+            "type": "string",
+            "description": "Build Number"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "serviceId",
+          "host"
+        ]
+      }
+    }
+  ]
+}
