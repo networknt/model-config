@@ -358,6 +358,84 @@
           "host"
         ]
       }
+    },
+    {
+      "name": "createRefreshToken",
+      "version": "0.1.0",
+      "handler": "CreateRefreshToken",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Refresh Token",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "refreshToken": {
+            "type": "string",
+            "description": "Refresh Token"
+          },
+          "userId": {
+            "type": "string",
+            "description": "User Id"
+          },
+          "userType": {
+            "type": "string",
+            "description": "User Type"
+          },
+          "roles": {
+            "type": "string",
+            "description": "Roles"
+          },
+          "clientId": {
+            "description": "Client Id",
+            "type": "string"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Scope"
+          },
+          "remember": {
+            "description": "API Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "host",
+          "refreshToken",
+          "userId",
+          "userType",
+          "roles",
+          "clientId",
+          "scope",
+          "remember"
+        ]
+      }
+    },
+    {
+      "name": "deleteRefreshToken",
+      "version": "0.1.0",
+      "handler": "DeleteRefreshToken",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Refresh Token",
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string",
+            "description": "Refresh Token"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "refreshToken",
+          "host"
+        ]
+      }
     }
   ]
 }

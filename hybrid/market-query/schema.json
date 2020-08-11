@@ -25,6 +25,7 @@
           }
         },
         "required": [
+          "host",
           "offset",
           "limit"
         ]
@@ -72,7 +73,9 @@
           }
         },
         "required": [
-          "page"
+          "limit",
+          "offset",
+          "host"
         ]
       }
     },
@@ -96,6 +99,54 @@
         },
         "required": [
           "serviceId"
+        ]
+      }
+    },
+    {
+      "name": "getRefreshTokenDetail",
+      "version": "0.1.0",
+      "handler": "GetRefreshTokenDetail",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Refresh Token",
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string",
+            "description": "Refresh Token"
+          }
+        },
+        "required": [
+          "refreshToken"
+        ]
+      }
+    },
+    {
+      "name": "getRefreshToken",
+      "version": "0.1.0",
+      "handler": "GetRefreshToken",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Refresh Token",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
         ]
       }
     }
