@@ -397,7 +397,7 @@
             "description": "Scope"
           },
           "remember": {
-            "description": "API Status",
+            "description": "Remember Session",
             "type": "string"
           }
         },
@@ -433,6 +433,233 @@
         },
         "required": [
           "refreshToken",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "createAuthCode",
+      "version": "0.1.0",
+      "handler": "CreateAuthCode",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Auth Code",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "authCode": {
+            "type": "string",
+            "description": "Auth Code"
+          },
+          "userId": {
+            "type": "string",
+            "description": "User Id"
+          },
+          "roles": {
+            "type": "string",
+            "description": "Roles"
+          },
+          "redirectUri": {
+            "type": "string",
+            "description": "Redirect Uri"
+          },
+          "remember": {
+            "description": "Remember Session",
+            "type": "string"
+          }
+        },
+        "required": [
+          "host",
+          "authCode",
+          "userId",
+          "roles",
+          "redirectUri",
+          "remember"
+        ]
+      }
+    },
+    {
+      "name": "deleteAuthCode",
+      "version": "0.1.0",
+      "handler": "DeleteAuthCode",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Auth Code",
+        "type": "object",
+        "properties": {
+          "authCode": {
+            "type": "string",
+            "description": "Auth Code"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "authCode",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "createRefToken",
+      "version": "0.1.0",
+      "handler": "CreateRefToken",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Reference Token",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "refToken": {
+            "type": "string",
+            "description": "Reference Token"
+          },
+          "jwt": {
+            "type": "string",
+            "description": "Jwt Token"
+          },
+          "clientId": {
+            "type": "string",
+            "description": "Client Id"
+          }
+        },
+        "required": [
+          "host",
+          "refToken",
+          "jwt",
+          "clientId"
+        ]
+      }
+    },
+    {
+      "name": "deleteRefToken",
+      "version": "0.1.0",
+      "handler": "DeleteRefToken",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Reference Token",
+        "type": "object",
+        "properties": {
+          "refToken": {
+            "type": "string",
+            "description": "Reference Token"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "refToken",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "createProvider",
+      "version": "0.1.0",
+      "handler": "CreateProvider",
+      "scope": "portal.w",
+      "schema": {
+        "title": "OAuth Provider",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "providerId": {
+            "type": "string",
+            "description": "Provider Id"
+          },
+          "providerName": {
+            "type": "string",
+            "description": "Provider Name"
+          },
+          "serverUrl": {
+            "type": "string",
+            "description": "Server Url"
+          },
+          "uri": {
+            "type": "string",
+            "description": "Uri"
+          }
+        },
+        "required": [
+          "host",
+          "providerId",
+          "providerName",
+          "serverUrl"
+        ]
+      }
+    },
+    {
+      "name": "updateProvider",
+      "version": "0.1.0",
+      "handler": "UpdateProvider",
+      "scope": "portal.w",
+      "schema": {
+        "title": "OAuth Provider",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "providerId": {
+            "type": "string",
+            "description": "Provider Id",
+            "readonly": true
+          },
+          "providerName": {
+            "type": "string",
+            "description": "Provider Name"
+          },
+          "serverUrl": {
+            "type": "string",
+            "description": "Server Url"
+          },
+          "uri": {
+            "type": "string",
+            "description": "Uri"
+          }
+        },
+        "required": [
+          "host",
+          "providerId",
+          "providerName",
+          "serverUrl"
+        ]
+      }
+    },
+    {
+      "name": "deleteProvider",
+      "version": "0.1.0",
+      "handler": "DeleteProvider",
+      "scope": "portal.w",
+      "schema": {
+        "title": "OAuth Provider",
+        "type": "object",
+        "properties": {
+          "providerId": {
+            "type": "string",
+            "description": "Provider Id"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "providerId",
           "host"
         ]
       }

@@ -149,6 +149,150 @@
           "host"
         ]
       }
+    },
+    {
+      "name": "getAuthCodeDetail",
+      "version": "0.1.0",
+      "handler": "GetAuthCodeDetail",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Auth Code",
+        "type": "object",
+        "properties": {
+          "authCode": {
+            "type": "string",
+            "description": "Auth Code"
+          }
+        },
+        "required": [
+          "authCode"
+        ]
+      }
+    },
+    {
+      "name": "getAuthCode",
+      "version": "0.1.0",
+      "handler": "GetAuthCode",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Auth Code",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "getRefTokenDetail",
+      "version": "0.1.0",
+      "handler": "GetRefTokenDetail",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Reference Token",
+        "type": "object",
+        "properties": {
+          "refToken": {
+            "type": "string",
+            "description": "Reference Token"
+          }
+        },
+        "required": [
+          "refToken"
+        ]
+      }
+    },
+    {
+      "name": "getRefToken",
+      "version": "0.1.0",
+      "handler": "GetRefToken",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Reference Token",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "getProviderDetail",
+      "version": "0.1.0",
+      "handler": "GetProviderDetail",
+      "scope": "portal.r",
+      "schema": {
+        "title": "OAuth Provider",
+        "type": "object",
+        "properties": {
+          "providerId": {
+            "type": "string",
+            "description": "Provider Id"
+          }
+        },
+        "required": [
+          "providerId"
+        ]
+      }
+    },
+    {
+      "name": "getProvider",
+      "version": "0.1.0",
+      "handler": "GetProvider",
+      "scope": "portal.r",
+      "schema": {
+        "title": "OAuth Provider",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
     }
   ]
 }
