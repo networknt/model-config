@@ -405,7 +405,6 @@
           "host",
           "refreshToken",
           "userId",
-          "userType",
           "roles",
           "clientId",
           "scope",
