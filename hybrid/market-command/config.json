@@ -17,5 +17,9 @@
   "enableRegistry": false,
   "supportDb": false,
   "supportH2ForTest": false,
-  "supportClient": false
+  "supportClient": false,
+  "kafkaProducer": true,
+  "kafkaConsumer": false,
+  "supportAvro": true,
+  "kafkaTopic": "portal-event"
 }

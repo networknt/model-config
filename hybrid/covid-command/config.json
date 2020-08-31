@@ -6,6 +6,7 @@
   "groupId": "net.lightapi",
   "name": "covid-command",
   "version": "0.1.0",
+  "jsonPath": "/portal/command",
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
   "httpPort": 8082,
@@ -18,5 +19,9 @@
   "supportMysql": false,
   "supportPostgresql": false,
   "supportH2ForTest": false,
-  "supportClient": false
+  "supportClient": false,
+  "kafkaProducer": true,
+  "kafkaConsumer": false,
+  "supportAvro": true,
+  "kafkaTopic": "portal-event"
 }

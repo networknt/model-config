@@ -24,5 +24,9 @@
     "password": "mysqlpw"
   },
   "supportH2ForTest": true,
-  "supportClient": false
+  "supportClient": false,
+  "kafkaProducer": false,
+  "kafkaConsumer": true,
+  "supportAvro": true,
+  "kafkaTopic": "portal-event"
 }
