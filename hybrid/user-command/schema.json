@@ -102,6 +102,50 @@
       }
     },
     {
+      "name": "createSocialUser",
+      "version": "0.1.0",
+      "handler": "CreateSocialUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "user host indicator the organization for user"
+          },
+          "email": {
+            "type": "string",
+            "description": "user email address"
+          },
+          "userId": {
+            "type": "string",
+            "description": "a unique user id"
+          },
+          "language": {
+            "type": "string",
+            "description": "preferred language of user"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "firstName of the user"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "firstName of the user"
+          }
+        },
+        "required": [
+          "host",
+          "email",
+          "userId",
+          "language",
+          "firstName",
+          "lastName"
+        ]
+      }
+    },
+    {
       "name": "deleteUserById",
       "version": "0.1.0",
       "handler": "DeleteUserById",
