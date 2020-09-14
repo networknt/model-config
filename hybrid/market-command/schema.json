@@ -662,6 +662,88 @@
           "host"
         ]
       }
+    },
+    {
+      "name": "createCategory",
+      "version": "0.1.0",
+      "handler": "CreateCategory",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Category",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Category Host"
+          },
+          "name": {
+            "type": "string",
+            "description": "Category Name"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories"
+          }
+        },
+        "required": [
+          "name",
+          "categories"
+        ]
+      }
+    },
+    {
+      "name": "updateCategory",
+      "version": "0.1.0",
+      "handler": "UpdateCategory",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Category",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Category Host"
+          },
+          "name": {
+            "type": "string",
+            "description": "Category Name"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories"
+          }
+        },
+        "required": [
+          "host",
+          "name",
+          "categories"
+        ]
+      }
+    },
+    {
+      "name": "deleteCategory",
+      "version": "0.1.0",
+      "handler": "DeleteCategory",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Category",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Category Host"
+          },
+          "name": {
+            "type": "string",
+            "description": "Category Name"
+          }
+        },
+        "required": [
+          "host",
+          "name"
+        ]
+      }
     }
+
   ]
 }
