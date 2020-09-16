@@ -44,7 +44,7 @@
       "name": "getNonceByEmail",
       "version": "0.1.0",
       "handler": "GetNonceByEmail",
-      "scope": "portal.r",
+      "skipAuth": true,
       "schema": {
         "title": "Service",
         "type": "object",
