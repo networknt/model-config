@@ -322,7 +322,7 @@
       "name": "getCategoryByName",
       "version": "0.1.0",
       "handler": "GetCategoryByName",
-      "scope": "portal.r",
+      "skipAuth": true,
       "schema": {
         "title": "Category",
         "type": "object",
