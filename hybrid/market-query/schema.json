@@ -341,6 +341,271 @@
           "name"
         ]
       }
+    },
+    {
+      "name": "getBlogById",
+      "version": "0.1.0",
+      "handler": "GetBlogById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Blog",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Blog Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getBlog",
+      "version": "0.1.0",
+      "handler": "GetBlog",
+      "skipAuth": true,
+      "schema": {
+        "title": "Blogs",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "getPageById",
+      "version": "0.1.0",
+      "handler": "GetPageById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Page",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Page Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getPage",
+      "version": "0.1.0",
+      "handler": "GetPage",
+      "skipAuth": true,
+      "schema": {
+        "title": "Pages",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "getDocumentById",
+      "version": "0.1.0",
+      "handler": "GetDocumentById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Document",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Document Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getDocument",
+      "version": "0.1.0",
+      "handler": "GetDocument",
+      "skipAuth": true,
+      "schema": {
+        "title": "Documents",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "getTemplateById",
+      "version": "0.1.0",
+      "handler": "GetTemplateById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Template",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Template Id"
+          }
+        },
+        "required": [
+          "host",
+          "templateId"
+        ]
+      }
+    },
+    {
+      "name": "getTemplate",
+      "version": "0.1.0",
+      "handler": "GetTemplate",
+      "skipAuth": true,
+      "schema": {
+        "title": "Templates",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "getNewsById",
+      "version": "0.1.0",
+      "handler": "GetNewsById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Blog",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "News Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getNews",
+      "version": "0.1.0",
+      "handler": "GetNews",
+      "skipAuth": true,
+      "schema": {
+        "title": "News",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
     }
   ]
 }

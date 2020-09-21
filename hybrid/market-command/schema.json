@@ -686,6 +686,7 @@
           }
         },
         "required": [
+          "host",
           "name",
           "categories"
         ]
@@ -743,7 +744,763 @@
           "name"
         ]
       }
-    }
+    },
+    {
+      "name": "createBlog",
+      "version": "0.1.0",
+      "handler": "CreateBlog",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Blog",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Blog Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": [
+              "draft",
+              "published"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Summary"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "featuredImageUrl": {
+            "type": "string",
+            "description": "Featured Image URL"
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum":[
+              "O",
+              "C"
+            ]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "title",
+          "body",
+          "summary",
+          "categories",
+          "tags",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "updateBlog",
+      "version": "0.1.0",
+      "handler": "UpdateBlog",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Blog",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": [
+              "draft",
+              "published"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Summary"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "featuredImageUrl": {
+            "type": "string",
+            "description": "Featured Image URL"
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum":[
+              "O",
+              "C"
+            ]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "title",
+          "body",
+          "summary",
+          "categories",
+          "tags",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "deleteBlog",
+      "version": "0.1.0",
+      "handler": "DeleteBlog",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Blog",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Blog Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
 
+    {
+      "name": "createDocument",
+      "version": "0.1.0",
+      "handler": "CreateDocument",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Document",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": [
+              "draft",
+              "published"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum":[
+              "O",
+              "C"
+            ]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "title",
+          "body",
+          "summary",
+          "categories",
+          "tags",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "updateDocument",
+      "version": "0.1.0",
+      "handler": "UpdateDocument",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Document",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": [
+              "draft",
+              "published"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum":[
+              "O",
+              "C"
+            ]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "title",
+          "body",
+          "categories",
+          "tags",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "deleteDocument",
+      "version": "0.1.0",
+      "handler": "DeleteDocument",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Document",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Document Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "createPage",
+      "version": "0.1.0",
+      "handler": "CreatePage",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Page",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Page Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "body",
+          "tags"
+        ]
+      }
+    },
+    {
+      "name": "updatePage",
+      "version": "0.1.0",
+      "handler": "UpdatePage",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Page",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "body",
+          "tags"
+        ]
+      }
+    },
+    {
+      "name": "deletePage",
+      "version": "0.1.0",
+      "handler": "DeletePage",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Page",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Page Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+
+    {
+      "name": "createTemplate",
+      "version": "0.1.0",
+      "handler": "CreateTemplate",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Template",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Template Host"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Template Id"
+          },
+          "templateType": {
+            "type": "string",
+            "description": "Template Type",
+            "enum": [
+              "faq",
+              "error"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Template Status",
+            "enum": [
+              "draft",
+              "published"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "Template Title"
+          },
+          "fields": {
+            "type": "object",
+            "description": "Template Fields"
+          }
+        },
+        "required": [
+          "host",
+          "templateId",
+          "templateType",
+          "status",
+          "title",
+          "fields"
+        ]
+      }
+    },
+    {
+      "name": "updateTemplate",
+      "version": "0.1.0",
+      "handler": "UpdateTemplate",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Template",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Template Host"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Template Id"
+          },
+          "templateType": {
+            "type": "string",
+            "description": "Template Type",
+            "enum": [
+              "faq",
+              "error"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Template Status",
+            "enum": [
+              "draft",
+              "published"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "Template Title"
+          },
+          "fields": {
+            "type": "object",
+            "description": "Template Fields"
+          }
+        },
+        "required": [
+          "host",
+          "templateId",
+          "templateType",
+          "status",
+          "title",
+          "fields"
+        ]
+      }
+    },
+    {
+      "name": "deleteTemplate",
+      "version": "0.1.0",
+      "handler": "DeleteTemplate",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Template",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Template Host"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Template Id"
+          }
+        },
+        "required": [
+          "host",
+          "templateId"
+        ]
+      }
+    },
+    {
+      "name": "createNews",
+      "version": "0.1.0",
+      "handler": "CreateNews",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create News",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "News Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": [
+              "draft",
+              "published"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Summary"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum":[
+              "O",
+              "C"
+            ]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "title",
+          "body",
+          "summary",
+          "categories",
+          "tags",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "updateNews",
+      "version": "0.1.0",
+      "handler": "UpdateNews",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update News",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": [
+              "draft",
+              "published"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Summary"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum":[
+              "O",
+              "C"
+            ]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "title",
+          "body",
+          "summary",
+          "categories",
+          "tags",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "deleteNews",
+      "version": "0.1.0",
+      "handler": "DeleteNews",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete News",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "News Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    }
   ]
 }
