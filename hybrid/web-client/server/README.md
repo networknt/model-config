@@ -6,5 +6,13 @@ The command to generate the server:
 java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-server -o ~/taiji-chain/web-client/server -c model-config/hybrid/web-client/server/config.json
 ```
 
+To generate the server again to the /tmp folder.
+
+```
+cd ~/networknt
+rm -rf /tmp/server
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-server -o /tmp/server -c model-config/hybrid/web-client/server/config.json
+```
+
 Please note that you have to checkout [model-config](https://github.com/networknt/model-config) and [light-portal](https://github.com/networknt/light-portal) in the same workspace networknt. 
 

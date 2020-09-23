@@ -294,6 +294,7 @@ components:
             'tk.w': create tx
   schemas:
     Account:
+      type: object
       properties:
         entityAddress: 
           type: string
@@ -306,6 +307,7 @@ components:
           type: integer
           format: int64
     Transaction:
+      type: object
       properties:
         time: 
           type: integer
@@ -318,6 +320,7 @@ components:
           type: integer
           format: int64
     Token:
+      type: object
       properties:
         entityAddress: 
           type: string

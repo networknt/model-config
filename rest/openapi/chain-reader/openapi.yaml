@@ -295,6 +295,7 @@ components:
   schemas:
 
     Transaction:
+      type: object
       properties:
         currency: 
           type: string
@@ -308,12 +309,14 @@ components:
           items: 
             $ref: '#/components/schemas/LedgerEntry'
     LedgerEntry:
+      type: object
       properties:
         address: 
           type: string
         signedEntry:
           type: string
     Fee:
+      type: object
       properties:
         bankAddress: 
           type: string

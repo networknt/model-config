@@ -6,6 +6,7 @@
   "groupId": "io.taiji",
   "name": "currency",
   "version": "1.0.0",
+  "jsonPath": "/api/webclient",
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
   "httpPort": 8080,
@@ -20,3 +21,5 @@
   "supportH2ForTest": false,
   "supportClient": true
 }
+
+

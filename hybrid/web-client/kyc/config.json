@@ -6,6 +6,7 @@
   "groupId": "io.taiji",
   "name": "kyc",
   "version": "1.0.0",
+  "jsonPath": "/api/webclient",
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
   "httpPort": 8080,
