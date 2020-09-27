@@ -167,7 +167,7 @@
         }
       }
     },
-    "/account/{address}": {
+    "/token/account/{address}": {
       "get": {
         "summary": "Token balance and allowance for the address",
         "operationId": "getAccountByAddress",
@@ -237,7 +237,7 @@
         }
       }
     },
-    "/account/{address}/{symbol}": {
+    "/token/account/{address}/{symbol}": {
       "get": {
         "summary": "Token balance and allowance for the address",
         "operationId": "getAccountBySymbol",
@@ -291,7 +291,7 @@
         }
       }
     },
-    "/transaction/{address}": {
+    "/token/transaction/{address}": {
       "get": {
         "summary": "Get token transactions for an address",
         "operationId": "getTransactionByAddress",
@@ -363,7 +363,7 @@
         }
       }
     },
-    "/transaction/{address}/{symbol}": {
+    "/token/transaction/{address}/{symbol}": {
       "get": {
         "summary": "Get token transactions for an address and symbol",
         "operationId": "getTransactionBySymbol",
@@ -463,6 +463,7 @@
     },
     "schemas": {
       "Account": {
+        "type": "object",
         "properties": {
           "entityAddress": {
             "type": "string"
@@ -481,6 +482,7 @@
         }
       },
       "Transaction": {
+        "type": "object",
         "properties": {
           "time": {
             "type": "integer",
@@ -499,6 +501,7 @@
         }
       },
       "Token": {
+        "type": "object",
         "properties": {
           "entityAddress": {
             "type": "string"

@@ -105,7 +105,7 @@ paths:
                 symbol: LIGHT
                 totalSupply: 1000000000
                 decimals: 9
-  '/account/{address}':
+  '/token/account/{address}':
     get:
       summary: Token balance and allowance for the address
       operationId: getAccountByAddress
@@ -149,7 +149,7 @@ paths:
                   symbol: LIGHT
                   balance: 1000
                   allowance: 100
-  '/account/{address}/{symbol}':
+  '/token/account/{address}/{symbol}':
     get:
       summary: Token balance and allowance for the address
       operationId: getAccountBySymbol
@@ -183,7 +183,7 @@ paths:
                 symbol: LIGHT
                 balance: 1000
                 allowance: 100
-  '/transaction/{address}':
+  '/token/transaction/{address}':
     get:
       summary: Get token transactions for an address
       operationId: getTransactionByAddress
@@ -229,7 +229,7 @@ paths:
                   fromAddress: 00007208c97fffee67c1186686f272ecf17f29e9 
                   toAddress: 00007208c97fffee67c1186686f272ecf17f29e9
                   amount: 1000000000000
-  '/transaction/{address}/{symbol}':
+  '/token/transaction/{address}/{symbol}':
     get:
       summary: Get token transactions for an address and symbol
       operationId: getTransactionBySymbol
