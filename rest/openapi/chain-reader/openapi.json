@@ -204,7 +204,7 @@
             "name": "limit",
             "in": "query",
             "description": "How many items to return at one time (max 100 and default 10)",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -214,7 +214,7 @@
             "name": "offset",
             "in": "query",
             "description": "Offset of transactions (default 0 which is from the last transaction)",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"

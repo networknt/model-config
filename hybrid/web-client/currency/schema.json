@@ -67,6 +67,14 @@
         "title": "Currency Transaction",
         "type": "object",
         "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "description": "Page Number"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Page Size"
+          },
           "address": {
             "type": "string"
           },
@@ -79,7 +87,9 @@
         },
         "required": [
           "address",
-          "currency"
+          "currency",
+          "pageNumber",
+          "pageSize"
         ]
       }
     }
