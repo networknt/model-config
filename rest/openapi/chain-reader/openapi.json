@@ -76,6 +76,66 @@
         }
       }
     },
+    "/account": {
+      "get": {
+        "summary": "Get all information about an address like currency accounts, balances and the last 10 transactions of each account.",
+        "operationId": "getBalances",
+        "parameters": [
+          {
+            "name": "addresses",
+            "in": "query",
+            "description": "A list of Taiji blockchain addresses separated by comma",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "tx_auth": [
+              "tx.r"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of addresses and their balances per currency",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Transaction"
+                  }
+                },
+                "example": [
+                  {
+                    "currency": "taiji",
+                    "c": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ],
+                    "d": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60",
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ]
+                  },
+                  {
+                    "currency": "taiji",
+                    "c": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ],
+                    "d": [
+                      "0xd8f64a42b57be0d565f385378db2f6bf324ce14a594afc05de90436e9ce01f60"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/account/{address}/{currency}": {
       "get": {
         "summary": "Get all information about an account for an address of balances and the last 10 transactions.",
@@ -474,6 +534,7 @@
     },
     "schemas": {
       "Transaction": {
+        "type": "object",
         "properties": {
           "currency": {
             "type": "string",
@@ -496,6 +557,7 @@
         }
       },
       "LedgerEntry": {
+        "type": "object",
         "properties": {
           "address": {
             "type": "string"
@@ -506,6 +568,7 @@
         }
       },
       "Fee": {
+        "type": "object",
         "properties": {
           "bankAddress": {
             "type": "string"
