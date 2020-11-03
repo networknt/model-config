@@ -1381,10 +1381,6 @@
               "S3"
             ]
           },
-          "rootCause": {
-            "type": "string",
-            "description": "Root Cause"
-          },
           "resolution": {
             "type": "string",
             "description": "Error Resolution"
@@ -1397,7 +1393,6 @@
           "message",
           "description",
           "components",
-          "rootCause",
           "resolution"
         ]
       }
@@ -1457,10 +1452,6 @@
               "S3"
             ]
           },
-          "rootCause": {
-            "type": "string",
-            "description": "Root Cause"
-          },
           "resolution": {
             "type": "string",
             "description": "Error Resolution"
@@ -1473,7 +1464,6 @@
           "message",
           "description",
           "components",
-          "rootCause",
           "resolution"
         ]
       }
