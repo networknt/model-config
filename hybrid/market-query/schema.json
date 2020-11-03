@@ -600,6 +600,59 @@
       }
     },
     {
+      "name": "getErrorByCode",
+      "version": "0.1.0",
+      "handler": "GetErrorByCode",
+      "skipAuth": true,
+      "schema": {
+        "title": "Error",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Error Code"
+          }
+        },
+        "required": [
+          "host",
+          "errorCode"
+        ]
+      }
+    },
+    {
+      "name": "getError",
+      "version": "0.1.0",
+      "handler": "GetError",
+      "skipAuth": true,
+      "schema": {
+        "title": "Errors",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
       "name": "getNewsById",
       "version": "0.1.0",
       "handler": "GetNewsById",
