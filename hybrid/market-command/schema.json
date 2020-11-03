@@ -1327,6 +1327,182 @@
       }
     },
     {
+      "name": "createError",
+      "version": "0.1.0",
+      "handler": "CreateError",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Error",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Error Host"
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Error Code"
+          },
+          "statusCode": {
+            "type": "integer",
+            "description": "Status Code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error Message"
+          },
+          "description": {
+            "type": "string",
+            "description": "Error Description"
+          },
+          "components": {
+            "type": "array",
+            "description": "Error Component",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "email": {
+            "type": "string",
+            "description": "Contact Email"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Contact Number"
+          },
+          "severity": {
+            "type": "string",
+            "description": "Severity Level",
+            "enum": [
+              "S0",
+              "S1",
+              "S2",
+              "S3"
+            ]
+          },
+          "rootCause": {
+            "type": "string",
+            "description": "Root Cause"
+          },
+          "resolution": {
+            "type": "string",
+            "description": "Error Resolution"
+          }
+        },
+        "required": [
+          "host",
+          "errorCode"
+          "statusCode",
+          "message",
+          "description",
+          "components",
+          "rootCause",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "name": "updateError",
+      "version": "0.1.0",
+      "handler": "UpdateError",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Error",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Error Host"
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Error Code"
+          },
+          "statusCode": {
+            "type": "integer",
+            "description": "Status Code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error Message"
+          },
+          "description": {
+            "type": "string",
+            "description": "Error Description"
+          },
+          "components": {
+            "type": "array",
+            "description": "Error Component",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "email": {
+            "type": "string",
+            "description": "Contact Email"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Contact Number"
+          },
+          "severity": {
+            "type": "string",
+            "description": "Severity Level",
+            "enum": [
+              "S0",
+              "S1",
+              "S2",
+              "S3"
+            ]
+          },
+          "rootCause": {
+            "type": "string",
+            "description": "Root Cause"
+          },
+          "resolution": {
+            "type": "string",
+            "description": "Error Resolution"
+          }
+        },
+        "required": [
+          "host",
+          "errorCode"
+          "statusCode",
+          "message",
+          "description",
+          "components",
+          "rootCause",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "name": "deleteError",
+      "version": "0.1.0",
+      "handler": "DeleteError",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Error",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Error Host"
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Error Code"
+          }
+        },
+        "required": [
+          "host",
+          "errorCode"
+        ]
+      }
+    },
+    {
       "name": "createNews",
       "version": "0.1.0",
       "handler": "CreateNews",
