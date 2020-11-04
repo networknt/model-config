@@ -806,7 +806,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum":[
+            "enum": [
               "O",
               "C"
             ]
@@ -886,7 +886,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum":[
+            "enum": [
               "O",
               "C"
             ]
@@ -929,7 +929,6 @@
         ]
       }
     },
-
     {
       "name": "createDocument",
       "version": "0.1.0",
@@ -983,7 +982,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum":[
+            "enum": [
               "O",
               "C"
             ]
@@ -1055,7 +1054,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum":[
+            "enum": [
               "O",
               "C"
             ]
@@ -1197,7 +1196,6 @@
         ]
       }
     },
-
     {
       "name": "createTemplate",
       "version": "0.1.0",
@@ -1388,7 +1386,7 @@
         },
         "required": [
           "host",
-          "errorCode"
+          "errorCode",
           "statusCode",
           "message",
           "description",
@@ -1459,7 +1457,7 @@
         },
         "required": [
           "host",
-          "errorCode"
+          "errorCode",
           "statusCode",
           "message",
           "description",
@@ -1549,7 +1547,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum":[
+            "enum": [
               "O",
               "C"
             ]
@@ -1625,7 +1623,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum":[
+            "enum": [
               "O",
               "C"
             ]
@@ -1798,6 +1796,5 @@
         ]
       }
     }
-
   ]
 }
