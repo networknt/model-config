@@ -1531,6 +1531,22 @@
             "type": "string",
             "description": "Contact Email"
           },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
           "schema": {
             "type": "string",
             "description": "Json Schema"
@@ -1550,6 +1566,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum": [
+              "O",
+              "C"
+            ]
           }
         },
         "required": [
@@ -1559,9 +1584,12 @@
           "version",
           "name",
           "description",
+          "categories",
+          "tags",
           "schema",
           "valid",
-          "invalid"
+          "invalid",
+          "commentStatus"
         ]
       }
     },
@@ -1613,6 +1641,22 @@
             "type": "string",
             "description": "Contact Email"
           },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
           "schema": {
             "type": "string",
             "description": "Json Schema"
@@ -1632,6 +1676,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum": [
+              "O",
+              "C"
+            ]
           }
         },
         "required": [
@@ -1642,9 +1695,12 @@
           "name",
           "description",
           "owner",
+          "categories",
+          "tags",
           "schema",
           "valid",
-          "invalid"
+          "invalid",
+          "commentStatus"
         ]
       }
     },
