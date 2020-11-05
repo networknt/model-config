@@ -1516,8 +1516,17 @@
             ]
           },
           "version": {
-            "type": "string",
-            "description": "Schema Version"
+            "title": "Schema Version",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "v4",
+                "v6",
+                "v7",
+                "v2019-09"
+              ]
+            }
           },
           "name": {
             "type": "string",
@@ -1621,8 +1630,17 @@
             ]
           },
           "version": {
-            "type": "string",
-            "description": "Schema Version"
+            "title": "Schema Version",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "v4",
+                "v6",
+                "v7",
+                "v2019-09"
+              ]
+            }
           },
           "name": {
             "type": "string",
