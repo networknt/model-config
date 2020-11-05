@@ -10,6 +10,32 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths:
+  "/schema/{host}/{file}":
+    get:
+      description: Return the json schema for the host and id
+      operationId: getRefSchema
+      parameters:
+        - name: host
+          in: path
+          description: The json schema host
+          required: true
+          schema:
+            type: string
+        - name: file
+          in: path
+          description: The json schema file
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+      security:
+        - ref_auth:
+            - ref.r
+            - ref.w
+      x-accepts: application/json
+      x-contentType: application/json
   "/table":
     get:
       description: Return the ref table list for the host
