@@ -1560,21 +1560,9 @@
             "type": "string",
             "description": "Json Schema"
           },
-          "valid": {
-            "type": "array",
-            "description": "Valid Examples",
-            "maxItems": 10,
-            "items": {
-              "type": "string"
-            }
-          },
-          "invalid": {
-            "type": "array",
-            "description": "Invalid Examples",
-            "maxItems": 10,
-            "items": {
-              "type": "string"
-            }
+          "example": {
+            "type": "string",
+            "description": "Json Example"
           },
           "commentStatus": {
             "type": "string",
@@ -1596,8 +1584,7 @@
           "categories",
           "tags",
           "schema",
-          "valid",
-          "invalid",
+          "example",
           "commentStatus"
         ]
       }
@@ -1679,21 +1666,9 @@
             "type": "string",
             "description": "Json Schema"
           },
-          "valid": {
-            "type": "array",
-            "description": "Valid Examples",
-            "maxItems": 10,
-            "items": {
-              "type": "string"
-            }
-          },
-          "invalid": {
-            "type": "array",
-            "description": "Invalid Examples",
-            "maxItems": 10,
-            "items": {
-              "type": "string"
-            }
+          "example": {
+            "type": "string",
+            "description": "Json Example"
           },
           "commentStatus": {
             "type": "string",
@@ -1716,8 +1691,7 @@
           "categories",
           "tags",
           "schema",
-          "valid",
-          "invalid",
+          "example",
           "commentStatus"
         ]
       }
