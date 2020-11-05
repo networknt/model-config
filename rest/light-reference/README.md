@@ -4,3 +4,12 @@ This is the OpenAPI specification for the light-reference repository. It serves 
 cd ~/networknt
 java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o light-reference -m model-config/rest/light-reference/openapi.yaml -c model-config/rest/light-reference/config.json
 ```
+
+generate to the /tmp folder
+
+```
+cd ~/networknt
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o /tmp/light-reference -m model-config/rest/light-reference/openapi.yaml -c model-config/rest/light-reference/config.json
+
+```
+
