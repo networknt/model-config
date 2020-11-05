@@ -653,6 +653,59 @@
       }
     },
     {
+      "name": "getJsonSchemaById",
+      "version": "0.1.0",
+      "handler": "GetJsonSchemaById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Json Schema",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Schema Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getJsonSchema",
+      "version": "0.1.0",
+      "handler": "GetJsonSchema",
+      "skipAuth": true,
+      "schema": {
+        "title": "Json Schemas",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
       "name": "getNewsById",
       "version": "0.1.0",
       "handler": "GetNewsById",

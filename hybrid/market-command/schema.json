@@ -1491,6 +1491,188 @@
       }
     },
     {
+      "name": "createJsonSchema",
+      "version": "0.1.0",
+      "handler": "CreateJsonSchema",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Json Schema",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Schema Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Schema Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": [
+              "draft",
+              "published"
+            ]
+          },
+          "version": {
+            "type": "string",
+            "description": "Schema Version"
+          },
+          "name": {
+            "type": "string",
+            "description": "Schema Name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Schema Description"
+          },
+          "email": {
+            "type": "string",
+            "description": "Contact Email"
+          },
+          "schema": {
+            "type": "string",
+            "description": "Json Schema"
+          },
+          "valid": {
+            "type": "array",
+            "description": "Valid Examples",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "invalid": {
+            "type": "array",
+            "description": "Invalid Examples",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "version",
+          "name",
+          "description",
+          "schema",
+          "valid",
+          "invalid"
+        ]
+      }
+    },
+    {
+      "name": "updateJsonSchema",
+      "version": "0.1.0",
+      "handler": "UpdateJsonSchema",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Json Schema",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Schema Host",
+            "readonly": true
+          },
+          "id": {
+            "type": "string",
+            "description": "Schema Id",
+            "readonly": true
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": [
+              "draft",
+              "published"
+            ]
+          },
+          "version": {
+            "type": "string",
+            "description": "Schema Version"
+          },
+          "name": {
+            "type": "string",
+            "description": "Schema Name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Schema Description"
+          },
+          "owner": {
+            "type": "string",
+            "description": "Owner Id",
+            "readonly": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Contact Email"
+          },
+          "schema": {
+            "type": "string",
+            "description": "Json Schema"
+          },
+          "valid": {
+            "type": "array",
+            "description": "Valid Examples",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "invalid": {
+            "type": "array",
+            "description": "Invalid Examples",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "version",
+          "name",
+          "description",
+          "owner",
+          "schema",
+          "valid",
+          "invalid"
+        ]
+      }
+    },
+    {
+      "name": "deleteJsonSchema",
+      "version": "0.1.0",
+      "handler": "DeleteJsonSchema",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Json Schema",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Schema Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Schema Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
       "name": "createNews",
       "version": "0.1.0",
       "handler": "CreateNews",
