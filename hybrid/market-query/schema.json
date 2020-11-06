@@ -706,6 +706,51 @@
       }
     },
     {
+      "name": "getJsonSchemaList",
+      "version": "0.1.0",
+      "handler": "GetJsonSchemaList",
+      "skipAuth": true,
+      "schema": {
+        "title": "Json Schemas",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
       "name": "getNewsById",
       "version": "0.1.0",
       "handler": "GetNewsById",
