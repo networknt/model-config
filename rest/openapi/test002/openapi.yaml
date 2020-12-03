@@ -59,7 +59,7 @@ paths:
         - services
       parameters:
         - name: serviceName
-          in: query
+          in: path
           description: Service name
           required: true
           schema:
@@ -92,6 +92,13 @@ paths:
     post:
       summary: Create/start a services
       operationId: startServices
+      parameters:
+        - name: serviceName
+          in: path
+          description: Service name
+          required: true
+          schema:
+            type: string
       requestBody:
         description: Services to be started
         required: true
@@ -117,6 +124,13 @@ paths:
     put:
       summary: Update service
       operationId: updateServices
+      parameters:
+        - name: serviceName
+          in: path
+          description: Service name
+          required: true
+          schema:
+            type: string
       requestBody:
         description: Start, stop, restart service
         required: true
@@ -181,7 +195,7 @@ components:
           additionalProperties:
             type: array
             items:
-              $ref: '#/components/schema/ServiceMap'
+              $ref: '#/components/schemas/ServiceMap'
     Error:
       type: object
       required:
