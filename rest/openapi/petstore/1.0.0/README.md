@@ -9,6 +9,15 @@ cd ~/networknt
 rm -rf light-example-4j/rest/openapi/petstore
 java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o light-example-4j/rest/openapi/petstore -m model-config/rest/openapi/petstore/1.0.0/openapi.yaml -c model-config/rest/openapi/petstore/1.0.0/config.json
 ```
+Generate the project to the /tmp folder
+
+```
+cd ~/networknt
+rm -rf /tmp/petstore
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o /tmp/petstore -m model-config/rest/openapi/petstore/1.0.0/openapi.yaml -c model-config/rest/openapi/petstore/1.0.0/config.json
+
+```
+
 
 Here is the command line to generate the petstore in Kotlin
 
