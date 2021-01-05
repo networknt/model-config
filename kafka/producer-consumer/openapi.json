@@ -14,7 +14,7 @@
     "/producer/{topic}": {
       "post": {
         "operationId": "postData",
-        "summary": "Post a list of key/value pair to Kafka",
+        "summary": "Post a list of users to Kafka",
         "parameters": [
           {
             "name": "topic",
@@ -34,7 +34,7 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/KeyValue"
+                  "$ref": "#/components/schemas/User"
                 }
               }
             }
@@ -67,7 +67,7 @@
     "/consumer/{topic}": {
       "get": {
         "operationId": "getData",
-        "summary": "Get a list of key/value pair from Kafka",
+        "summary": "Get a list of users from Kafka",
         "parameters": [
           {
             "name": "topic",
@@ -87,7 +87,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/KeyValue"
+                    "$ref": "#/components/schemas/User"
                   }
                 }
               }
@@ -156,21 +156,31 @@
           "code"
         ]
       },
-      "KeyValue": {
+      "User": {
         "type": "object",
         "properties": {
-          "key": {
-            "description": "Kafka record key",
+          "userId": {
+            "description": "User Id",
             "type": "string"
           },
-          "value": {
-            "description": "Kafka record value",
+          "firstName": {
+            "description": "First Name",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Last Name",
+            "type": "string"
+          },
+          "country": {
+            "description": "Country",
             "type": "string"
           }
         },
         "required": [
-          "key",
-          "value"
+          "userId",
+          "firstName",
+          "lastName",
+          "country"
         ]
       }
     }
