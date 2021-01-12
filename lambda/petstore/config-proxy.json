@@ -6,9 +6,14 @@
   "rootPackage": "com.networknt.petstore",
   "handlerPackage":"com.networknt.petstore.handler",
   "modelPackage":"com.networknt.petstore.model",
+  "useLightProxy": true,
+  "launchType": "EC2",
+  "publicVpc": true,
   "packageDocker": false,
+  "region": "us-east-2",
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
   "overwriteModel": true,
+  "enableRegistry": false,
   "generateModelOnly": false
 }
