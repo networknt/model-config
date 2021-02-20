@@ -11,15 +11,6 @@ rm -rf light-example-4j/lambda/petstore-zip
 java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapilambda -o light-example-4j/lambda/petstore-zip -m model-config/lambda/petstore/openapi.yaml -c model-config/lambda/petstore/config-zip.json
 ```
 
-Generate petstore-image
-
-The project is packaging the Lambda functions to docker images for delivery.
-
-```
-cd ~/networknt
-rm -rf light-example-4j/lambda/petstore-image
-java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapilambda -o light-example-4j/lambda/petstore-image -m model-config/lambda/petstore/openapi.yaml -c model-config/lambda/petstore/config-image.json
-```
 
 Generate petstore-proxy  
 

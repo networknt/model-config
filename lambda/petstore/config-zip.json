@@ -1,5 +1,4 @@
 {
-  "projectName": "petstore",
   "version": "1.0.1",
   "groupId": "com.networknt",
   "artifactId": "petstore",
@@ -7,6 +6,7 @@
   "handlerPackage":"com.networknt.petstore.handler",
   "modelPackage":"com.networknt.petstore.model",
   "packageDocker": false,
+  "useLightProxy": false,
   "overwriteHandler": true,
   "overwriteHandlerTest": true,
   "overwriteModel": true,

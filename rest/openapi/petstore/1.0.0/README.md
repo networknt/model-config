@@ -26,3 +26,13 @@ cd ~/networknt
 rm -rf light-example-kotlin/openapi/petstore
 java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapikotlin -o light-example-kotlin/openapi/petstore -m model-config/rest/openapi/petstore/1.0.0/openapi.yaml -c model-config/rest/openapi/petstore/1.0.0/config.json
 ```
+
+Here is the command line to generate the petstore with light-proxy as sidecar. Some of the middleware handlers will be disabled. 
+
+```
+cd ~/networknt
+rm -rf light-example-4j/rest/openapi/petstore-sidecar
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o light-example-4j/rest/openapi/petstore-sidecar -m model-config/rest/openapi/petstore/1.0.0/openapi.yaml -c model-config/rest/openapi/petstore/1.0.0/config-sidecar.yaml
+```
+
+
