@@ -1,8 +1,7 @@
 {
-  "name": "petstore",
-  "version": "3.0.1",
-  "groupId": "com.networknt",
+  "groupId": "com.networknt.example",
   "artifactId": "petstore",
+  "version": "3.0.1",
   "rootPackage": "com.networknt.petstore",
   "handlerPackage":"com.networknt.petstore.handler",
   "modelPackage":"com.networknt.petstore.model",

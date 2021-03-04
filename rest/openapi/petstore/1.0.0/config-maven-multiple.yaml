@@ -1,0 +1,8 @@
+---
+# A light-codegen config file to generate the petstore project with Maven build
+version: 3.0.1
+groupId: com.networknt.example
+artifactId: petstore
+rootPackage: com.networknt.petstore
+buildMaven: true
+multipleModule: true
