@@ -1,5 +1,5 @@
 version: 1.0.0
 groupId: com.networknt
 artifactId: kafka-sidecar
-rootPackage: com.networknt.mesh
+rootPackage: com.networknt.mesh.kafka
 supportClient: true
