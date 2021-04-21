@@ -1,0 +1,5 @@
+version: 1.0.0
+groupId: com.networknt
+artifactId: sidecar-backend
+rootPackage: com.networknt.mesh.kafka.backend
+supportClient: true
