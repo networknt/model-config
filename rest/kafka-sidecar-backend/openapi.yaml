@@ -23,8 +23,17 @@ paths:
       - sidecar_auth:
         - "write:sidecar"
       responses:
-        "201":
-          description: "Null response"
+        "200":
+          description: "A list of RecordProcessedResult"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecordProcessedResult'
+        "400":
+          description: "Error processing the record. Need sidecar to rollback and retry after waiting period"
+          
 components:
   securitySchemes:
     sidecar_auth:
@@ -69,3 +78,34 @@ components:
       type: "string"
     ObjectValue:
       type: "object"
+    ConsumerRecord:
+      type: "object"
+      properties:
+        topic: 
+          type: "string"
+        key: 
+          oneOf:
+            - $ref: "#/components/schemas/StringKey"
+            - $ref: "#/components/schemas/ObjectKey"
+        value:
+          oneOf:
+            - $ref: "#/components/schemas/StringValue"
+            - $ref: "#/components/schemas/ObjectValue"
+        partition: 
+          type: "integer"
+          minimum: 0
+        offset: 
+          type: "number"
+          minimum: 0
+    RecordProcessedResult:
+      type: "object"
+      properties:
+        consumerRecord:
+          $ref: "#/components/schemas/ConsumerRecord"
+        processed: 
+          type: "boolean"
+        stacktrace:
+          type: "string"
+      required: 
+        - consumerRecord
+        - processed
