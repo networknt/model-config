@@ -2,7 +2,7 @@ openapi: 3.0.0
 
 servers:
 - description: Light Config Server
-  url: https://config.neworknt.com
+  url: https://config.neworknt.com/config-server
 info:
   description: Light Config Server API
   version: "1.0.0"

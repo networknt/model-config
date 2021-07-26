@@ -3,7 +3,7 @@
   "servers": [
     {
       "description": "Light Config Server",
-      "url": "https://config.neworknt.com"
+      "url": "https://config.neworknt.com/config-server"
     }
   ],
   "info": {
