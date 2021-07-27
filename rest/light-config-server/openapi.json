@@ -119,7 +119,14 @@
             }
           },
           "400": {
-            "description": "bad input parameter"
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
           }
         }
       }
@@ -129,7 +136,7 @@
         "tags": [
           "config-server"
         ],
-        "summary": "Get service configs values.yml for the specified project, project version, service, service version and environment.",
+        "summary": "Get service configs values.yml properties for the specified project, project version, service, service version and environment.",
         "operationId": "getServiceConfigs",
         "description": "Get service configs for the specified project, project version, service, service version and environment.",
         "parameters": [
@@ -191,7 +198,255 @@
             }
           },
           "400": {
-            "description": "bad request"
+            "description": "bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "config-server"
+        ],
+        "summary": "Update config values.yml properties for the specified project, project version, service, service version and environment.",
+        "operationId": "patchServiceConfigs",
+        "description": "Update config values.yml properties for the specified project, project version, service, service version and environment.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_name",
+            "description": "project name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "project_version",
+            "description": "Project version for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_name",
+            "description": "Service name of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_version",
+            "description": "Version of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "environment",
+            "description": "Environment of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns service configs for the specified project, project version, service, service version and environment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceConfigs"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "config-server"
+        ],
+        "summary": "create config values.yml properties for the specified project, project version, service, service version and environment.",
+        "operationId": "patchServiceConfigs",
+        "description": "create config values.yml properties for the specified project, project version, service, service version and environment.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_name",
+            "description": "project name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "project_version",
+            "description": "Project version for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_name",
+            "description": "Service name of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_version",
+            "description": "Version of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "environment",
+            "description": "Environment of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns service configs for the specified project, project version, service, service version and environment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceConfigs"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "config-server"
+        ],
+        "summary": "Delete service configs values.yml for the specified project, project version, service, service version and environment.",
+        "operationId": "deleteServiceConfigs",
+        "description": "Delete service configs for the specified project, project version, service, service version and environment.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_name",
+            "description": "project name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "project_version",
+            "description": "Project version for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_name",
+            "description": "Service name of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_version",
+            "description": "Version of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "environment",
+            "description": "Environment of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Delete Config",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Config Delete Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Config not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
           }
         }
       }
@@ -263,7 +518,101 @@
             }
           },
           "400": {
-            "description": "bad input parameter"
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "config-server"
+        ],
+        "summary": "Delete service certificates for the specified project, project version, service, service version and environment.",
+        "operationId": "deleteServiceCertificates",
+        "description": "Delete service certificates for the specified project, project version, service, service version and environment.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_name",
+            "description": "project name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "project_version",
+            "description": "Project version for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_name",
+            "description": "Service name of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_version",
+            "description": "Version of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "environment",
+            "description": "Environment of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Delete Certificates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Certificates Delete Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Certificates not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
           }
         }
       }
@@ -335,7 +684,101 @@
             }
           },
           "400": {
-            "description": "bad input parameter"
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "config-server"
+        ],
+        "summary": "Delete service files for the specified project, project version, service, service version and environment.",
+        "operationId": "deleteServiceFiles",
+        "description": "Delete service files for the specified project, project version, service, service version and environment.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_name",
+            "description": "project name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "project_version",
+            "description": "Project version for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_name",
+            "description": "Service name of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_version",
+            "description": "Version of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "environment",
+            "description": "Environment of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Delete Files",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Files Delete Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Files not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
           }
         }
       }
@@ -407,7 +850,14 @@
             }
           },
           "400": {
-            "description": "bad input parameter"
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
           }
         }
       }
@@ -474,6 +924,32 @@
             "additionalProperties": true
           }
         }
+      },
+      "Status": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "integer"
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "statusCode",
+          "code",
+          "message",
+          "description"
+        ]
       }
     }
   }
