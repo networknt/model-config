@@ -208,74 +208,39 @@
             }
           }
         }
-      },
-      "patch": {
+      }
+    },
+    "/configs": {
+      "put": {
         "tags": [
           "config-server"
         ],
-        "summary": "Update config values.yml properties for the specified project, project version, service, service version and environment.",
-        "operationId": "patchServiceConfigs",
-        "description": "Update config values.yml properties for the specified project, project version, service, service version and environment.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "project_name",
-            "description": "project name for the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "project_version",
-            "description": "Project version for the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "service_name",
-            "description": "Service name of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "service_version",
-            "description": "Version of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "environment",
-            "description": "Environment of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "summary": "Update config values.yml properties for the specified project.",
+        "operationId": "updateServiceConfigs",
+        "description": "Update config values.yml properties for the specified project.",
         "responses": {
           "200": {
-            "description": "Returns service configs for the specified project, project version, service, service version and environment.",
+            "description": "Successful Update Config Properties",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServiceConfigs"
+                  "$ref": "#/components/schemas/Status"
                 }
               }
             }
           },
           "400": {
             "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Config Properties Not Found",
             "content": {
               "application/json": {
                 "schema": {
@@ -290,63 +255,16 @@
         "tags": [
           "config-server"
         ],
-        "summary": "create config values.yml properties for the specified project, project version, service, service version and environment.",
-        "operationId": "patchServiceConfigs",
-        "description": "create config values.yml properties for the specified project, project version, service, service version and environment.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "project_name",
-            "description": "project name for the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "project_version",
-            "description": "Project version for the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "service_name",
-            "description": "Service name of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "service_version",
-            "description": "Version of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "environment",
-            "description": "Environment of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "summary": "create config values.yml properties for the specified project.",
+        "operationId": "createServiceConfigs",
+        "description": "create config values.yml properties for the specified project.",
         "responses": {
           "200": {
-            "description": "Returns service configs for the specified project, project version, service, service version and environment.",
+            "description": "Successful Create Config Properties",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ServiceConfigs"
+                  "$ref": "#/components/schemas/Status"
                 }
               }
             }
@@ -367,59 +285,12 @@
         "tags": [
           "config-server"
         ],
-        "summary": "Delete service configs values.yml for the specified project, project version, service, service version and environment.",
+        "summary": "delete service configs values.yml properties for the specified project.",
         "operationId": "deleteServiceConfigs",
-        "description": "Delete service configs for the specified project, project version, service, service version and environment.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "project_name",
-            "description": "project name for the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "project_version",
-            "description": "Project version for the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "service_name",
-            "description": "Service name of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "service_version",
-            "description": "Version of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "environment",
-            "description": "Environment of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "delete service configs for the specified project.",
         "responses": {
           "200": {
-            "description": "Successful Delete Config",
+            "description": "Successful Delete Config Properties",
             "content": {
               "application/json": {
                 "schema": {
@@ -429,7 +300,7 @@
             }
           },
           "400": {
-            "description": "Invalid Config Delete Request",
+            "description": "Invalid Delete Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -439,7 +310,7 @@
             }
           },
           "404": {
-            "description": "Config not found",
+            "description": "Config Properties Not Found",
             "content": {
               "application/json": {
                 "schema": {
@@ -519,6 +390,170 @@
           },
           "400": {
             "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "config-server"
+        ],
+        "summary": "create config certificates for the specified project, project version, service, service version and environment.",
+        "operationId": "createServiceCertificates",
+        "description": "create config certificates for the specified project, project version, service, service version and environment.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_name",
+            "description": "project name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "project_version",
+            "description": "Project version for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_name",
+            "description": "Service name of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_version",
+            "description": "Version of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "environment",
+            "description": "Environment of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Create Certificates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "config-server"
+        ],
+        "summary": "update config certificates for the specified project, project version, service, service version and environment.",
+        "operationId": "updateServiceCertificates",
+        "description": "update config certificates for the specified project, project version, service, service version and environment.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_name",
+            "description": "project name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "project_version",
+            "description": "Project version for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_name",
+            "description": "Service name of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_version",
+            "description": "Version of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "environment",
+            "description": "Environment of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Update Certificates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Certificates not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -695,6 +730,170 @@
           }
         }
       },
+      "post": {
+        "tags": [
+          "config-server"
+        ],
+        "summary": "create config files for the specified project, project version, service, service version and environment.",
+        "operationId": "createServiceFiles",
+        "description": "create config files for the specified project, project version, service, service version and environment.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_name",
+            "description": "project name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "project_version",
+            "description": "Project version for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_name",
+            "description": "Service name of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_version",
+            "description": "Version of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "environment",
+            "description": "Environment of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Create Files",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "config-server"
+        ],
+        "summary": "update config files for the specified project, project version, service, service version and environment.",
+        "operationId": "updateServiceFiles",
+        "description": "update config files for the specified project, project version, service, service version and environment.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_name",
+            "description": "project name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "project_version",
+            "description": "Project version for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_name",
+            "description": "Service name of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "service_version",
+            "description": "Version of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "environment",
+            "description": "Environment of the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Update Files",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Files not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "tags": [
           "config-server"
@@ -772,85 +971,6 @@
           },
           "404": {
             "description": "Files not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Status"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/{project_name}/{project_version}/{service_name}/{service_version}/{environment}": {
-      "patch": {
-        "tags": [
-          "config-server"
-        ],
-        "summary": "create or update config files/certs/configs for the specified project, project version, service, service version and environment.",
-        "operationId": "patchAllConfigs",
-        "description": "create or update config files/certs/configs for the specified project, project version, service, service version and environment.",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "project_name",
-            "description": "project name for the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "project_version",
-            "description": "Project version for the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "service_name",
-            "description": "Service name of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "service_version",
-            "description": "Version of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "path",
-            "name": "environment",
-            "description": "Environment of the registered service",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns config files for the specified project, project version, service, service version and environment. File content is returned as Base64 encoded.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceConfigs"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "bad input parameter",
             "content": {
               "application/json": {
                 "schema": {

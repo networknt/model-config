@@ -145,7 +145,7 @@ paths:
       tags:
         - config-server
       summary: Update config values.yml properties for the specified project.
-      operationId: patchServiceConfigs
+      operationId: updateServiceConfigs
       description: Update config values.yml properties for the specified project.
       responses:
         '200':
@@ -170,7 +170,7 @@ paths:
       tags:
         - config-server
       summary: create config values.yml properties for the specified project.
-      operationId: patchServiceConfigs
+      operationId: createServiceConfigs
       description: create config values.yml properties for the specified project.
       responses:
         '200':
@@ -266,7 +266,7 @@ paths:
       tags:
         - config-server
       summary: create config certificates for the specified project, project version, service, service version and environment.
-      operationId: postServiceCertificates
+      operationId: createServiceCertificates
       description: create config certificates for the specified project, project version, service, service version and environment.
       parameters:
         - in: path
@@ -316,7 +316,7 @@ paths:
       tags:
         - config-server
       summary: update config certificates for the specified project, project version, service, service version and environment.
-      operationId: putServiceCertificates
+      operationId: updateServiceCertificates
       description: update config certificates for the specified project, project version, service, service version and environment.
       parameters:
         - in: path
@@ -480,7 +480,7 @@ paths:
       tags:
         - config-server
       summary: create config files for the specified project, project version, service, service version and environment.
-      operationId: postServiceFiles
+      operationId: createServiceFiles
       description: create config files for the specified project, project version, service, service version and environment.
       parameters:
         - in: path
@@ -530,7 +530,7 @@ paths:
       tags:
         - config-server
       summary: update config files for the specified project, project version, service, service version and environment.
-      operationId: putServiceFiles
+      operationId: updateServiceFiles
       description: update config files for the specified project, project version, service, service version and environment.
       parameters:
         - in: path
