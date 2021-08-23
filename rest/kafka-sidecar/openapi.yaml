@@ -493,10 +493,10 @@ paths:
           required: false
           schema:
             type: integer
-        - name: format
+        - name: keyFormat
           in: query
-          description: The format of response
-          required: true
+          description: The key format of consumer
+          required: false
           schema:
             type: string
             enum:
@@ -505,6 +505,20 @@ paths:
               - avro
               - jsonschema
               - protobuf
+              - string
+        - name: valueFormat
+          in: query
+          description: The value format of consumer
+          required: false
+          schema:
+            type: string
+            enum:
+              - binary
+              - json
+              - avro
+              - jsonschema
+              - protobuf
+              - string
 
       responses:
         '200':
@@ -547,7 +561,8 @@ components:
             1,
             2,
             3,
-            4
+            4,
+            5
           ]
         keySchema:
           type: string
@@ -564,7 +579,8 @@ components:
             1,
             2,
             3,
-            4
+            4,
+            5
           ]
         valueSchema:
           type: string
@@ -595,6 +611,7 @@ components:
             - json
             - jsonschema
             - protobuf
+            - string
         autoOffsetReset:
           type: string
         autoCommitEnable:
