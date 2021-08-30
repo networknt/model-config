@@ -1,0 +1,7 @@
+---
+# A light-codegen config file to generate a single module light-scheduler project with Maven build
+version: 1.0.0
+groupId: com.networknt
+artifactId: scheduler
+rootPackage: com.networknt.scheduler
+supportClient: false
