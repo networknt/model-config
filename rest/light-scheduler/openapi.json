@@ -13,8 +13,8 @@
   "paths": {
     "/schedulers": {
       "post": {
-        "operationId": "createScheduleTask",
-        "summary": "Create a new schedule task definition",
+        "operationId": "sendScheduleTask",
+        "summary": "Send a new schedule task definition to input topic",
         "requestBody": {
           "description": "task definition",
           "required": true,
@@ -28,7 +28,7 @@
         },
         "responses": {
           "200": {
-            "description": "Schedule task definition created."
+            "description": "Schedule task definition sent."
           },
           "400": {
             "description": "Unexpected error",
@@ -52,40 +52,30 @@
       "get": {
         "operationId": "getScheduleTaskDefinitions",
         "summary": "Get a list of schedule task definitions.",
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Status"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "scheduler_auth": [
-              "sched:r"
-            ]
-          }
-        ]
-      }
-    },
-    "/schedulers/{id}": {
-      "get": {
-        "operationId": "getTaskDefinitionById",
-        "summary": "Get a schedule task definition by Id",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
+            "name": "host",
+            "in": "query",
             "required": true,
-            "description": "Task Definition Id with host and task name",
+            "description": "Task definition host",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "description": "Task definition name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "unit",
+            "in": "query",
+            "required": true,
+            "description": "Task definition time unit",
             "schema": {
               "type": "string"
             }
@@ -97,7 +87,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TaskDefinition"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TaskDefinition"
+                  }
                 }
               }
             }
@@ -117,80 +110,6 @@
           {
             "scheduler_auth": [
               "sched:r"
-            ]
-          }
-        ]
-      },
-      "put": {
-        "operationId": "updateTaskDefinitionById",
-        "summary": "Update a task definition by Id",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Task Definition Id with host and task name",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Status"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "scheduler_auth": [
-              "sched:w"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "operationId": "deleteTaskDefinitionById",
-        "summary": "Delete a task definition by Id",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Task Definition Id with host and task name",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Status"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "scheduler_auth": [
-              "sched:w"
             ]
           }
         ]
@@ -250,6 +169,9 @@
             "description": "unique task name within the host",
             "type": "string"
           },
+          "action": {
+            "$ref": "#/components/schemas/DefinitionAction"
+          },
           "frequency": {
             "$ref": "#/components/schemas/TaskFrequency"
           },
@@ -296,8 +218,15 @@
           "SECONDS",
           "MINUTES",
           "HOURS",
-          "DAYS",
-          "WEEKS"
+          "DAYS"
+        ]
+      },
+      "DefinitionAction": {
+        "type": "string",
+        "enum": [
+          "INSERT",
+          "UPDATE",
+          "DELETE"
         ]
       }
     }
