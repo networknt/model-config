@@ -44,7 +44,8 @@
         "security": [
           {
             "scheduler_auth": [
-              "sched:w"
+              "sched:w",
+              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
             ]
           }
         ]
@@ -109,7 +110,8 @@
         "security": [
           {
             "scheduler_auth": [
-              "sched:r"
+              "sched:r",
+              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
             ]
           }
         ]
@@ -126,7 +128,8 @@
             "tokenUrl": "https://localhost:6882/token",
             "scopes": {
               "sched:w": "Scheduler Write",
-              "sched:r": "Scheduler Read"
+              "sched:r": "Scheduler Read",
+              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2": "API Bootstrap token scope"
             }
           }
         }
