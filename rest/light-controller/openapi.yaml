@@ -77,7 +77,12 @@ paths:
           required: true
           schema:
             type: integer
-
+        - name: checkInterval
+          in: query
+          description: Check interval from the portal-registry configuration.
+          required: true
+          schema:
+            type: integer
       responses:
         '200':
           description: Successful operation
@@ -568,6 +573,9 @@ components:
         pass:
           type: boolean
           description: If the check is passed or failed
+        checkInterval:
+          type: integer
+          description: Check interval from the portal-registry configuration to update the health
     LoggerConfig:
       type: object
       properties:
