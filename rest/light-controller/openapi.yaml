@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   title: Control Panel - OpenAPI 3.0
   description: |-
-    All light-4j services can register here during startup and deregister during the shutdown. It ensures that the control panel has a snapshot of running services all the time. The control panel also sends health check requests to each service continuously to ensure its healthy and server info request to assist the service certification. With the information above, this service can serve as a global discovery for service to service invocations. 
+    All light-4j services can register here during startup and deregister during the shutdown. It ensures that the control panel has a snapshot of running services all the time. The control panel also sends health check requests to each service continuously to ensure its healthy and server info request to assist the service certification. With the information above, this service can serve as a global discovery for service to service invocations.
   termsOfService: 'http://swagger.io/terms/'
   contact:
     email: stevehu@gmail.com
@@ -40,7 +40,8 @@ paths:
                 $ref: '#/components/schemas/Status'
       security:
         - portal_auth:
-            - 'portal.w'
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+
     delete:
       summary: Remove a service and its health checks from the registry
       description: Deregister a service during its shutdown
@@ -76,7 +77,7 @@ paths:
           required: true
           schema:
             type: integer
-      
+
       responses:
         '200':
           description: Successful operation
@@ -92,7 +93,7 @@ paths:
                 $ref: '#/components/schemas/Status'
       security:
         - portal_auth:
-            - 'portal.w'
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
     get:
       summary: Query all healthy services
       description: Returns a list of services
@@ -114,8 +115,7 @@ paths:
                 $ref: '#/components/schemas/Status'
       security:
         - portal_auth:
-            - 'portal.r'
-            - 'portal.w'
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
   '/services/lookup':
     get:
       summary: Discover service with serviceId and optional tag
@@ -151,8 +151,89 @@ paths:
                 $ref: '#/components/schemas/Status'
       security:
         - portal_auth:
-            - 'portal.r'
-            - 'portal.w'
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+  '/services/chaosmonkey/assault':
+    post:
+      summary: Initiate a specfic chaosmonkey test
+      operationId: postChaosMonkeyAssault
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssaultInitPost'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+      security:
+        - portal_auth:
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+  '/services/chaosmonkey':
+    post:
+      summary: Configure chaos monkey handlers for a specific service
+      operationId: postChaosMonkey
+      requestBody:
+        description: settings for chaos monkey
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChaosMonkeyAssaultConfigPost'
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+      security:
+        - portal_auth:
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+    get:
+      summary: Get chaosmonkey handlers and their configurations on a specific service
+      operationId: getChaosMonkey
+      parameters:
+        - name: address
+          in: query
+          description: get info on a specific address
+          required: true
+          schema:
+            type: string
+        - name: protocol
+          in: query
+          description: get info on a specific protocol
+          required: true
+          schema:
+            type: string
+        - name: port
+          in: query
+          description: get info on a specific port
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+        '404':
+          description: Service not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
   '/services/check':
     put:
       summary: TTL type check to set the status of the check to pass or fail
@@ -180,7 +261,7 @@ paths:
                 $ref: '#/components/schemas/Status'
       security:
         - portal_auth:
-            - 'portal.w'
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
   '/services/check/{id}':
     get:
       summary: Retrieve the current check status for a check id
@@ -208,17 +289,28 @@ paths:
                 $ref: '#/components/schemas/Status'
       security:
         - portal_auth:
-            - 'portal.r'
-            - 'portal.w'
-  '/services/info/{node}':
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+  '/services/info':
     get:
       summary: Query service info by node of address and port
       description: Returns a service info object
       operationId: getServiceInfo
       parameters:
-        - name: node
-          in: path
-          description: node of the service in address:port format
+        - name: address
+          in: query
+          description: get info on a specific address
+          required: true
+          schema:
+            type: string
+        - name: protocol
+          in: query
+          description: get info on a specific protocol
+          required: true
+          schema:
+            type: string
+        - name: port
+          in: query
+          description: get info on a specific port
           required: true
           schema:
             type: string
@@ -239,9 +331,7 @@ paths:
                 $ref: '#/components/schemas/Status'
       security:
         - portal_auth:
-            - 'portal.r'
-            - 'portal.w'
-
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
   '/services/logger':
     get:
       summary: Query logger for a particular instance
@@ -287,8 +377,7 @@ paths:
                 $ref: '#/components/schemas/Status'
       security:
         - portal_auth:
-            - 'portal.r'
-            - 'portal.w'
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
     post:
       summary: Update the logging level for a particular instance
       description: Returns a list of loggers with logging levels after updated.
@@ -317,9 +406,100 @@ paths:
                 $ref: '#/components/schemas/Status'
       security:
         - portal_auth:
-            - 'portal.w'
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
 components:
   schemas:
+    AssaultType:
+      type: string
+      enum:
+        - "com.networknt.chaos.ExceptionAssaultHandler"
+        - "com.networknt.chaos.KillappAssaultHandler"
+        - "com.networknt.chaos.LatencyAssaultHandler"
+        - "com.networknt.chaos.MemoryAssaultHandler"
+    AssaultInitPost:
+      type: object
+      properties:
+        address:
+          type: string
+        protocol:
+          type: string
+        port:
+          type: integer
+        assaultType:
+          $ref: '#/components/schemas/AssaultType'
+    ChaosMonkeyAssaultConfigPost:
+      type: object
+      properties:
+        address:
+          type: string
+        protocol:
+          type: string
+        port:
+          type: integer
+        assaultType:
+          $ref: '#/components/schemas/AssaultType'
+        assaultConfig:
+          type: object
+          additionalProperties: true
+    MemoryAssault:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        bypass:
+          type: boolean
+        level:
+          type: integer
+          minimum: 1
+        memoryMillisecondsHoldFilledMemory:
+          type: integer
+          minimum: 1500
+        memoryMillisecondsWaitFilledMemory:
+          type: integer
+          minimum: 100
+          maximum: 30000
+        memoryFillIncrementFraction:
+          type: number
+          minimum: 0.1
+          maximum: 1.0
+        memoryFillTargetFraction:
+          type: number
+          minimum: 0.01
+          maximum: 0.95
+    LatencyAssault:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        bypass:
+          type: boolean
+        level:
+          type: integer
+          minimum: 1
+        latencyRangeStart:
+          type: integer
+        latencyRangeEnd:
+          type: integer
+    ExceptionAssault:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        bypass:
+          type: boolean
+        level:
+          type: integer
+          minimum: 1
+    KillAppAssault:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        bypass:
+          type: boolean
+        level:
+          type: integer
+          minimum: 1
     Service:
       type: object
       properties:
@@ -350,7 +530,7 @@ components:
         - serviceId
         - protocol
         - address
-        - port  
+        - port
     Check:
       type: object
       properties:
@@ -365,14 +545,14 @@ components:
           description: The frequency at which to run this check in millisecond
         notes:
           type: string
-          description: Arbitrary information for humans. 
+          description: Arbitrary information for humans.
         deregisterCriticalServiceAfter:
           type: integer
           description: Check associated with a service should deregister after this time in millisecond
-        http: 
+        http:
           type: string
-          description: An HTTP check to perform a GET request against the value of HTTP every Interval. 
-        tlsSkipVerify: 
+          description: An HTTP check to perform a GET request against the value of HTTP every Interval.
+        tlsSkipVerify:
           type: boolean
           description: If the certificate for an HTTPS check should not be verified.
       required:
@@ -456,5 +636,4 @@ components:
         clientCredentials:
           tokenUrl: 'https://lightapi.net/token'
           scopes:
-            'portal.w': update control panel
-            'portal.r': query control panel
+            'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2': default
