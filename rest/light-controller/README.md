@@ -4,7 +4,7 @@ This is the light-portal controller for manage runtime services built with light
 Here is the command line to generate the light-controller to /tmp folder in Java
 
 ```
-cd ~/lightapi
+cd ~/networknt
 rm -rf /tmp/light-controller
 java -jar ../networknt/light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o /tmp/light-controller -m model-config/rest/light-controller/openapi.yaml -c model-config/rest/light-controller/config.json
 ```
@@ -12,7 +12,7 @@ java -jar ../networknt/light-codegen/codegen-cli/target/codegen-cli.jar -f opena
 Here is the command line to generate the light-controller to /tmp folder in Kotlin
 
 ```
-cd ~/lightapi
+cd ~/networknt
 rm -rf /tmp/light-controller
 java -jar ../networknt/light-codegen/codegen-cli/target/codegen-cli.jar -f openapikotlin -o /tmp/light-controller -m model-config/rest/light-controller/openapi.yaml -c model-config/rest/light-controller/config.json
 ```

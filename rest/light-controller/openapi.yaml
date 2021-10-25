@@ -240,6 +240,35 @@ paths:
               schema:
                 $ref: '#/components/schemas/Status'
   '/services/check':
+    get:
+      summary: Retrieve all health check statuses from the cluster
+      description: Get the live check statuses
+      operationId: getHealthChecks
+      parameters:
+        - name: local
+          in: query
+          description: Only return the local node health checks if it is true
+          required: false
+          schema:
+            type: boolean
+        - name: stale
+          in: query
+          description: Only return the stale health checks if it is true
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid Health Check Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+      security:
+        - portal_auth:
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
     put:
       summary: TTL type check to set the status of the check to pass or fail
       description: TTL check to from the service for pass or not
