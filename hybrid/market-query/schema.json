@@ -804,6 +804,59 @@
       }
     },
     {
+      "name": "getRuleById",
+      "version": "0.1.0",
+      "handler": "GetRuleById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Rule",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "ruleId": {
+            "type": "string",
+            "description": "Rule Id"
+          }
+        },
+        "required": [
+          "host",
+          "ruleId"
+        ]
+      }
+    },
+    {
+      "name": "getRule",
+      "version": "0.1.0",
+      "handler": "GetRule",
+      "skipAuth": true,
+      "schema": {
+        "title": "Rules",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
       "name": "getTags",
       "version": "0.1.0",
       "handler": "GetTags",
