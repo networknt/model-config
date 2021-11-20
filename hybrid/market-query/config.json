@@ -19,7 +19,9 @@
   "supportH2ForTest": false,
   "supportClient": false,
   "kafkaProducer": false,
-  "kafkaConsumer": true,
+  "kafkaConsumer": false,
+  "kafkaStreams": true,
   "supportAvro": true,
+  "buildMaven": true,
   "kafkaTopic": "portal-event"
 }

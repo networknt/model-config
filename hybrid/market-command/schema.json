@@ -1897,6 +1897,88 @@
       }
     },
     {
+      "name": "createRule",
+      "version": "0.1.0",
+      "handler": "CreateRule",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Rule",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Rule Host"
+          },
+          "ruleId": {
+            "type": "string",
+            "description": "Rule Id"
+          },
+          "value": {
+            "type": "string",
+            "description": "Rule Detail"
+          }
+        },
+        "required": [
+          "host",
+          "ruleId",
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "updateRule",
+      "version": "0.1.0",
+      "handler": "UpdateRule",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Rule",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Rule Host"
+          },
+          "ruleId": {
+            "type": "string",
+            "description": "Rule Id"
+          },
+          "value": {
+            "type": "integer",
+            "description": "Rule Detail"
+          }
+        },
+        "required": [
+          "host",
+          "ruleId",
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "deleteRule",
+      "version": "0.1.0",
+      "handler": "DeleteRule",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Rule",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Rule Host"
+          },
+          "ruleId": {
+            "type": "string",
+            "description": "Rule Id"
+          }
+        },
+        "required": [
+          "host",
+          "ruleId"
+        ]
+      }
+    },
+    {
       "name": "createSchemaForm",
       "version": "0.1.0",
       "handler": "CreateSchemaForm",
