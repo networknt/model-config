@@ -818,7 +818,7 @@
           },
           "ruleId": {
             "type": "string",
-            "description": "Rule Id"
+            "description": "Rule id"
           }
         },
         "required": [
@@ -828,9 +828,9 @@
       }
     },
     {
-      "name": "getRule",
+      "name": "getRuleByHost",
       "version": "0.1.0",
-      "handler": "GetRule",
+      "handler": "GetRuleByHost",
       "skipAuth": true,
       "schema": {
         "title": "Rules",
@@ -838,11 +838,11 @@
         "properties": {
           "offset": {
             "type": "integer",
-            "description": "Record Offset"
+            "description": "Record offset"
           },
           "limit": {
             "type": "integer",
-            "description": "Record Limit"
+            "description": "Record limit"
           },
           "host": {
             "type": "string",
@@ -853,6 +853,48 @@
           "limit",
           "offset",
           "host"
+        ]
+      }
+    },
+    {
+      "name": "getRuleByService",
+      "version": "0.1.0",
+      "handler": "GetRuleByService",
+      "skipAuth": true,
+      "schema": {
+        "title": "Rules",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "ServiceId filter"
+          },
+          "buildNumber": {
+            "type": "string",
+            "description": "Optional buildNumber"
+          }
+        },
+        "required": [
+          "serviceId"
+        ]
+      }
+    },
+    {
+      "name": "getRuleByKeys",
+      "version": "0.1.0",
+      "handler": "GetRuleByKeys",
+      "skipAuth": true,
+      "schema": {
+        "title": "Rules",
+        "type": "object",
+        "properties": {
+          "keys": {
+            "type": "string",
+            "description": "A string of keys separated by space"
+          }
+        },
+        "required": [
+          "keys"
         ]
       }
     },

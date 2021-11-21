@@ -1907,20 +1907,33 @@
         "properties": {
           "host": {
             "type": "string",
-            "description": "Rule Host"
+            "description": "Rule host"
           },
           "ruleId": {
             "type": "string",
-            "description": "Rule Id"
+            "description": "Rule id"
+          },
+          "desc": {
+            "type": "string",
+            "description": "Rule description"
           },
           "value": {
             "type": "string",
-            "description": "Rule Detail"
+            "description": "Rule detail"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "Rule serviceId filter"
+          },
+          "buildNumber": {
+            "type": "string",
+            "description": "Rule service buildNumber filter"
           }
         },
         "required": [
           "host",
           "ruleId",
+          "desc",
           "value"
         ]
       }
@@ -1936,20 +1949,33 @@
         "properties": {
           "host": {
             "type": "string",
-            "description": "Rule Host"
+            "description": "Rule host"
           },
           "ruleId": {
             "type": "string",
-            "description": "Rule Id"
+            "description": "Rule id"
+          },
+          "desc": {
+            "type": "string",
+            "description": "Rule description"
           },
           "value": {
-            "type": "integer",
-            "description": "Rule Detail"
+            "type": "string",
+            "description": "Rule detail"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "Rule serviceId filter"
+          },
+          "buildNumber": {
+            "type": "string",
+            "description": "Rule service buildNumber filter"
           }
         },
         "required": [
           "host",
           "ruleId",
+          "desc",
           "value"
         ]
       }
