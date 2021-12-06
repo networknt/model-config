@@ -1,0 +1,7 @@
+---
+# A light-codegen config file to generate a single module project with Maven build
+version: 3.0.1
+groupId: com.networknt
+artifactId: account
+rootPackage: com.networknt.account
+supportClient: true
