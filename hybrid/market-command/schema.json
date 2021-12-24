@@ -211,17 +211,13 @@
             "type": "string",
             "description": "Service Id"
           },
-          "buildNumber": {
+          "name": {
             "type": "string",
-            "description": "Build Number"
+            "description": "Service Name"
           },
-          "serviceName": {
-            "title": "Service Name",
+          "desc": {
+            "title": "Service Description",
             "type": "string"
-          },
-          "serviceDesc": {
-            "type": "string",
-            "description": "Start Time"
           },
           "status": {
             "title": "API Status",
@@ -238,19 +234,14 @@
             "type": "array",
             "minItems": 0,
             "maxItems": 10
-          },
-          "clientId": {
-            "title": "Client Id",
-            "type": "string"
           }
         },
         "required": [
           "host",
           "style",
           "serviceId",
-          "buildNumber",
-          "serviceName",
-          "serviceDesc",
+          "name",
+          "desc",
           "status"
         ]
       }
@@ -286,18 +277,13 @@
             "description": "Service Id",
             "readonly": true
           },
-          "buildNumber": {
-            "type": "string",
-            "description": "Build Number",
-            "readonly": true
-          },
-          "serviceName": {
+          "name": {
             "title": "Service Name",
             "type": "string"
           },
-          "serviceDesc": {
+          "desc": {
             "type": "string",
-            "description": "Start Time"
+            "description": "Service Description"
           },
           "status": {
             "title": "API Status",
@@ -314,19 +300,14 @@
             "type": "array",
             "minItems": 0,
             "maxItems": 10
-          },
-          "clientId": {
-            "title": "Client Id",
-            "type": "string"
           }
         },
         "required": [
           "host",
           "style",
           "serviceId",
-          "buildNumber",
-          "serviceName",
-          "serviceDesc",
+          "name",
+          "desc",
           "status"
         ]
       }

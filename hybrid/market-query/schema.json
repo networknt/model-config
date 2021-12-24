@@ -96,10 +96,6 @@
           "serviceId": {
             "type": "string",
             "description": "Service Id"
-          },
-          "buildNumber": {
-            "type": "string",
-            "description": "Build Number"
           }
         },
         "required": [
