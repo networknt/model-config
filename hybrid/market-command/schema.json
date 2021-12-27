@@ -325,10 +325,6 @@
             "type": "string",
             "description": "Service Id"
           },
-          "buildNumber": {
-            "type": "string",
-            "description": "Build Number"
-          },
           "host": {
             "type": "string",
             "description": "Host"
