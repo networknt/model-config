@@ -337,6 +337,40 @@
       }
     },
     {
+      "name": "updateServiceSpec",
+      "version": "0.1.0",
+      "handler": "UpdateServiceSpec",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "style": {
+            "type": "string",
+            "description": "API Style"
+          },
+          "spec": {
+            "type": "string",
+            "description": "API Specification"
+          }
+        },
+        "required": [
+          "serviceId",
+          "host",
+          "style",
+          "spec"
+        ]
+      }
+    },
+    {
       "name": "createRefreshToken",
       "version": "0.1.0",
       "handler": "CreateRefreshToken",
