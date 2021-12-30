@@ -1924,6 +1924,22 @@
             "type": "string",
             "description": "Rule id"
           },
+          "ruleType": {
+            "type": "string",
+            "description": "Rule Type"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "public",
+              "private"
+            ],
+            "description": "Visibility"
+          },
           "desc": {
             "type": "string",
             "description": "Rule description"
@@ -1931,19 +1947,13 @@
           "value": {
             "type": "string",
             "description": "Rule detail"
-          },
-          "serviceId": {
-            "type": "string",
-            "description": "Rule serviceId filter"
-          },
-          "buildNumber": {
-            "type": "string",
-            "description": "Rule service buildNumber filter"
           }
         },
         "required": [
           "host",
           "ruleId",
+          "ruleType",
+          "visibility"
           "desc",
           "value"
         ]
@@ -1966,6 +1976,22 @@
             "type": "string",
             "description": "Rule id"
           },
+          "ruleType": {
+            "type": "string",
+            "description": "Rule Type"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "public",
+              "private"
+            ],
+            "description": "Visibility"
+          },
           "desc": {
             "type": "string",
             "description": "Rule description"
@@ -1973,19 +1999,13 @@
           "value": {
             "type": "string",
             "description": "Rule detail"
-          },
-          "serviceId": {
-            "type": "string",
-            "description": "Rule serviceId filter"
-          },
-          "buildNumber": {
-            "type": "string",
-            "description": "Rule service buildNumber filter"
           }
         },
         "required": [
           "host",
           "ruleId",
+          "ruleType",
+          "visibility",
           "desc",
           "value"
         ]

@@ -876,6 +876,29 @@
       }
     },
     {
+      "name": "getRuleByGroup",
+      "version": "0.1.0",
+      "handler": "GetRuleByGroup",
+      "skipAuth": true,
+      "schema": {
+        "title": "Rules",
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "host": {
+            "type": "string",
+            "description": "Rule Host"
+          }
+        },
+        "required": [
+          "host", "groupId"
+        ]
+      }
+    },
+    {
       "name": "getRuleByKeys",
       "version": "0.1.0",
       "handler": "GetRuleByKeys",
