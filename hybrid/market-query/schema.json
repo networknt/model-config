@@ -853,25 +853,25 @@
       }
     },
     {
-      "name": "getRuleByService",
+      "name": "getRuleByType",
       "version": "0.1.0",
-      "handler": "GetRuleByService",
+      "handler": "GetRuleByType",
       "skipAuth": true,
       "schema": {
         "title": "Rules",
         "type": "object",
         "properties": {
-          "serviceId": {
+          "ruleType": {
             "type": "string",
-            "description": "ServiceId filter"
+            "description": "Rule Type"
           },
-          "buildNumber": {
+          "host": {
             "type": "string",
-            "description": "Optional buildNumber"
+            "description": "Rule Host"
           }
         },
         "required": [
-          "serviceId"
+          "host", "ruleType"
         ]
       }
     },
