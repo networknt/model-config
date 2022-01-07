@@ -371,6 +371,102 @@
       }
     },
     {
+      "name": "updateServiceFilter",
+      "version": "0.1.0",
+      "handler": "UpdateServiceFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {            
+                "ruleId": {
+                  "type": "string",
+                  "description": "Rule Id"
+                },
+                "variables": {
+                  "type": "string",
+                  "description": "Rule variables"
+                }
+              },
+              "required": [
+                "ruleId"
+              ]
+            }  
+          }
+        },
+        "required": [
+          "serviceId",
+          "host",
+          "rules"
+        ]
+      }
+    },
+    {
+      "name": "updateServiceAccess",
+      "version": "0.1.0",
+      "handler": "UpdateServiceAccess",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {            
+                "ruleId": {
+                  "type": "string",
+                  "description": "Rule Id"
+                },
+                "variables": {
+                  "type": "string",
+                  "description": "Rule variables"
+                }
+              },
+              "required": [
+                "ruleId"
+              ]
+            }  
+          }
+        },
+        "required": [
+          "serviceId",
+          "host",
+          "rules"
+        ]
+      }
+    },
+    {
       "name": "createRefreshToken",
       "version": "0.1.0",
       "handler": "CreateRefreshToken",
@@ -1953,7 +2049,7 @@
           "host",
           "ruleId",
           "ruleType",
-          "visibility"
+          "visibility",
           "desc",
           "value"
         ]
