@@ -366,6 +366,83 @@ paths:
       security:
         - portal_auth:
             - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+  '/services/logger/content':
+    get:
+      summary: Query the contents of a log file.
+      description: Returns a JSON body of log entries
+      operationId: getServiceLoggerContent
+      parameters:
+        - name: protocol
+          in: query
+          description: target server protocol, http or https.
+          required: true
+          schema:
+            type: string
+            enum: [
+                "http",
+                "https"
+            ]
+        - name: address
+          in: query
+          description: target server address.
+          required: true
+          schema:
+            type: string
+        - name: port
+          in: query
+          description: target server port number.
+          required: true
+          schema:
+            type: integer
+        - name: loggerName
+          in: query
+          description: name of the logger you want to get.
+          required: false
+          schema:
+            type: string
+        - name: loggerLevel
+          in: query
+          description: level of the log entries you want to get.
+          required: false
+          schema:
+            type: string
+            enum:
+              - INFO
+              - DEBUG
+              - ERROR
+              - WARN
+        - name: startTime
+          in: query
+          description: start time of log entries.
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: endTime
+          in: query
+          description: end time of log entries.
+          required: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+        '404':
+          description: Service not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+      security:
+        - portal_auth:
+            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
   '/services/logger':
     get:
       summary: Query logger for a particular instance
