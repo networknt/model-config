@@ -382,95 +382,6 @@
       }
     },
     "/configs/global": {
-      "get": {
-        "tags": [
-          "config-server"
-        ],
-        "summary": "Get all the key/value pairs for a global key",
-        "operationId": "getGlobalConfigsProperty",
-        "description": "After clicking the edit button on the service list view, this endpoint will get all the properties for the service",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "module",
-            "description": "module name for filtering services",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "project",
-            "description": "project for filtering services",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "projver",
-            "description": "project version for filtering services",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "service",
-            "description": "service name for filtering services",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "servver",
-            "description": "service version for filtering services",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "env",
-            "description": "environment for filtering services",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of properties for a service",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ServiceProperty"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        },
-        "security": [
-          {
-            "portal_auth": [
-              "portal.r"
-            ]
-          }
-        ]
-      },
       "post": {
         "tags": [
           "config-server"
@@ -592,25 +503,7 @@
             "in": "query",
             "name": "projver",
             "description": "The project version of the property",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "service",
-            "description": "The service of the property",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "servver",
-            "description": "The service version of the property",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -1651,9 +1544,14 @@
       "PropertyCriteria": {
         "type": "object",
         "required": [
+          "host",
           "module"
         ],
         "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host of the properties"
+          },
           "module": {
             "type": "string",
             "description": "Module of the properties"
@@ -1699,6 +1597,7 @@
       "GlobalCriteria": {
         "type": "object",
         "required": [
+          "host",
           "module",
           "project",
           "env"
@@ -1727,7 +1626,8 @@
         "required": [
           "host",
           "module",
-          "service",
+          "project",
+          "env",
           "key",
           "value",
           "order"
@@ -1741,8 +1641,17 @@
             "type": "string",
             "description": "Module of the property"
           },
-          "service": {
-            "$ref": "#/components/schemas/Service"
+          "project": {
+            "type": "string",
+            "description": "Project of the property"
+          },
+          "projver": {
+            "type": "string",
+            "description": "Project version of the property"
+          },
+          "env": {
+            "type": "string",
+            "description": "Environment of the property"
           },
           "key": {
             "type": "string",
@@ -1761,6 +1670,7 @@
       "ServiceCriteria": {
         "type": "object",
         "required": [
+          "host",
           "module",
           "project",
           "projver",
@@ -1768,6 +1678,10 @@
           "env"
         ],
         "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host of the properties"
+          },
           "module": {
             "type": "string",
             "description": "Module of the properties"
@@ -1799,7 +1713,11 @@
         "required": [
           "host",
           "module",
+          "project",
+          "projver",
           "service",
+          "servver",
+          "env",
           "key",
           "value",
           "order",
@@ -1814,8 +1732,25 @@
             "type": "string",
             "description": "Module of the property"
           },
+          "project": {
+            "type": "string",
+            "description": "Project of the property"
+          },
+          "projver": {
+            "type": "string",
+            "description": "Project version of the property"
+          },
           "service": {
-            "$ref": "#/components/schemas/Service"
+            "type": "string",
+            "description": "Service of the property"
+          },
+          "servver": {
+            "type": "string",
+            "description": "Service version of the property"
+          },
+          "env": {
+            "type": "string",
+            "description": "Environment of the property"
           },
           "key": {
             "type": "string",
