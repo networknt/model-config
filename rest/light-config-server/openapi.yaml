@@ -269,7 +269,7 @@ paths:
           description: "Bad Request"
       security:
       - portal_auth:
-        - "portal.r"
+        - "portal.w"
     put:
       tags:
       - "config-server"
@@ -294,7 +294,7 @@ paths:
           description: "Bad Request"
       security:
       - portal_auth:
-        - "portal.r"
+        - "portal.w"
     delete:
       tags:
       - "config-server"
@@ -327,6 +327,18 @@ paths:
         schema:
           type: "string"
       - in: "query"
+        name: "service"
+        description: "The service of the property"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "servver"
+        description: "The service version of the property"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
         name: "env"
         description: "The environment of the property"
         required: true
@@ -345,7 +357,7 @@ paths:
           description: "Bad request"
       security:
       - portal_auth:
-        - "portal.r"
+        - "portal.w"
   /configs/service/ref:
     get:
       tags:
@@ -405,11 +417,9 @@ paths:
     post:
       tags:
       - "config-server"
-      summary: "Search service property key and value pairs with module and other\
-        \ parameters."
+      summary: "Search service entity with module and other parameters."
       operationId: "postConfigServiceSearch"
-      description: "Search service property key and value pairs based on module and\
-        \ other parameters."
+      description: "Search service entity based on module and other parameters."
       requestBody:
         description: "Search Criteria"
         content:
@@ -426,54 +436,168 @@ paths:
               schema:
                 type: "array"
                 items:
-                  $ref: "#/components/schemas/ServiceProperty"
+                  $ref: "#/components/schemas/Service"
         "400":
           description: "Bad Request"
       security:
       - portal_auth:
         - "portal.r"
   /configs/service:
-    get:
+    post:
       tags:
       - "config-server"
-      summary: "Get all the key/value pairs for a particular servicer"
-      operationId: "getServiceConfigsProperty"
-      description: "After clicking the edit button on the service list view, this\
-        \ endpoint will get all the properties for the service"
+      summary: "Create a new service entity."
+      operationId: "postConfigsService"
+      description: "Create a new service entity."
+      requestBody:
+        description: "Service Detail"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Service"
+        required: true
+      responses:
+        "200":
+          description: "Successfully create a service."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Service"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+    put:
+      tags:
+      - "config-server"
+      summary: "Update an existing service entity."
+      operationId: "putConfigsService"
+      description: "Update a service entity."
+      requestBody:
+        description: "Service Detail"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Service"
+        required: true
+      responses:
+        "200":
+          description: "Returns updated service entity."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Service"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+    delete:
+      tags:
+      - "config-server"
+      summary: "Delete an existing service entity and all the service properties."
+      operationId: "deleteConfigService"
+      description: "Delete a service entity along with properties."
       parameters:
       - in: "query"
+        name: "host"
+        description: "The host of service"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
         name: "module"
-        description: "module name for filtering services"
+        description: "The module of service"
         required: true
         schema:
           type: "string"
       - in: "query"
         name: "project"
-        description: "project for filtering services"
+        description: "The project of the service"
         required: true
         schema:
           type: "string"
       - in: "query"
         name: "projver"
-        description: "project version for filtering services"
+        description: "The project version of the service"
         required: true
         schema:
           type: "string"
       - in: "query"
         name: "service"
-        description: "service name for filtering services"
+        description: "The service of the service"
         required: true
         schema:
           type: "string"
       - in: "query"
         name: "servver"
-        description: "service version for filtering services"
+        description: "The service version of the service"
         required: true
         schema:
           type: "string"
       - in: "query"
         name: "env"
-        description: "environment for filtering services"
+        description: "The environment of the service"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "204":
+          description: "Successful Delete Service"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+  /configs/service/property:
+    get:
+      tags:
+      - "config-server"
+      summary: "Get all key/value pairs for a particular service"
+      operationId: "getConfigsServiceProperty"
+      description: "After clicking the detail button on the service list view, this\
+        \ endpoint will get all the properties for the service"
+      parameters:
+      - in: "query"
+        name: "host"
+        description: "host for the service"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "module"
+        description: "module name for the service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "project"
+        description: "project for the service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "projver"
+        description: "project version for the service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "service"
+        description: "service name for the service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "servver"
+        description: "service version for the service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "env"
+        description: "environment for the service property"
         required: true
         schema:
           type: "string"
@@ -487,51 +611,124 @@ paths:
                 items:
                   $ref: "#/components/schemas/ServiceProperty"
         "400":
-          description: "bad input parameter"
+          description: "Bad Request"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "protal.r"
     post:
       tags:
       - "config-server"
-      summary: "Create service configs property key and value."
-      operationId: "postServiceConfigsProperty"
-      description: "Create service configs property key and value."
+      summary: "Create a new service property."
+      operationId: "postConfigsServiceProperty"
+      description: "Create a new service property."
+      requestBody:
+        description: "Service Property"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ServiceProperty"
+        required: true
       responses:
         "200":
-          description: "Successfully create service configs property key and value."
+          description: "Successfully create a service property."
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ServiceConfigs"
+                $ref: "#/components/schemas/ServiceProperty"
         "400":
-          description: "Bad request"
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
     put:
       tags:
       - "config-server"
-      summary: "Update service configs property key and value."
-      operationId: "putServiceConfigsProperty"
-      description: "Update service configs property key and value."
+      summary: "Update an existing service property."
+      operationId: "putConfigsServiceProperty"
+      description: "Update a service property."
+      requestBody:
+        description: "Service Property"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ServiceProperty"
+        required: true
       responses:
         "200":
-          description: "Returns service configs property key and value."
+          description: "Returns updated service property."
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ServiceConfigs"
+                $ref: "#/components/schemas/ServiceProperty"
         "400":
-          description: "Bad request"
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
     delete:
       tags:
       - "config-server"
-      summary: "Delete service configs property key and value."
-      operationId: "deleteServiceConfigsProperty"
-      description: "Delete service configs property key and value."
+      summary: "Delete an existing service property."
+      operationId: "deleteConfigServiceProperty"
+      description: "Delete a service property."
+      parameters:
+      - in: "query"
+        name: "host"
+        description: "The host of service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "module"
+        description: "The module of service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "project"
+        description: "The project of service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "projver"
+        description: "The project version of service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "service"
+        description: "The service of the service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "servver"
+        description: "The service version of service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "env"
+        description: "The environment of service property"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "key"
+        description: "The key of the service property"
+        required: true
+        schema:
+          type: "string"
       responses:
         "204":
-          description: "Successful Delete Service Configs Property"
+          description: "Successful Delete Service Property"
         "400":
           description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+  
   /configs/{module}/{project}/{projver}/{service}/{servver}/{env}:
     get:
       tags:
@@ -1059,6 +1256,9 @@ components:
       - "project"
       - "env"
       properties:
+        host:
+          type: "string"
+          description: "Host of the properties"
         module:
           type: "string"
           description: "Module of the properties"
@@ -1094,6 +1294,12 @@ components:
         projver:
           type: "string"
           description: "Project version of the property"
+        service:
+          type: "string"
+          description: "Service of the property"
+        servver:
+          type: "string"
+          description: "Service version version of the property"
         env:
           type: "string"
           description: "Environment of the property"
@@ -1189,12 +1395,20 @@ components:
     Service:
       type: "object"
       required:
+      - "host"
+      - "module"
       - "project"
       - "projver"
       - "service"
       - "servver"
       - "env"
       properties:
+        host:
+          type: "string"
+          description: "Host for identifying the service"
+        module:
+          type: "string"
+          description: "Module for identifying the service"
         project:
           type: "string"
           description: "Project for identifying the service"
