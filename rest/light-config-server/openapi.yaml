@@ -28,8 +28,16 @@ paths:
         schema:
           type: "string"
           enum:
+          - "host"
           - "module"
           - "scope"
+          - "key"
+      - in: "query"
+        name: "host"
+        description: "The selected host as parameter for module and scope"
+        required: false
+        schema:
+          type: "string"
       - in: "query"
         name: "module"
         description: "The selected module as parameter for scope"
@@ -185,6 +193,18 @@ paths:
           - "projver"
           - "env"
       - in: "query"
+        name: "host"
+        description: "The selected host as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "module"
+        description: "The selected module as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
         name: "project"
         description: "The selected project as a query parameter"
         required: false
@@ -317,7 +337,7 @@ paths:
       - in: "query"
         name: "project"
         description: "The project of the property"
-        required: true
+        required: false
         schema:
           type: "string"
       - in: "query"
@@ -341,7 +361,7 @@ paths:
       - in: "query"
         name: "env"
         description: "The environment of the property"
-        required: true
+        required: false
         schema:
           type: "string"
       - in: "query"
@@ -352,7 +372,7 @@ paths:
           type: "string"
       responses:
         "204":
-          description: "Successful Delete Glboal Configs Property"
+          description: "Successful Delete Global Configs Property"
         "400":
           description: "Bad request"
       security:
@@ -560,47 +580,11 @@ paths:
         \ endpoint will get all the properties for the service"
       parameters:
       - in: "query"
-        name: "host"
+        name: "sid"
         description: "host for the service"
         required: true
         schema:
-          type: "string"
-      - in: "query"
-        name: "module"
-        description: "module name for the service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "project"
-        description: "project for the service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "projver"
-        description: "project version for the service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "service"
-        description: "service name for the service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "servver"
-        description: "service version for the service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "env"
-        description: "environment for the service property"
-        required: true
-        schema:
-          type: "string"
+          type: "integer"
       responses:
         "200":
           description: "List of properties for a service"
@@ -614,7 +598,7 @@ paths:
           description: "Bad Request"
       security:
       - portal_auth:
-        - "protal.r"
+        - "portal.r"
     post:
       tags:
       - "config-server"
@@ -673,44 +657,8 @@ paths:
       description: "Delete a service property."
       parameters:
       - in: "query"
-        name: "host"
-        description: "The host of service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "module"
-        description: "The module of service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "project"
-        description: "The project of service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "projver"
-        description: "The project version of service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "service"
-        description: "The service of the service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "servver"
-        description: "The service version of service property"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "env"
-        description: "The environment of service property"
+        name: "sid"
+        description: "The sid of service property"
         required: true
         schema:
           type: "string"
@@ -728,8 +676,7 @@ paths:
       security:
       - portal_auth:
         - "portal.w"
-  
-  /configs/{module}/{project}/{projver}/{service}/{servver}/{env}:
+  /configs/{project}/{projver}/{service}/{servver}/{env}:
     get:
       tags:
       - "config-server"
@@ -739,12 +686,6 @@ paths:
       description: "Get service configs for the specified project, project version,\
         \ service, service version and environment."
       parameters:
-      - in: "path"
-        name: "module"
-        description: "module name for the registered service"
-        required: true
-        schema:
-          type: "string"
       - in: "path"
         name: "project"
         description: "project name for the registered service"
@@ -1211,9 +1152,6 @@ components:
       additionalProperties: true
     PropertyCriteria:
       type: "object"
-      required:
-      - "host"
-      - "module"
       properties:
         host:
           type: "string"
@@ -1253,8 +1191,6 @@ components:
       required:
       - "host"
       - "module"
-      - "project"
-      - "env"
       properties:
         host:
           type: "string"
@@ -1276,11 +1212,8 @@ components:
       required:
       - "host"
       - "module"
-      - "project"
-      - "env"
       - "key"
       - "value"
-      - "order"
       properties:
         host:
           type: "string"
@@ -1309,19 +1242,11 @@ components:
         value:
           type: "string"
           description: "Value of the property"
-        order:
-          type: "integer"
-          description: "Order of the property"
-
     ServiceCriteria:
       type: "object"
       required:
       - "host"
       - "module"
-      - "project"
-      - "projver"
-      - "service"
-      - "env"
       properties:
         host:
           type: "string"
@@ -1354,10 +1279,9 @@ components:
       - "service"
       - "servver"
       - "env"
+      - "sid"
       - "key"
       - "value"
-      - "order"
-      - "source"
       properties:
         host:
           type: "string"
@@ -1380,18 +1304,15 @@ components:
         env:
           type: "string"
           description: "Environment of the property"
+        sid:
+          type: "integer"
+          description: "Sid of the property"
         key:
           type: "string"
           description: "Key of the property"
         value:
           type: "string"
           description: "Value of the property"
-        order:
-          type: "integer"
-          description: "Order of the property"
-        source:
-          type: "string"
-          description: "Source of the property"
     Service:
       type: "object"
       required:

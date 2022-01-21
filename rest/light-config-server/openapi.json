@@ -956,7 +956,7 @@
         "security": [
           {
             "portal_auth": [
-              "protal.r"
+              "portal.r"
             ]
           }
         ]
@@ -2048,8 +2048,7 @@
           "env",
           "key",
           "value",
-          "order",
-          "source"
+          "order"
         ],
         "properties": {
           "host": {
@@ -2091,6 +2090,10 @@
           "order": {
             "type": "integer",
             "description": "Order of the property"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Scope of the property"
           },
           "source": {
             "type": "string",
