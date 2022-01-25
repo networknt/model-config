@@ -378,6 +378,414 @@ paths:
       security:
       - portal_auth:
         - "portal.w"
+  /files/global/ref:
+    get:
+      tags:
+      - "config-server"
+      summary: "Get reference data to populate the dropdown for global files"
+      operationId: "getFilesGlobalRef"
+      description: "Get files reference data with query parameters"
+      parameters:
+      - in: "query"
+        name: "name"
+        description: "The name of the reference data"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "host"
+          - "module"
+          - "project"
+          - "projver"
+          - "env"
+      - in: "query"
+        name: "host"
+        description: "The selected host as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "module"
+        description: "The selected module as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "project"
+        description: "The selected project as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "projver"
+        description: "The selected project version as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "env"
+        description: "The environment as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "List of key/value map"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Reference"
+        "400":
+          description: "Bad Request"
+  /files/global/search:
+    post:
+      tags:
+      - "config-server"
+      summary: "Search global files with module, project, projver and env."
+      operationId: "postGlobalFileSearch"
+      description: "Search global files based on module, project, projver and env."
+      requestBody:
+        description: "Search Criteria"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GlobalCriteria"
+        required: true
+      responses:
+        "200":
+          description: "Returns a list of defined global files in the config server\
+            \ per module, project and env"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/GlobalFile"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.r"
+  /files/global:
+    post:
+      tags:
+      - "config-server"
+      summary: "Create global file."
+      operationId: "postGlobalFile"
+      description: "Create global file."
+      requestBody:
+        description: "File Detail"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GlobalFile"
+        required: true
+      responses:
+        "200":
+          description: "Successfully create global file."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GlobalFile"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+    put:
+      tags:
+      - "config-server"
+      summary: "Update global files."
+      operationId: "putGlobalFile"
+      description: "Update global file."
+      requestBody:
+        description: "File Detail"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GlobalFile"
+        required: true
+      responses:
+        "200":
+          description: "Returns global files."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GlobalFile"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+    delete:
+      tags:
+      - "config-server"
+      summary: "Delete global files."
+      operationId: "deleteGlobalFile"
+      description: "Delete global file."
+      parameters:
+      - in: "query"
+        name: "host"
+        description: "The host of global file"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "module"
+        description: "The module of global file"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "project"
+        description: "The project of the global file"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "projver"
+        description: "The project version of the global file"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "service"
+        description: "The service of the global file"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "servver"
+        description: "The service version of the global file"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "env"
+        description: "The environment of the global file"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "filename"
+        description: "The filename of the global file"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "204":
+          description: "Successful Delete Global file"
+        "400":
+          description: "Bad request"
+      security:
+      - portal_auth:
+        - "portal.w"
+  /certs/global/ref:
+    get:
+      tags:
+      - "config-server"
+      summary: "Get reference data to populate the dropdown for global cert"
+      operationId: "getCertsGlobalRef"
+      description: "Get certs reference data with query parameters"
+      parameters:
+      - in: "query"
+        name: "name"
+        description: "The name of the reference data"
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "host"
+          - "module"
+          - "project"
+          - "projver"
+          - "env"
+      - in: "query"
+        name: "host"
+        description: "The selected host as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "module"
+        description: "The selected module as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "project"
+        description: "The selected project as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "projver"
+        description: "The selected project version as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "env"
+        description: "The environment as a query parameter"
+        required: false
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "List of key/value map"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Reference"
+        "400":
+          description: "Bad Request"
+  /certs/global/search:
+    post:
+      tags:
+      - "config-server"
+      summary: "Search global certs with module, project, projver and env."
+      operationId: "postGlobalCertsSearch"
+      description: "Search global certs based on module, project, projver and env."
+      requestBody:
+        description: "Search Criteria"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GlobalCriteria"
+        required: true
+      responses:
+        "200":
+          description: "Returns a list of defined global certs in the config server\
+            \ per module, project and env"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/GlobalCert"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.r"
+  /certs/global:
+    post:
+      tags:
+      - "config-server"
+      summary: "Create global cert."
+      operationId: "postGlobalCert"
+      description: "Create global cert."
+      requestBody:
+        description: "Cert Detail"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GlobalCert"
+        required: true
+      responses:
+        "200":
+          description: "Successfully create global cert."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GlobalCert"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+    put:
+      tags:
+      - "config-server"
+      summary: "Update global cert."
+      operationId: "putGlobalCert"
+      description: "Update global cert."
+      requestBody:
+        description: "Cert Detail"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GlobalCert"
+        required: true
+      responses:
+        "200":
+          description: "Returns global cert."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GlobalCert"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+    delete:
+      tags:
+      - "config-server"
+      summary: "Delete global cert."
+      operationId: "deleteGlobalCert"
+      description: "Delete global cert."
+      parameters:
+      - in: "query"
+        name: "host"
+        description: "The host of global cert"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "module"
+        description: "The module of global cert"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "project"
+        description: "The project of the global cert"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "projver"
+        description: "The project version of the global cert"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "service"
+        description: "The service of the global cert"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "servver"
+        description: "The service version of the global cert"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "env"
+        description: "The environment of the global cert"
+        required: false
+        schema:
+          type: "string"
+      - in: "query"
+        name: "filename"
+        description: "The filename of the global cert"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "204":
+          description: "Successful Delete Global cert"
+        "400":
+          description: "Bad request"
+      security:
+      - portal_auth:
+        - "portal.w"
   /configs/service/ref:
     get:
       tags:
@@ -521,47 +929,11 @@ paths:
       description: "Delete a service entity along with properties."
       parameters:
       - in: "query"
-        name: "host"
-        description: "The host of service"
+        name: "sid"
+        description: "The id of service"
         required: true
         schema:
-          type: "string"
-      - in: "query"
-        name: "module"
-        description: "The module of service"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "project"
-        description: "The project of the service"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "projver"
-        description: "The project version of the service"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "service"
-        description: "The service of the service"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "servver"
-        description: "The service version of the service"
-        required: true
-        schema:
-          type: "string"
-      - in: "query"
-        name: "env"
-        description: "The environment of the service"
-        required: true
-        schema:
-          type: "string"
+          type: "integer"
       responses:
         "204":
           description: "Successful Delete Service"
@@ -671,6 +1043,218 @@ paths:
       responses:
         "204":
           description: "Successful Delete Service Property"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+  /configs/service/file:
+    get:
+      tags:
+      - "config-server"
+      summary: "Get all files for a particular service"
+      operationId: "getConfigsServiceFile"
+      description: "After clicking the files button on the service list view, this\
+        \ endpoint will get all the files for the service"
+      parameters:
+      - in: "query"
+        name: "sid"
+        description: "sid for the service"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "200":
+          description: "List of files for a service"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ServiceFile"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.r"
+    post:
+      tags:
+      - "config-server"
+      summary: "Create a new service file."
+      operationId: "postConfigsServiceFile"
+      description: "Create a new service file."
+      requestBody:
+        description: "Service File"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ServiceFile"
+        required: true
+      responses:
+        "200":
+          description: "Successfully create a service file."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceFile"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+    put:
+      tags:
+      - "config-server"
+      summary: "Update an existing service file."
+      operationId: "putConfigsServiceFile"
+      description: "Update a service file."
+      requestBody:
+        description: "Service File"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ServiceFile"
+        required: true
+      responses:
+        "200":
+          description: "Returns updated service file."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceFile"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+    delete:
+      tags:
+      - "config-server"
+      summary: "Delete an existing service file."
+      operationId: "deleteConfigServiceFile"
+      description: "Delete a service file"
+      parameters:
+      - in: "query"
+        name: "sid"
+        description: "The sid of service file"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "filename"
+        description: "The filename of the service file"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "204":
+          description: "Successful Delete Service File"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+  /configs/service/cert:
+    get:
+      tags:
+      - "config-server"
+      summary: "Get all certs for a particular service"
+      operationId: "getConfigsServiceCert"
+      description: "After clicking the certs button on the service list view, this\
+        \ endpoint will get all the certs for the service"
+      parameters:
+      - in: "query"
+        name: "sid"
+        description: "sid for the service"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "200":
+          description: "List of certs for a service"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ServiceCert"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.r"
+    post:
+      tags:
+      - "config-server"
+      summary: "Create a new service cert."
+      operationId: "postConfigsServiceCert"
+      description: "Create a new service cert"
+      requestBody:
+        description: "Service Cert"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ServiceCert"
+        required: true
+      responses:
+        "200":
+          description: "Successfully create a service cert."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceCert"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+    put:
+      tags:
+      - "config-server"
+      summary: "Update an existing service cert."
+      operationId: "putConfigsServiceCert"
+      description: "Update a service cert."
+      requestBody:
+        description: "Service Cert"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ServiceCert"
+        required: true
+      responses:
+        "200":
+          description: "Returns updated service cert."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceCert"
+        "400":
+          description: "Bad Request"
+      security:
+      - portal_auth:
+        - "portal.w"
+    delete:
+      tags:
+      - "config-server"
+      summary: "Delete an existing service cert."
+      operationId: "deleteConfigServiceCert"
+      description: "Delete a service cert"
+      parameters:
+      - in: "query"
+        name: "sid"
+        description: "The sid of service cert"
+        required: true
+        schema:
+          type: "string"
+      - in: "query"
+        name: "filename"
+        description: "The filename of the service cert"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "204":
+          description: "Successful Delete Service Cert"
         "400":
           description: "Bad Request"
       security:
@@ -1242,6 +1826,68 @@ components:
         value:
           type: "string"
           description: "Value of the property"
+    GlobalFile:
+      type: "object"
+      required:
+      - "host"
+      - "module"
+      - "filename"
+      properties:
+        host:
+          type: "string"
+          description: "Host of the global file"
+        module:
+          type: "string"
+          description: "Module of the global file"
+        project:
+          type: "string"
+          description: "Project of the global file"
+        projver:
+          type: "string"
+          description: "Project version of the global file"
+        service:
+          type: "string"
+          description: "Service of the global file"
+        servver:
+          type: "string"
+          description: "Service version version of the global file"
+        env:
+          type: "string"
+          description: "Environment of the global file"
+        filename:
+          type: "string"
+          description: "File name of the global file"
+    GlobalCert:
+      type: "object"
+      required:
+      - "host"
+      - "module"
+      - "filename"
+      properties:
+        host:
+          type: "string"
+          description: "Host of the global cert"
+        module:
+          type: "string"
+          description: "Module of the global cert"
+        project:
+          type: "string"
+          description: "Project of the global cert"
+        projver:
+          type: "string"
+          description: "Project version of the global cert"
+        service:
+          type: "string"
+          description: "Service of the global cert"
+        servver:
+          type: "string"
+          description: "Service version version of the global cert"
+        env:
+          type: "string"
+          description: "Environment of the global cert"
+        filename:
+          type: "string"
+          description: "File name of the global cert"
     ServiceCriteria:
       type: "object"
       required:
@@ -1272,38 +1918,10 @@ components:
     ServiceProperty:
       type: "object"
       required:
-      - "host"
-      - "module"
-      - "project"
-      - "projver"
-      - "service"
-      - "servver"
-      - "env"
       - "sid"
       - "key"
       - "value"
       properties:
-        host:
-          type: "string"
-          description: "Host of the property"
-        module:
-          type: "string"
-          description: "Module of the property"
-        project:
-          type: "string"
-          description: "Project of the property"
-        projver:
-          type: "string"
-          description: "Project version of the property"
-        service:
-          type: "string"
-          description: "Service of the property"
-        servver:
-          type: "string"
-          description: "Service version of the property"
-        env:
-          type: "string"
-          description: "Environment of the property"
         sid:
           type: "integer"
           description: "Sid of the property"
@@ -1313,6 +1931,30 @@ components:
         value:
           type: "string"
           description: "Value of the property"
+    ServiceFile:
+      type: "object"
+      required:
+      - "sid"
+      - "filename"
+      properties:
+        sid:
+          type: "integer"
+          description: "Sid of the file"
+        filename:
+          type: "string"
+          description: "Filename of the file"
+    ServiceCert:
+      type: "object"
+      required:
+      - "sid"
+      - "filename"
+      properties:
+        sid:
+          type: "integer"
+          description: "Sid of the cert"
+        filename:
+          type: "string"
+          description: "Filename of the cert"
     Service:
       type: "object"
       required:
@@ -1345,6 +1987,9 @@ components:
         env:
           type: "string"
           description: "Environment for identifying the service"
+        sid:
+          type: "integer"
+          description: "Id for identifying the service"
     ServiceConfigs:
       type: "object"
       required:
