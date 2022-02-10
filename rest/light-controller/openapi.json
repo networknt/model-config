@@ -596,6 +596,56 @@
         ]
       }
     },
+    "/services/logger/content": {
+      "post": {
+        "summary": "Query the contents of a log file.",
+        "description": "Returns a JSON body of log entries",
+        "operationId": "postServiceLoggerContent",
+        "requestBody": {
+          "description": "Log Retrieval Search.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogRetrieval"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Service not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "portal_auth": [
+              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+            ]
+          }
+        ]
+      }
+    },
     "/services/logger": {
       "get": {
         "summary": "Query logger for a particular instance",
@@ -975,6 +1025,55 @@
           "address",
           "port",
           "loggers"
+        ]
+      },
+      "LogRetrieval": {
+        "type": "object",
+        "properties": {
+          "protocol": {
+            "type": "string",
+            "description": "Target server protocol",
+            "enum": [
+              "http",
+              "https"
+            ]
+          },
+          "address": {
+            "type": "string",
+            "description": "Target server IP address"
+          },
+          "port": {
+            "type": "integer",
+            "description": "Target server port number"
+          },
+          "loggerName": {
+            "type": "string",
+            "description": "Logger name"
+          },
+          "loggerLevel": {
+            "type": "string",
+            "description": "Logger level",
+            "enum": [
+              "INFO",
+              "DEBUG",
+              "ERROR",
+              "WARN",
+              "TRACE"
+            ]
+          },
+          "startTime": {
+            "type": "string",
+            "description": "Start time"
+          },
+          "endTime": {
+            "type": "string",
+            "description": "End time"
+          }
+        },
+        "required": [
+          "protocol",
+          "address",
+          "port"
         ]
       },
       "LoggerInfo": {

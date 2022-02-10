@@ -1,753 +1,747 @@
-openapi: 3.0.2
+---
+openapi: "3.0.2"
 info:
-  title: Control Panel - OpenAPI 3.0
-  description: |-
-    All light-4j services can register here during startup and deregister during the shutdown. It ensures that the control panel has a snapshot of running services all the time. The control panel also sends health check requests to each service continuously to ensure its healthy and server info request to assist the service certification. With the information above, this service can serve as a global discovery for service to service invocations.
-  termsOfService: 'http://swagger.io/terms/'
+  title: "Control Panel - OpenAPI 3.0"
+  description: "All light-4j services can register here during startup and deregister\
+    \ during the shutdown. It ensures that the control panel has a snapshot of running\
+    \ services all the time. The control panel also sends health check requests to\
+    \ each service continuously to ensure its healthy and server info request to assist\
+    \ the service certification. With the information above, this service can serve\
+    \ as a global discovery for service to service invocations."
+  termsOfService: "http://swagger.io/terms/"
   contact:
-    email: stevehu@gmail.com
+    email: "stevehu@gmail.com"
   license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-  version: 1.0.0
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+  version: "1.0.0"
 servers:
-  - url: 'https://lightapi.net'
+- url: "https://lightapi.net"
 paths:
-  '/services':
+  /services:
     post:
-      summary: Add a new service with opitonal health checks
-      description: Register a service during its startup
-      operationId: register
+      summary: "Add a new service with opitonal health checks"
+      description: "Register a service during its startup"
+      operationId: "register"
       requestBody:
-        description: Register a service with optional health checks
+        description: "Register a service with optional health checks"
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Service'
+              $ref: "#/components/schemas/Service"
         required: true
       responses:
-        '200':
-          description: Successful operation
+        "200":
+          description: "Successful operation"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
-        '400':
-          description: Invalid Service Register Request
+                $ref: "#/components/schemas/Status"
+        "400":
+          description: "Invalid Service Register Request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
-
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
     delete:
-      summary: Remove a service and its health checks from the registry
-      description: Deregister a service during its shutdown
-      operationId: deregister
+      summary: "Remove a service and its health checks from the registry"
+      description: "Deregister a service during its shutdown"
+      operationId: "deregister"
       parameters:
-        - name: serviceId
-          in: query
-          description: ID of the service
-          required: true
-          schema:
-            type: string
-        - name: tag
-          in: query
-          description: Return only nodes with the tag
-          required: false
-          schema:
-            type: string
-        - name: protocol
-          in: query
-          description: Return only nodes with the prototol
-          required: true
-          schema:
-            type: string
-        - name: address
-          in: query
-          description: IP address of the node
-          required: true
-          schema:
-            type: string
-        - name: port
-          in: query
-          description: Port number of the node
-          required: true
-          schema:
-            type: integer
-        - name: checkInterval
-          in: query
-          description: Check interval from the portal-registry configuration.
-          required: true
-          schema:
-            type: integer
+      - name: "serviceId"
+        in: "query"
+        description: "ID of the service"
+        required: true
+        schema:
+          type: "string"
+      - name: "tag"
+        in: "query"
+        description: "Return only nodes with the tag"
+        required: false
+        schema:
+          type: "string"
+      - name: "protocol"
+        in: "query"
+        description: "Return only nodes with the prototol"
+        required: true
+        schema:
+          type: "string"
+      - name: "address"
+        in: "query"
+        description: "IP address of the node"
+        required: true
+        schema:
+          type: "string"
+      - name: "port"
+        in: "query"
+        description: "Port number of the node"
+        required: true
+        schema:
+          type: "integer"
+      - name: "checkInterval"
+        in: "query"
+        description: "Check interval from the portal-registry configuration."
+        required: true
+        schema:
+          type: "integer"
       responses:
-        '200':
-          description: Successful operation
+        "200":
+          description: "Successful operation"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
-        '400':
-          description: Invalid Service Register Request
+                $ref: "#/components/schemas/Status"
+        "400":
+          description: "Invalid Service Register Request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
     get:
-      summary: Query all healthy services
-      description: Returns a list of services
-      operationId: getHealthService
+      summary: "Query all healthy services"
+      description: "Returns a list of services"
+      operationId: "getHealthService"
       responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid request
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
-        '404':
-          description: Service not found
+                $ref: "#/components/schemas/Status"
+        "404":
+          description: "Service not found"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
-  '/services/lookup':
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+  /services/lookup:
     get:
-      summary: Discover service with serviceId and optional tag
-      description: Returns a list of nodes for the service
-      operationId: getLookupService
+      summary: "Discover service with serviceId and optional tag"
+      description: "Returns a list of nodes for the service"
+      operationId: "getLookupService"
       parameters:
-        - name: serviceId
-          in: query
-          description: ID of the service
-          required: true
-          schema:
-            type: string
-        - name: tag
-          in: query
-          description: Return only nodes with the tag
-          required: false
-          schema:
-            type: string
+      - name: "serviceId"
+        in: "query"
+        description: "ID of the service"
+        required: true
+        schema:
+          type: "string"
+      - name: "tag"
+        in: "query"
+        description: "Return only nodes with the tag"
+        required: false
+        schema:
+          type: "string"
       responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid request
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
-        '404':
-          description: Service not found
+                $ref: "#/components/schemas/Status"
+        "404":
+          description: "Service not found"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
-  '/services/chaosmonkey/assault':
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+  /services/chaosmonkey/assault:
     post:
-      summary: Initiate a specfic chaosmonkey test
-      operationId: postChaosMonkeyAssault
+      summary: "Initiate a specfic chaosmonkey test"
+      operationId: "postChaosMonkeyAssault"
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AssaultInitPost'
+              $ref: "#/components/schemas/AssaultInitPost"
       responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid request
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
-  '/services/chaosmonkey':
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+  /services/chaosmonkey:
     post:
-      summary: Configure chaos monkey handlers for a specific service
-      operationId: postChaosMonkey
+      summary: "Configure chaos monkey handlers for a specific service"
+      operationId: "postChaosMonkey"
       requestBody:
-        description: settings for chaos monkey
+        description: "settings for chaos monkey"
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ChaosMonkeyAssaultConfigPost'
+              $ref: "#/components/schemas/ChaosMonkeyAssaultConfigPost"
       responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid request
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
     get:
-      summary: Get chaosmonkey handlers and their configurations on a specific service
-      operationId: getChaosMonkey
+      summary: "Get chaosmonkey handlers and their configurations on a specific service"
+      operationId: "getChaosMonkey"
       parameters:
-        - name: address
-          in: query
-          description: get info on a specific address
-          required: true
-          schema:
-            type: string
-        - name: protocol
-          in: query
-          description: get info on a specific protocol
-          required: true
-          schema:
-            type: string
-        - name: port
-          in: query
-          description: get info on a specific port
-          required: true
-          schema:
-            type: string
+      - name: "address"
+        in: "query"
+        description: "get info on a specific address"
+        required: true
+        schema:
+          type: "string"
+      - name: "protocol"
+        in: "query"
+        description: "get info on a specific protocol"
+        required: true
+        schema:
+          type: "string"
+      - name: "port"
+        in: "query"
+        description: "get info on a specific port"
+        required: true
+        schema:
+          type: "string"
       responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid request
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
-        '404':
-          description: Service not found
+                $ref: "#/components/schemas/Status"
+        "404":
+          description: "Service not found"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
-  '/services/check':
+                $ref: "#/components/schemas/Status"
+  /services/check:
     get:
-      summary: Retrieve all health check statuses from the cluster
-      description: Get the live check statuses
-      operationId: getHealthChecks
+      summary: "Retrieve all health check statuses from the cluster"
+      description: "Get the live check statuses"
+      operationId: "getHealthChecks"
       parameters:
-        - name: local
-          in: query
-          description: Only return the local node health checks if it is true
-          required: false
-          schema:
-            type: boolean
-        - name: stale
-          in: query
-          description: Only return the stale health checks if it is true
-          required: false
-          schema:
-            type: boolean
+      - name: "local"
+        in: "query"
+        description: "Only return the local node health checks if it is true"
+        required: false
+        schema:
+          type: "boolean"
+      - name: "stale"
+        in: "query"
+        description: "Only return the stale health checks if it is true"
+        required: false
+        schema:
+          type: "boolean"
       responses:
-        '200':
-          description: Successful operation
-        '400':
-          description: Invalid Health Check Request
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid Health Check Request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
     put:
-      summary: TTL type check to set the status of the check to pass or fail
-      description: TTL check to from the service for pass or not
-      operationId: checkStatus
+      summary: "TTL type check to set the status of the check to pass or fail"
+      description: "TTL check to from the service for pass or not"
+      operationId: "checkStatus"
       requestBody:
-        description: TTL check to notify if the service is pass or not
+        description: "TTL check to notify if the service is pass or not"
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CheckStatus'
+              $ref: "#/components/schemas/CheckStatus"
         required: true
       responses:
-        '200':
-          description: Successful operation
+        "200":
+          description: "Successful operation"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
-        '400':
-          description: Invalid Service Register Request
+                $ref: "#/components/schemas/Status"
+        "400":
+          description: "Invalid Service Register Request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
-  '/services/check/{id}':
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+  /services/check/{id}:
     get:
-      summary: Retrieve the current check status for a check id
-      description: Get the live check status for the node
-      operationId: getCheckStatus
+      summary: "Retrieve the current check status for a check id"
+      description: "Get the live check status for the node"
+      operationId: "getCheckStatus"
       parameters:
-        - name: id
-          in: path
-          description: id of the check object in format serviceId|tag:address:port
-          required: true
-          schema:
-            type: string
+      - name: "id"
+        in: "path"
+        description: "id of the check object in format serviceId|tag:address:port"
+        required: true
+        schema:
+          type: "string"
       responses:
-        '200':
-          description: Successful operation
+        "200":
+          description: "Successful operation"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Check'
-        '400':
-          description: Invalid Service Register Request
+                $ref: "#/components/schemas/Check"
+        "400":
+          description: "Invalid Service Register Request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
-  '/services/info':
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+  /services/info:
     get:
-      summary: Query service info by node of address and port
-      description: Returns a service info object
-      operationId: getServiceInfo
+      summary: "Query service info by node of address and port"
+      description: "Returns a service info object"
+      operationId: "getServiceInfo"
       parameters:
-        - name: address
-          in: query
-          description: get info on a specific address
-          required: true
-          schema:
-            type: string
-        - name: protocol
-          in: query
-          description: get info on a specific protocol
-          required: true
-          schema:
-            type: string
-        - name: port
-          in: query
-          description: get info on a specific port
-          required: true
-          schema:
-            type: string
+      - name: "address"
+        in: "query"
+        description: "get info on a specific address"
+        required: true
+        schema:
+          type: "string"
+      - name: "protocol"
+        in: "query"
+        description: "get info on a specific protocol"
+        required: true
+        schema:
+          type: "string"
+      - name: "port"
+        in: "query"
+        description: "get info on a specific port"
+        required: true
+        schema:
+          type: "string"
       responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid request
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
-        '404':
-          description: Service not found
+                $ref: "#/components/schemas/Status"
+        "404":
+          description: "Service not found"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
-  '/services/logger/content':
-    get:
-      summary: Query the contents of a log file.
-      description: Returns a JSON body of log entries
-      operationId: getServiceLoggerContent
-      parameters:
-        - name: protocol
-          in: query
-          description: target server protocol, http or https.
-          required: true
-          schema:
-            type: string
-            enum: [
-                "http",
-                "https"
-            ]
-        - name: address
-          in: query
-          description: target server address.
-          required: true
-          schema:
-            type: string
-        - name: port
-          in: query
-          description: target server port number.
-          required: true
-          schema:
-            type: integer
-        - name: loggerName
-          in: query
-          description: name of the logger you want to get.
-          required: false
-          schema:
-            type: string
-        - name: loggerLevel
-          in: query
-          description: level of the log entries you want to get.
-          required: false
-          schema:
-            type: string
-            enum:
-              - INFO
-              - DEBUG
-              - ERROR
-              - WARN
-        - name: startTime
-          in: query
-          description: start time of log entries.
-          required: false
-          schema:
-            type: integer
-            format: int64
-        - name: endTime
-          in: query
-          description: end time of log entries.
-          required: false
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Status'
-        '404':
-          description: Service not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Status'
-      security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
-  '/services/logger':
-    get:
-      summary: Query logger for a particular instance
-      description: Returns a list of loggers with logging levels
-      operationId: getServiceLogger
-      parameters:
-        - name: protocol
-          in: query
-          description: target server protocol, http or https.
-          required: true
-          schema:
-            type: string
-            enum: [
-              "http",
-              "https"
-            ]
-        - name: address
-          in: query
-          description: target server address.
-          required: true
-          schema:
-            type: string
-        - name: port
-          in: query
-          description: target server port number.
-          required: true
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Status'
-        '404':
-          description: Service not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Status'
-      security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+  /services/logger/content:
     post:
-      summary: Update the logging level for a particular instance
-      description: Returns a list of loggers with logging levels after updated.
-      operationId: postServiceLogger
+      summary: "Query the contents of a log file."
+      description: "Returns a JSON body of log entries"
+      operationId: "postServiceLoggerContent"
       requestBody:
-        description: Service that is updating loggers.
+        description: "Log Retrieval Search."
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LoggerConfig'
+              $ref: "#/components/schemas/LogRetrieval"
       responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid request
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
-        '404':
-          description: Service not found
+                $ref: "#/components/schemas/Status"
+        "404":
+          description: "Service not found"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: "#/components/schemas/Status"
       security:
-        - portal_auth:
-            - 'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2'
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+  /services/logger:
+    get:
+      summary: "Query logger for a particular instance"
+      description: "Returns a list of loggers with logging levels"
+      operationId: "getServiceLogger"
+      parameters:
+      - name: "protocol"
+        in: "query"
+        description: "target server protocol, http or https."
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "http"
+          - "https"
+      - name: "address"
+        in: "query"
+        description: "target server address."
+        required: true
+        schema:
+          type: "string"
+      - name: "port"
+        in: "query"
+        description: "target server port number."
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+        "404":
+          description: "Service not found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+      security:
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+    post:
+      summary: "Update the logging level for a particular instance"
+      description: "Returns a list of loggers with logging levels after updated."
+      operationId: "postServiceLogger"
+      requestBody:
+        description: "Service that is updating loggers."
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoggerConfig"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+        "404":
+          description: "Service not found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+      security:
+      - portal_auth:
+        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
 components:
   schemas:
     AssaultType:
-      type: string
+      type: "string"
       enum:
-        - "com.networknt.chaos.ExceptionAssaultHandler"
-        - "com.networknt.chaos.KillappAssaultHandler"
-        - "com.networknt.chaos.LatencyAssaultHandler"
-        - "com.networknt.chaos.MemoryAssaultHandler"
+      - "com.networknt.chaos.ExceptionAssaultHandler"
+      - "com.networknt.chaos.KillappAssaultHandler"
+      - "com.networknt.chaos.LatencyAssaultHandler"
+      - "com.networknt.chaos.MemoryAssaultHandler"
     AssaultInitPost:
-      type: object
+      type: "object"
       properties:
         address:
-          type: string
+          type: "string"
         protocol:
-          type: string
+          type: "string"
         port:
-          type: integer
+          type: "integer"
         assaultType:
-          $ref: '#/components/schemas/AssaultType'
+          $ref: "#/components/schemas/AssaultType"
     ChaosMonkeyAssaultConfigPost:
-      type: object
+      type: "object"
       properties:
         address:
-          type: string
+          type: "string"
         protocol:
-          type: string
+          type: "string"
         port:
-          type: integer
+          type: "integer"
         assaultType:
-          $ref: '#/components/schemas/AssaultType'
+          $ref: "#/components/schemas/AssaultType"
         assaultConfig:
-          type: object
+          type: "object"
           additionalProperties: true
     MemoryAssault:
-      type: object
+      type: "object"
       properties:
         enabled:
-          type: boolean
+          type: "boolean"
         bypass:
-          type: boolean
+          type: "boolean"
         level:
-          type: integer
+          type: "integer"
           minimum: 1
         memoryMillisecondsHoldFilledMemory:
-          type: integer
+          type: "integer"
           minimum: 1500
         memoryMillisecondsWaitFilledMemory:
-          type: integer
+          type: "integer"
           minimum: 100
           maximum: 30000
         memoryFillIncrementFraction:
-          type: number
+          type: "number"
           minimum: 0.1
           maximum: 1.0
         memoryFillTargetFraction:
-          type: number
+          type: "number"
           minimum: 0.01
           maximum: 0.95
     LatencyAssault:
-      type: object
+      type: "object"
       properties:
         enabled:
-          type: boolean
+          type: "boolean"
         bypass:
-          type: boolean
+          type: "boolean"
         level:
-          type: integer
+          type: "integer"
           minimum: 1
         latencyRangeStart:
-          type: integer
+          type: "integer"
         latencyRangeEnd:
-          type: integer
+          type: "integer"
     ExceptionAssault:
-      type: object
+      type: "object"
       properties:
         enabled:
-          type: boolean
+          type: "boolean"
         bypass:
-          type: boolean
+          type: "boolean"
         level:
-          type: integer
+          type: "integer"
           minimum: 1
     KillAppAssault:
-      type: object
+      type: "object"
       properties:
         enabled:
-          type: boolean
+          type: "boolean"
         bypass:
-          type: boolean
+          type: "boolean"
         level:
-          type: integer
+          type: "integer"
           minimum: 1
     Service:
-      type: object
+      type: "object"
       properties:
         serviceId:
-          type: string
-          description: a unique ID for the service across the organization.
-          example: com.networknt.petstore.v1
+          type: "string"
+          description: "a unique ID for the service across the organization."
+          example: "com.networknt.petstore.v1"
         name:
-          type: string
-          description: a logical name of the service.
-          example: com.networknt.petstore.v1
+          type: "string"
+          description: "a logical name of the service."
+          example: "com.networknt.petstore.v1"
         tag:
-          type: string
-          description: a list of tags to assign to the service.
+          type: "string"
+          description: "a list of tags to assign to the service."
         protocol:
-          type: string
-          description: http or https for the server.
+          type: "string"
+          description: "http or https for the server."
         address:
-          type: string
-          description: The address of the service.
+          type: "string"
+          description: "The address of the service."
         port:
-          type: integer
-          description: The port number of the service
+          type: "integer"
+          description: "The port number of the service"
           example: 8080
         check:
-          $ref: '#/components/schemas/Check'
+          $ref: "#/components/schemas/Check"
       required:
-        - serviceId
-        - protocol
-        - address
-        - port
+      - "serviceId"
+      - "protocol"
+      - "address"
+      - "port"
     Check:
-      type: object
+      type: "object"
       properties:
         name:
-          type: string
-          description: The name of the check
+          type: "string"
+          description: "The name of the check"
         id:
-          type: string
-          description: A unique ID for this check on the node
+          type: "string"
+          description: "A unique ID for this check on the node"
         interval:
-          type: integer
-          description: The frequency at which to run this check in millisecond
+          type: "integer"
+          description: "The frequency at which to run this check in millisecond"
         notes:
-          type: string
-          description: Arbitrary information for humans.
+          type: "string"
+          description: "Arbitrary information for humans."
         deregisterCriticalServiceAfter:
-          type: integer
-          description: Check associated with a service should deregister after this time in millisecond
+          type: "integer"
+          description: "Check associated with a service should deregister after this\
+            \ time in millisecond"
         http:
-          type: string
-          description: An HTTP check to perform a GET request against the value of HTTP every Interval.
+          type: "string"
+          description: "An HTTP check to perform a GET request against the value of\
+            \ HTTP every Interval."
         tlsSkipVerify:
-          type: boolean
-          description: If the certificate for an HTTPS check should not be verified.
+          type: "boolean"
+          description: "If the certificate for an HTTPS check should not be verified."
       required:
-        - id
-        - interval
-        - deregisterCriticalServiceAfter
+      - "id"
+      - "interval"
+      - "deregisterCriticalServiceAfter"
     CheckStatus:
-      type: object
+      type: "object"
       properties:
         id:
-          type: string
-          description: A unique ID for the check with serviceId, address and port combination
+          type: "string"
+          description: "A unique ID for the check with serviceId, address and port\
+            \ combination"
         pass:
-          type: boolean
-          description: If the check is passed or failed
+          type: "boolean"
+          description: "If the check is passed or failed"
         checkInterval:
-          type: integer
-          description: Check interval from the portal-registry configuration to update the health
+          type: "integer"
+          description: "Check interval from the portal-registry configuration to update\
+            \ the health"
     LoggerConfig:
-      type: object
+      type: "object"
       properties:
         protocol:
-          type: string
-          description: Target server protocol
+          type: "string"
+          description: "Target server protocol"
         address:
-          type: string
-          description: Target server IP address
+          type: "string"
+          description: "Target server IP address"
         port:
-          type: integer
-          description: Target server port number
+          type: "integer"
+          description: "Target server port number"
         loggers:
-          type: array
-          description: A list of LoggerInfo entries
+          type: "array"
+          description: "A list of LoggerInfo entries"
           items:
-            $ref: '#/components/schemas/LoggerInfo'
+            $ref: "#/components/schemas/LoggerInfo"
       required:
-        - protocol
-        - address
-        - port
-        - loggers
-
+      - "protocol"
+      - "address"
+      - "port"
+      - "loggers"
+    LogRetrieval:
+      type: "object"
+      properties:
+        protocol:
+          type: "string"
+          description: "Target server protocol"
+          enum:
+          - "http"
+          - "https"
+        address:
+          type: "string"
+          description: "Target server IP address"
+        port:
+          type: "integer"
+          description: "Target server port number"
+        loggerName:
+          type: "string"
+          description: "Logger name"
+        loggerLevel:
+          type: "string"
+          description: "Logger level"
+          enum:
+          - "INFO"
+          - "DEBUG"
+          - "ERROR"
+          - "WARN"
+          - "TRACE"
+        startTime:
+          type: "string"
+          description: "Start time"
+        endTime:
+          type: "string"
+          description: "End time"
+      required:
+      - "protocol"
+      - "address"
+      - "port"
     LoggerInfo:
-      type: object
+      type: "object"
       properties:
         name:
-          type: string
-          description: Name of the logger
+          type: "string"
+          description: "Name of the logger"
         level:
-          type: string
-          enum: [
-            "ERROR",
-            "WARN",
-            "INFO",
-            "DEBUG",
-            "TRACE"
-          ]
-          description: Logging level
+          type: "string"
+          enum:
+          - "ERROR"
+          - "WARN"
+          - "INFO"
+          - "DEBUG"
+          - "TRACE"
+          description: "Logging level"
       required:
-        - name
-        - level
+      - "name"
+      - "level"
     Status:
-      type: object
+      type: "object"
       properties:
         statusCode:
-          type: integer
+          type: "integer"
         code:
-          type: string
+          type: "string"
         message:
-          type: string
+          type: "string"
         description:
-          type: string
+          type: "string"
         severity:
-          type: string
+          type: "string"
       required:
-        - statusCode
-        - code
-        - message
-        - description
-
+      - "statusCode"
+      - "code"
+      - "message"
+      - "description"
   securitySchemes:
     portal_auth:
-      type: oauth2
+      type: "oauth2"
       flows:
         clientCredentials:
-          tokenUrl: 'https://lightapi.net/token'
+          tokenUrl: "https://lightapi.net/token"
           scopes:
-            'A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2': default
+            A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2: "default"
