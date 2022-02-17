@@ -104,6 +104,25 @@
       }
     },
     {
+      "name": "getServiceRoleById",
+      "version": "0.1.0",
+      "handler": "GetServiceRoleById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          }
+        },
+        "required": [
+          "serviceId"
+        ]
+      }
+    },
+    {
       "name": "getRefreshTokenDetail",
       "version": "0.1.0",
       "handler": "GetRefreshTokenDetail",
