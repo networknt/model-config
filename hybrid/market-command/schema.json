@@ -400,6 +400,13 @@
                   "type": "string",
                   "description": "Rule Id"
                 },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Rule roles"
+                },
                 "variables": {
                   "type": "string",
                   "description": "Rule variables"
@@ -447,6 +454,13 @@
                 "ruleId": {
                   "type": "string",
                   "description": "Rule Id"
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Rule roles"
                 },
                 "variables": {
                   "type": "string",
