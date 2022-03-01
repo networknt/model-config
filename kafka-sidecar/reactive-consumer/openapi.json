@@ -2,14 +2,14 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "Sidecar Backend",
+    "title": "Reactive Consumer",
     "license": {
       "name": "MIT"
     }
   },
   "servers": [
     {
-      "url": "http://backend.sidecar.networknt.com"
+      "url": "http://reactive-consumer.networknt.com"
     }
   ],
   "paths": {
@@ -162,8 +162,19 @@
           "offset": {
             "type": "number",
             "minimum": 0
+          },
+          "headers": {
+            "type": "object",
+            "description": "Key-Value pairs of the headers in a free key map",
+            "additionalProperties": true
           }
-        }
+        },
+        "required": [
+          "topic",
+          "value",
+          "partition",
+          "offset"
+        ]
       },
       "RecordProcessedResult": {
         "type": "object",
@@ -176,6 +187,19 @@
           },
           "stacktrace": {
             "type": "string"
+          },
+          "correlationId": {
+            "type": "string"
+          },
+          "traceabilityId": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "required": [
