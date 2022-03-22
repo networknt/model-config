@@ -2274,6 +2274,84 @@
           "id"
         ]
       }
+    },
+    {
+      "name": "createApiId",
+      "version": "0.1.0",
+      "handler": "CreateApiId",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Register a unique Api Id and service Id",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "ServiceId"
+          }
+        },
+        "required": [
+          "host",
+          "serviceId"
+        ]
+      }
+    },
+    {
+      "name": "updateApiId",
+      "version": "0.1.0",
+      "handler": "UpdateApiId",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update the serviceId for an ApiId",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "ApiId"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "ServiceId"
+          }
+        },
+        "required": [
+          "host",
+          "apiId",
+          "serviceId"
+        ]
+      }
+    },
+    {
+      "name": "deleteApiId",
+      "version": "0.1.0",
+      "handler": "DeleteApiId",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete the ApiId",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "ApiId"
+          }
+        },
+        "required": [
+          "host",
+          "apiId"
+        ]
+      }
     }
+
   ]
 }

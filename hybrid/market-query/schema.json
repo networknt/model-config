@@ -954,6 +954,22 @@
           "host"
         ]
       }
+    },
+    {
+      "name": "getHost",
+      "version": "0.1.0",
+      "handler": "GetHost",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Host Dashboard",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        }
+      }
     }
   ]
 }
