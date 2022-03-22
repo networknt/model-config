@@ -493,33 +493,6 @@ paths:
           required: false
           schema:
             type: integer
-        - name: keyFormat
-          in: query
-          description: The key format of consumer
-          required: false
-          schema:
-            type: string
-            enum:
-              - binary
-              - json
-              - avro
-              - jsonschema
-              - protobuf
-              - string
-        - name: valueFormat
-          in: query
-          description: The value format of consumer
-          required: false
-          schema:
-            type: string
-            enum:
-              - binary
-              - json
-              - avro
-              - jsonschema
-              - protobuf
-              - string
-
       responses:
         '200':
           description: Successful response
@@ -538,7 +511,181 @@ paths:
       security:
         - kafka_auth:
             - kafka:r
-
+  '/consumers/deadLetter/reactive':
+    get:
+      operationId: DLTopicReplayReactive
+      summary: replay the message in the DLQ APIs by reactive consumer
+      parameters:
+        - name: group
+          in: query
+          required: false
+          description: The consumer group name
+          schema:
+            type: string
+        - name: topic
+          in: query
+          required: false
+          description: The topic name which need replay deal letter queue group name
+          schema:
+            type: string
+        - name: timeout
+          in: query
+          description: Maximum amount of milliseoncds the sidecar will spend fetching records
+          required: false
+          schema:
+            type: integer
+        - name: lastretry
+          in: query
+          required: false
+          schema:
+            type: boolean
+          description: If the certificate for an HTTPS check should not be verified.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/DeadLetterQueueReplayResponse"
+        '404':
+          description: Consumer instance not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Status"
+      security:
+        - kafka_auth:
+            - kafka:r
+            - kafka:w
+  '/consumers/deadLetter/active':
+    get:
+      operationId: DLTopicReplayActive
+      summary: replay the message in the DLQ APIs by active consumer
+      parameters:
+        - name: group
+          in: query
+          required: false
+          description: The consumer group name
+          schema:
+            type: string
+        - name: topic
+          in: query
+          required: false
+          description: The topic name which need replay deal letter queue group name
+          schema:
+            type: string
+        - name: timeout
+          in: query
+          description: Maximum amount of milliseoncds the sidecar will spend fetching records
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConsumerRecord'
+        '404':
+          description: Consumer instance not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Status"
+      security:
+        - kafka_auth:
+            - kafka:r
+            - kafka:w
+    post:
+      operationId: DLQProducer
+      summary: producer error event to DLQ by active consumer
+      requestBody:
+        description: "Record Processed Result object"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RecordProcessedResult'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Consumer instance not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Status"
+      security:
+        - kafka_auth:
+            - kafka:r
+            - kafka:w
+  '/ksqldb/active':
+    post:
+      operationId: KsqlDBPullQueryActive
+      summary: KsqlDBPullQuery APIs by active consumer
+      requestBody:
+        description: "process a ksqlDB query"
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/KsqlDbPullQueryRequest"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Consumer instance not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Status"
+      security:
+        - kafka_auth:
+            - kafka:r
+            - kafka:w
+  '/consumers/active/audit':
+    post:
+      operationId: ConsumerActiveAudit
+      summary: Send Audit messaage for active consumer
+      requestBody:
+        description: "Record Processed Result for Audit"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/RecordProcessedResult'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Consumer instance not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Status"
+      security:
+        - kafka_auth:
+            - kafka:r
+            - kafka:w
 components:
   securitySchemes:
     kafka_auth:
@@ -555,15 +702,14 @@ components:
       type: object
       properties:
         keyFormat:
-          type: integer
-          enum: [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5
-          ]
+          type: string
+          enum:
+            - BINARY
+            - JSON
+            - AVRO
+            - JSONSCHEMA
+            - PROTOBUF
+            - STRING
         keySchema:
           type: string
         keySchemaId:
@@ -573,15 +719,14 @@ components:
         keySchemaSubject:
           type: string
         valueFormat:
-          type: integer
-          enum: [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5
-          ]
+          type: string
+          enum:
+            - BINARY
+            - JSON
+            - AVRO
+            - JSONSCHEMA
+            - PROTOBUF
+            - STRING
         valueSchema:
           type: string
         valueSchemaId:
@@ -603,15 +748,24 @@ components:
           type: string
         name:
           type: string
-        format:
+        keyFormat:
           type: string
           enum:
-            - binary
-            - avro
-            - json
-            - jsonschema
-            - protobuf
-            - string
+            - BINARY
+            - JSON
+            - AVRO
+            - JSONSCHEMA
+            - PROTOBUF
+            - STRING
+        valueFormat:
+          type: string
+          enum:
+            - BINARY
+            - JSON
+            - AVRO
+            - JSONSCHEMA
+            - PROTOBUF
+            - STRING
         autoOffsetReset:
           type: string
         autoCommitEnable:
@@ -672,7 +826,27 @@ components:
         partition:
           type: integer
           minimum: 0
-
+    KsqlDbPullQueryRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+        offset:
+          type: string
+          enum:
+            - earliest
+            - latest
+        queryType:
+          type: string
+          enum:
+            - pull
+            - push
+        deserializationError:
+          type: boolean
+        tableScanEnable:
+          type: boolean
     ConsumerRecord:
       type: object
       properties:
@@ -686,6 +860,21 @@ components:
           type: integer
         offset:
           type: number
+    RecordProcessedResult:
+      type: object
+      properties:
+        consumerRecord:
+          $ref: '#/components/schemas/ConsumerRecord'
+        key:
+          type: string
+        correlationId:
+          type: string
+        traceabilityId:
+          type: string
+        stacktrace:
+          type: string
+        processed:
+          type: boolean
     ConsumerSeekToRequest:
       type: object
       properties:
@@ -704,7 +893,21 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/PartitionTimestamp"
-
+    DeadLetterQueueReplayResponse:
+      type: object
+      properties:
+        group:
+          type: string
+        instance:
+          type: string
+        topics:
+          type: array
+          items:
+            type: string
+        records:
+          type: number
+        description:
+          type: string
     PartitionOffset:
       type: object
       properties:
