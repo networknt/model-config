@@ -474,6 +474,82 @@ paths:
       security:
       - portal_auth:
         - "portal.w"
+
+  /services/module:
+    get:
+      summary: "Query the active modules for a particular instance"
+      description: "Returns a list of active modules from the target server"
+      operationId: "getServiceModule"
+      parameters:
+      - name: "protocol"
+        in: "query"
+        description: "target server protocol, http or https."
+        required: true
+        schema:
+          type: "string"
+          enum:
+          - "http"
+          - "https"
+      - name: "address"
+        in: "query"
+        description: "target server address."
+        required: true
+        schema:
+          type: "string"
+      - name: "port"
+        in: "query"
+        description: "target server port number."
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+        "404":
+          description: "Service not found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+      security:
+      - portal_auth:
+        - "portal.r"
+    post:
+      summary: "Update all or some modules to reload the their config"
+      description: "Returns a list of module names that are reloaded"
+      operationId: "postServiceModule"
+      requestBody:
+        description: "Service that is reloading config."
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReloadModule"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+        "404":
+          description: "Service not found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+      security:
+      - portal_auth:
+        - "portal.w"
+        
 components:
   schemas:
     AssaultType:
@@ -719,6 +795,28 @@ components:
       required:
       - "name"
       - "level"
+    ReloadModule:
+      type: "object"
+      properties:
+        protocol:
+          type: "string"
+          description: "Target server protocol"
+        address:
+          type: "string"
+          description: "Target server IP address"
+        port:
+          type: "integer"
+          description: "Target server port number"
+        modules:
+          type: "array"
+          description: "A list of module package names"
+          items:
+            type: "string"
+      required:
+      - "protocol"
+      - "address"
+      - "port"
+      - "modules"
     Status:
       type: "object"
       properties:
