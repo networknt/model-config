@@ -45,7 +45,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.w"
     delete:
       summary: "Remove a service and its health checks from the registry"
       description: "Deregister a service during its shutdown"
@@ -102,7 +102,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.w"
     get:
       summary: "Query all healthy services"
       description: "Returns a list of services"
@@ -124,7 +124,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.r"
   /services/lookup:
     get:
       summary: "Discover service with serviceId and optional tag"
@@ -160,7 +160,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.r"
   /services/chaosmonkey/assault:
     post:
       summary: "Initiate a specfic chaosmonkey test"
@@ -182,7 +182,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.w"
   /services/chaosmonkey:
     post:
       summary: "Configure chaos monkey handlers for a specific service"
@@ -205,7 +205,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.w"
     get:
       summary: "Get chaosmonkey handlers and their configurations on a specific service"
       operationId: "getChaosMonkey"
@@ -272,7 +272,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.r"
     put:
       summary: "TTL type check to set the status of the check to pass or fail"
       description: "TTL check to from the service for pass or not"
@@ -299,7 +299,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.w"
   /services/check/{id}:
     get:
       summary: "Retrieve the current check status for a check id"
@@ -327,7 +327,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.r"
   /services/info:
     get:
       summary: "Query service info by node of address and port"
@@ -369,7 +369,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.r"
   /services/logger/content:
     post:
       summary: "Query the contents of a log file."
@@ -399,7 +399,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.w"
   /services/logger:
     get:
       summary: "Query logger for a particular instance"
@@ -444,7 +444,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.r"
     post:
       summary: "Update the logging level for a particular instance"
       description: "Returns a list of loggers with logging levels after updated."
@@ -473,7 +473,7 @@ paths:
                 $ref: "#/components/schemas/Status"
       security:
       - portal_auth:
-        - "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+        - "portal.w"
 components:
   schemas:
     AssaultType:
@@ -744,4 +744,5 @@ components:
         clientCredentials:
           tokenUrl: "https://lightapi.net/token"
           scopes:
-            A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2: "default"
+            portal.w: "write"
+            portal.r: "read"
