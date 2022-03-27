@@ -39,7 +39,9 @@
               "type": "string",
               "enum": [
                 "host",
-                "module",
+                "cap",
+                "project",
+                "projver",
                 "scope",
                 "key"
               ]
@@ -48,7 +50,7 @@
           {
             "in": "query",
             "name": "host",
-            "description": "The selected host as parameter for module and scope",
+            "description": "The selected host as parameter for cap and scope",
             "required": false,
             "schema": {
               "type": "string"
@@ -56,8 +58,26 @@
           },
           {
             "in": "query",
-            "name": "module",
-            "description": "The selected module as parameter for scope",
+            "name": "cap",
+            "description": "The selected cap as parameter for project, projver and scope",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "project",
+            "description": "The selected project as parameter for projver and scope",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "projver",
+            "description": "The selected project version as parameter for scope",
             "required": false,
             "schema": {
               "type": "string"
@@ -89,9 +109,9 @@
         "tags": [
           "config-server"
         ],
-        "summary": "Search property key and value pairs with module and optional scope.",
+        "summary": "Search property key and value pairs with cap and optional scope.",
         "operationId": "postPropertySearch",
-        "description": "Search property key and value pairs based on module and scope.",
+        "description": "Search property key and value pairs based on cap and scope.",
         "requestBody": {
           "description": "Search Criteria",
           "content": {
@@ -105,7 +125,7 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a list of defined properties in the config server per module and optional scope",
+            "description": "Returns a list of defined properties in the config server per cap and optional scope",
             "content": {
               "application/json": {
                 "schema": {
@@ -232,8 +252,26 @@
           },
           {
             "in": "query",
-            "name": "module",
-            "description": "The module of property",
+            "name": "cap",
+            "description": "The cap of property",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "project",
+            "description": "The project of property",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "projver",
+            "description": "The project version of property",
             "required": true,
             "schema": {
               "type": "string"
@@ -309,8 +347,8 @@
           },
           {
             "in": "query",
-            "name": "module",
-            "description": "The selected module as a query parameter",
+            "name": "cap",
+            "description": "The selected cap as a query parameter",
             "required": false,
             "schema": {
               "type": "string"
@@ -369,9 +407,9 @@
         "tags": [
           "config-server"
         ],
-        "summary": "Search global property key and value pairs with module, project, projver and env.",
+        "summary": "Search global property key and value pairs with cap, project, projver and env.",
         "operationId": "postGlobalSearch",
-        "description": "Search global property key and value pairs based on module, project, projver and env.",
+        "description": "Search global property key and value pairs based on cap, project, projver and env.",
         "requestBody": {
           "description": "Search Criteria",
           "content": {
@@ -385,7 +423,7 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a list of defined global properties in the config server per module, project and env",
+            "description": "Returns a list of defined global properties in the config server per cap, project and env",
             "content": {
               "application/json": {
                 "schema": {
@@ -512,8 +550,8 @@
           },
           {
             "in": "query",
-            "name": "module",
-            "description": "The module of property",
+            "name": "cap",
+            "description": "The cap of property",
             "required": true,
             "schema": {
               "type": "string"
@@ -609,7 +647,7 @@
               "type": "string",
               "enum": [
                 "host",
-                "module",
+                "cap",
                 "project",
                 "projver",
                 "env"
@@ -627,8 +665,8 @@
           },
           {
             "in": "query",
-            "name": "module",
-            "description": "The selected module as a query parameter",
+            "name": "cap",
+            "description": "The selected cap as a query parameter",
             "required": false,
             "schema": {
               "type": "string"
@@ -687,9 +725,9 @@
         "tags": [
           "config-server"
         ],
-        "summary": "Search global files with module, project, projver and env.",
+        "summary": "Search global files with cap, project, projver and env.",
         "operationId": "postGlobalFileSearch",
-        "description": "Search global files based on module, project, projver and env.",
+        "description": "Search global files based on cap, project, projver and env.",
         "requestBody": {
           "description": "Search Criteria",
           "content": {
@@ -703,7 +741,7 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a list of defined global files in the config server per module, project and env",
+            "description": "Returns a list of defined global files in the config server per cap, project and env",
             "content": {
               "application/json": {
                 "schema": {
@@ -830,8 +868,8 @@
           },
           {
             "in": "query",
-            "name": "module",
-            "description": "The module of global file",
+            "name": "cap",
+            "description": "The cap of global file",
             "required": true,
             "schema": {
               "type": "string"
@@ -927,7 +965,7 @@
               "type": "string",
               "enum": [
                 "host",
-                "module",
+                "cap",
                 "project",
                 "projver",
                 "env"
@@ -945,8 +983,8 @@
           },
           {
             "in": "query",
-            "name": "module",
-            "description": "The selected module as a query parameter",
+            "name": "cap",
+            "description": "The selected cap as a query parameter",
             "required": false,
             "schema": {
               "type": "string"
@@ -1005,9 +1043,9 @@
         "tags": [
           "config-server"
         ],
-        "summary": "Search global certs with module, project, projver and env.",
+        "summary": "Search global certs with cap, project, projver and env.",
         "operationId": "postGlobalCertsSearch",
-        "description": "Search global certs based on module, project, projver and env.",
+        "description": "Search global certs based on cap, project, projver and env.",
         "requestBody": {
           "description": "Search Criteria",
           "content": {
@@ -1021,7 +1059,7 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a list of defined global certs in the config server per module, project and env",
+            "description": "Returns a list of defined global certs in the config server per cap, project and env",
             "content": {
               "application/json": {
                 "schema": {
@@ -1148,8 +1186,8 @@
           },
           {
             "in": "query",
-            "name": "module",
-            "description": "The module of global cert",
+            "name": "cap",
+            "description": "The cap of global cert",
             "required": true,
             "schema": {
               "type": "string"
@@ -1314,9 +1352,9 @@
         "tags": [
           "config-server"
         ],
-        "summary": "Search service entity with module and other parameters.",
+        "summary": "Search service entity with cap and other parameters.",
         "operationId": "postConfigServiceSearch",
-        "description": "Search service entity based on module and other parameters.",
+        "description": "Search service entity based on cap and other parameters.",
         "requestBody": {
           "description": "Search Criteria",
           "content": {
@@ -1986,15 +2024,24 @@
         ]
       }
     },
-    "/configs/{project}/{projver}/{service}/{servver}/{env}": {
+    "/configs/{cap}/{project}/{projver}/{service}/{servver}/{env}": {
       "get": {
         "tags": [
           "config-server"
         ],
-        "summary": "Get service configs for the specified project, project version, service, service version and environment.",
+        "summary": "Get service configs for the specified cap, project, project version, service, service version and environment.",
         "operationId": "getServiceConfigs",
-        "description": "Get service configs for the specified project, project version, service, service version and environment.",
+        "description": "Get service configs for the specified cap, project, project version, service, service version and environment.",
         "parameters": [
+          {
+            "in": "path",
+            "name": "cap",
+            "description": "cap name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "in": "path",
             "name": "project",
@@ -2059,21 +2106,30 @@
         "security": [
           {
             "portal_auth": [
-              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+              "portal.r"
             ]
           }
         ]
       }
     },
-    "/certs/{project}/{projver}/{service}/{servver}/{env}": {
+    "/certs/{cap}/{project}/{projver}/{service}/{servver}/{env}": {
       "get": {
         "tags": [
           "config-server"
         ],
-        "summary": "Get certificates for the specified project, project version, service, service version and environment.",
+        "summary": "Get certificates for the specified cap, project, project version, service, service version and environment.",
         "operationId": "getServiceCertificates",
-        "description": "Get certificates for the specified project, project version, service, service version and environment. File content is returned as Base64 encoded.",
+        "description": "Get certificates for the specified cap, project, project version, service, service version and environment. File content is returned as Base64 encoded.",
         "parameters": [
+          {
+            "in": "path",
+            "name": "cap",
+            "description": "cap name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "in": "path",
             "name": "project",
@@ -2138,7 +2194,7 @@
         "security": [
           {
             "portal_auth": [
-              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+              "portal.r"
             ]
           }
         ]
@@ -2147,10 +2203,19 @@
         "tags": [
           "config-server"
         ],
-        "summary": "create config certificates for the specified project, project version, service, service version and environment.",
+        "summary": "create config certificates for the specified cap, project, project version, service, service version and environment.",
         "operationId": "postServiceCertificates",
-        "description": "create config certificates for the specified project, project version, service, service version and environment.",
+        "description": "create config certificates for the specified cap, project, project version, service, service version and environment.",
         "parameters": [
+          {
+            "in": "path",
+            "name": "cap",
+            "description": "cap name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "in": "path",
             "name": "project",
@@ -2215,7 +2280,7 @@
         "security": [
           {
             "portal_auth": [
-              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+              "portal.w"
             ]
           }
         ]
@@ -2224,10 +2289,19 @@
         "tags": [
           "config-server"
         ],
-        "summary": "update config certificates for the specified project, project version, service, service version and environment.",
+        "summary": "update config certificates for the specified cap, project, project version, service, service version and environment.",
         "operationId": "putServiceCertificates",
-        "description": "update config certificates for the specified project, project version, service, service version and environment.",
+        "description": "update config certificates for the specified cap, project, project version, service, service version and environment.",
         "parameters": [
+          {
+            "in": "path",
+            "name": "cap",
+            "description": "cap name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "in": "path",
             "name": "project",
@@ -2292,7 +2366,7 @@
         "security": [
           {
             "portal_auth": [
-              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+              "portal.w"
             ]
           }
         ]
@@ -2301,10 +2375,19 @@
         "tags": [
           "config-server"
         ],
-        "summary": "Delete service certificates for the specified project, project version, service, service version and environment.",
+        "summary": "Delete service certificates for the specified cap, project, project version, service, service version and environment.",
         "operationId": "deleteServiceCertificates",
-        "description": "Delete service certificates for the specified project, project version, service, service version and environment.",
+        "description": "Delete service certificates for the specified cap, project, project version, service, service version and environment.",
         "parameters": [
+          {
+            "in": "path",
+            "name": "cap",
+            "description": "cap name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "in": "path",
             "name": "project",
@@ -2362,21 +2445,30 @@
         "security": [
           {
             "portal_auth": [
-              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+              "portal.w"
             ]
           }
         ]
       }
     },
-    "/files/{project}/{projver}/{service}/{servver}/{env}": {
+    "/files/{cap}/{project}/{projver}/{service}/{servver}/{env}": {
       "get": {
         "tags": [
           "config-server"
         ],
-        "summary": "Get config files for the specified project, project version, service, service version and environment.",
+        "summary": "Get config files for the specified cap, project, project version, service, service version and environment.",
         "operationId": "getServiceFiles",
-        "description": "Get config files for the specified project, project version, service, service version and environment. File content is returned as Base64 encoded.",
+        "description": "Get config files for the specified cap, project, project version, service, service version and environment. File content is returned as Base64 encoded.",
         "parameters": [
+          {
+            "in": "path",
+            "name": "cap",
+            "description": "cap name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "in": "path",
             "name": "project",
@@ -2441,7 +2533,7 @@
         "security": [
           {
             "portal_auth": [
-              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+              "portal.r"
             ]
           }
         ]
@@ -2450,10 +2542,19 @@
         "tags": [
           "config-server"
         ],
-        "summary": "create config files for the specified project, project version, service, service version and environment.",
+        "summary": "create config files for the specified cap, project, project version, service, service version and environment.",
         "operationId": "postServiceFiles",
-        "description": "create config files for the specified project, project version, service, service version and environment.",
+        "description": "create config files for the specified cap, project, project version, service, service version and environment.",
         "parameters": [
+          {
+            "in": "path",
+            "name": "cap",
+            "description": "cap name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "in": "path",
             "name": "project",
@@ -2518,7 +2619,7 @@
         "security": [
           {
             "portal_auth": [
-              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+              "portal.w"
             ]
           }
         ]
@@ -2527,10 +2628,19 @@
         "tags": [
           "config-server"
         ],
-        "summary": "update config files for the specified project, project version, service, service version and environment.",
+        "summary": "update config files for the specified cap, project, project version, service, service version and environment.",
         "operationId": "putServiceFiles",
-        "description": "update config files for the specified project, project version, service, service version and environment.",
+        "description": "update config files for the specified cap, project, project version, service, service version and environment.",
         "parameters": [
+          {
+            "in": "path",
+            "name": "cap",
+            "description": "cap name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "in": "path",
             "name": "project",
@@ -2595,7 +2705,7 @@
         "security": [
           {
             "portal_auth": [
-              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+              "portal.w"
             ]
           }
         ]
@@ -2604,10 +2714,19 @@
         "tags": [
           "config-server"
         ],
-        "summary": "Delete service files for the specified project, project version, service, service version and environment.",
+        "summary": "Delete service files for the specified cap, project, project version, service, service version and environment.",
         "operationId": "deleteServiceFiles",
-        "description": "Delete service files for the specified project, project version, service, service version and environment.",
+        "description": "Delete service files for the specified cap, project, project version, service, service version and environment.",
         "parameters": [
+          {
+            "in": "path",
+            "name": "cap",
+            "description": "cap name for the registered service",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "in": "path",
             "name": "project",
@@ -2665,7 +2784,7 @@
         "security": [
           {
             "portal_auth": [
-              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2"
+              "portal.w"
             ]
           }
         ]
@@ -2680,7 +2799,6 @@
           "clientCredentials": {
             "tokenUrl": "https://lightapi.net/token",
             "scopes": {
-              "A8E73740C0041C03D67C3A951AA1D7533C8F9F2FB57D7BA107210B9BC9E06DA2": "default",
               "portal.w": "write",
               "portal.r": "read"
             }
@@ -2700,9 +2818,17 @@
             "type": "string",
             "description": "Host of the properties"
           },
-          "module": {
+          "cap": {
             "type": "string",
-            "description": "Module of the properties"
+            "description": "Cap of the properties"
+          },
+          "project": {
+            "type": "string",
+            "description": "Project of the properties"
+          },
+          "projver": {
+            "type": "string",
+            "description": "Project version of the properties"
           },
           "scope": {
             "type": "string",
@@ -2714,7 +2840,9 @@
         "type": "object",
         "required": [
           "host",
-          "module",
+          "cap",
+          "project",
+          "projver",
           "scope",
           "key",
           "order"
@@ -2724,9 +2852,17 @@
             "type": "string",
             "description": "Host of the property"
           },
-          "module": {
+          "cap": {
             "type": "string",
-            "description": "Module of the property"
+            "description": "Cap of the property"
+          },
+          "project": {
+            "type": "string",
+            "description": "Project of the properties"
+          },
+          "projver": {
+            "type": "string",
+            "description": "Project version of the properties"
           },
           "scope": {
             "type": "string",
@@ -2746,16 +2882,16 @@
         "type": "object",
         "required": [
           "host",
-          "module"
+          "cap"
         ],
         "properties": {
           "host": {
             "type": "string",
             "description": "Host of the properties"
           },
-          "module": {
+          "cap": {
             "type": "string",
-            "description": "Module of the properties"
+            "description": "Cap of the properties"
           },
           "project": {
             "type": "string",
@@ -2775,7 +2911,7 @@
         "type": "object",
         "required": [
           "host",
-          "module",
+          "cap",
           "key",
           "value"
         ],
@@ -2784,9 +2920,9 @@
             "type": "string",
             "description": "Host of the property"
           },
-          "module": {
+          "cap": {
             "type": "string",
-            "description": "Module of the property"
+            "description": "Cap of the property"
           },
           "project": {
             "type": "string",
@@ -2822,7 +2958,7 @@
         "type": "object",
         "required": [
           "host",
-          "module",
+          "cap",
           "filename"
         ],
         "properties": {
@@ -2830,9 +2966,9 @@
             "type": "string",
             "description": "Host of the global file"
           },
-          "module": {
+          "cap": {
             "type": "string",
-            "description": "Module of the global file"
+            "description": "Cap of the global file"
           },
           "project": {
             "type": "string",
@@ -2864,7 +3000,7 @@
         "type": "object",
         "required": [
           "host",
-          "module",
+          "cap",
           "filename"
         ],
         "properties": {
@@ -2872,9 +3008,9 @@
             "type": "string",
             "description": "Host of the global cert"
           },
-          "module": {
+          "cap": {
             "type": "string",
-            "description": "Module of the global cert"
+            "description": "Cap of the global cert"
           },
           "project": {
             "type": "string",
@@ -2906,16 +3042,16 @@
         "type": "object",
         "required": [
           "host",
-          "module"
+          "cap"
         ],
         "properties": {
           "host": {
             "type": "string",
             "description": "Host of the properties"
           },
-          "module": {
+          "cap": {
             "type": "string",
-            "description": "Module of the properties"
+            "description": "Cap of the properties"
           },
           "project": {
             "type": "string",
@@ -2999,7 +3135,7 @@
         "type": "object",
         "required": [
           "host",
-          "module",
+          "cap",
           "project",
           "projver",
           "service",
@@ -3011,9 +3147,9 @@
             "type": "string",
             "description": "Host for identifying the service"
           },
-          "module": {
+          "cap": {
             "type": "string",
-            "description": "Module for identifying the service"
+            "description": "Cap for identifying the service"
           },
           "project": {
             "type": "string",
