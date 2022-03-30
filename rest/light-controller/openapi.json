@@ -885,6 +885,63 @@
           }
         ]
       }
+    },
+    "/services/shutdown": {
+      "post": {
+        "summary": "Shutdown the target service instance to force a restart.",
+        "description": "Returns a JSON body of shutdown time",
+        "operationId": "postServiceShutdown",
+        "requestBody": {
+          "description": "Protocal, Address and Port",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServerShutdownRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerShutdownResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Service not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "portal_auth": [
+              "portal.w"
+            ]
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -1248,6 +1305,66 @@
           "address",
           "port",
           "modules"
+        ]
+      },
+      "ServerShutdownRequest": {
+        "type": "object",
+        "properties": {
+          "protocol": {
+            "type": "string",
+            "description": "Target server protocol"
+          },
+          "address": {
+            "type": "string",
+            "description": "Target server IP address"
+          },
+          "port": {
+            "type": "integer",
+            "description": "Target server port number"
+          }
+        },
+        "required": [
+          "protocol",
+          "address",
+          "port"
+        ]
+      },
+      "ServerShutdownResponse": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Server shutdown time"
+          },
+          "protocol": {
+            "type": "string",
+            "description": "Target server protocol"
+          },
+          "address": {
+            "type": "string",
+            "description": "Target server IP address"
+          },
+          "port": {
+            "type": "integer",
+            "description": "Target server port number"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "a unique ID for the service"
+          },
+          "tag": {
+            "type": "string",
+            "description": "an environment tag assigned to the service"
+          }
+        },
+        "required": [
+          "time",
+          "protocol",
+          "address",
+          "port",
+          "serviceId",
+          "tag"
         ]
       },
       "Status": {
