@@ -37,6 +37,27 @@ paths:
         - key_auth:
             - oauth.key.r
             - oauth.key.w
+  '/oauth2/keys':
+    get:
+      description: Get the statndard jwks
+      operationId: getJwks
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Jwk'
+        '400':
+          description: Bad request
+        '404':
+          description: Key not found
+      security:
+        - key_auth:
+            - oauth.key.r
+            - oauth.key.w
+
+
 components:
   securitySchemes:
     key_auth:
@@ -60,3 +81,15 @@ components:
         certificate:
           type: string
           description: certificate
+    Jwk:
+      type: object
+      required:
+        - keyId
+        - certificate
+      properties:
+        keyId:
+          type: string
+          description: a unique id
+        certificate:
+          type: string
+          description: certificate          
