@@ -1,0 +1,7 @@
+---
+# A light-codegen config file to generate a single module market project with Maven build
+version: 1.0.0
+groupId: com.networknt
+artifactId: market
+rootPackage: com.networknt.market
+supportClient: true
