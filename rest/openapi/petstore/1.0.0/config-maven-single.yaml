@@ -5,3 +5,4 @@ groupId: com.networknt
 artifactId: petstore
 rootPackage: com.networknt.petstore
 supportClient: true
+httpsPort: 9443
