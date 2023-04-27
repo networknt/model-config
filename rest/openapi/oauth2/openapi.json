@@ -1,9 +1,9 @@
 {
-  "openapi": "3.0.2",
+  "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "OAuth2 Services Merged into a Monolithic App",
-    "description": "OAuth2 Services with all endpoints in one API.",
+    "title": "OAuth2 Service",
+    "description": "OAuth2 Service that include code, token and keys.",
     "contact": {
       "email": "stevehu@gmail.com"
     },
@@ -14,491 +14,19 @@
   },
   "servers": [
     {
-      "url": "https://oauth2.networknt.com/"
+      "url": "https://oauth2.networknt.com/oauth2"
     }
   ],
   "paths": {
-    "/oauth2/org": {
-      "post": {
-        "description": "Create an organization that is an logic instance of the OAuth 2.0 provider",
-        "operationId": "createOrg",
-        "requestBody": {
-          "description": "Org object that needs to be created",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Org"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Org"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.org.w"
-            ]
-          }
-        ]
-      },
-      "get": {
-        "description": "Get all organizations",
-        "operationId": "getAllOrgs",
-        "parameters": [
-          {
-            "name": "offset",
-            "in": "query",
-            "description": "Offset",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "orgName",
-            "in": "query",
-            "description": "Partial orgName for filter",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ownerId",
-            "in": "query",
-            "description": "OwnerId for filter",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Org"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.org.r"
-            ]
-          }
-        ]
-      }
-    },
-    "/oauth2/org/{orgId}": {
-      "put": {
-        "description": "Update the organization orgName, orgDesc or ownerId",
-        "operationId": "updateOrg",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Org object that needs to be updated",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Org"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Org"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.org.w"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "description": "Delete an orgnanization by orgId",
-        "operationId": "deleteOrg",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "Org not found"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.org.w"
-            ]
-          }
-        ]
-      },
-      "get": {
-        "description": "Get an organization by orgId",
-        "operationId": "getOrgById",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Orgnaization Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Org"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Org not found"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.org.r"
-            ]
-          }
-        ]
-      }
-    },
-    "/oauth2/{orgId}/client": {
-      "post": {
-        "description": "Create a client object under an orgId",
-        "operationId": "createClient",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Client object that needs to be created",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Client"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Client"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.client.w"
-            ]
-          }
-        ]
-      },
-      "get": {
-        "description": "Get all clients",
-        "operationId": "getAllClient",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "offset",
-            "in": "query",
-            "description": "Offset",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "clientName",
-            "in": "query",
-            "description": "Partial clientName for filter",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ownerId",
-            "in": "query",
-            "description": "OwnerId as a filter",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Client"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.client.r"
-            ]
-          }
-        ]
-      }
-    },
-    "/oauth2/{orgId}/client/{clientId}": {
-      "put": {
-        "description": "Update and client by the clientId",
-        "operationId": "updateClient",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "clientId",
-            "in": "path",
-            "description": "Client Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Client object that needs to be updated",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Client"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Client"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.client.w"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "description": "Delete a client by Id",
-        "operationId": "deleteClient",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "clientId",
-            "in": "path",
-            "description": "Client Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "Client not found"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.client.w"
-            ]
-          }
-        ]
-      },
-      "get": {
-        "description": "Get a client by Id",
-        "operationId": "getClientById",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "clientId",
-            "in": "path",
-            "description": "Client Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Client"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Client not found"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.client.r"
-            ]
-          }
-        ]
-      }
-    },
-    "/oauth2/{orgId}/authorize": {
+    "/{hostId}/code": {
       "get": {
         "description": "Return 302 redirect with authorization code",
         "operationId": "getAuthCode",
         "parameters": [
           {
-            "name": "orgId",
+            "name": "hostId",
+            "description": "The host id this service belongs to",
             "in": "path",
-            "description": "Organizaiton Id",
             "required": true,
             "schema": {
               "type": "string"
@@ -553,6 +81,24 @@
             }
           },
           {
+            "name": "user_type",
+            "in": "query",
+            "description": "The type of user that drives authentication and authorization",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "roles",
+            "in": "query",
+            "description": "User roles concat with a space for fine-grained authorization",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "state",
             "in": "query",
             "description": "to prevent cross-site request forgery",
@@ -600,15 +146,20 @@
         "operationId": "postAuthCode",
         "parameters": [
           {
-            "name": "orgId",
+            "name": "hostId",
+            "description": "The host id this service belongs to",
             "in": "path",
-            "description": "Organizaiton Id",
             "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
+        "responses": {
+          "302": {
+            "description": "Successful Operation"
+          }
+        },
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -664,165 +215,18 @@
               }
             }
           }
-        },
-        "responses": {
-          "302": {
-            "description": "Successful Operation"
-          }
         }
       }
     },
-    "/oauth2/{orgId}/keys": {
+    "/{hostId}/keys": {
       "get": {
-        "description": "Get jwks",
-        "operationId": "getKeys",
+        "description": "Get the statndard jwks",
+        "operationId": "getJwks",
         "parameters": [
           {
-            "name": "orgId",
+            "name": "hostId",
+            "description": "The host id this service belongs to",
             "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.key.r"
-            ]
-          }
-        ]
-      }
-    },
-    "/oauth2/{orgId}/refresh_token": {
-      "get": {
-        "description": "Return all refresh tokens",
-        "operationId": "getAllRefreshToken",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "offset",
-            "in": "query",
-            "description": "Offset",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "query",
-            "description": "The userId for filter",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RefreshToken"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.refresh_token.r"
-            ]
-          }
-        ]
-      }
-    },
-    "/oauth2/{orgId}/refresh_token/{refreshToken}": {
-      "delete": {
-        "description": "Delete a refresh token",
-        "operationId": "deleteRefreshToken",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "refreshToken",
-            "in": "path",
-            "description": "Refresh Token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "Refresh token not found"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.refresh_token.w"
-            ]
-          }
-        ]
-      },
-      "get": {
-        "description": "Get a refresh token",
-        "operationId": "getRefreshToken",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "refreshToken",
-            "in": "path",
-            "description": "Refresh token",
             "required": true,
             "schema": {
               "type": "string"
@@ -835,285 +239,51 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RefreshToken"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Refresh token not found"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.refresh_token.r"
-            ]
-          }
-        ]
-      }
-    },
-    "/oauth2/{orgId}/service": {
-      "post": {
-        "description": "Create a service object",
-        "operationId": "createService",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Service object that needs to be created",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Service"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Service"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.service.w"
-            ]
-          }
-        ]
-      },
-      "get": {
-        "description": "Get all services",
-        "operationId": "getAllService",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "offset",
-            "in": "query",
-            "description": "Offset",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "serviceId",
-            "in": "query",
-            "description": "Partial serviceId for filter",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Service"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.service.r"
-            ]
-          }
-        ]
-      }
-    },
-    "/oauth2/{orgId}/service/{serviceId}": {
-      "put": {
-        "description": "update a service",
-        "operationId": "updateService",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "serviceId",
-            "in": "path",
-            "description": "Service Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Service"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.service.w"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "description": "Delete a service by Id",
-        "operationId": "deleteService",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "serviceId",
-            "in": "path",
-            "description": "Service Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "Service not found"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.service.w"
-            ]
-          }
-        ]
-      },
-      "get": {
-        "description": "Get a service by Id",
-        "operationId": "getService",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "serviceId",
-            "in": "path",
-            "description": "Service Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Service"
+                  "$ref": "#/components/schemas/Jwk"
                 }
               }
             }
           },
           "400": {
-            "description": "Invalid serviceId supplied"
+            "description": "Bad request"
           },
           "404": {
-            "description": "Service not found"
+            "description": "Key not found"
           }
         },
         "security": [
           {
-            "light_oauth2": [
-              "oauth.service.r"
+            "key_auth": [
+              "oauth.key.r",
+              "oauth.key.w"
             ]
           }
         ]
       }
     },
-    "/oauth2/{orgId}/token": {
+    "/{hostId}/token": {
       "post": {
         "description": "JSON object that contains access token",
         "operationId": "postToken",
         "parameters": [
           {
-            "name": "orgId",
+            "name": "hostId",
+            "description": "The host id this service belongs to",
             "in": "path",
-            "description": "Organizaiton Id",
             "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation"
+          }
+        },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
@@ -1147,6 +317,14 @@
                     "description": "mandatory in password grant type",
                     "type": "string"
                   },
+                  "user_type": {
+                    "description": "mandatory user type in password grant type",
+                    "type": "string"
+                  },
+                  "roles": {
+                    "description": "optional user roles in password grant type",
+                    "type": "string"
+                  },
                   "scope": {
                     "description": "used by all flows to specify scope in the access token",
                     "type": "string"
@@ -1170,221 +348,49 @@
               }
             }
           }
-        },
+        }
+      }
+    },
+    "/{hostId}/deref/{token}": {
+      "get": {
+        "description": "exchange by-reference token to a JWT",
+        "operationId": "derefToken",
+        "parameters": [
+          {
+            "name": "hostId",
+            "description": "The host id this service belongs to",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "path",
+            "description": "by-reference token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Successful Operation"
+            "description": "successful operation"
           }
         }
       }
     },
-    "/oauth2/{orgId}/user": {
-      "get": {
-        "description": "Return all users",
-        "operationId": "getAllUsers",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "offset",
-            "in": "query",
-            "description": "Offset",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Limit",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "query",
-            "description": "Partial userId for filter",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.user.r"
-            ]
-          }
-        ]
-      },
+    "/{hostId}/signing": {
       "post": {
-        "description": "Create a user object",
-        "operationId": "createUser",
+        "description": "Sign a JSON object and return a JWT",
+        "operationId": "postSigning",
         "parameters": [
           {
-            "name": "orgId",
+            "name": "hostId",
+            "description": "The host id this service belongs to",
             "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Service object that needs to be created",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.user.w"
-            ]
-          }
-        ]
-      }
-    },
-    "/oauth2/{orgId}/user/{userId}": {
-      "put": {
-        "description": "the update user object",
-        "operationId": "updateUser",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "path",
-            "description": "User Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Service object that needs to be updated",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.user.w"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "description": "Delete a user by Id",
-        "operationId": "deleteUser",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "path",
-            "description": "User Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "User not found"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.user.w"
-            ]
-          }
-        ]
-      },
-      "get": {
-        "description": "Get a user by Id",
-        "operationId": "getUser",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "path",
-            "description": "User Id",
             "required": true,
             "schema": {
               "type": "string"
@@ -1393,396 +399,71 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "User not found"
+            "description": "Successful Operation"
           }
         },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.user.r"
-            ]
-          }
-        ]
-      }
-    },
-    "/oauth2/{orgId}/password/{userId}": {
-      "post": {
-        "description": "Reset Password",
-        "operationId": "resetPassword",
-        "parameters": [
-          {
-            "name": "orgId",
-            "in": "path",
-            "description": "Organizaiton Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "path",
-            "description": "User Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Password"
+                "$ref": "#/components/schemas/SignRequest"
               }
             }
           },
-          "description": "Password object that needs to be added",
+          "description": "Signing request object",
           "required": true
-        },
-        "responses": {
-          "404": {
-            "description": "User not found"
-          }
-        },
-        "security": [
-          {
-            "light_oauth2": [
-              "oauth.user.w"
-            ]
-          }
-        ]
+        }
       }
     }
   },
   "components": {
-    "requestBodies": {
-      "User": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/User"
-            }
-          }
-        },
-        "description": "User object that needs to be added",
-        "required": true
-      },
-      "Client": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Client"
-            }
-          }
-        },
-        "description": "Client object that needs to be added",
-        "required": true
-      },
-      "Service": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Service"
-            }
-          }
-        },
-        "description": "Service object that needs to be added",
-        "required": true
-      }
-    },
     "securitySchemes": {
-      "light_oauth2": {
+      "key_auth": {
         "type": "oauth2",
         "flows": {
           "implicit": {
-            "authorizationUrl": "http://localhost:8888/oauth2/{orgId}/authorize",
+            "authorizationUrl": "http://localhost:8888/oauth2/code",
             "scopes": {
-              "oauth.client.w": "write oauth client",
-              "oauth.client.r": "read oauth client",
               "oauth.key.w": "write key",
-              "oauth.key.r": "read key",
-              "oauth.refresh_token.w": "write oauth refresh token",
-              "oauth.refresh_token.r": "read oauth refresh token",
-              "oauth.service.w": "write oauth service",
-              "oauth.service.r": "read oauth service",
-              "oauth.user.w": "write user",
-              "oauth.user.r": "read user",
-              "oauth.org.w": "write org",
-              "oauth.org.r": "read org"
+              "oauth.key.r": "read key"
             }
           }
         }
       }
     },
     "schemas": {
-      "Org": {
+      "Jwk": {
         "type": "object",
         "required": [
-          "orgName",
-          "orgDesc",
-          "ownerId"
+          "keyId",
+          "certificate"
         ],
         "properties": {
-          "orgId": {
-            "type": "string",
-            "description": "A unique orgId generated after createOrg operation"
-          },
-          "orgName": {
-            "type": "string",
-            "description": "The organization name"
-          },
-          "orgDesc": {
-            "type": "string",
-            "description": "A short description of the organization"
-          },
-          "ownerId": {
-            "type": "string",
-            "description": "The user who owns the orgnanization"
-          }
-        }
-      },
-      "Client": {
-        "type": "object",
-        "required": [
-          "clientType",
-          "clientProfile",
-          "clientName",
-          "clientDesc",
-          "ownerId",
-          "scope"
-        ],
-        "properties": {
-          "clientId": {
-            "type": "string",
-            "description": "a unique client id"
-          },
-          "clientSecret": {
-            "type": "string",
-            "description": "client secret"
-          },
-          "clientType": {
-            "type": "string",
-            "description": "client type",
-            "enum": [
-              "confidential",
-              "public",
-              "trusted",
-              "external"
-            ]
-          },
-          "clientProfile": {
-            "type": "string",
-            "description": "client profile",
-            "enum": [
-              "webserver",
-              "browser",
-              "mobile",
-              "service",
-              "batch"
-            ]
-          },
-          "clientName": {
-            "type": "string",
-            "description": "client name"
-          },
-          "clientDesc": {
-            "type": "string",
-            "description": "client description"
-          },
-          "ownerId": {
-            "type": "string",
-            "description": "client owner id"
-          },
-          "scope": {
-            "type": "string",
-            "description": "client scope separated by space"
-          },
-          "customClaim": {
-            "type": "string",
-            "description": "custom claim string in JSON format"
-          },
-          "redirectUri": {
-            "type": "string",
-            "description": "redirect uri"
-          },
-          "createDt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "create date time"
-          },
-          "updateDt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "update date time"
-          }
-        }
-      },
-      "RefreshToken": {
-        "type": "object",
-        "required": [
-          "refreshToken",
-          "userId",
-          "clientId"
-        ],
-        "properties": {
-          "refreshToken": {
-            "type": "string",
-            "description": "refresh token"
-          },
-          "userId": {
-            "type": "string",
-            "description": "user id"
-          },
-          "clientId": {
-            "type": "string",
-            "description": "client id"
-          },
-          "scope": {
-            "type": "string",
-            "description": "service scopes separated by space"
-          }
-        }
-      },
-      "Service": {
-        "type": "object",
-        "required": [
-          "serviceId",
-          "serviceName",
-          "serviceType",
-          "scope"
-        ],
-        "properties": {
-          "serviceId": {
-            "type": "string",
-            "description": "a unique service id"
-          },
-          "serviceType": {
-            "type": "string",
-            "description": "service type",
-            "enum": [
-              "ms",
-              "api"
-            ]
-          },
-          "serviceName": {
-            "type": "string",
-            "description": "service name"
-          },
-          "serviceDesc": {
-            "type": "string",
-            "description": "service description"
-          },
-          "ownerId": {
-            "type": "string",
-            "description": "service owner userId"
-          },
-          "scope": {
-            "type": "string",
-            "description": "service scopes separated by space"
-          },
-          "createDt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "create date time"
-          },
-          "updateDt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "update date time"
-          }
-        }
-      },
-      "User": {
-        "type": "object",
-        "required": [
-          "userId",
-          "userType",
-          "firstName",
-          "lastName",
-          "email"
-        ],
-        "properties": {
-          "userId": {
+          "keyId": {
             "type": "string",
             "description": "a unique id"
           },
-          "userType": {
+          "certificate": {
             "type": "string",
-            "description": "user type",
-            "enum": [
-              "admin",
-              "employee",
-              "customer",
-              "partner"
-            ]
-          },
-          "firstName": {
-            "type": "string",
-            "description": "first name"
-          },
-          "lastName": {
-            "type": "string",
-            "description": "last name"
-          },
-          "email": {
-            "type": "string",
-            "description": "email address"
-          },
-          "password": {
-            "type": "string",
-            "format": "password",
-            "description": "password"
-          },
-          "passwordConfirm": {
-            "type": "string",
-            "format": "password",
-            "description": "password confirm"
-          },
-          "createDt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "create date time"
-          },
-          "updateDt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "update date time"
+            "description": "certificate"
           }
         }
       },
-      "Password": {
+      "SignRequest": {
         "type": "object",
         "required": [
-          "password",
-          "newPassword",
-          "newPasswordConfirm"
+          "expires",
+          "payload"
         ],
         "properties": {
-          "password": {
-            "type": "string",
-            "format": "password",
-            "description": "existing password"
+          "expires": {
+            "type": "integer",
+            "format": "int32",
+            "description": "expires in seconds"
           },
-          "newPassword": {
-            "type": "string",
-            "format": "password",
-            "description": "new password"
-          },
-          "newPasswordConfirm": {
-            "type": "string",
-            "format": "password",
-            "description": "new password confirm"
+          "payload": {
+            "type": "object",
+            "description": "payload that needs to be signed"
           }
         }
       }

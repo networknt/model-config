@@ -2,6 +2,6 @@
 # A light-codegen config file to generate a single module petstore project with Maven build
 version: 1.0.0
 groupId: com.networknt
-artifactId: light-oauth2
+artifactId: oauth-kafka
 rootPackage: com.networknt.oauth
 supportClient: false
