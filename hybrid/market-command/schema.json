@@ -391,7 +391,7 @@
             "type": "string",
             "description": "Endpoint"
           },
-          "rules": {
+          "filters": {
             "type": "array",
             "items": {
               "type": "object",
@@ -421,7 +421,7 @@
         "required": [
           "serviceId",
           "host",
-          "rules"
+          "filters"
         ]
       }
     },
@@ -446,7 +446,7 @@
             "type": "string",
             "description": "Endpoint"
           },
-          "rules": {
+          "accesses": {
             "type": "array",
             "items": {
               "type": "object",
@@ -476,7 +476,7 @@
         "required": [
           "serviceId",
           "host",
-          "rules"
+          "accesses"
         ]
       }
     },
@@ -2276,82 +2276,101 @@
       }
     },
     {
-      "name": "createApiId",
+      "name": "createConfig",
       "version": "0.1.0",
-      "handler": "CreateApiId",
+      "handler": "CreateConfig",
       "scope": "portal.w",
       "schema": {
-        "title": "Register a unique Api Id and service Id",
+        "title": "Create a configuration module or handler",
         "type": "object",
         "properties": {
-          "host": {
+          "configId": {
             "type": "string",
-            "description": "Host"
+            "description": "Configuration Id, which is the name of the config file"
           },
-          "serviceId": {
+          "configType": {
             "type": "string",
-            "description": "ServiceId"
+            "description": "Configuration Type, Handler or Module"
+          },
+          "infraType": {
+            "type": "string",
+            "description": "infrastructure type: GN Generic LN Linux WD Windows KB Kubernetes OS Openshift AW AWS AZ Azure GC GCP"
+          },
+          "configDesc": {
+            "type": "string",
+            "description": "Configuration Description"
+          },
+          "classPath": {
+            "type": "string",
+            "description": "Java class path or package"
           }
         },
         "required": [
-          "host",
-          "serviceId"
+          "configId",
+          "configType",
+          "infraType",
+          "configDesc",
+          "classPath"
         ]
       }
     },
     {
-      "name": "updateApiId",
+      "name": "updateConfig",
       "version": "0.1.0",
-      "handler": "UpdateApiId",
+      "handler": "UpdateConfig",
       "scope": "portal.w",
       "schema": {
-        "title": "Update the serviceId for an ApiId",
+        "title": "Update a configuration module or handler",
         "type": "object",
         "properties": {
-          "host": {
+          "configId": {
             "type": "string",
-            "description": "Host"
+            "description": "Configuration Id, which is the name of the config file"
           },
-          "apiId": {
+          "configType": {
             "type": "string",
-            "description": "ApiId"
+            "description": "Configuration Type. Handler or Module"
           },
-          "serviceId": {
+          "infraType": {
             "type": "string",
-            "description": "ServiceId"
+            "description": "infrastructure type: GN Generic LN Linux WD Windows KB Kubernetes OS Openshift AW AWS AZ Azure GC GCP"
+          },
+          "configDesc": {
+            "type": "string",
+            "description": "Configuration Description"
+          },
+          "classPath": {
+            "type": "string",
+            "description": "Java class path or package"
           }
         },
         "required": [
-          "host",
-          "apiId",
-          "serviceId"
+          "configId",
+          "configType",
+          "infraType",
+          "configDesc",
+          "classPath"
         ]
       }
     },
     {
-      "name": "deleteApiId",
+      "name": "deleteConfig",
       "version": "0.1.0",
-      "handler": "DeleteApiId",
+      "handler": "DeleteConfig",
       "scope": "portal.w",
       "schema": {
-        "title": "Delete the ApiId",
+        "title": "Delete a configuration moddule or handler",
         "type": "object",
         "properties": {
-          "host": {
+          "configId": {
             "type": "string",
-            "description": "Host"
-          },
-          "apiId": {
-            "type": "string",
-            "description": "ApiId"
+            "description": "Configuration Id, which is the name of the config file"
           }
         },
         "required": [
-          "host",
-          "apiId"
+          "configId"
         ]
       }
     }
-
   ]
 }

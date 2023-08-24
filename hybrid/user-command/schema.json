@@ -614,14 +614,19 @@
             "type": "string",
             "description": "Host name"
           },
-          "desc": {
+          "orgName": {
             "type": "string",
-            "description": "Host description"
+            "description": "Org Name"
+          },
+          "orgDesc": {
+            "type": "string",
+            "description": "Org description"
           }
         },
         "required": [
           "host",
-          "desc"
+          "orgName",
+          "orgDesc"
         ]
       }
     },
@@ -638,14 +643,19 @@
             "type": "string",
             "description": "Host name"
           },
-          "desc": {
+          "orgName": {
             "type": "string",
-            "description": "Host description"
+            "description": "Org Name"
+          },
+          "orgDesc": {
+            "type": "string",
+            "description": "Org description"
           }
         },
         "required": [
           "host",
-          "desc"
+          "orgName",
+          "orgDesc"
         ]
       }
     },
