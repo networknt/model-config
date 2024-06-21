@@ -1,0 +1,15 @@
+{
+  "version": "1.0.1",
+  "groupId": "com.networknt",
+  "artifactId": "market",
+  "rootPackage": "com.networknt.market",
+  "handlerPackage":"com.networknt.market.handler",
+  "modelPackage":"com.networknt.market.model",
+  "lambdaTrigger": "NONE",
+  "region": "us-east-2",
+  "packageDocker": false,
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "generateModelOnly": false
+}

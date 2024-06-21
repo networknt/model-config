@@ -1,5 +1,21 @@
 Generate lambda project with Zip or Docker image package type based on the petstore specification.
 
+Generate petstore native
+
+```
+cd ~/networknt
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f lambda-native -o lambda-petstore -m model-config/lambda/petstore/openapi.yaml -c model-config/lambda/petstore/config-native.json
+
+```
+Generate petstore native to /tmp
+
+```
+cd ~/networknt
+rm -rf /tmp/lambda-petstore
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f lambda-native -o /tmp/lambda-petstore -m model-config/lambda/petstore/openapi.yaml -c model-config/lambda/petstore/config-native.json
+
+```
+
 
 Generate petstore-zip
 

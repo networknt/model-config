@@ -1,0 +1,15 @@
+{
+  "version": "1.0.1",
+  "groupId": "com.networknt",
+  "artifactId": "petstore",
+  "rootPackage": "com.networknt.petstore",
+  "handlerPackage":"com.networknt.petstore.handler",
+  "modelPackage":"com.networknt.petstore.model",
+  "lambdaTrigger": "NONE",
+  "region": "us-east-2",
+  "packageDocker": false,
+  "overwriteHandler": true,
+  "overwriteHandlerTest": true,
+  "overwriteModel": true,
+  "generateModelOnly": false
+}
