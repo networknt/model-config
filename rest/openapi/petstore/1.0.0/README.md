@@ -13,6 +13,7 @@ To tmp directory.
 
 ```
 cd ~/networknt
+rm -rf /tmp/petstore-maven-single
 java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o /tmp/petstore-maven-single -m model-config/rest/openapi/petstore/1.0.0/openapi.yaml -c model-config/rest/openapi/petstore/1.0.0/config-maven-single.yaml
 ```
 
@@ -30,6 +31,13 @@ Here is the command line to generate the multiple-module petstore in Java with M
 cd ~/networknt
 rm -rf light-example-4j/rest/petstore-maven-multiple
 java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o light-example-4j/rest/petstore-maven-multiple -m model-config/rest/openapi/petstore/1.0.0/openapi.yaml -c model-config/rest/openapi/petstore/1.0.0/config-maven-multiple.yaml
+```
+
+Generate to the /tmp
+
+```
+cd ~/networknt
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o /tmp/petstore-maven-multiple -m model-config/rest/openapi/petstore/1.0.0/openapi.yaml -c model-config/rest/openapi/petstore/1.0.0/config-maven-multiple.yaml
 ```
 
 Here is the command line to generate the multiple-module petstore in Java with Gradle build.
