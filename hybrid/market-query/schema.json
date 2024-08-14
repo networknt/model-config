@@ -918,21 +918,25 @@
       }
     },
     {
-      "name": "getRuleByKeys",
+      "name": "getRuleByApiId",
       "version": "0.1.0",
-      "handler": "GetRuleByKeys",
+      "handler": "GetRuleByApiId",
       "skipAuth": true,
       "schema": {
         "title": "Rules",
         "type": "object",
         "properties": {
-          "keys": {
+          "host": {
             "type": "string",
-            "description": "A string of keys separated by space"
+            "description": "Host"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
           }
         },
         "required": [
-          "keys"
+          "host", "apiId"
         ]
       }
     },

@@ -2199,6 +2199,70 @@
       }
     },
     {
+      "name": "createApiRule",
+      "version": "0.1.0",
+      "handler": "CreateApiRule",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Api Rule",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "ruleIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Rule Ids"
+          }
+        },
+        "required": [
+          "host",
+          "apiId",
+          "ruleIds"
+        ]
+      }
+    },
+    {
+      "name": "deleteApiRule",
+      "version": "0.1.0",
+      "handler": "DeleteApiRule",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Api Rule",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "ruleIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Rule Ids"
+          }
+        },
+        "required": [
+          "host",
+          "apiId",
+          "ruleIds"
+        ]
+      }
+    },
+    {
       "name": "updateSchemaForm",
       "version": "0.1.0",
       "handler": "UpdateSchemaForm",
