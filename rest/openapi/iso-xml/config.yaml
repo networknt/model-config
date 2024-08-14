@@ -1,0 +1,7 @@
+---
+version: 3.1.0
+groupId: com.networknt
+artifactId: isoxml
+rootPackage: com.networknt.isoxml
+supportClient: false
+httpsPort: 9443
