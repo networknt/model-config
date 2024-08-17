@@ -1,0 +1,9 @@
+---
+# A light-codegen config file to generate a single module backend-binary project with Maven build
+version: 1.0.0
+groupId: com.networknt
+artifactId: backend-binary
+rootPackage: com.networknt.backend.binary
+supportClient: true
+
+
