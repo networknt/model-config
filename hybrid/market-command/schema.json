@@ -566,9 +566,9 @@
         "title": "Auth Code",
         "type": "object",
         "properties": {
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "Host"
+            "description": "Host Id"
           },
           "authCode": {
             "type": "string",
@@ -592,7 +592,7 @@
           }
         },
         "required": [
-          "host",
+          "hostId",
           "authCode",
           "userId",
           "roles",
