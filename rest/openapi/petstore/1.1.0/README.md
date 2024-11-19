@@ -15,6 +15,14 @@ cd ~/networknt
 rm -rf light-example-4j/rest/petstore-maven-single
 java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o light-example-4j/rest/petstore-maven-single -m model-config/rest/openapi/petstore/1.1.0/openapi.yaml -c model-config/rest/openapi/petstore/1.1.0/config-maven-single.yaml
 ```
+output to openapi-petstore repo.
+
+```
+cd ~/networknt
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o openapi-petstore -m model-config/rest/openapi/petstore/1.1.0/openapi.yaml -c model-config/rest/openapi/petstore/1.1.0/config-maven-single.yaml
+```
+
+
 To tmp directory.
 
 ```

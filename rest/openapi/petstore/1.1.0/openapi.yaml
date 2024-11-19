@@ -161,6 +161,12 @@ paths:
       responses:
         '200':
           description: A standard notification response in JSON for response interceptor test
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
   /flowers:
     post:
@@ -174,6 +180,12 @@ paths:
       responses:
         '200':
           description: Return an flowers XML as the demo soap service
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /documents:
     get:
       summary: The API to get a document in a JSON with base64 content
@@ -186,6 +198,12 @@ paths:
       responses:
         '200':
           description: Return a document with base64 content in JSON format
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /streams:
     get:
       summary: The API to get a stream of json response
@@ -198,6 +216,12 @@ paths:
       responses:
         '200':
           description: Return a stream with json content in JSON format
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
 components:
   securitySchemes:
