@@ -5,3 +5,4 @@ groupId: com.networknt
 artifactId: market
 rootPackage: com.networknt.market
 supportClient: true
+multipleModule: false

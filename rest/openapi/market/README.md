@@ -8,6 +8,13 @@ rm -rf light-example-4j/rest/market
 java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o light-example-4j/rest/market -m model-config/rest/openapi/market/openapi.yaml -c model-config/rest/openapi/market/config-maven-single.yaml
 ```
 
+output to openapi-market repository.
+
+```
+cd ~/networknt
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o openapi-market -m model-config/rest/openapi/market/openapi.yaml -c model-config/rest/openapi/market/config-maven-single.yaml
+
+```
 
 Generate the project with default maven signle-module build to the /tmp folder
 
