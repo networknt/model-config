@@ -9,7 +9,7 @@
   },
   "servers": [
     {
-      "url": "http://market.swagger.io"
+      "url": "http://market.swagger.io/v1/market"
     }
   ],
   "paths": {
