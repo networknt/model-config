@@ -109,6 +109,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    put:
+      summary: Update a pet
+      operationId: updatePets
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          description: The id of the pet to update
+          schema:
+            type: string
+      
+      requestBody:
+        description: Pet to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePet'
+      tags:
+        - pets
+      security:
+        - petstore_auth:
+            - 'read:pets'
+            - 'write:pets'
+      responses:
+        '200':
+          description: Successfully updated pets
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
     delete:
       summary: Delete a specific pet
       operationId: deletePetById
@@ -255,7 +289,49 @@ components:
           type: string
         tag:
           type: string 
-    
+
+    UpdatePet:
+      type: object
+      required:
+        - name  
+      properties:
+        petAge:
+          $ref: "#/components/schemas/petAge"
+        petToys:
+          $ref: "#/components/schemas/petToys"
+        ownerEmail:
+          $ref: "#/components/schemas/ownerEmail"
+        ownerSsn:
+          $ref: "#/components/schemas/ownerSsn"
+      additionalProperties: false    
+    petAge:
+      maximum: 20
+      minimum: 1
+      type: "integer"
+      description: "current age of the pet"
+      nullable: false
+      example: 5
+    petToys:
+      type: "array"
+      description: "Toys of the pet"
+      items:
+        type: "string"
+      example:
+        - "Ball"
+        - "Blanket"
+    ownerEmail:
+      maxLength: 65
+      minLength: 2
+      pattern: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$"
+      type: "string"
+      description: "owner email"
+      example: "john.doe@example.com"
+    ownerSsn:
+      pattern: "^\\d{3}-\\d{2}-\\d{4}$"
+      type: "string"
+      description: "owner SSN"
+      example: "123-45-6789"
+
     Error:
       type: object
       required:

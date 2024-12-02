@@ -27,8 +27,8 @@ To tmp directory.
 
 ```
 cd ~/networknt
-rm -rf /tmp/petstore-maven-single
-java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o /tmp/petstore-maven-single -m model-config/rest/openapi/petstore/1.1.0/openapi.yaml -c model-config/rest/openapi/petstore/1.1.0/config-maven-single.yaml
+rm -rf /tmp/petstore
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f openapi -o /tmp/petstore -m model-config/rest/openapi/petstore/1.1.0/openapi.yaml -c model-config/rest/openapi/petstore/1.1.0/config-maven-single.yaml
 ```
 
 Here is the command line to generate the single-module petstore in Java with Gradle build.
