@@ -312,6 +312,36 @@
       }
     },
     {
+      "name": "listHost",
+      "version": "0.1.0",
+      "handler": "ListHost",
+      "skipAuth": true
+    },
+    {
+      "name": "getHost",
+      "version": "0.1.0",
+      "handler": "GetHost",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          }
+        },
+        "required": [
+          "offset",
+          "limit"
+        ]
+      }
+    },
+    {
       "name": "getRolesByEmail",
       "version": "0.1.0",
       "handler": "GetRolesByEmail",

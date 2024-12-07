@@ -15,6 +15,7 @@
   "enableHttps": true,
   "enableHttp2": true,
   "enableRegistry": false,
+  "supportDb": false,
   "supportOracle": false,
   "supportMysql": false,
   "supportPostgresql": false,
@@ -23,5 +24,6 @@
   "kafkaProducer": false,
   "kafkaConsumer": true,
   "supportAvro": true,
-  "kafkaTopic": "portal-event"
+  "kafkaTopic": "portal-event",
+  "buildMaven": true
 }
