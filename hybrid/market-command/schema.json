@@ -489,9 +489,9 @@
         "title": "Refresh Token",
         "type": "object",
         "properties": {
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "Host"
+            "description": "Host Id"
           },
           "refreshToken": {
             "type": "string",
@@ -523,7 +523,7 @@
           }
         },
         "required": [
-          "host",
+          "hostId",
           "refreshToken",
           "userId",
           "roles",
@@ -578,10 +578,6 @@
             "type": "string",
             "description": "User Id"
           },
-          "roles": {
-            "type": "string",
-            "description": "Roles"
-          },
           "redirectUri": {
             "type": "string",
             "description": "Redirect Uri"
@@ -595,7 +591,6 @@
           "hostId",
           "authCode",
           "userId",
-          "roles",
           "redirectUri",
           "remember"
         ]
@@ -614,14 +609,14 @@
             "type": "string",
             "description": "Auth Code"
           },
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "Host"
+            "description": "Host Id"
           }
         },
         "required": [
           "authCode",
-          "host"
+          "hostId"
         ]
       }
     },
