@@ -19,9 +19,17 @@
             "type": "integer",
             "description": "Record Limit"
           },
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "Host of table"
+            "description": "Host Id"
+          },
+          "tableName" : {
+            "type" : "string",
+            "description" : "Table name"
+          },
+          "tableDesc" : {
+            "type" : "string",
+            "description" : "Table desc"
           },
           "active": {
             "type": "string",
@@ -39,7 +47,8 @@
         },
         "required": [
           "offset",
-          "limit"
+          "limit",
+          "hostId"
         ]
       }
     },
