@@ -183,6 +183,188 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
+
+  /accounts:
+    get:
+      summary: Get a list of accounts
+      operationId: getAccounts
+      tags:
+        - accounts
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      security:
+        - petstore_auth:
+            - 'read:pets'
+      responses:
+        '200':
+          description: An paged array of accounts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+              example:
+                - accountNo: 123
+                  ownerId: johndoe
+                  accountType: P
+                  firstName: John
+                  lastName: Doe
+                  status: O
+                - id: 2
+                  accountNo: 456
+                  ownerId: johndoe
+                  accountType: B
+                  firstName: John
+                  lastName: Doe
+                  status: C
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create an account
+      operationId: createAccount
+      requestBody:
+        description: Account to add to the system
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      tags:
+        - accounts
+      security:
+        - petstore_auth:
+            - 'read:pets'
+            - 'write:pets'
+      responses:
+        '201':
+          description: Null response
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  '/accounts/{accountNo}':
+    get:
+      summary: get account with a specific accountNo
+      operationId: getAccountByNo
+      tags:
+        - accounts
+      parameters:
+        - name: accountNo
+          in: path
+          required: true
+          description: The accountNo of the account to retrieve
+          schema:
+            type: string
+      security:
+        - petstore_auth:
+            - 'read:pets'
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              example:
+                accountNo: 123
+                ownerId: johndoe
+                accountType: P
+                firstName: John
+                lastName: Doe
+                status: O
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update an account by accountNo
+      operationId: updateAccountByNo
+      parameters:
+        - name: accountNo
+          in: path
+          required: true
+          description: The account no of the account to update
+          schema:
+            type: string
+      
+      requestBody:
+        description: Account to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      tags:
+        - accounts
+      security:
+        - petstore_auth:
+            - 'read:pets'
+            - 'write:pets'
+      responses:
+        '200':
+          description: Successfully updated accounts
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    delete:
+      summary: Delete a specific account by accountNo
+      operationId: deleteAccountByNo
+      tags:
+        - accounts
+      parameters:
+        - name: accountNo
+          in: path
+          required: true
+          description: The no of the account to delete
+          schema:
+            type: string
+      security:
+        - petstore_auth:
+            - 'write:pets'
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              examples:
+                response:
+                  value:
+                    accountNo: 123
+                    ownerId: johndoe
+                    accountType: P
+                    firstName: John
+                    lastName: Doe
+                    status: O
+        
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /notifications:
     get:
       summary: Get Notifications
@@ -292,8 +474,6 @@ components:
 
     UpdatePet:
       type: object
-      required:
-        - name  
       properties:
         petAge:
           $ref: "#/components/schemas/petAge"
@@ -310,27 +490,42 @@ components:
       type: "integer"
       description: "current age of the pet"
       nullable: false
-      example: 5
     petToys:
       type: "array"
       description: "Toys of the pet"
       items:
         type: "string"
-      example:
-        - "Ball"
-        - "Blanket"
     ownerEmail:
       maxLength: 65
       minLength: 2
       pattern: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$"
       type: "string"
       description: "owner email"
-      example: "john.doe@example.com"
     ownerSsn:
       pattern: "^\\d{3}-\\d{2}-\\d{4}$"
       type: "string"
       description: "owner SSN"
-      example: "123-45-6789"
+
+    Account:
+      type: object
+      required:
+        - accountNo
+        - ownerId
+        - accountType
+        - status  
+      properties:
+        accountNo:
+          type: string
+        ownerId:
+          type: string 
+        accountType:
+          type: string 
+        firstName:
+          type: string 
+        lastName:
+          type: string 
+        status:
+          type: string 
 
     Error:
       type: object
