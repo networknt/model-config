@@ -41,21 +41,21 @@
       }
     },
     {
-      "name": "getNonceByEmail",
+      "name": "getNonceByUserId",
       "version": "0.1.0",
-      "handler": "GetNonceByEmail",
+      "handler": "GetNonceByUserId",
       "skipAuth": true,
       "schema": {
         "title": "Service",
         "type": "object",
         "properties": {
-          "email": {
+          "userId": {
             "type": "string",
-            "description": "user email address"
+            "description": "User Id"
           }
         },
         "required": [
-          "email"
+          "userId"
         ]
       }
     },
