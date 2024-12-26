@@ -574,10 +574,6 @@
             "type": "string",
             "description": "Auth Code"
           },
-          "userId": {
-            "type": "string",
-            "description": "User Id"
-          },
           "redirectUri": {
             "type": "string",
             "description": "Redirect Uri"
@@ -590,7 +586,6 @@
         "required": [
           "hostId",
           "authCode",
-          "userId",
           "redirectUri",
           "remember"
         ]
