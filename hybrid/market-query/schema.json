@@ -67,20 +67,15 @@
             "type": "integer",
             "description": "Record Limit"
           },
-          "style": {
+          "hostId": {
             "type": "string",
-            "description": "Api Style"
-          },
-          "host": {
-            "type": "string",
-            "description": "Host"
+            "description": "Host Id"
           }
         },
         "required": [
           "limit",
           "offset",
-          "style",
-          "host"
+          "hostId"
         ]
       }
     },
