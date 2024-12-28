@@ -517,8 +517,8 @@
             "type": "string",
             "description": "Scope"
           },
-          "remember": {
-            "description": "Remember Session",
+          "csrf": {
+            "description": "csrf token",
             "type": "string"
           }
         },
@@ -526,10 +526,9 @@
           "hostId",
           "refreshToken",
           "userId",
-          "roles",
           "clientId",
           "scope",
-          "remember"
+          "csrf"
         ]
       }
     },
@@ -546,14 +545,19 @@
             "type": "string",
             "description": "Refresh Token"
           },
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "Host"
+            "description": "Host Id"
+          },
+          "userId": {
+            "type": "string",
+            "description": "User Id"
           }
         },
         "required": [
           "refreshToken",
-          "host"
+          "hostId",
+          "userId"
         ]
       }
     },
