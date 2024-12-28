@@ -99,6 +99,30 @@
       }
     },
     {
+      "name": "getServiceVersion",
+      "version": "0.1.0",
+      "handler": "GetServiceVersion",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId"
+        ]
+      }
+    },
+    {
       "name": "getServiceRoleById",
       "version": "0.1.0",
       "handler": "GetServiceRoleById",
@@ -174,12 +198,17 @@
         "title": "Auth Code",
         "type": "object",
         "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
           "authCode": {
             "type": "string",
             "description": "Auth Code"
           }
         },
         "required": [
+          "hostId",
           "authCode"
         ]
       }
