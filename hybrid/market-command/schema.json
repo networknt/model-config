@@ -372,28 +372,36 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "serviceId": {
-            "type": "string",
-            "description": "Service Id"
+          "hostId" : {
+            "type" : "string",
+            "description" : "Host Id"
           },
-          "host": {
-            "type": "string",
-            "description": "Host"
+          "apiId" : {
+            "type" : "string",
+            "description" : "API Id"
           },
-          "style": {
-            "type": "string",
-            "description": "API Style"
+          "apiVersion" : {
+            "type" : "string",
+            "description" : "API Version"
           },
-          "spec": {
-            "type": "string",
-            "description": "API Specification"
+          "serviceId" : {
+            "type" : "string",
+            "description" : "Service Id"
+          },
+          "apiVersionDesc" : {
+            "type" : "string",
+            "description" : "Api Version Desc"
+          },
+          "specLink" : {
+            "type" : "string",
+            "description" : "Spec Link"
+          },
+          "spec" : {
+            "type" : "string",
+            "description" : "API Specification"
           }
         },
-        "required": [
-          "serviceId",
-          "host",
-          "style",
-          "spec"
+        "required": ["hostId", "apiId", "apiVersion", "spec"
         ]
       }
     },
