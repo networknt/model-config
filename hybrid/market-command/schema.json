@@ -2176,46 +2176,52 @@
         "title": "Create Rule",
         "type": "object",
         "properties": {
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "Rule host"
+            "description": "Host Id"
           },
           "ruleId": {
             "type": "string",
             "description": "Rule id"
           },
+          "ruleName": {
+            "type": "string",
+            "description": "Rule Name"
+          },
+          "ruleVersion" : {
+            "type" : "string",
+            "description" : "Rule Version"
+          },
           "ruleType": {
             "type": "string",
             "description": "Rule Type"
           },
-          "groupId": {
-            "type": "string",
-            "description": "Group Id"
+          "ruleGroup" : {
+            "type" : "string",
+            "description" : "Rule Group"
           },
-          "visibility": {
-            "type": "string",
-            "enum": [
-              "public",
-              "private"
-            ],
-            "description": "Visibility"
+          "ruleDesc" : {
+            "type" : "string",
+            "description" : "Rule desc"
           },
-          "desc": {
-            "type": "string",
-            "description": "Rule description"
+          "ruleOwner" : {
+            "type" : "string",
+            "description" : "Rule Owner"
           },
-          "value": {
-            "type": "string",
-            "description": "Rule detail"
+          "common" : {
+            "type" : "string",
+            "enum" : [ "Y", "N" ],
+            "description" : "Common"
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Rule Conditions"
           }
         },
-        "required": [
-          "host",
-          "ruleId",
-          "ruleType",
-          "visibility",
-          "desc",
-          "value"
+        "required": ["hostId", "ruleId", "ruleName", "ruleVersion", "ruleType", "ruleOwner", "common", "conditions"
         ]
       }
     },
@@ -2228,46 +2234,47 @@
         "title": "Update Rule",
         "type": "object",
         "properties": {
-          "host": {
-            "type": "string",
-            "description": "Rule host"
+          "ruleId" : {
+            "type" : "string",
+            "description" : "Rule id"
           },
-          "ruleId": {
-            "type": "string",
-            "description": "Rule id"
+          "ruleName" : {
+            "type" : "string",
+            "description" : "Rule Name"
           },
-          "ruleType": {
+          "ruleVersion": {
             "type": "string",
-            "description": "Rule Type"
+            "description": "Rule Version"
           },
-          "groupId": {
-            "type": "string",
-            "description": "Group Id"
+          "ruleType" : {
+            "type" : "string",
+            "description" : "Rule Type"
           },
-          "visibility": {
-            "type": "string",
-            "enum": [
-              "public",
-              "private"
-            ],
-            "description": "Visibility"
+          "ruleGroup" : {
+            "type" : "string",
+            "description" : "Rule Group"
           },
-          "desc": {
-            "type": "string",
-            "description": "Rule description"
+          "ruleDesc" : {
+            "type" : "string",
+            "description" : "Rule Desc"
           },
-          "value": {
-            "type": "string",
-            "description": "Rule detail"
+          "ruleOwner" : {
+            "type" : "string",
+            "description" : "Rule Owner"
+          },
+          "common" : {
+            "type" : "string",
+            "description" : "Common Flag"
+          },
+          "conditions" : {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description" : "Rule Conditions"
           }
         },
-        "required": [
-          "host",
-          "ruleId",
-          "ruleType",
-          "visibility",
-          "desc",
-          "value"
+        "required": ["ruleId", "ruleName", "ruleVersion", "ruleType", "ruleOwner", "common", "conditions" 
         ]
       }
     },
@@ -2280,9 +2287,9 @@
         "title": "Delete Rule",
         "type": "object",
         "properties": {
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "Rule Host"
+            "description": "Host Id"
           },
           "ruleId": {
             "type": "string",
@@ -2290,7 +2297,7 @@
           }
         },
         "required": [
-          "host",
+          "hostId",
           "ruleId"
         ]
       }

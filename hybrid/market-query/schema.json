@@ -867,9 +867,9 @@
       }
     },
     {
-      "name": "getRuleByHost",
+      "name": "getRule",
       "version": "0.1.0",
-      "handler": "GetRuleByHost",
+      "handler": "GetRule",
       "skipAuth": true,
       "schema": {
         "title": "Rules",
@@ -883,15 +883,15 @@
             "type": "integer",
             "description": "Record limit"
           },
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "Host"
+            "description": "Host Id"
           }
         },
         "required": [
           "limit",
           "offset",
-          "host"
+          "hostId"
         ]
       }
     },
