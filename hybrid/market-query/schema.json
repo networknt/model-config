@@ -123,6 +123,103 @@
       }
     },
     {
+      "name": "getServiceEndpoint",
+      "version": "0.1.0",
+      "handler": "GetServiceEndpoint",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service Endpoint",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion"
+        ]
+      }
+    },
+    {
+      "name": "getEndpointScope",
+      "version": "0.1.0",
+      "handler": "GetEndpointScope",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Endpoint Scope",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion",
+          "endpoint"
+        ]
+      }
+    },
+    {
+      "name": "getEndpointRule",
+      "version": "0.1.0",
+      "handler": "GetEndpointRule",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Endpoint Rule",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion",
+          "endpoint"
+        ]
+      }
+    },
+    {
       "name": "getServiceRoleById",
       "version": "0.1.0",
       "handler": "GetServiceRoleById",
@@ -908,13 +1005,13 @@
             "type": "string",
             "description": "Rule Type"
           },
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "Rule Host"
+            "description": "Host Id"
           }
         },
         "required": [
-          "host", "ruleType"
+          "hostId", "ruleType"
         ]
       }
     },
