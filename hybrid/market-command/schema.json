@@ -635,6 +635,84 @@
         ]
       }
     },
+    {
+      "name": "createEndpointRule",
+      "version": "0.1.0",
+      "handler": "CreateEndpointRule",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service Endpoint Rule",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Api Endpoint"
+          },
+          "ruleId": {
+            "title": "Rule Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion",
+          "endpoint",
+          "ruleId"
+        ]
+      }
+    },
+    {
+      "name": "deleteEndpointRule",
+      "version": "0.1.0",
+      "handler": "DeleteEndpointRule",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service Endpoint Rule",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Api Endpoint"
+          },
+          "ruleId": {
+            "title": "Rule Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion",
+          "endpoint",
+          "ruleId"
+        ]
+      }
+    },
 
     {
       "name": "createRefreshToken",
