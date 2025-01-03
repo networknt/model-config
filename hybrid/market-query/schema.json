@@ -1086,16 +1086,63 @@
       "handler": "GetHost",
       "scope": "portal.r",
       "schema": {
+        "title": "Host List",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record limit"
+          }
+        },
+        "required": [
+          "limit",
+          "offset"
+        ]
+      }
+    },
+    {
+      "name": "getHostById",
+      "version": "0.1.0",
+      "handler": "GetHostById",
+      "scope": "portal.r",
+      "schema": {
         "title": "Host Dashboard",
         "type": "object",
         "properties": {
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "Host"
+            "description": "Host Id"
           }
-        }
+        },
+        "required": [
+          "hostId"
+        ]
       }
     },
+    {
+      "name": "getHostDomainById",
+      "version": "0.1.0",
+      "handler": "GetHostDomainById",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Host Domain",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
+          "hostId"
+        ]
+      }
+    },
+
     {
       "name": "getConfig",
       "version": "0.1.0",
