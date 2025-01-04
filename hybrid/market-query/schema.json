@@ -1142,6 +1142,166 @@
         ]
       }
     },
+    {
+      "name": "getRole",
+      "version": "0.1.0",
+      "handler": "GetRole",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Role",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "roleId": {
+            "type": "string",
+            "description": "Role Id"
+          },
+          "roleDesc": {
+            "type": "string",
+            "description": "Role Desc"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "getGroup",
+      "version": "0.1.0",
+      "handler": "GetGroup",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Group",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "groupDesc": {
+            "type": "string",
+            "description": "Group Desc"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "getPosition",
+      "version": "0.1.0",
+      "handler": "GetPosition",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Position",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          },
+          "positionDesc": {
+            "type": "string",
+            "description": "Position Desc"
+          },
+          "inheritToAncestor": {
+            "type": "string",
+            "description": "Inherit To Ancestor"
+          },
+          "inheritToSibling": {
+            "type": "string",
+            "description": "Inherit To Sibling"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "getAttribute",
+      "version": "0.1.0",
+      "handler": "GetAttribute",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Attribute",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "attributeId": {
+            "type": "string",
+            "description": "Attribute Id"
+          },
+          "attributeType": {
+            "type": "string",
+            "description": "Attribute Type"
+          },
+          "attributeDesc": {
+            "type": "string",
+            "description": "Attribute Desc"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
 
     {
       "name": "getConfig",

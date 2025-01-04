@@ -713,6 +713,356 @@
         ]
       }
     },
+    {
+      "name": "createRole",
+      "version": "0.1.0",
+      "handler": "CreateRole",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "roleId": {
+            "type": "string",
+            "description": "Role Id"
+          },
+          "roleDesc": {
+            "title": "Role Desc",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "roleId"
+        ]
+      }
+    },
+    {
+      "name": "updateRole",
+      "version": "0.1.0",
+      "handler": "UpdateRole",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "roleId": {
+            "type": "string",
+            "description": "Role Id"
+          },
+          "roleDesc": {
+            "title": "Role Desc",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "roleId",
+          "roleDesc"
+        ]
+      }
+    },
+    {
+      "name": "deleteRole",
+      "version": "0.1.0",
+      "handler": "DeleteRole",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "roleId": {
+            "type": "string",
+            "description": "Role Id"
+          }
+        },
+        "required": [
+          "hostId",
+          "roleId"
+        ]
+      }
+    },
+    {
+      "name": "createGroup",
+      "version": "0.1.0",
+      "handler": "CreateGroup",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "groupDesc": {
+            "title": "Group Desc",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "groupId"
+        ]
+      }
+    },
+    {
+      "name": "updateGroup",
+      "version": "0.1.0",
+      "handler": "UpdateGroup",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "groupDesc": {
+            "title": "Group Desc",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "groupId",
+          "groupDesc"
+        ]
+      }
+    },
+    {
+      "name": "deleteGroup",
+      "version": "0.1.0",
+      "handler": "DeleteGroup",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          }
+        },
+        "required": [
+          "hostId",
+          "groupId"
+        ]
+      }
+    },
+    {
+      "name": "createPosition",
+      "version": "0.1.0",
+      "handler": "CreatePosition",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          },
+          "positionDesc": {
+            "title": "Position Desc",
+            "type": "string"
+          },
+          "inheritToAncestor": {
+            "title": "Inherit To Ancestor",
+            "type": "string"
+          },
+          "inheritToSibling": {
+            "title": "Inherit To Sibling",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "positionId"
+        ]
+      }
+    },
+    {
+      "name": "updatePosition",
+      "version": "0.1.0",
+      "handler": "UpdatePosition",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          },
+          "positionDesc": {
+            "title": "Position Desc",
+            "type": "string"
+          },
+          "inheritToAncestor": {
+            "title": "Inherit To Ancestor",
+            "type": "string"
+          },
+          "inheritToSibling": {
+            "title": "Inherit To Sibling",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "positionId",
+          "positionDesc"
+        ]
+      }
+    },
+    {
+      "name": "deletePosition",
+      "version": "0.1.0",
+      "handler": "DeletePosition",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          }
+        },
+        "required": [
+          "hostId",
+          "positionId"
+        ]
+      }
+    },
+    {
+      "name": "createAttribute",
+      "version": "0.1.0",
+      "handler": "CreateAttribute",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "attributeId": {
+            "type": "string",
+            "description": "Attribute Id"
+          },
+          "attributeDesc": {
+            "title": "Attribute Desc",
+            "type": "string"
+          },
+          "attributeType": {
+            "title": "Attribute Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "attributeId",
+          "attributeType"
+        ]
+      }
+    },
+    {
+      "name": "updateAttribute",
+      "version": "0.1.0",
+      "handler": "UpdateAttribute",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "attributeId": {
+            "type": "string",
+            "description": "Attribute Id"
+          },
+          "attributeDesc": {
+            "title": "Attribute Desc",
+            "type": "string"
+          },
+          "attributeType": {
+            "title": "Attribute Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "attributeId",
+          "attributeType",
+          "attributeDesc"
+        ]
+      }
+    },
+    {
+      "name": "deleteAttribute",
+      "version": "0.1.0",
+      "handler": "DeleteAttribute",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "attributeId": {
+            "type": "string",
+            "description": "Attribute Id"
+          }
+        },
+        "required": [
+          "hostId",
+          "attributeId"
+        ]
+      }
+    },
 
     {
       "name": "createRefreshToken",
