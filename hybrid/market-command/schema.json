@@ -22,23 +22,12 @@
           "clientType": {
             "type": "string",
             "description": "Client Type",
-            "enum": [
-              "confidential",
-              "public",
-              "trusted",
-              "external"
-            ]
+            "enum": ["confidential", "public", "trusted", "external"]
           },
           "clientProfile": {
             "type": "string",
             "description": "Client Profile",
-            "enum": [
-              "webserver",
-              "browser",
-              "mobile",
-              "service",
-              "batch"
-            ]
+            "enum": ["webserver", "browser", "mobile", "service", "batch"]
           },
           "clientName": {
             "type": "string",
@@ -175,10 +164,7 @@
             "description": "Host"
           }
         },
-        "required": [
-          "clientId",
-          "host"
-        ]
+        "required": ["clientId", "host"]
       }
     },
     {
@@ -251,13 +237,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "apiId",
-          "apiName",
-          "apiType",
-          "apiStatus"
-        ]
+        "required": ["hostId", "apiId", "apiName", "apiType", "apiStatus"]
       }
     },
     {
@@ -269,74 +249,68 @@
         "title": "Service",
         "type": "object",
         "properties": {
-        "hostId": {
-          "type": "string",
-          "description": "Host Id"
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiName": {
+            "type": "string",
+            "description": "Api Name"
+          },
+          "apiType": {
+            "title": "Api Type",
+            "type": "string"
+          },
+          "apiDesc": {
+            "title": "Api Desc",
+            "type": "string"
+          },
+          "operationOwner": {
+            "title": "Operation Owner",
+            "type": "string"
+          },
+          "deliveryOwner": {
+            "title": "Delivery Owner",
+            "type": "string"
+          },
+          "region": {
+            "title": "Region",
+            "type": "string"
+          },
+          "businessGroup": {
+            "title": "Business Group",
+            "type": "string"
+          },
+          "lob": {
+            "type": "string",
+            "title": "Line of Business"
+          },
+          "platform": {
+            "type": "string",
+            "title": "platform"
+          },
+          "capability": {
+            "type": "string",
+            "title": "Capability"
+          },
+          "gitRepo": {
+            "type": "string",
+            "title": "Git Repo"
+          },
+          "apiTags": {
+            "title": "Tags",
+            "type": "string"
+          },
+          "apiStatus": {
+            "title": "Api Status",
+            "type": "string"
+          }
         },
-        "apiId": {
-          "type": "string",
-          "description": "Api Id"
-        },
-        "apiName": {
-          "type": "string",
-          "description": "Api Name"
-        },
-        "apiType": {
-          "title": "Api Type",
-          "type": "string"
-        },
-        "apiDesc": {
-          "title": "Api Desc",
-          "type": "string"
-        },
-        "operationOwner": {
-          "title": "Operation Owner",
-          "type": "string"
-        },
-        "deliveryOwner": {
-          "title": "Delivery Owner",
-          "type": "string"
-        },
-        "region": {
-          "title": "Region",
-          "type": "string"
-        },
-        "businessGroup": {
-          "title": "Business Group",
-          "type": "string"
-        },
-        "lob": {
-          "type": "string",
-          "title": "Line of Business"
-        },
-        "platform": {
-          "type": "string",
-          "title": "platform"
-        },
-        "capability": {
-          "type": "string",
-          "title": "Capability"
-        },
-        "gitRepo": {
-          "type": "string",
-          "title": "Git Repo"
-        },
-        "apiTags": {
-          "title": "Tags",
-          "type": "string"
-        },
-        "apiStatus": {
-          "title": "Api Status",
-          "type": "string"
-        }
-        },
-        "required": [
-        "hostId",
-        "apiId",
-        "apiName",
-        "apiType",
-        "apiStatus"
-        ]
+        "required": ["hostId", "apiId", "apiName", "apiType", "apiStatus"]
       }
     },
     {
@@ -357,10 +331,7 @@
             "description": "HostId"
           }
         },
-        "required": [
-          "apiId",
-          "hostId"
-        ]
+        "required": ["apiId", "hostId"]
       }
     },
     {
@@ -372,37 +343,36 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "hostId" : {
-            "type" : "string",
-            "description" : "Host Id"
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
           },
-          "apiId" : {
-            "type" : "string",
-            "description" : "API Id"
+          "apiId": {
+            "type": "string",
+            "description": "API Id"
           },
-          "apiVersion" : {
-            "type" : "string",
-            "description" : "API Version"
+          "apiVersion": {
+            "type": "string",
+            "description": "API Version"
           },
-          "serviceId" : {
-            "type" : "string",
-            "description" : "Service Id"
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
           },
-          "apiVersionDesc" : {
-            "type" : "string",
-            "description" : "Api Version Desc"
+          "apiVersionDesc": {
+            "type": "string",
+            "description": "Api Version Desc"
           },
-          "specLink" : {
-            "type" : "string",
-            "description" : "Spec Link"
+          "specLink": {
+            "type": "string",
+            "description": "Spec Link"
           },
-          "spec" : {
-            "type" : "string",
-            "description" : "API Specification"
+          "spec": {
+            "type": "string",
+            "description": "API Specification"
           }
         },
-        "required": ["hostId", "apiId", "apiVersion", "spec"
-        ]
+        "required": ["hostId", "apiId", "apiVersion", "spec"]
       }
     },
     {
@@ -430,7 +400,7 @@
             "type": "array",
             "items": {
               "type": "object",
-              "properties": {            
+              "properties": {
                 "ruleId": {
                   "type": "string",
                   "description": "Rule Id"
@@ -447,17 +417,11 @@
                   "description": "Rule variables"
                 }
               },
-              "required": [
-                "ruleId"
-              ]
-            }  
+              "required": ["ruleId"]
+            }
           }
         },
-        "required": [
-          "serviceId",
-          "host",
-          "filters"
-        ]
+        "required": ["serviceId", "host", "filters"]
       }
     },
     {
@@ -485,7 +449,7 @@
             "type": "array",
             "items": {
               "type": "object",
-              "properties": {            
+              "properties": {
                 "ruleId": {
                   "type": "string",
                   "description": "Rule Id"
@@ -502,17 +466,11 @@
                   "description": "Rule variables"
                 }
               },
-              "required": [
-                "ruleId"
-              ]
-            }  
+              "required": ["ruleId"]
+            }
           }
         },
-        "required": [
-          "serviceId",
-          "host",
-          "accesses"
-        ]
+        "required": ["serviceId", "host", "accesses"]
       }
     },
     {
@@ -553,12 +511,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "apiId",
-          "apiVersion",
-          "serviceId"
-        ]
+        "required": ["hostId", "apiId", "apiVersion", "serviceId"]
       }
     },
     {
@@ -599,11 +552,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "apiId",
-          "apiVersion"
-        ]
+        "required": ["hostId", "apiId", "apiVersion"]
       }
     },
     {
@@ -628,11 +577,7 @@
             "description": "Api Version"
           }
         },
-        "required": [
-          "hostId",
-          "apiId",
-          "apiVersion"
-        ]
+        "required": ["hostId", "apiId", "apiVersion"]
       }
     },
     {
@@ -665,13 +610,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "apiId",
-          "apiVersion",
-          "endpoint",
-          "ruleId"
-        ]
+        "required": ["hostId", "apiId", "apiVersion", "endpoint", "ruleId"]
       }
     },
     {
@@ -704,13 +643,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "apiId",
-          "apiVersion",
-          "endpoint",
-          "ruleId"
-        ]
+        "required": ["hostId", "apiId", "apiVersion", "endpoint", "ruleId"]
       }
     },
     {
@@ -735,10 +668,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "roleId"
-        ]
+        "required": ["hostId", "roleId"]
       }
     },
     {
@@ -763,11 +693,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "roleId",
-          "roleDesc"
-        ]
+        "required": ["hostId", "roleId", "roleDesc"]
       }
     },
     {
@@ -788,12 +714,142 @@
             "description": "Role Id"
           }
         },
-        "required": [
-          "hostId",
-          "roleId"
-        ]
+        "required": ["hostId", "roleId"]
       }
     },
+    {
+      "name": "createRoleUser",
+      "version": "0.1.0",
+      "handler": "CreateRoleUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role User",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "roleId": {
+            "title": "Role Id",
+            "type": "string"
+          },
+          "userId": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "entityId": {
+            "title": "Entity Id",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "startDate": {
+            "title": "Start Date",
+            "type": "date"
+          },
+          "endDate": {
+            "title": "End Date",
+            "type": "date"
+          }
+        },
+        "required": ["hostId", "roleId", "startDate", "endDate"]
+      }
+    },
+    {
+      "name": "deleteRoleUser",
+      "version": "0.1.0",
+      "handler": "DeleteRoleUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role User",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "roleId": {
+            "title": "Role Id",
+            "type": "string"
+          },
+          "userId": {
+            "title": "User Id",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "roleId", "userId"]
+      }
+    },
+    {
+      "name": "createRolePermission",
+      "version": "0.1.0",
+      "handler": "CreateRolePermission",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "roleId": {
+            "title": "Role Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "roleId", "apiId", "apiVersion", "endpoint"]
+      }
+    },
+    {
+      "name": "deleteRolePermission",
+      "version": "0.1.0",
+      "handler": "DeleteRolePermission",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "roleId": {
+            "title": "Role Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "roleId", "apiId", "apiVersion", "endpoint"]
+      }
+    },
+
     {
       "name": "createGroup",
       "version": "0.1.0",
@@ -816,10 +872,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "groupId"
-        ]
+        "required": ["hostId", "groupId"]
       }
     },
     {
@@ -844,11 +897,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "groupId",
-          "groupDesc"
-        ]
+        "required": ["hostId", "groupId", "groupDesc"]
       }
     },
     {
@@ -869,10 +918,139 @@
             "description": "Group Id"
           }
         },
-        "required": [
-          "hostId",
-          "groupId"
-        ]
+        "required": ["hostId", "groupId"]
+      }
+    },
+    {
+      "name": "createGroupUser",
+      "version": "0.1.0",
+      "handler": "CreateGroupUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group User",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "userId": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "entityId": {
+            "title": "Entity Id",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "startDate": {
+            "title": "Start Date",
+            "type": "date"
+          },
+          "endDate": {
+            "title": "End Date",
+            "type": "date"
+          }
+        },
+        "required": ["hostId", "groupId", "startDate", "endDate"]
+      }
+    },
+    {
+      "name": "deleteGroupUser",
+      "version": "0.1.0",
+      "handler": "DeleteGroupUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group User",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "userId": {
+            "title": "User Id",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "groupId", "userId"]
+      }
+    },
+    {
+      "name": "createGroupPermission",
+      "version": "0.1.0",
+      "handler": "CreateGroupPermission",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "groupId", "apiId", "apiVersion", "endpoint"]
+      }
+    },
+    {
+      "name": "deleteGroupPermission",
+      "version": "0.1.0",
+      "handler": "DeleteGroupPermission",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "groupId", "apiId", "apiVersion", "endpoint"]
       }
     },
     {
@@ -905,10 +1083,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "positionId"
-        ]
+        "required": ["hostId", "positionId"]
       }
     },
     {
@@ -941,11 +1116,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "positionId",
-          "positionDesc"
-        ]
+        "required": ["hostId", "positionId", "positionDesc"]
       }
     },
     {
@@ -966,12 +1137,142 @@
             "description": "Position Id"
           }
         },
-        "required": [
-          "hostId",
-          "positionId"
-        ]
+        "required": ["hostId", "positionId"]
       }
     },
+    {
+      "name": "createPositionUser",
+      "version": "0.1.0",
+      "handler": "CreatePositionUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position User",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "userId": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "entityId": {
+            "title": "Entity Id",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "startDate": {
+            "title": "Start Date",
+            "type": "date"
+          },
+          "endDate": {
+            "title": "End Date",
+            "type": "date"
+          }
+        },
+        "required": ["hostId", "positionId", "startDate", "endDate"]
+      }
+    },
+    {
+      "name": "deletePositionUser",
+      "version": "0.1.0",
+      "handler": "DeletePositionUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position User",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "userId": {
+            "title": "User Id",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "userId"]
+      }
+    },
+    {
+      "name": "createPositionPermission",
+      "version": "0.1.0",
+      "handler": "CreatePositionPermission",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint"]
+      }
+    },
+    {
+      "name": "deletePositionPermission",
+      "version": "0.1.0",
+      "handler": "DeletePositionPermission",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint"]
+      }
+    },
+
     {
       "name": "createAttribute",
       "version": "0.1.0",
@@ -998,11 +1299,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "attributeId",
-          "attributeType"
-        ]
+        "required": ["hostId", "attributeId", "attributeType"]
       }
     },
     {
@@ -1031,12 +1328,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "attributeId",
-          "attributeType",
-          "attributeDesc"
-        ]
+        "required": ["hostId", "attributeId", "attributeType", "attributeDesc"]
       }
     },
     {
@@ -1057,10 +1349,160 @@
             "description": "Attribute Id"
           }
         },
+        "required": ["hostId", "attributeId"]
+      }
+    },
+    {
+      "name": "createAttributeUser",
+      "version": "0.1.0",
+      "handler": "CreateAttributeUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute User",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "attributeId": {
+            "title": "Attribute Id",
+            "type": "string"
+          },
+          "attributeValue": {
+            "title": "Attribute Value",
+            "type": "string"
+          },
+          "userId": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "entityId": {
+            "title": "Entity Id",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "startDate": {
+            "title": "Start Date",
+            "type": "date"
+          },
+          "endDate": {
+            "title": "End Date",
+            "type": "date"
+          }
+        },
         "required": [
           "hostId",
-          "attributeId"
+          "attributeId",
+          "attributeValue",
+          "startDate",
+          "endDate"
         ]
+      }
+    },
+    {
+      "name": "deleteAttributeUser",
+      "version": "0.1.0",
+      "handler": "DeleteAttributeUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute User",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "attributeId": {
+            "title": "Attribute Id",
+            "type": "string"
+          },
+          "userId": {
+            "title": "User Id",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "attributeId", "userId"]
+      }
+    },
+    {
+      "name": "createAttributePermission",
+      "version": "0.1.0",
+      "handler": "CreateAttributePermission",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "attributeId": {
+            "title": "Attribute Id",
+            "type": "string"
+          },
+          "attributeValue": {
+            "title": "Attribute Value",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hostId",
+          "attributeId",
+          "attributeValue",
+          "apiId",
+          "apiVersion",
+          "endpoint"
+        ]
+      }
+    },
+    {
+      "name": "deleteAttributePermission",
+      "version": "0.1.0",
+      "handler": "DeleteAttributePermission",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "attributeId": {
+            "title": "Attribute Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "attributeId", "apiId", "apiVersion", "endpoint"]
       }
     },
 
@@ -1138,11 +1580,7 @@
             "description": "User Id"
           }
         },
-        "required": [
-          "refreshToken",
-          "hostId",
-          "userId"
-        ]
+        "required": ["refreshToken", "hostId", "userId"]
       }
     },
     {
@@ -1171,12 +1609,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "hostId",
-          "authCode",
-          "redirectUri",
-          "remember"
-        ]
+        "required": ["hostId", "authCode", "redirectUri", "remember"]
       }
     },
     {
@@ -1197,10 +1630,7 @@
             "description": "Host Id"
           }
         },
-        "required": [
-          "authCode",
-          "hostId"
-        ]
+        "required": ["authCode", "hostId"]
       }
     },
     {
@@ -1229,12 +1659,7 @@
             "description": "Client Id"
           }
         },
-        "required": [
-          "host",
-          "refToken",
-          "jwt",
-          "clientId"
-        ]
+        "required": ["host", "refToken", "jwt", "clientId"]
       }
     },
     {
@@ -1255,10 +1680,7 @@
             "description": "Host"
           }
         },
-        "required": [
-          "refToken",
-          "host"
-        ]
+        "required": ["refToken", "host"]
       }
     },
     {
@@ -1291,12 +1713,7 @@
             "description": "Uri"
           }
         },
-        "required": [
-          "host",
-          "providerId",
-          "providerName",
-          "serverUrl"
-        ]
+        "required": ["host", "providerId", "providerName", "serverUrl"]
       }
     },
     {
@@ -1330,12 +1747,7 @@
             "description": "Uri"
           }
         },
-        "required": [
-          "host",
-          "providerId",
-          "providerName",
-          "serverUrl"
-        ]
+        "required": ["host", "providerId", "providerName", "serverUrl"]
       }
     },
     {
@@ -1356,10 +1768,7 @@
             "description": "Host"
           }
         },
-        "required": [
-          "providerId",
-          "host"
-        ]
+        "required": ["providerId", "host"]
       }
     },
     {
@@ -1384,11 +1793,7 @@
             "description": "Categories"
           }
         },
-        "required": [
-          "host",
-          "name",
-          "categories"
-        ]
+        "required": ["host", "name", "categories"]
       }
     },
     {
@@ -1413,11 +1818,7 @@
             "description": "Categories"
           }
         },
-        "required": [
-          "host",
-          "name",
-          "categories"
-        ]
+        "required": ["host", "name", "categories"]
       }
     },
     {
@@ -1438,10 +1839,7 @@
             "description": "Category Name"
           }
         },
-        "required": [
-          "host",
-          "name"
-        ]
+        "required": ["host", "name"]
       }
     },
     {
@@ -1464,10 +1862,7 @@
           "status": {
             "type": "string",
             "description": "Status",
-            "enum": [
-              "draft",
-              "published"
-            ]
+            "enum": ["draft", "published"]
           },
           "title": {
             "type": "string",
@@ -1505,10 +1900,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum": [
-              "O",
-              "C"
-            ]
+            "enum": ["O", "C"]
           }
         },
         "required": [
@@ -1544,10 +1936,7 @@
           "status": {
             "type": "string",
             "description": "Status",
-            "enum": [
-              "draft",
-              "published"
-            ]
+            "enum": ["draft", "published"]
           },
           "title": {
             "type": "string",
@@ -1585,10 +1974,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum": [
-              "O",
-              "C"
-            ]
+            "enum": ["O", "C"]
           }
         },
         "required": [
@@ -1622,10 +2008,7 @@
             "description": "Blog Id"
           }
         },
-        "required": [
-          "host",
-          "id"
-        ]
+        "required": ["host", "id"]
       }
     },
     {
@@ -1648,10 +2031,7 @@
           "status": {
             "type": "string",
             "description": "Status",
-            "enum": [
-              "draft",
-              "published"
-            ]
+            "enum": ["draft", "published"]
           },
           "title": {
             "type": "string",
@@ -1681,10 +2061,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum": [
-              "O",
-              "C"
-            ]
+            "enum": ["O", "C"]
           }
         },
         "required": [
@@ -1720,10 +2097,7 @@
           "status": {
             "type": "string",
             "description": "Status",
-            "enum": [
-              "draft",
-              "published"
-            ]
+            "enum": ["draft", "published"]
           },
           "title": {
             "type": "string",
@@ -1753,10 +2127,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum": [
-              "O",
-              "C"
-            ]
+            "enum": ["O", "C"]
           }
         },
         "required": [
@@ -1789,10 +2160,7 @@
             "description": "Document Id"
           }
         },
-        "required": [
-          "host",
-          "id"
-        ]
+        "required": ["host", "id"]
       }
     },
     {
@@ -1825,12 +2193,7 @@
             }
           }
         },
-        "required": [
-          "host",
-          "id",
-          "body",
-          "tags"
-        ]
+        "required": ["host", "id", "body", "tags"]
       }
     },
     {
@@ -1863,12 +2226,7 @@
             }
           }
         },
-        "required": [
-          "host",
-          "id",
-          "body",
-          "tags"
-        ]
+        "required": ["host", "id", "body", "tags"]
       }
     },
     {
@@ -1889,10 +2247,7 @@
             "description": "Page Id"
           }
         },
-        "required": [
-          "host",
-          "id"
-        ]
+        "required": ["host", "id"]
       }
     },
     {
@@ -1915,18 +2270,12 @@
           "templateType": {
             "type": "string",
             "description": "Template Type",
-            "enum": [
-              "faq",
-              "error"
-            ]
+            "enum": ["faq", "error"]
           },
           "status": {
             "type": "string",
             "description": "Template Status",
-            "enum": [
-              "draft",
-              "published"
-            ]
+            "enum": ["draft", "published"]
           },
           "title": {
             "type": "string",
@@ -1967,18 +2316,12 @@
           "templateType": {
             "type": "string",
             "description": "Template Type",
-            "enum": [
-              "faq",
-              "error"
-            ]
+            "enum": ["faq", "error"]
           },
           "status": {
             "type": "string",
             "description": "Template Status",
-            "enum": [
-              "draft",
-              "published"
-            ]
+            "enum": ["draft", "published"]
           },
           "title": {
             "type": "string",
@@ -2017,10 +2360,7 @@
             "description": "Template Id"
           }
         },
-        "required": [
-          "host",
-          "templateId"
-        ]
+        "required": ["host", "templateId"]
       }
     },
     {
@@ -2071,12 +2411,7 @@
           "severity": {
             "type": "string",
             "description": "Severity Level",
-            "enum": [
-              "S0",
-              "S1",
-              "S2",
-              "S3"
-            ]
+            "enum": ["S0", "S1", "S2", "S3"]
           },
           "resolution": {
             "type": "string",
@@ -2142,12 +2477,7 @@
           "severity": {
             "type": "string",
             "description": "Severity Level",
-            "enum": [
-              "S0",
-              "S1",
-              "S2",
-              "S3"
-            ]
+            "enum": ["S0", "S1", "S2", "S3"]
           },
           "resolution": {
             "type": "string",
@@ -2183,10 +2513,7 @@
             "description": "Error Code"
           }
         },
-        "required": [
-          "host",
-          "errorCode"
-        ]
+        "required": ["host", "errorCode"]
       }
     },
     {
@@ -2209,22 +2536,14 @@
           "status": {
             "type": "string",
             "description": "Status",
-            "enum": [
-              "draft",
-              "published"
-            ]
+            "enum": ["draft", "published"]
           },
           "version": {
             "title": "Schema Version",
             "type": "array",
             "items": {
               "type": "string",
-              "enum": [
-                "v4",
-                "v6",
-                "v7",
-                "v2019-09"
-              ]
+              "enum": ["v4", "v6", "v7", "v2019-09"]
             }
           },
           "name": {
@@ -2267,10 +2586,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum": [
-              "O",
-              "C"
-            ]
+            "enum": ["O", "C"]
           }
         },
         "required": [
@@ -2310,22 +2626,14 @@
           "status": {
             "type": "string",
             "description": "Status",
-            "enum": [
-              "draft",
-              "published"
-            ]
+            "enum": ["draft", "published"]
           },
           "version": {
             "title": "Schema Version",
             "type": "array",
             "items": {
               "type": "string",
-              "enum": [
-                "v4",
-                "v6",
-                "v7",
-                "v2019-09"
-              ]
+              "enum": ["v4", "v6", "v7", "v2019-09"]
             }
           },
           "name": {
@@ -2373,10 +2681,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum": [
-              "O",
-              "C"
-            ]
+            "enum": ["O", "C"]
           }
         },
         "required": [
@@ -2413,10 +2718,7 @@
             "description": "Schema Id"
           }
         },
-        "required": [
-          "host",
-          "id"
-        ]
+        "required": ["host", "id"]
       }
     },
     {
@@ -2439,10 +2741,7 @@
           "status": {
             "type": "string",
             "description": "Status",
-            "enum": [
-              "draft",
-              "published"
-            ]
+            "enum": ["draft", "published"]
           },
           "title": {
             "type": "string",
@@ -2476,10 +2775,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum": [
-              "O",
-              "C"
-            ]
+            "enum": ["O", "C"]
           }
         },
         "required": [
@@ -2515,10 +2811,7 @@
           "status": {
             "type": "string",
             "description": "Status",
-            "enum": [
-              "draft",
-              "published"
-            ]
+            "enum": ["draft", "published"]
           },
           "title": {
             "type": "string",
@@ -2552,10 +2845,7 @@
             "type": "string",
             "description": "Comment Open or Closed",
             "default": "O",
-            "enum": [
-              "O",
-              "C"
-            ]
+            "enum": ["O", "C"]
           }
         },
         "required": [
@@ -2589,10 +2879,7 @@
             "description": "News Id"
           }
         },
-        "required": [
-          "host",
-          "id"
-        ]
+        "required": ["host", "id"]
       }
     },
     {
@@ -2616,30 +2903,30 @@
             "type": "string",
             "description": "Rule Name"
           },
-          "ruleVersion" : {
-            "type" : "string",
-            "description" : "Rule Version"
+          "ruleVersion": {
+            "type": "string",
+            "description": "Rule Version"
           },
           "ruleType": {
             "type": "string",
             "description": "Rule Type"
           },
-          "ruleGroup" : {
-            "type" : "string",
-            "description" : "Rule Group"
+          "ruleGroup": {
+            "type": "string",
+            "description": "Rule Group"
           },
-          "ruleDesc" : {
-            "type" : "string",
-            "description" : "Rule desc"
+          "ruleDesc": {
+            "type": "string",
+            "description": "Rule desc"
           },
-          "ruleOwner" : {
-            "type" : "string",
-            "description" : "Rule Owner"
+          "ruleOwner": {
+            "type": "string",
+            "description": "Rule Owner"
           },
-          "common" : {
-            "type" : "string",
-            "enum" : [ "Y", "N" ],
-            "description" : "Common"
+          "common": {
+            "type": "string",
+            "enum": ["Y", "N"],
+            "description": "Common"
           },
           "conditions": {
             "type": "array",
@@ -2649,7 +2936,15 @@
             "description": "Rule Conditions"
           }
         },
-        "required": ["hostId", "ruleId", "ruleName", "ruleVersion", "ruleType", "ruleOwner", "common", "conditions"
+        "required": [
+          "hostId",
+          "ruleId",
+          "ruleName",
+          "ruleVersion",
+          "ruleType",
+          "ruleOwner",
+          "common",
+          "conditions"
         ]
       }
     },
@@ -2662,47 +2957,54 @@
         "title": "Update Rule",
         "type": "object",
         "properties": {
-          "ruleId" : {
-            "type" : "string",
-            "description" : "Rule id"
+          "ruleId": {
+            "type": "string",
+            "description": "Rule id"
           },
-          "ruleName" : {
-            "type" : "string",
-            "description" : "Rule Name"
+          "ruleName": {
+            "type": "string",
+            "description": "Rule Name"
           },
           "ruleVersion": {
             "type": "string",
             "description": "Rule Version"
           },
-          "ruleType" : {
-            "type" : "string",
-            "description" : "Rule Type"
+          "ruleType": {
+            "type": "string",
+            "description": "Rule Type"
           },
-          "ruleGroup" : {
-            "type" : "string",
-            "description" : "Rule Group"
+          "ruleGroup": {
+            "type": "string",
+            "description": "Rule Group"
           },
-          "ruleDesc" : {
-            "type" : "string",
-            "description" : "Rule Desc"
+          "ruleDesc": {
+            "type": "string",
+            "description": "Rule Desc"
           },
-          "ruleOwner" : {
-            "type" : "string",
-            "description" : "Rule Owner"
+          "ruleOwner": {
+            "type": "string",
+            "description": "Rule Owner"
           },
-          "common" : {
-            "type" : "string",
-            "description" : "Common Flag"
+          "common": {
+            "type": "string",
+            "description": "Common Flag"
           },
-          "conditions" : {
+          "conditions": {
             "type": "array",
             "items": {
               "type": "object"
             },
-            "description" : "Rule Conditions"
+            "description": "Rule Conditions"
           }
         },
-        "required": ["ruleId", "ruleName", "ruleVersion", "ruleType", "ruleOwner", "common", "conditions" 
+        "required": [
+          "ruleId",
+          "ruleName",
+          "ruleVersion",
+          "ruleType",
+          "ruleOwner",
+          "common",
+          "conditions"
         ]
       }
     },
@@ -2724,10 +3026,7 @@
             "description": "Rule Id"
           }
         },
-        "required": [
-          "hostId",
-          "ruleId"
-        ]
+        "required": ["hostId", "ruleId"]
       }
     },
     {
@@ -2808,11 +3107,7 @@
             "description": "Rule Ids"
           }
         },
-        "required": [
-          "host",
-          "apiId",
-          "ruleIds"
-        ]
+        "required": ["host", "apiId", "ruleIds"]
       }
     },
     {
@@ -2840,11 +3135,7 @@
             "description": "Rule Ids"
           }
         },
-        "required": [
-          "host",
-          "apiId",
-          "ruleIds"
-        ]
+        "required": ["host", "apiId", "ruleIds"]
       }
     },
     {
@@ -2918,10 +3209,7 @@
             "description": "Form Id"
           }
         },
-        "required": [
-          "host",
-          "id"
-        ]
+        "required": ["host", "id"]
       }
     },
     {
@@ -3016,9 +3304,7 @@
             "description": "Configuration Id, which is the name of the config file"
           }
         },
-        "required": [
-          "configId"
-        ]
+        "required": ["configId"]
       }
     }
   ]
