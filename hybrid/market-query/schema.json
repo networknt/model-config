@@ -1180,6 +1180,108 @@
       }
     },
     {
+      "name": "queryRolePermission",
+      "version": "0.1.0",
+      "handler": "QueryRolePermission",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Role Permission",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "roleId": {
+            "type": "string",
+            "description": "Role Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryRoleUser",
+      "version": "0.1.0",
+      "handler": "QueryRoleUser",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Role User",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "roleId": {
+            "type": "string",
+            "description": "Role Id"
+          },
+          "userId": {
+            "type": "string",
+            "description": "User Id"
+          },
+          "entityId": {
+            "type": "string",
+            "description": "Entity Id"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "First Name"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last Name"
+          },
+          "userType": {
+            "type": "string",
+            "description": "User Type"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
       "name": "getGroup",
       "version": "0.1.0",
       "handler": "GetGroup",
@@ -1207,6 +1309,108 @@
           "groupDesc": {
             "type": "string",
             "description": "Group Desc"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryGroupPermission",
+      "version": "0.1.0",
+      "handler": "QueryGroupPermission",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Group Permission",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryGroupUser",
+      "version": "0.1.0",
+      "handler": "QueryGroupUser",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Group User",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "userId": {
+            "type": "string",
+            "description": "User Id"
+          },
+          "entityId": {
+            "type": "string",
+            "description": "Entity Id"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "First Name"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last Name"
+          },
+          "userType": {
+            "type": "string",
+            "description": "User Type"
           }
         },
         "required": [
@@ -1262,6 +1466,129 @@
       }
     },
     {
+      "name": "queryPositionPermission",
+      "version": "0.1.0",
+      "handler": "QueryPositionPermission",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Position Permission",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          },
+          "inheritToAncestor": {
+            "type": "string",
+            "description": "Inherit To Ancestor"
+          },
+          "inheritToSibling": {
+            "type": "string",
+            "description": "Inherit To Sibling"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryPositionUser",
+      "version": "0.1.0",
+      "handler": "QueryPositionUser",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Position User",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          },
+          "positionType": {
+            "type": "string",
+            "description": "Position Type"
+          },
+          "inheritToAncestor": {
+            "type": "string",
+            "description": "Inherit To Ancestor"
+          },
+          "inheritToSibling": {
+            "type": "string",
+            "description": "Inherit To Sibling"
+          },
+          "userId": {
+            "type": "string",
+            "description": "User Id"
+          },
+          "entityId": {
+            "type": "string",
+            "description": "Entity Id"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "First Name"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last Name"
+          },
+          "userType": {
+            "type": "string",
+            "description": "User Type"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+
+    {
       "name": "getAttribute",
       "version": "0.1.0",
       "handler": "GetAttribute",
@@ -1293,6 +1620,124 @@
           "attributeDesc": {
             "type": "string",
             "description": "Attribute Desc"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryAttributePermission",
+      "version": "0.1.0",
+      "handler": "QueryAttributePermission",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Attribute Permission",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "attributeId": {
+            "type": "string",
+            "description": "Attribute Id"
+          },
+          "attributeType": {
+            "type": "string",
+            "description": "Attribute Type"
+          },
+          "attributeValue": {
+            "type": "string",
+            "description": "Attribute Value"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryAttributeUser",
+      "version": "0.1.0",
+      "handler": "QueryAttributeUser",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Attribute User",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "attributeId": {
+            "type": "string",
+            "description": "Attribute Id"
+          },
+          "attributeType": {
+            "type": "string",
+            "description": "Attribute Type"
+          },
+          "attributeValue": {
+            "type": "string",
+            "description": "Attribute Value"
+          },
+          "userId": {
+            "type": "string",
+            "description": "User Id"
+          },
+          "entityId": {
+            "type": "string",
+            "description": "Entity Id"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email"
+          },
+          "firstName": {
+            "type": "string",
+            "description": "First Name"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last Name"
+          },
+          "userType": {
+            "type": "string",
+            "description": "User Type"
           }
         },
         "required": [
