@@ -60,6 +60,25 @@
       }
     },
     {
+      "name": "getUserLabel",
+      "version": "0.1.0",
+      "handler": "GetUserLabel",
+      "skipAuth": true,
+      "schema": {
+        "title": "User Label",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
+          "hostId"
+        ]
+      }
+    },
+    {
       "name": "queryUserByWallet",
       "version": "0.1.0",
       "handler": "QueryUserByWallet",
