@@ -239,6 +239,79 @@
       }
     },
     {
+      "name": "getApiLabel",
+      "version": "0.1.0",
+      "handler": "GetApiLabel",
+      "skipAuth": true,
+      "schema": {
+        "title": "Api",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "getApiVersionLabel",
+      "version": "0.1.0",
+      "handler": "GetApiVersionLabel",
+      "skipAuth": true,
+      "schema": {
+        "title": "Api Version",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId"
+        ]
+      }
+    },
+    {
+      "name": "getEndpointLabel",
+      "version": "0.1.0",
+      "handler": "GetEndpointLabel",
+      "skipAuth": true,
+      "schema": {
+        "title": "Endpoint",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion"
+        ]
+      }
+    },
+
+    {
       "name": "getRefreshTokenDetail",
       "version": "0.1.0",
       "handler": "GetRefreshTokenDetail",
