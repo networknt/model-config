@@ -1282,6 +1282,26 @@
       }
     },
     {
+      "name": "getRoleId",
+      "version": "0.1.0",
+      "handler": "GetRoleId",
+      "skipAuth": true,
+      "schema": {
+        "title": "Role Id",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
+          "hostId"
+        ]
+      }
+    },
+
+    {
       "name": "getGroup",
       "version": "0.1.0",
       "handler": "GetGroup",
