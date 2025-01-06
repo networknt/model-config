@@ -738,24 +738,18 @@
             "title": "User Id",
             "type": "string"
           },
-          "entityId": {
-            "title": "Entity Id",
-            "type": "string"
+          "startTs": {
+            "title": "Start Timestamp",
+            "type": "string",
+            "format": "date-time"
           },
-          "email": {
-            "title": "Email",
-            "type": "string"
-          },
-          "startDate": {
-            "title": "Start Date",
-            "type": "date"
-          },
-          "endDate": {
-            "title": "End Date",
-            "type": "date"
+          "endTs": {
+            "title": "End Timestamp",
+            "type": "string",
+            "format": "date-time"
           }
         },
-        "required": ["hostId", "roleId", "startDate", "endDate"]
+        "required": ["hostId", "roleId", "userId"]
       }
     },
     {
@@ -942,24 +936,18 @@
             "title": "User Id",
             "type": "string"
           },
-          "entityId": {
-            "title": "Entity Id",
-            "type": "string"
+          "startTs": {
+            "title": "Start Timestamp",
+            "type": "string",
+            "format": "date-time"
           },
-          "email": {
-            "title": "Email",
-            "type": "string"
-          },
-          "startDate": {
-            "title": "Start Date",
-            "type": "date"
-          },
-          "endDate": {
-            "title": "End Date",
-            "type": "date"
+          "endTs": {
+            "title": "End Timestamp",
+            "type": "string",
+            "format": "date-time"
           }
         },
-        "required": ["hostId", "groupId", "startDate", "endDate"]
+        "required": ["hostId", "groupId", "userId"]
       }
     },
     {
@@ -1161,24 +1149,18 @@
             "title": "User Id",
             "type": "string"
           },
-          "entityId": {
-            "title": "Entity Id",
-            "type": "string"
+          "startTs": {
+            "title": "Start Timestamp",
+            "type": "string",
+            "format": "date-time"
           },
-          "email": {
-            "title": "Email",
-            "type": "string"
-          },
-          "startDate": {
-            "title": "Start Date",
-            "type": "date"
-          },
-          "endDate": {
-            "title": "End Date",
-            "type": "date"
+          "endTs": {
+            "title": "End Timestamp",
+            "type": "string",
+            "format": "date-time"
           }
         },
-        "required": ["hostId", "positionId", "startDate", "endDate"]
+        "required": ["hostId", "positionId", "userId"]
       }
     },
     {
@@ -1377,29 +1359,22 @@
             "title": "User Id",
             "type": "string"
           },
-          "entityId": {
-            "title": "Entity Id",
-            "type": "string"
+          "startTs": {
+            "title": "Start Timestamp",
+            "type": "string",
+            "format": "date-time"
           },
-          "email": {
-            "title": "Email",
-            "type": "string"
-          },
-          "startDate": {
-            "title": "Start Date",
-            "type": "date"
-          },
-          "endDate": {
-            "title": "End Date",
-            "type": "date"
+          "endTs": {
+            "title": "End Timestamp",
+            "type": "string",
+            "format": "date-time"
           }
         },
         "required": [
           "hostId",
           "attributeId",
           "attributeValue",
-          "startDate",
-          "endDate"
+          "userId"
         ]
       }
     },
