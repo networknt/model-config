@@ -220,6 +220,64 @@
       }
     },
     {
+      "name": "getServiceRule",
+      "version": "0.1.0",
+      "handler": "GetServiceRule",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service Rule",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion"
+        ]
+      }
+    },
+    {
+      "name": "getServicePermission",
+      "version": "0.1.0",
+      "handler": "GetServicePermission",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion"
+        ]
+      }
+    },
+    {
       "name": "getServiceRoleById",
       "version": "0.1.0",
       "handler": "GetServiceRoleById",
