@@ -1413,12 +1413,12 @@
       }
     },
     {
-      "name": "getRoleId",
+      "name": "getRoleLabel",
       "version": "0.1.0",
-      "handler": "GetRoleId",
+      "handler": "GetRoleLabel",
       "skipAuth": true,
       "schema": {
-        "title": "Role Id",
+        "title": "Role Label",
         "type": "object",
         "properties": {
           "hostId": {
@@ -1567,6 +1567,25 @@
         "required": [
           "offset",
           "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "getGroupLabel",
+      "version": "0.1.0",
+      "handler": "GetGroupLabel",
+      "skipAuth": true,
+      "schema": {
+        "title": "Group Label",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
           "hostId"
         ]
       }
@@ -1738,7 +1757,25 @@
         ]
       }
     },
-
+    {
+      "name": "getPositionLabel",
+      "version": "0.1.0",
+      "handler": "GetPositionLabel",
+      "skipAuth": true,
+      "schema": {
+        "title": "Position Label",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
+          "hostId"
+        ]
+      }
+    },
     {
       "name": "getAttribute",
       "version": "0.1.0",
@@ -1898,7 +1935,25 @@
         ]
       }
     },
-
+    {
+      "name": "getAttributeLabel",
+      "version": "0.1.0",
+      "handler": "GetAttributeLabel",
+      "skipAuth": true,
+      "schema": {
+        "title": "Attribute Label",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
+          "hostId"
+        ]
+      }
+    },
     {
       "name": "getConfig",
       "version": "0.1.0",
