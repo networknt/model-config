@@ -1431,7 +1431,96 @@
         ]
       }
     },
-
+    {
+      "name": "queryRoleRowFilter",
+      "version": "0.1.0",
+      "handler": "QueryRoleRowFilter",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Role Row Filter",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "roleId": {
+            "type": "string",
+            "description": "Role Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryRoleColFilter",
+      "version": "0.1.0",
+      "handler": "QueryRoleColFilter",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Role Col Filter",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "roleId": {
+            "type": "string",
+            "description": "Role Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
     {
       "name": "getGroup",
       "version": "0.1.0",
@@ -1586,6 +1675,96 @@
           }
         },
         "required": [
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryGroupRowFilter",
+      "version": "0.1.0",
+      "handler": "QueryGroupRowFilter",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Group Row Filter",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryGroupColFilter",
+      "version": "0.1.0",
+      "handler": "QueryGroupColFilter",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Group Col Filter",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
           "hostId"
         ]
       }
@@ -1777,6 +1956,96 @@
       }
     },
     {
+      "name": "queryPositionRowFilter",
+      "version": "0.1.0",
+      "handler": "QueryPositionRowFilter",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Position Row Filter",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryPositionColFilter",
+      "version": "0.1.0",
+      "handler": "QueryPositionColFilter",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Position Col Filter",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
       "name": "getAttribute",
       "version": "0.1.0",
       "handler": "GetAttribute",
@@ -1950,6 +2219,104 @@
           }
         },
         "required": [
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryAttributeRowFilter",
+      "version": "0.1.0",
+      "handler": "QueryAttributeRowFilter",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Attribute Row Filter",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "attributeId": {
+            "type": "string",
+            "description": "Attribute Id"
+          },
+          "attributeValue": {
+            "type": "string",
+            "description": "Attribute Value"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "queryAttributeColFilter",
+      "version": "0.1.0",
+      "handler": "QueryAttributeColFilter",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Attribute Col Filter",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "attributeId": {
+            "type": "string",
+            "description": "Attribute Id"
+          },
+          "attributeValue": {
+            "type": "string",
+            "description": "Attribute Value"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
           "hostId"
         ]
       }

@@ -843,7 +843,240 @@
         "required": ["hostId", "roleId", "apiId", "apiVersion", "endpoint"]
       }
     },
-
+    {
+      "name": "createRoleRowFilter",
+      "version": "0.1.0",
+      "handler": "CreateRoleRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "roleId": {
+            "title": "Role Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "colValue": {
+            "title": "Column Value",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "roleId", "apiId", "apiVersion", "endpoint", "colName", "operator", "colValue"]
+      }
+    },
+    {
+      "name": "updateRoleRowFilter",
+      "version": "0.1.0",
+      "handler": "UpdateRoleRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "roleId": {
+            "title": "Role Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "colValue": {
+            "title": "Column Value",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "roleId", "apiId", "apiVersion", "endpoint", "colName", "operator", "colValue"]
+      }
+    },
+    {
+      "name": "deleteRoleRowFilter",
+      "version": "0.1.0",
+      "handler": "DeleteRoleRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "roleId": {
+            "title": "Role Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "roleId", "apiId", "apiVersion", "endpoint", "colName"]
+      }
+    },
+    {
+      "name": "createRoleColFilter",
+      "version": "0.1.0",
+      "handler": "CreateRoleColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role Column Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "roleId": {
+            "title": "Role Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "columns": {
+            "title": "Columns",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "roleId", "apiId", "apiVersion", "endpoint", "columns"]
+      }
+    },
+    {
+      "name": "updateRoleColFilter",
+      "version": "0.1.0",
+      "handler": "UpdateRoleColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role Col Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "roleId": {
+            "title": "Role Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "columns": {
+            "title": "Columns",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "roleId", "apiId", "apiVersion", "endpoint", "columns"]
+      }
+    },
+    {
+      "name": "deleteRoleColFilter",
+      "version": "0.1.0",
+      "handler": "DeleteRoleColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Role Col Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "roleId": {
+            "title": "Role Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "roleId", "apiId", "apiVersion", "endpoint"]
+      }
+    },
     {
       "name": "createGroup",
       "version": "0.1.0",
@@ -973,6 +1206,240 @@
           }
         },
         "required": ["hostId", "groupId", "userId"]
+      }
+    },
+    {
+      "name": "createGroupRowFilter",
+      "version": "0.1.0",
+      "handler": "CreateGroupRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "colValue": {
+            "title": "Column Value",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "groupId", "apiId", "apiVersion", "endpoint", "colName", "operator", "colValue"]
+      }
+    },
+    {
+      "name": "updateGroupRowFilter",
+      "version": "0.1.0",
+      "handler": "UpdateGroupRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "colValue": {
+            "title": "Column Value",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "groupId", "apiId", "apiVersion", "endpoint", "colName", "operator", "colValue"]
+      }
+    },
+    {
+      "name": "deleteGroupRowFilter",
+      "version": "0.1.0",
+      "handler": "DeleteGroupRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "groupId", "apiId", "apiVersion", "endpoint", "colName"]
+      }
+    },
+    {
+      "name": "createGroupColFilter",
+      "version": "0.1.0",
+      "handler": "CreateGroupColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group Column Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "columns": {
+            "title": "Columns",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "groupId", "apiId", "apiVersion", "endpoint", "columns"]
+      }
+    },
+    {
+      "name": "updateGroupColFilter",
+      "version": "0.1.0",
+      "handler": "UpdateGroupColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group Col Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "columns": {
+            "title": "Columns",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "groupId", "apiId", "apiVersion", "endpoint", "columns"]
+      }
+    },
+    {
+      "name": "deleteGroupColFilter",
+      "version": "0.1.0",
+      "handler": "DeleteGroupColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Group Col Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "groupId": {
+            "title": "Group Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "groupId", "apiId", "apiVersion", "endpoint"]
       }
     },
     {
@@ -1254,7 +1721,240 @@
         "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint"]
       }
     },
-
+    {
+      "name": "createPositionRowFilter",
+      "version": "0.1.0",
+      "handler": "CreatePositionRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "colValue": {
+            "title": "Column Value",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint", "colName", "operator", "colValue"]
+      }
+    },
+    {
+      "name": "updatePositionRowFilter",
+      "version": "0.1.0",
+      "handler": "UpdatePositionRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "colValue": {
+            "title": "Column Value",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint", "colName", "operator", "colValue"]
+      }
+    },
+    {
+      "name": "deletePositionRowFilter",
+      "version": "0.1.0",
+      "handler": "DeletePositionRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint", "colName"]
+      }
+    },
+    {
+      "name": "createPositionColFilter",
+      "version": "0.1.0",
+      "handler": "CreatePositionColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Column Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "columns": {
+            "title": "Columns",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint", "columns"]
+      }
+    },
+    {
+      "name": "updatePositionColFilter",
+      "version": "0.1.0",
+      "handler": "UpdatePositionColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Col Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "columns": {
+            "title": "Columns",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint", "columns"]
+      }
+    },
+    {
+      "name": "deletePositionColFilter",
+      "version": "0.1.0",
+      "handler": "DeletePositionColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Col Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint"]
+      }
+    },
     {
       "name": "createAttribute",
       "version": "0.1.0",
@@ -1480,7 +2180,256 @@
         "required": ["hostId", "attributeId", "apiId", "apiVersion", "endpoint"]
       }
     },
-
+    {
+      "name": "createAttributeRowFilter",
+      "version": "0.1.0",
+      "handler": "CreateAttributeRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "attributeId": {
+            "title": "Attribute Id",
+            "type": "string"
+          },
+          "attributeValue": {
+            "title": "Attribute Value",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "colValue": {
+            "title": "Column Value",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "attributeId", "attributeValue", "apiId", "apiVersion", "endpoint", "colName", "operator", "colValue"]
+      }
+    },
+    {
+      "name": "updateAttributeRowFilter",
+      "version": "0.1.0",
+      "handler": "UpdateAttributeRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "attributeId": {
+            "title": "Attribute Id",
+            "type": "string"
+          },
+          "attributeValue": {
+            "title": "Attribute Value",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "colValue": {
+            "title": "Column Value",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "attributeId", "attributeValue", "apiId", "apiVersion", "endpoint", "colName", "operator", "colValue"]
+      }
+    },
+    {
+      "name": "deleteAttributeRowFilter",
+      "version": "0.1.0",
+      "handler": "DeleteAttributeRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "attributeId": {
+            "title": "Attribute Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "attributeId", "apiId", "apiVersion", "endpoint", "colName"]
+      }
+    },
+    {
+      "name": "createAttributeColFilter",
+      "version": "0.1.0",
+      "handler": "CreateAttributeColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute Column Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "attributeId": {
+            "title": "Attribute Id",
+            "type": "string"
+          },
+          "attributeValue": {
+            "title": "Attribute Value",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "columns": {
+            "title": "Columns",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "attributeId", "attributeValue", "apiId", "apiVersion", "endpoint", "columns"]
+      }
+    },
+    {
+      "name": "updateAttributeColFilter",
+      "version": "0.1.0",
+      "handler": "UpdateAttributeColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute Col Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "attributeId": {
+            "title": "Attribute Id",
+            "type": "string"
+          },
+          "attributeValue": {
+            "title": "Attribute Value",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "columns": {
+            "title": "Columns",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "attributeId", "attributeValue", "apiId", "apiVersion", "endpoint", "columns"]
+      }
+    },
+    {
+      "name": "deleteAttributeColFilter",
+      "version": "0.1.0",
+      "handler": "DeleteAttributeColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Attribute Col Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "attributeId": {
+            "title": "Attribute Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "attributeId", "apiId", "apiVersion", "endpoint"]
+      }
+    },
     {
       "name": "createRefreshToken",
       "version": "0.1.0",
