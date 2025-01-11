@@ -2,7 +2,7 @@
 # A light-codegen config file to generate a single module petstore project with Maven build
 version: 3.1.0
 groupId: com.networknt
-artifactId: petstore
+artifactId: openapi-petstore
 rootPackage: com.networknt.petstore
 supportClient: true
 httpsPort: 9443
