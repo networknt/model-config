@@ -16,9 +16,7 @@
             "description": "user email address"
           }
         },
-        "required": [
-          "email"
-        ]
+        "required": ["email"]
       }
     },
     {
@@ -35,13 +33,11 @@
             "description": "A unique user id"
           }
         },
-        "required": [
-          "userId"
-        ]
+        "required": ["userId"]
       }
     },
     {
-      "name": "queryUserByTypeEndityId",
+      "name": "queryUserByTypeEntityId",
       "version": "0.1.0",
       "handler": "QueryUserByTypeEntityId",
       "scope": "portal.r",
@@ -58,10 +54,7 @@
             "description": "A unique user id for the type"
           }
         },
-        "required": [
-          "userType",
-          "entityId"
-        ]
+        "required": ["userType", "entityId"]
       }
     },
     {
@@ -78,9 +71,7 @@
             "description": "User Id"
           }
         },
-        "required": [
-          "userId"
-        ]
+        "required": ["userId"]
       }
     },
     {
@@ -97,9 +88,7 @@
             "description": "Host Id"
           }
         },
-        "required": [
-          "hostId"
-        ]
+        "required": ["hostId"]
       }
     },
     {
@@ -116,9 +105,7 @@
             "description": "user taiji wallet address"
           }
         },
-        "required": [
-          "taijiWallet"
-        ]
+        "required": ["taijiWallet"]
       }
     },
     {
@@ -137,10 +124,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "email",
-          "password"
-        ]
+        "required": ["email", "password"]
       }
     },
     {
@@ -156,9 +140,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "email"
-        ]
+        "required": ["email"]
       }
     },
     {
@@ -174,9 +156,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "email"
-        ]
+        "required": ["email"]
       }
     },
     {
@@ -193,9 +173,7 @@
             "description": "user host indicator the organization for user"
           }
         },
-        "required": [
-          "host"
-        ]
+        "required": ["host"]
       }
     },
     {
@@ -212,9 +190,7 @@
             "description": "Merchant user email address"
           }
         },
-        "required": [
-          "email"
-        ]
+        "required": ["email"]
       }
     },
     {
@@ -231,9 +207,7 @@
             "description": "A unique user id"
           }
         },
-        "required": [
-          "userId"
-        ]
+        "required": ["userId"]
       }
     },
     {
@@ -254,10 +228,7 @@
             "description": "Merchant Id"
           }
         },
-        "required": [
-          "userId",
-          "merchantId"
-        ]
+        "required": ["userId", "merchantId"]
       }
     },
     {
@@ -282,11 +253,7 @@
             "description": "Record Limit"
           }
         },
-        "required": [
-          "email",
-          "offset",
-          "limit"
-        ]
+        "required": ["email", "offset", "limit"]
       }
     },
     {
@@ -315,12 +282,7 @@
             "description": "Record Limit"
           }
         },
-        "required": [
-          "email",
-          "status",
-          "offset",
-          "limit"
-        ]
+        "required": ["email", "status", "offset", "limit"]
       }
     },
     {
@@ -349,9 +311,7 @@
             "description": "From value in rela"
           }
         },
-        "required": [
-          "name"
-        ]
+        "required": ["name"]
       }
     },
     {
@@ -378,10 +338,7 @@
             "description": "Record Limit"
           }
         },
-        "required": [
-          "offset",
-          "limit"
-        ]
+        "required": ["offset", "limit"]
       }
     },
     {
@@ -398,9 +355,7 @@
             "description": "Merchant Email"
           }
         },
-        "required": [
-          "email"
-        ]
+        "required": ["email"]
       }
     }
   ]
