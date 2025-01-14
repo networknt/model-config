@@ -11,12 +11,9 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "user host indicator the organization for user",
-            "enum": [
-              "lightapi.net"
-            ]
+            "description": "user host indicator the organization for user"
           },
           "email": {
             "type": "string",
@@ -26,6 +23,18 @@
           "userId": {
             "type": "string",
             "description": "a unique user id"
+          },
+          "userType": {
+            "title": "User Type",
+            "type": "string"
+          },
+          "referralId": {
+            "type": "string",
+            "title": "Referral Id or Email"
+          },
+          "managerId": {
+            "type": "string",
+            "title": "Manager Id or Email"
           },
           "language": {
             "type": "string",
@@ -50,6 +59,10 @@
             "type": "string",
             "description": "firstName of the user"
           },
+          "phoneNumber": {
+            "type": "string",
+            "title": "Phone Number"
+          },
           "gender": {
             "type": "string",
             "description": "user gender type",
@@ -62,10 +75,6 @@
             "type": "string",
             "format": "date",
             "description": "birthday of the user"
-          },
-          "taijiWallet": {
-            "type": "string",
-            "description": "taiji blockchain wallet address"
           },
           "country": {
             "type": "string",
@@ -89,15 +98,13 @@
           }
         },
         "required": [
-          "host",
+          "hostId",
           "email",
           "userId",
+          "userType",
           "language",
           "password",
-          "passwordConfirm",
-          "firstName",
-          "lastName",
-          "gender"          
+          "passwordConfirm"
         ]
       }
     },
@@ -110,7 +117,7 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "host": {
+          "hostId": {
             "type": "string",
             "description": "user host indicator the organization for user"
           },
@@ -121,6 +128,10 @@
           "userId": {
             "type": "string",
             "description": "a unique user id"
+          },
+          "userType": {
+            "title": "User Type",
+            "type": "string"
           },
           "language": {
             "type": "string",
@@ -136,12 +147,11 @@
           }
         },
         "required": [
-          "host",
+          "hostId",
           "email",
           "userId",
-          "language",
-          "firstName",
-          "lastName"
+          "userType",
+          "language"
         ]
       }
     },

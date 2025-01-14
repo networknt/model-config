@@ -41,6 +41,30 @@
       }
     },
     {
+      "name": "queryUserByTypeEndityId",
+      "version": "0.1.0",
+      "handler": "QueryUserByTypeEntityId",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "userType": {
+            "type": "string",
+            "description": "User Type"
+          },
+          "entityId": {
+            "type": "string",
+            "description": "A unique user id for the type"
+          }
+        },
+        "required": [
+          "userType",
+          "entityId"
+        ]
+      }
+    },
+    {
       "name": "getNonceByUserId",
       "version": "0.1.0",
       "handler": "GetNonceByUserId",
