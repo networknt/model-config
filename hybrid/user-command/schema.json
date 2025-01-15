@@ -20,9 +20,9 @@
             "pattern": "^\\S+@\\S+$",
             "description": "user email address"
           },
-          "userId": {
+          "entityId": {
             "type": "string",
-            "description": "a unique user id"
+            "description": "a unique entity id for user type"
           },
           "userType": {
             "title": "User Type",
@@ -65,11 +65,7 @@
           },
           "gender": {
             "type": "string",
-            "description": "user gender type",
-            "enum": [
-              "F",
-              "M"
-            ]
+            "description": "user gender type"
           },
           "birthday": {
             "type": "string",
@@ -100,7 +96,7 @@
         "required": [
           "hostId",
           "email",
-          "userId",
+          "entityId",
           "userType",
           "language",
           "password",
@@ -164,12 +160,16 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "email": {
+          "hostId": {
+            "type": "string"
+          },
+          "userId": {
             "type": "string"
           }
         },
         "required": [
-          "email"
+          "hostId",
+          "userId"
         ]
       }
     },
