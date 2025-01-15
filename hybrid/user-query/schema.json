@@ -160,20 +160,100 @@
       }
     },
     {
-      "name": "listUser",
+      "name": "listUserByHostId",
       "version": "0.1.0",
-      "handler": "ListUserByHost",
+      "handler": "ListUserByHostId",
       "scope": "portal.r",
       "schema": {
         "title": "Service",
         "type": "object",
         "properties": {
-          "host": {
+          "hostId": {
             "type": "string",
-            "description": "user host indicator the organization for user"
+            "description": "user hostId"
+          },
+          "offset" : {
+            "type" : "integer",
+            "description" : "Record Offset"
+          },
+          "limit" : {
+            "type" : "integer",
+            "description" : "Record Limit"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "Email"
+          },
+          "language" : {
+            "type" : "string",
+            "description" : "Language"
+          },
+          "userType" : {
+            "type" : "string",
+            "description" : "User Type"
+          },
+          "entityId" : {
+            "type" : "string",
+            "description" : "Entity Id"
+          },
+          "referralId" : {
+            "type" : "string",
+            "description" : "Referral Id"
+          },
+          "managerId" : {
+            "type" : "string",
+            "description" : "Manager Id"
+          },
+          "firstName" : {
+            "type" : "string",
+            "description" : "First Name"
+          },
+          "lastName" : {
+            "type" : "string",
+            "description" : "Last Name"
+          },
+          "phoneNumber" : {
+            "type" : "string",
+            "description" : "Phone Number"
+          },
+          "gender" : {
+            "type": "string",
+            "description": "Gender"
+          },
+          "birthday" : {
+            "type": "string",
+            "description": "Birthday"
+          },
+          "country" : {
+            "type": "string",
+            "description": "Country"
+          },
+          "province" : {
+            "type": "string",
+            "description": "Province"
+          },
+          "city" : {
+            "type": "string",
+            "description": "City"
+          },
+          "address" : {
+            "type": "string",
+            "description": "Address"
+          },
+          "postCode" : {
+            "type": "string",
+            "description": "Post Code"
+          },
+          "verified" : {
+            "type": "boolean",
+            "description": "Verified"
+          },
+          "locked" : {
+            "type": "boolean",
+            "description": "Locked"
           }
         },
-        "required": ["host"]
+        "required": ["hostId", "offset", "limit"]
       }
     },
     {
