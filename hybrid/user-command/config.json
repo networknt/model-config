@@ -23,5 +23,6 @@
   "kafkaProducer": true,
   "kafkaConsumer": false,
   "supportAvro": true,
-  "kafkaTopic": "portal-event"
+  "kafkaTopic": "portal-event",
+  "buildMaven": true
 }

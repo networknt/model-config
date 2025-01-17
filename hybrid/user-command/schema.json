@@ -182,83 +182,89 @@
         "title": "Service",
         "type": "object",
         "properties": {
-          "host": {
-            "type": "string",
-            "description": "user host indicator the organization for user",
-            "enum": [
-              "lightapi.net"
-            ]
+          "hostId" : {
+            "type" : "string",
+            "description" : "user host indicator the organization for user"
           },
-          "email": {
-            "type": "string",
-            "pattern": "^\\S+@\\S+$",
-            "description": "email address of the user"
+          "email" : {
+            "type" : "string",
+            "pattern" : "^\\S+@\\S+$",
+            "description" : "email address of the user"
           },
-          "userId": {
-            "type": "string",
-            "description": "a unique user id"
+          "userId" : {
+            "type" : "string",
+            "description" : "a unique user id"
           },
-          "language": {
+          "entityId": {
             "type": "string",
-            "description": "preferred language of user",
-            "enum": [
-              "en"
-            ]
+            "title": "Entity Id"
           },
-          "firstName": {
+          "userType": {
             "type": "string",
-            "description": "firstName of the user"
+            "title": "User Type"
           },
-          "lastName": {
+          "referralId": {
             "type": "string",
-            "description": "firstName of the user"
+            "title": "Referral Id or Email"
           },
-          "gender": {
+          "managerId": {
             "type": "string",
-            "description": "user gender type",
-            "enum": [
-              "F",
-              "M"
-            ]
+            "title": "Manager Id or Email"
           },
-          "birthday": {
-            "type": "string",
-            "format": "date",
-            "description": "birthday of the user"
+          "language" : {
+            "type" : "string",
+            "description" : "preferred language of user",
+            "enum" : [ "en" ]
           },
-          "taijiWallet": {
-            "type": "string",
-            "description": "taiji blockchain wallet address"
+          "firstName" : {
+            "type" : "string",
+            "description" : "firstName of the user"
           },
-          "country": {
-            "type": "string",
-            "description": "country name"
+          "lastName" : {
+            "type" : "string",
+            "description" : "firstName of the user"
           },
-          "province": {
+          "phoneNumber": {
             "type": "string",
-            "description": "province or state name"
+            "title": "Phone Number"
           },
-          "city": {
-            "type": "string",
-            "description": "city name"
+          "gender" : {
+            "type" : "string",
+            "description" : "user gender type"
           },
-          "postCode": {
-            "type": "string",
-            "description": "postCode or zipCode"
+          "birthday" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "birthday of the user"
           },
-          "address": {
-            "type": "string",
-            "description": "address"
+          "country" : {
+            "type" : "string",
+            "description" : "country name"
+          },
+          "province" : {
+            "type" : "string",
+            "description" : "province or state name"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "city name"
+          },
+          "postCode" : {
+            "type" : "string",
+            "description" : "postCode or zipCode"
+          },
+          "address" : {
+            "type" : "string",
+            "description" : "address"
           }
         },
         "required": [
-          "host",
+          "hostId",
           "email",
           "userId",
-          "language",
-          "firstName",
-          "lastName",
-          "gender"
+          "entityId",
+          "userType",
+          "language"
         ]
       }
     },
@@ -364,6 +370,29 @@
         "required": [
           "email",
           "token"
+        ]
+      }
+    },
+    {
+      "name": "verifyUser",
+      "version": "0.1.0",
+      "handler": "VerifyUser",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "userId": {
+            "type": "string",
+            "description": "User Id"
+          }
+        },
+        "required": [
+          "hostId",
+          "userId"
         ]
       }
     },

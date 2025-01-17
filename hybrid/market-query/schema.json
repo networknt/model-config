@@ -131,6 +131,14 @@
         "title": "Service Endpoint",
         "type": "object",
         "properties": {
+          "limit" : {
+            "type" : "integer",
+            "description" : "Record Limit"
+          },
+          "offset" : {
+            "type" : "integer",
+            "description" : "Record Offset"
+          },
           "hostId": {
             "type": "string",
             "description": "Host Id"
@@ -142,9 +150,27 @@
           "apiVersion": {
             "type": "string",
             "description": "Api Version"
+          },
+          "endpoint" : {
+            "type" : "string",
+            "description" : "Endpoint"
+          },
+          "method" : {
+            "type" : "string",
+            "description" : "Method"
+          },
+          "path" : {
+            "type" : "string",
+            "description" : "Path"
+          },
+          "desc" : {
+            "type" : "string",
+            "description" : "Desc"
           }
         },
         "required": [
+          "limit", 
+          "offset", 
           "hostId",
           "apiId",
           "apiVersion"
