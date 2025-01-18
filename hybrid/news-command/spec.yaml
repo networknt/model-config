@@ -1,0 +1,178 @@
+---
+host: lightapi.net
+service: news
+schemas:
+  createNewsRequest:
+    title: Create News
+    type: object
+    properties:
+      host:
+        type: string
+        description: News Host
+      id:
+        type: string
+        description: Id
+      status:
+        type: string
+        description: Status
+        enum:
+        - draft
+        - published
+      title:
+        type: string
+        description: Title
+      body:
+        type: string
+        description: Body
+      summary:
+        type: string
+        description: Summary
+      categories:
+        type: array
+        description: Categories
+        maxItems: 10
+        items:
+          type: string
+      tags:
+        type: array
+        description: Tags
+        maxItems: 10
+        items:
+          type: string
+      commentStatus:
+        type: string
+        description: Comment Open or Closed
+        default: O
+        enum:
+        - O
+        - C
+    required:
+    - host
+    - id
+    - status
+    - title
+    - body
+    - summary
+    - categories
+    - tags
+    - commentStatus
+  updateNewsRequest:
+    title: Update News
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Id
+      status:
+        type: string
+        description: Status
+        enum:
+        - draft
+        - published
+      title:
+        type: string
+        description: Title
+      body:
+        type: string
+        description: Body
+      summary:
+        type: string
+        description: Summary
+      categories:
+        type: array
+        description: Categories
+        maxItems: 10
+        items:
+          type: string
+      tags:
+        type: array
+        description: Tags
+        maxItems: 10
+        items:
+          type: string
+      commentStatus:
+        type: string
+        description: Comment Open or Closed
+        default: O
+        enum:
+        - O
+        - C
+    required:
+    - host
+    - id
+    - status
+    - title
+    - body
+    - summary
+    - categories
+    - tags
+    - commentStatus
+  deleteNewsRequest:
+    title: Delete News
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: News Id
+    required:
+    - host
+    - id
+action:
+- name: createNews
+  version: 0.1.0
+  handler: CreateNews
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createNewsRequest'
+    example: 
+      host: host123
+      id: news123
+      status: draft
+      title: "My News Article"
+      body: "This is the content of my news article."
+      summary: "This is a summary of the article."
+      categories:
+        - "tech"
+        - "general"
+      tags:
+        - "java"
+        - "updates"
+      commentStatus: O
+- name: updateNews
+  version: 0.1.0
+  handler: UpdateNews
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateNewsRequest'
+    example: 
+      host: host123
+      id: news123
+      status: published
+      title: "Updated News Title"
+      body: "This is the updated content of the article."
+      summary: "Updated summary"
+      categories:
+        - "tech"
+        - "cloud"
+      tags:
+        - "docker"
+        - "kubernetes"
+      commentStatus: C
+- name: deleteNews
+  version: 0.1.0
+  handler: DeleteNews
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteNewsRequest'
+    example: 
+      host: host123
+      id: news123

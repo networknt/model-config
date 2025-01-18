@@ -1,0 +1,167 @@
+{
+  "host": "lightapi.net",
+  "service": "news",
+  "action": [
+    {
+      "name": "createNews",
+      "version": "0.1.0",
+      "handler": "CreateNews",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create News",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "News Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": ["draft", "published"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Summary"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum": ["O", "C"]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "title",
+          "body",
+          "summary",
+          "categories",
+          "tags",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "updateNews",
+      "version": "0.1.0",
+      "handler": "UpdateNews",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update News",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": ["draft", "published"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Summary"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum": ["O", "C"]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "title",
+          "body",
+          "summary",
+          "categories",
+          "tags",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "deleteNews",
+      "version": "0.1.0",
+      "handler": "DeleteNews",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete News",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "News Id"
+          }
+        },
+        "required": ["host", "id"]
+      }
+    }
+  ]
+}    
