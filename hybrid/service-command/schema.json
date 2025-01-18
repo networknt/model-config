@@ -1,0 +1,485 @@
+{
+  "host": "lightapi.net",
+  "service": "service",
+  "action": [
+    {
+      "name": "createService",
+      "version": "0.1.0",
+      "handler": "CreateService",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiName": {
+            "type": "string",
+            "description": "Api Name"
+          },
+          "apiType": {
+            "title": "Api Type",
+            "type": "string"
+          },
+          "apiDesc": {
+            "title": "Api Desc",
+            "type": "string"
+          },
+          "operationOwner": {
+            "title": "Operation Owner",
+            "type": "string"
+          },
+          "deliveryOwner": {
+            "title": "Delivery Owner",
+            "type": "string"
+          },
+          "region": {
+            "title": "Region",
+            "type": "string"
+          },
+          "businessGroup": {
+            "title": "Business Group",
+            "type": "string"
+          },
+          "lob": {
+            "type": "string",
+            "title": "Line of Business"
+          },
+          "platform": {
+            "type": "string",
+            "title": "platform"
+          },
+          "capability": {
+            "type": "string",
+            "title": "Capability"
+          },
+          "gitRepo": {
+            "type": "string",
+            "title": "Git Repo"
+          },
+          "apiTags": {
+            "title": "Tags",
+            "type": "string"
+          },
+          "apiStatus": {
+            "title": "Api Status",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "apiId", "apiName", "apiType", "apiStatus"]
+      }
+    },
+    {
+      "name": "updateService",
+      "version": "0.1.0",
+      "handler": "UpdateService",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiName": {
+            "type": "string",
+            "description": "Api Name"
+          },
+          "apiType": {
+            "title": "Api Type",
+            "type": "string"
+          },
+          "apiDesc": {
+            "title": "Api Desc",
+            "type": "string"
+          },
+          "operationOwner": {
+            "title": "Operation Owner",
+            "type": "string"
+          },
+          "deliveryOwner": {
+            "title": "Delivery Owner",
+            "type": "string"
+          },
+          "region": {
+            "title": "Region",
+            "type": "string"
+          },
+          "businessGroup": {
+            "title": "Business Group",
+            "type": "string"
+          },
+          "lob": {
+            "type": "string",
+            "title": "Line of Business"
+          },
+          "platform": {
+            "type": "string",
+            "title": "platform"
+          },
+          "capability": {
+            "type": "string",
+            "title": "Capability"
+          },
+          "gitRepo": {
+            "type": "string",
+            "title": "Git Repo"
+          },
+          "apiTags": {
+            "title": "Tags",
+            "type": "string"
+          },
+          "apiStatus": {
+            "title": "Api Status",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "apiId", "apiName", "apiType", "apiStatus"]
+      }
+    },
+    {
+      "name": "deleteService",
+      "version": "0.1.0",
+      "handler": "DeleteService",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "HostId"
+          }
+        },
+        "required": ["apiId", "hostId"]
+      }
+    },
+    {
+      "name": "updateServiceSpec",
+      "version": "0.1.0",
+      "handler": "UpdateServiceSpec",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "API Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "API Version"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          },
+          "apiVersionDesc": {
+            "type": "string",
+            "description": "Api Version Desc"
+          },
+          "specLink": {
+            "type": "string",
+            "description": "Spec Link"
+          },
+          "spec": {
+            "type": "string",
+            "description": "API Specification"
+          }
+        },
+        "required": ["hostId", "apiId", "apiVersion", "spec"]
+      }
+    },
+    {
+      "name": "updateServiceFilter",
+      "version": "0.1.0",
+      "handler": "UpdateServiceFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ruleId": {
+                  "type": "string",
+                  "description": "Rule Id"
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Rule roles"
+                },
+                "variables": {
+                  "type": "string",
+                  "description": "Rule variables"
+                }
+              },
+              "required": ["ruleId"]
+            }
+          }
+        },
+        "required": ["serviceId", "host", "filters"]
+      }
+    },
+    {
+      "name": "updateServiceAccess",
+      "version": "0.1.0",
+      "handler": "UpdateServiceAccess",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          },
+          "accesses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ruleId": {
+                  "type": "string",
+                  "description": "Rule Id"
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Rule roles"
+                },
+                "variables": {
+                  "type": "string",
+                  "description": "Rule variables"
+                }
+              },
+              "required": ["ruleId"]
+            }
+          }
+        },
+        "required": ["serviceId", "host", "accesses"]
+      }
+    },
+    {
+      "name": "createServiceVersion",
+      "version": "0.1.0",
+      "handler": "CreateServiceVersion",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service Version",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          },
+          "apiVersionDesc": {
+            "type": "string",
+            "description": "Api Version Desc"
+          },
+          "specLink": {
+            "title": "Spec Link",
+            "type": "string"
+          },
+          "spec": {
+            "title": "Spec",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "apiId", "apiVersion", "serviceId"]
+      }
+    },
+    {
+      "name": "updateServiceVersion",
+      "version": "0.1.0",
+      "handler": "UpdateServiceVersion",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service Version",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          },
+          "apiVersionDesc": {
+            "title": "Api Version Desc",
+            "type": "string"
+          },
+          "specLink": {
+            "type": "string",
+            "description": "Spec Link"
+          },
+          "spec": {
+            "title": "Spec",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "apiId", "apiVersion"]
+      }
+    },
+    {
+      "name": "deleteServiceVersion",
+      "version": "0.1.0",
+      "handler": "DeleteServiceVersion",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service Version",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          }
+        },
+        "required": ["hostId", "apiId", "apiVersion"]
+      }
+    },
+    {
+      "name": "createEndpointRule",
+      "version": "0.1.0",
+      "handler": "CreateEndpointRule",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service Endpoint Rule",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Api Endpoint"
+          },
+          "ruleId": {
+            "title": "Rule Id",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "apiId", "apiVersion", "endpoint", "ruleId"]
+      }
+    },
+    {
+      "name": "deleteEndpointRule",
+      "version": "0.1.0",
+      "handler": "DeleteEndpointRule",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service Endpoint Rule",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Api Endpoint"
+          },
+          "ruleId": {
+            "title": "Rule Id",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "apiId", "apiVersion", "endpoint", "ruleId"]
+      }
+    }
+  ]
+}
