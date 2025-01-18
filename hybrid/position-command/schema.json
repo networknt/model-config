@@ -1,0 +1,453 @@
+{
+  "host": "lightapi.net",
+  "service": "position",
+  "action": [
+    {
+      "name": "createPosition",
+      "version": "0.1.0",
+      "handler": "CreatePosition",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          },
+          "positionDesc": {
+            "title": "Position Desc",
+            "type": "string"
+          },
+          "inheritToAncestor": {
+            "title": "Inherit To Ancestor",
+            "type": "string"
+          },
+          "inheritToSibling": {
+            "title": "Inherit To Sibling",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId"]
+      }
+    },
+    {
+      "name": "updatePosition",
+      "version": "0.1.0",
+      "handler": "UpdatePosition",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          },
+          "positionDesc": {
+            "title": "Position Desc",
+            "type": "string"
+          },
+          "inheritToAncestor": {
+            "title": "Inherit To Ancestor",
+            "type": "string"
+          },
+          "inheritToSibling": {
+            "title": "Inherit To Sibling",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "positionDesc"]
+      }
+    },
+    {
+      "name": "deletePosition",
+      "version": "0.1.0",
+      "handler": "DeletePosition",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "positionId": {
+            "type": "string",
+            "description": "Position Id"
+          }
+        },
+        "required": ["hostId", "positionId"]
+      }
+    },
+    {
+      "name": "createPositionUser",
+      "version": "0.1.0",
+      "handler": "CreatePositionUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position User",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "userId": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "startTs": {
+            "title": "Start Timestamp",
+            "type": "string",
+            "format": "date-time"
+          },
+          "endTs": {
+            "title": "End Timestamp",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": ["hostId", "positionId", "userId"]
+      }
+    },
+    {
+      "name": "deletePositionUser",
+      "version": "0.1.0",
+      "handler": "DeletePositionUser",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position User",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "userId": {
+            "title": "User Id",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "userId"]
+      }
+    },
+    {
+      "name": "createPositionPermission",
+      "version": "0.1.0",
+      "handler": "CreatePositionPermission",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint"]
+      }
+    },
+    {
+      "name": "deletePositionPermission",
+      "version": "0.1.0",
+      "handler": "DeletePositionPermission",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint"]
+      }
+    },
+    {
+      "name": "createPositionRowFilter",
+      "version": "0.1.0",
+      "handler": "CreatePositionRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "colValue": {
+            "title": "Column Value",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint", "colName", "operator", "colValue"]
+      }
+    },
+    {
+      "name": "updatePositionRowFilter",
+      "version": "0.1.0",
+      "handler": "UpdatePositionRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          },
+          "operator": {
+            "title": "Operator",
+            "type": "string"
+          },
+          "colValue": {
+            "title": "Column Value",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint", "colName", "operator", "colValue"]
+      }
+    },
+    {
+      "name": "deletePositionRowFilter",
+      "version": "0.1.0",
+      "handler": "DeletePositionRowFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Row Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "colName": {
+            "title": "Column Name",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint", "colName"]
+      }
+    },
+    {
+      "name": "createPositionColFilter",
+      "version": "0.1.0",
+      "handler": "CreatePositionColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Column Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "columns": {
+            "title": "Columns",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint", "columns"]
+      }
+    },
+    {
+      "name": "updatePositionColFilter",
+      "version": "0.1.0",
+      "handler": "UpdatePositionColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Col Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          },
+          "columns": {
+            "title": "Columns",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint", "columns"]
+      }
+    },
+    {
+      "name": "deletePositionColFilter",
+      "version": "0.1.0",
+      "handler": "DeletePositionColFilter",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Position Col Filter",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "title": "Host Id",
+            "type": "string"
+          },
+          "positionId": {
+            "title": "Position Id",
+            "type": "string"
+          },
+          "apiId": {
+            "title": "Api Id",
+            "type": "string"
+          },
+          "apiVersion": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "endpoint": {
+            "title": "Endpoint",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "positionId", "apiId", "apiVersion", "endpoint"]
+      }
+    }
+  ]
+}    
