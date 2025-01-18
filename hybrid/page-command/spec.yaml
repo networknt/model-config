@@ -1,0 +1,104 @@
+---
+host: lightapi.net
+service: page
+schemas:
+  createPageRequest:
+    title: Create Page
+    type: object
+    properties:
+      host:
+        type: string
+        description: News Host
+      id:
+        type: string
+        description: Id
+      body:
+        type: string
+        description: Body
+      tags:
+        type: array
+        description: Tags
+        maxItems: 10
+        items:
+          type: string
+    required:
+    - host
+    - id
+    - body
+    - tags
+  updatePageRequest:
+    title: Update Page
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Id
+      body:
+        type: string
+        description: Body
+      tags:
+        type: array
+        description: Tags
+        maxItems: 10
+        items:
+          type: string
+    required:
+    - host
+    - id
+    - body
+    - tags
+  deletePageRequest:
+    title: Delete Page
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Page Id
+    required:
+    - host
+    - id
+action:
+- name: createPage
+  version: 0.1.0
+  handler: CreatePage
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createPageRequest'
+    example: 
+      host: host123
+      id: page123
+      body: "This is the content of my page."
+      tags:
+        - "tech"
+        - "programming"
+- name: updatePage
+  version: 0.1.0
+  handler: UpdatePage
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updatePageRequest'
+    example: 
+      host: host123
+      id: page123
+      body: "This is the updated content of my page."
+      tags:
+        - "tech"
+        - "devops"
+- name: deletePage
+  version: 0.1.0
+  handler: DeletePage
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deletePageRequest'
+    example: 
+      host: host123
+      id: page123

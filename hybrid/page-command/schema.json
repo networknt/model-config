@@ -1,0 +1,93 @@
+{
+  "host": "lightapi.net",
+  "service": "page",
+  "action": [
+    {
+      "name": "createPage",
+      "version": "0.1.0",
+      "handler": "CreatePage",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Page",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Page Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["host", "id", "body", "tags"]
+      }
+    },
+    {
+      "name": "updatePage",
+      "version": "0.1.0",
+      "handler": "UpdatePage",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Page",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["host", "id", "body", "tags"]
+      }
+    },
+    {
+      "name": "deletePage",
+      "version": "0.1.0",
+      "handler": "DeletePage",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Page",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Page Id"
+          }
+        },
+        "required": ["host", "id"]
+      }
+    }
+  ]
+}    

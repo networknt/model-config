@@ -1,4 +1,4 @@
-This is the attribute-command for the portal API attribute management as part of the light-portal service. This service is reponsible for updating the attributes to serve the UI of the light-portal.
+This is the attribute-command for the portal API attribute management as part of the light-portal service. This service is reponsible for updating the attribute to serve the UI of the light-portal.
 
 Generate the project to the attribute-command folder
 
