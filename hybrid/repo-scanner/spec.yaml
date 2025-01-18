@@ -1,0 +1,31 @@
+---
+host: lightapi.net
+service: scanner
+schemas:
+  scanGitHubRepoRequest:
+    title: GitHub Repository Scanner
+    type: object
+    properties:
+      repoUrl:
+        type: string
+        description: repository name on git server
+      oauth2Token:
+        type: string
+        description: oauth2 token to access the repository
+      configUrl:
+        type: string
+        description: url to access the light-bot config file
+    required:
+    - repoUrl
+action:
+- name: scanGitHubRepo
+  version: 0.1.0
+  handler: GitHubRepoScanner
+  scope: github.scanner.r
+  request:
+    schema:
+      $ref: '#/schemas/scanGitHubRepoRequest'
+    example: 
+      repoUrl: "github.com"
+      oauth2Token: "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      configUrl: "raw.githubusercontent.com"

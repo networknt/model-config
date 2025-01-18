@@ -1,6 +1,6 @@
 {
   "host": "lightapi.net",
-  "service": "market",
+  "service": "attribute",
   "action": [
     {
       "name": "getAttribute",
@@ -277,33 +277,6 @@
           "hostId"
         ]
       }
-    },
-    {
-      "name": "getConfig",
-      "version": "0.1.0",
-      "handler": "GetConfig",
-      "scope": "portal.r",
-      "schema": {
-        "title": "Get all configurations",
-        "type": "object"
-      }
-    },
-    {
-      "name": "getConfigById",
-      "version": "0.1.0",
-      "handler": "GetConfigById",
-      "scope": "portal.r",
-      "schema": {
-        "title": "Get Configurations by Id",
-        "type": "object",
-        "properties": {
-          "configId": {
-            "type": "string",
-            "description": "Config Id"
-          }
-        }
-      }
     }
-
   ]
-}
+}    

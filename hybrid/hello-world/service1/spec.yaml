@@ -1,0 +1,43 @@
+---
+host: lightapi.net
+service: service1
+schemas:
+  queryRequest:
+    title: Service1
+    type: object
+    properties:
+      param1:
+        type: string
+      param2:
+        type: string
+    required:
+    - param1
+    - param2
+  infoRequest:
+    title: Service1
+    type: object
+    properties:
+      filter:
+        type: string
+    required:
+    - filter
+action:
+- name: query
+  version: 0.1.0
+  handler: Query
+  scope: query.r
+  request:
+    schema:
+      $ref: '#/schemas/queryRequest'
+    example: 
+      param1: value1
+      param2: value2
+- name: info
+  version: 0.1.0
+  handler: Info
+  scope: info.r
+  request:
+    schema:
+      $ref: '#/schemas/infoRequest'
+    example: 
+      filter: "myfilter"

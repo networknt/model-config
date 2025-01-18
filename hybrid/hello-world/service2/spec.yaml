@@ -1,0 +1,36 @@
+---
+host: lightapi.net
+service: service2
+schemas:
+  commandRequest:
+    title: Service2
+    type: object
+    properties:
+      source:
+        type: string
+      target:
+        type: string
+    required:
+    - source
+    - target
+action:
+- name: command
+  version: 0.1.0
+  handler: CommandOld
+  scope: command.w
+  request:
+    schema:
+      $ref: '#/schemas/commandRequest'
+    example: 
+      source: "source123"
+      target: "target123"
+- name: command
+  version: 0.1.1
+  handler: CommandNew
+  scope: command.w
+  request:
+    schema:
+      $ref: '#/schemas/commandRequest'
+    example: 
+      source: "source456"
+      target: "target456"

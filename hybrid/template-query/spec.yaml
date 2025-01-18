@@ -1,0 +1,56 @@
+---
+host: lightapi.net
+service: template
+schemas:
+  getTemplateByIdRequest:
+    title: Template
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      templateId:
+        type: string
+        description: Template Id
+    required:
+    - host
+    - templateId
+  getTemplateRequest:
+    title: Templates
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+    required:
+    - limit
+    - offset
+    - host
+action:
+- name: getTemplateById
+  version: 0.1.0
+  handler: GetTemplateById
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getTemplateByIdRequest'
+    example: 
+      host: host123
+      templateId: template123
+- name: getTemplate
+  version: 0.1.0
+  handler: GetTemplate
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getTemplateRequest'
+    example: 
+      offset: 0
+      limit: 10
+      host: host123

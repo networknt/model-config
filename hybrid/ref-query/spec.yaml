@@ -1,0 +1,173 @@
+---
+host: lightapi.net
+service: ref
+schemas:
+  getTableRequest:
+    title: Service
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      hostId:
+        type: string
+        description: Host Id
+      tableName:
+        type: string
+        description: Table name
+      tableDesc:
+        type: string
+        description: Table desc
+      active:
+        type: string
+        description: Active Flag
+      editable:
+        type: string
+        description: Editable Flag
+      common:
+        type: string
+        description: Common Flag
+    required:
+    - offset
+    - limit
+    - hostId
+  getTableByIdRequest:
+    title: Service
+    type: object
+    properties:
+      tableId:
+        type: string
+        description: Table Id
+    required:
+    - tableId
+  getValueByTableIdRequest:
+    title: Service
+    type: object
+    properties:
+      tableId:
+        type: string
+        description: Table Id
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      active:
+         type: string
+         description: Active Flag
+    required:
+    - tableId
+  getLocaleByIdRequest:
+    title: Service
+    type: object
+    properties:
+      valueId:
+        type: string
+        description: Value Id
+    required:
+    - valueId
+  getRelationTypeRequest:
+    title: Service
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+    required:
+    - offset
+    - limit
+  getRelationByIdRequest:
+     title: Service
+     type: object
+     properties:
+       offset:
+         type: integer
+         description: Record Offset
+       limit:
+         type: integer
+         description: Record Limit
+       relationId:
+         type: string
+         description: Relation Id
+       valueIdFrom:
+         type: string
+         description: Value Id From
+       valueIdTo:
+         type: string
+         description: Value Id To
+     required:
+     - offset
+     - limit
+     - relationId
+action:
+- name: getTable
+  version: 0.1.0
+  handler: GetTable
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getTableRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+- name: getTableById
+  version: 0.1.0
+  handler: GetTableById
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getTableByIdRequest'
+    example: 
+      tableId: table123
+- name: getValueByTableId
+  version: 0.1.0
+  handler: GetValueByTableId
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getValueByTableIdRequest'
+    example: 
+      tableId: table123
+      offset: 0
+      limit: 10
+      active: "Y"
+- name: getLocaleById
+  version: 0.1.0
+  handler: GetLocaleById
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getLocaleByIdRequest'
+    example: 
+      valueId: value123
+- name: getRelationType
+  version: 0.1.0
+  handler: GetRelationType
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getRelationTypeRequest'
+    example: 
+      offset: 0
+      limit: 10
+- name: getRelationById
+  version: 0.1.0
+  handler: GetRelationById
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getRelationByIdRequest'
+    example: 
+      offset: 0
+      limit: 10
+      relationId: relation123
+      valueIdFrom: value123
+      valueIdTo: value456

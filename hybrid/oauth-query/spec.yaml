@@ -1,0 +1,194 @@
+---
+host: lightapi.net
+service: oauth
+schemas:
+  getRefreshTokenDetailRequest:
+    title: Refresh Token
+    type: object
+    properties:
+      refreshToken:
+        type: string
+        description: Refresh Token
+    required:
+    - refreshToken
+  getRefreshTokenRequest:
+    title: Refresh Token
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+    required:
+    - limit
+    - offset
+    - host
+  getAuthCodeDetailRequest:
+    title: Auth Code
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      authCode:
+        type: string
+        description: Auth Code
+    required:
+    - hostId
+    - authCode
+  getAuthCodeRequest:
+    title: Auth Code
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+    required:
+    - limit
+    - offset
+    - host
+  getRefTokenDetailRequest:
+    title: Reference Token
+    type: object
+    properties:
+      refToken:
+        type: string
+        description: Reference Token
+    required:
+    - refToken
+  getRefTokenRequest:
+    title: Reference Token
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+    required:
+    - limit
+    - offset
+    - host
+  getProviderDetailRequest:
+    title: OAuth Provider
+    type: object
+    properties:
+      providerId:
+        type: string
+        description: Provider Id
+    required:
+    - providerId
+  getProviderRequest:
+    title: OAuth Provider
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+    required:
+    - limit
+    - offset
+    - host
+action:
+- name: getRefreshTokenDetail
+  version: 0.1.0
+  handler: GetRefreshTokenDetail
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getRefreshTokenDetailRequest'
+    example: 
+      refreshToken: "refresh_token_123"
+- name: getRefreshToken
+  version: 0.1.0
+  handler: GetRefreshToken
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getRefreshTokenRequest'
+    example: 
+      offset: 0
+      limit: 10
+      host: host123
+- name: getAuthCodeDetail
+  version: 0.1.0
+  handler: GetAuthCodeDetail
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getAuthCodeDetailRequest'
+    example: 
+      hostId: host123
+      authCode: "auth_code_123"
+- name: getAuthCode
+  version: 0.1.0
+  handler: GetAuthCode
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getAuthCodeRequest'
+    example: 
+      offset: 0
+      limit: 10
+      host: host123
+- name: getRefTokenDetail
+  version: 0.1.0
+  handler: GetRefTokenDetail
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getRefTokenDetailRequest'
+    example: 
+      refToken: "ref_token_123"
+- name: getRefToken
+  version: 0.1.0
+  handler: GetRefToken
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getRefTokenRequest'
+    example: 
+      offset: 0
+      limit: 10
+      host: host123
+- name: getProviderDetail
+  version: 0.1.0
+  handler: GetProviderDetail
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getProviderDetailRequest'
+    example: 
+      providerId: "provider123"
+- name: getProvider
+  version: 0.1.0
+  handler: GetProvider
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getProviderRequest'
+    example: 
+      offset: 0
+      limit: 10
+      host: host123

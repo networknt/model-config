@@ -1,0 +1,51 @@
+---
+host: lightapi.net
+service: client
+schemas:
+  getClientRequest:
+    title: Service
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+    required:
+    - host
+    - offset
+    - limit
+  getClientByIdRequest:
+    title: Service
+    type: object
+    properties:
+      clientId:
+        type: string
+        description: Client Id
+    required:
+    - clientId
+action:
+- name: getClient
+  version: 0.1.0
+  handler: GetClient
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getClientRequest'
+    example: 
+      host: "lightapi.net"
+      offset: 0
+      limit: 10
+- name: getClientById
+  version: 0.1.0
+  handler: GetClientById
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getClientByIdRequest'
+    example: 
+      clientId: "client123"

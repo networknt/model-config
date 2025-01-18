@@ -1,0 +1,278 @@
+---
+host: lightapi.net
+service: covid
+schemas:
+  createCityMapRequest:
+    title: Service
+    type: object
+    properties:
+      country:
+        type: string
+        description: country name
+      province:
+        type: string
+        description: province or state name
+      city:
+        type: string
+        description: city name
+      latitude:
+        type: number
+        description: latitude
+      longitude:
+        type: number
+        description: longitude
+      zoom:
+        type: integer
+        description: initial zoom
+    required:
+    - country
+    - province
+    - city
+    - latitude
+    - longitude
+    - zoom
+  updateCityMapRequest:
+    title: Service
+    type: object
+    properties:
+      country:
+        type: string
+        description: country name
+      province:
+        type: string
+        description: province or state name
+      city:
+        type: string
+        description: city name
+      latitude:
+        type: number
+        description: latitude
+      longitude:
+        type: number
+        description: longitude
+      zoom:
+        type: integer
+        description: initial zoom
+    required:
+    - country
+    - province
+    - city
+    - latitude
+    - longitude
+    - zoom
+  deleteCityMapRequest:
+    title: Service
+    type: object
+    properties:
+      country:
+        type: string
+        description: country name
+      province:
+        type: string
+        description: province or state name
+      city:
+        type: string
+        description: city name
+    required:
+    - country
+    - province
+    - city
+  createEntityRequest:
+    title: Service
+    type: object
+    properties:
+      category:
+        type: string
+        description: entity category
+      subcategory:
+        type: string
+        description: entity subcategory
+      latitude:
+        type: number
+        description: latitude
+      longitude:
+        type: number
+        description: longitude
+      introduction:
+        type: string
+        description: introduction
+    required:
+    - category
+    - subcategory
+    - latitude
+    - longitude
+    - introduction
+  updateEntityRequest:
+    title: Service
+    type: object
+    properties:
+      category:
+        type: string
+        description: entity category
+      subcategory:
+        type: string
+        description: entity subcategory
+      latitude:
+        type: number
+        description: latitude
+      longitude:
+        type: number
+        description: longitude
+      introduction:
+        type: string
+        description: introduction
+    required:
+    - category
+    - subcategory
+    - latitude
+    - longitude
+    - introduction
+  deleteEntityRequest:
+    title: Service
+    type: object
+    properties:
+      email:
+        type: string
+        description: email address of the user
+    required:
+    - email
+  updateStatusRequest:
+    title: Service
+    type: object
+  updateWebsiteRequest:
+    title: Service
+    type: object
+  deleteStatusRequest:
+    title: Service
+    type: object
+  deleteWebsiteRequest:
+    title: Service
+    type: object
+  updatePeerStatusRequest:
+      title: Service
+      type: object
+      properties:
+        userId:
+          type: string
+          description: The userId of the status owner
+        subjects:
+          type: object
+          description: The subjects of the status
+      required:
+      - userId
+      - subjects
+action:
+- name: createCityMap
+  version: 0.1.0
+  handler: CreateCityMap
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createCityMapRequest'
+    example: 
+      country: "US"
+      province: "CA"
+      city: "Los Angeles"
+      latitude: 34.0522
+      longitude: -118.2437
+      zoom: 10
+- name: updateCityMap
+  version: 0.1.0
+  handler: UpdateCityMap
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateCityMapRequest'
+    example: 
+      country: "CA"
+      province: "ON"
+      city: "Toronto"
+      latitude: 43.6532
+      longitude: -79.3832
+      zoom: 12
+- name: deleteCityMap
+  version: 0.1.0
+  handler: DeleteCityMap
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteCityMapRequest'
+    example: 
+      country: "US"
+      province: "CA"
+      city: "Los Angeles"
+- name: createEntity
+  version: 0.1.0
+  handler: CreateEntity
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createEntityRequest'
+    example: 
+      category: "test"
+      subcategory: "covid"
+      latitude: 34.0522
+      longitude: -118.2437
+      introduction: "This is the intro"
+- name: updateEntity
+  version: 0.1.0
+  handler: UpdateEntity
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateEntityRequest'
+    example: 
+      category: "test1"
+      subcategory: "covid1"
+      latitude: 34.0523
+      longitude: -118.2438
+      introduction: "This is the intro 2"
+- name: deleteEntity
+  version: 0.1.0
+  handler: DeleteEntity
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteEntityRequest'
+    example: 
+      email: "test@test.com"
+- name: updateStatus
+  version: 0.1.0
+  handler: UpdateStatus
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateStatusRequest'
+- name: updateWebsite
+  version: 0.1.0
+  handler: UpdateWebsite
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateWebsiteRequest'
+- name: deleteStatus
+  version: 0.1.0
+  handler: DeleteStatus
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteStatusRequest'
+- name: deleteWebsite
+  version: 0.1.0
+  handler: DeleteWebsite
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteWebsiteRequest'
+- name: updatePeerStatus
+  version: 0.1.0
+  handler: UpdatePeerStatus
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updatePeerStatusRequest'
+    example: 
+      userId: "user123"
+      subjects:
+        "s1": true
+        "s2": false

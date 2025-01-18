@@ -1,0 +1,59 @@
+{
+  "host": "lightapi.net",
+  "service": "document",
+  "action": [
+    {
+      "name": "getDocumentById",
+      "version": "0.1.0",
+      "handler": "GetDocumentById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Document",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Document Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getDocument",
+      "version": "0.1.0",
+      "handler": "GetDocument",
+      "skipAuth": true,
+      "schema": {
+        "title": "Documents",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    }
+  ]
+}    

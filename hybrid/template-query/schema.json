@@ -1,0 +1,59 @@
+{
+  "host": "lightapi.net",
+  "service": "template",
+  "action": [
+    {
+      "name": "getTemplateById",
+      "version": "0.1.0",
+      "handler": "GetTemplateById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Template",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Template Id"
+          }
+        },
+        "required": [
+          "host",
+          "templateId"
+        ]
+      }
+    },
+    {
+      "name": "getTemplate",
+      "version": "0.1.0",
+      "handler": "GetTemplate",
+      "skipAuth": true,
+      "schema": {
+        "title": "Templates",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    }
+  ]
+}    

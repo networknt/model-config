@@ -1,0 +1,54 @@
+{
+  "host": "lightapi.net",
+  "service": "client",
+  "action": [
+    {
+      "name": "getClient",
+      "version": "0.1.0",
+      "handler": "GetClient",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "host",
+          "offset",
+          "limit"
+        ]
+      }
+    },
+    {
+      "name": "getClientById",
+      "version": "0.1.0",
+      "handler": "GetClientById",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "description": "Client Id"
+          }
+        },
+        "required": [
+          "clientId"
+        ]
+      }
+    }
+  ]
+}    

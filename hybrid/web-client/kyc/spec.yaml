@@ -1,0 +1,132 @@
+---
+host: taiji.io
+service: kyc
+schemas:
+  createRequest:
+    title: Create KYC
+    type: object
+    properties:
+      currency:
+        type: string
+        enum:
+        - taiji
+      address:
+        type: string
+      password:
+        type: string
+      type:
+        type: string
+        enum:
+        - P
+        - B
+      id:
+        type: string
+      email:
+        type: string
+      name:
+        type: string
+      referralAddress:
+        type: string
+      tags:
+        type: array
+        items:
+          type: string
+      description:
+        type: string
+    required:
+    - currency
+    - address
+    - password
+    - type
+    - id
+    - email
+    - name
+  updateRequest:
+    title: Update KYC
+    type: object
+    properties:
+      address:
+        type: string
+      password:
+        type: string
+      name:
+        type: string
+      tags:
+        type: array
+        items:
+           type: string
+      description:
+        type: string
+    required:
+    - address
+    - password
+  infoRequest:
+    title: KYC Info
+    type: object
+    properties:
+      addressOrIdOrEmail:
+        type: string
+    required:
+    - addressOrIdOrEmail
+  eventsRequest:
+    title: KYC Events
+    type: object
+    properties:
+      address:
+        type: string
+    required:
+    - address
+action:
+- name: create
+  version: 1.0.0
+  handler: CreateKyc
+  scope: k.w
+  request:
+    schema:
+      $ref: '#/schemas/createRequest'
+    example: 
+      currency: "taiji"
+      address: "0x1234567890abcdef"
+      password: "mypassword"
+      type: "P"
+      id: "kyc123"
+      email: "test@example.com"
+      name: "John Doe"
+      referralAddress: "0xabcdef1234567890"
+      tags:
+        - "tag1"
+        - "tag2"
+      description: "This is a KYC record"
+- name: update
+  version: 1.0.0
+  handler: UpdateKyc
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/updateRequest'
+    example: 
+      address: "0x1234567890abcdef"
+      password: "mypassword"
+      name: "Jane Doe"
+      tags:
+        - "tag3"
+        - "tag4"
+      description: "This is an updated KYC record"
+- name: info
+  version: 1.0.0
+  handler: KycInfo
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/infoRequest'
+    example: 
+      addressOrIdOrEmail: "0x1234567890abcdef"
+- name: events
+  version: 1.0.0
+  handler: KycEvents
+  scope: t.r
+  request:
+    schema:
+      $ref: '#/schemas/eventsRequest'
+    example: 
+      address: "0x1234567890abcdef"

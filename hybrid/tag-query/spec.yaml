@@ -1,0 +1,23 @@
+---
+host: lightapi.net
+service: tag
+schemas:
+  getTagsRequest:
+    title: Tags
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+    required:
+    - host
+action:
+- name: getTags
+  version: 0.1.0
+  handler: GetTags
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getTagsRequest'
+    example: 
+      host: host123

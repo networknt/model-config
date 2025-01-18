@@ -1,14 +1,14 @@
 {
   "host": "lightapi.net",
-  "service": "market",
+  "service": "position",
   "action": [
     {
-      "name": "getAttribute",
+      "name": "getPosition",
       "version": "0.1.0",
-      "handler": "GetAttribute",
+      "handler": "GetPosition",
       "scope": "portal.r",
       "schema": {
-        "title": "Attribute",
+        "title": "Position",
         "type": "object",
         "properties": {
           "offset": {
@@ -23,17 +23,21 @@
             "type": "string",
             "description": "Host Id"
           },
-          "attributeId": {
+          "positionId": {
             "type": "string",
-            "description": "Attribute Id"
+            "description": "Position Id"
           },
-          "attributeType": {
+          "positionDesc": {
             "type": "string",
-            "description": "Attribute Type"
+            "description": "Position Desc"
           },
-          "attributeDesc": {
+          "inheritToAncestor": {
             "type": "string",
-            "description": "Attribute Desc"
+            "description": "Inherit To Ancestor"
+          },
+          "inheritToSibling": {
+            "type": "string",
+            "description": "Inherit To Sibling"
           }
         },
         "required": [
@@ -44,12 +48,12 @@
       }
     },
     {
-      "name": "queryAttributePermission",
+      "name": "queryPositionPermission",
       "version": "0.1.0",
-      "handler": "QueryAttributePermission",
+      "handler": "QueryPositionPermission",
       "scope": "portal.r",
       "schema": {
-        "title": "Attribute Permission",
+        "title": "Position Permission",
         "type": "object",
         "properties": {
           "offset": {
@@ -64,17 +68,17 @@
             "type": "string",
             "description": "Host Id"
           },
-          "attributeId": {
+          "positionId": {
             "type": "string",
-            "description": "Attribute Id"
+            "description": "Position Id"
           },
-          "attributeType": {
+          "inheritToAncestor": {
             "type": "string",
-            "description": "Attribute Type"
+            "description": "Inherit To Ancestor"
           },
-          "attributeValue": {
+          "inheritToSibling": {
             "type": "string",
-            "description": "Attribute Value"
+            "description": "Inherit To Sibling"
           },
           "apiId": {
             "type": "string",
@@ -97,12 +101,12 @@
       }
     },
     {
-      "name": "queryAttributeUser",
+      "name": "queryPositionUser",
       "version": "0.1.0",
-      "handler": "QueryAttributeUser",
+      "handler": "QueryPositionUser",
       "scope": "portal.r",
       "schema": {
-        "title": "Attribute User",
+        "title": "Position User",
         "type": "object",
         "properties": {
           "offset": {
@@ -117,17 +121,21 @@
             "type": "string",
             "description": "Host Id"
           },
-          "attributeId": {
+          "positionId": {
             "type": "string",
-            "description": "Attribute Id"
+            "description": "Position Id"
           },
-          "attributeType": {
+          "positionType": {
             "type": "string",
-            "description": "Attribute Type"
+            "description": "Position Type"
           },
-          "attributeValue": {
+          "inheritToAncestor": {
             "type": "string",
-            "description": "Attribute Value"
+            "description": "Inherit To Ancestor"
+          },
+          "inheritToSibling": {
+            "type": "string",
+            "description": "Inherit To Sibling"
           },
           "userId": {
             "type": "string",
@@ -162,12 +170,12 @@
       }
     },
     {
-      "name": "getAttributeLabel",
+      "name": "getPositionLabel",
       "version": "0.1.0",
-      "handler": "GetAttributeLabel",
+      "handler": "GetPositionLabel",
       "skipAuth": true,
       "schema": {
-        "title": "Attribute Label",
+        "title": "Position Label",
         "type": "object",
         "properties": {
           "hostId": {
@@ -181,12 +189,12 @@
       }
     },
     {
-      "name": "queryAttributeRowFilter",
+      "name": "queryPositionRowFilter",
       "version": "0.1.0",
-      "handler": "QueryAttributeRowFilter",
+      "handler": "QueryPositionRowFilter",
       "scope": "portal.r",
       "schema": {
-        "title": "Attribute Row Filter",
+        "title": "Position Row Filter",
         "type": "object",
         "properties": {
           "offset": {
@@ -201,13 +209,9 @@
             "type": "string",
             "description": "Host Id"
           },
-          "attributeId": {
+          "positionId": {
             "type": "string",
-            "description": "Attribute Id"
-          },
-          "attributeValue": {
-            "type": "string",
-            "description": "Attribute Value"
+            "description": "Position Id"
           },
           "apiId": {
             "type": "string",
@@ -230,12 +234,12 @@
       }
     },
     {
-      "name": "queryAttributeColFilter",
+      "name": "queryPositionColFilter",
       "version": "0.1.0",
-      "handler": "QueryAttributeColFilter",
+      "handler": "QueryPositionColFilter",
       "scope": "portal.r",
       "schema": {
-        "title": "Attribute Col Filter",
+        "title": "Position Col Filter",
         "type": "object",
         "properties": {
           "offset": {
@@ -250,13 +254,9 @@
             "type": "string",
             "description": "Host Id"
           },
-          "attributeId": {
+          "positionId": {
             "type": "string",
-            "description": "Attribute Id"
-          },
-          "attributeValue": {
-            "type": "string",
-            "description": "Attribute Value"
+            "description": "Position Id"
           },
           "apiId": {
             "type": "string",
@@ -276,34 +276,8 @@
           "limit",
           "hostId"
         ]
-      }
-    },
-    {
-      "name": "getConfig",
-      "version": "0.1.0",
-      "handler": "GetConfig",
-      "scope": "portal.r",
-      "schema": {
-        "title": "Get all configurations",
-        "type": "object"
-      }
-    },
-    {
-      "name": "getConfigById",
-      "version": "0.1.0",
-      "handler": "GetConfigById",
-      "scope": "portal.r",
-      "schema": {
-        "title": "Get Configurations by Id",
-        "type": "object",
-        "properties": {
-          "configId": {
-            "type": "string",
-            "description": "Config Id"
-          }
-        }
       }
     }
-
   ]
 }
+

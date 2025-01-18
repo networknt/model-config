@@ -1,0 +1,31 @@
+---
+host: lightapi.net
+service: todo
+schemas:
+  getTodoRequest:
+    title: Service
+    type: object
+    properties:
+      id:
+        type: string
+    required:
+    - id
+  getTodosRequest:
+    title: Service
+action:
+- name: gettodo
+  version: 0.1.0
+  handler: GetTodoById
+  scope: todo.r
+  request:
+    schema:
+      $ref: '#/schemas/getTodoRequest'
+    example: 
+      id: "todo123"
+- name: gettodos
+  version: 0.1.0
+  handler: GetAllTodos
+  scope: todo.r
+  request:
+    schema:
+      $ref: '#/schemas/getTodosRequest'

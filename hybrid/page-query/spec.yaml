@@ -1,0 +1,56 @@
+---
+host: lightapi.net
+service: page
+schemas:
+  getPageByIdRequest:
+    title: Page
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Page Id
+    required:
+    - host
+    - id
+  getPageRequest:
+    title: Pages
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+    required:
+    - limit
+    - offset
+    - host
+action:
+- name: getPageById
+  version: 0.1.0
+  handler: GetPageById
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getPageByIdRequest'
+    example: 
+      host: host123
+      id: page123
+- name: getPage
+  version: 0.1.0
+  handler: GetPage
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getPageRequest'
+    example: 
+      offset: 0
+      limit: 10
+      host: host123

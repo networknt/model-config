@@ -1,0 +1,44 @@
+---
+host: lightapi.net
+service: playground
+schemas:
+  generateJwtRequest:
+    title: Generate Test JWT Token
+    type: object
+    properties:
+      exp:
+        type: integer
+        title: Expire In Minute
+      client_id:
+        type: string
+        title: Client Id
+      user_id:
+        type: string
+        title: User Id
+      roles:
+        type: string
+        title: Roles
+      scope:
+        type: array
+        items:
+          type: string
+          title: Scope
+    required:
+    - clientId
+    - scope
+action:
+- name: generateJwt
+  version: 0.1.0
+  handler: JwtToken
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/generateJwtRequest'
+    example: 
+      client_id: client123
+      user_id: user123
+      roles: user admin
+      scope:
+        - pet.r
+        - pet.w
+      exp: 30

@@ -1,0 +1,25 @@
+---
+host: lightapi.net
+service: form
+schemas:
+  getFormRequest:
+    title: Service
+    type: object
+  getFormByIdRequest:
+    title: Service
+    type: object
+action:
+- name: getForm
+  version: 0.1.0
+  handler: GetForm
+  scope: form.all.r
+  request:
+    schema:
+      $ref: '#/schemas/getFormRequest'
+- name: getFormById
+  version: 0.1.0
+  handler: GetFormById
+  scope: form.all.r
+  request:
+    schema:
+      $ref: '#/schemas/getFormByIdRequest'

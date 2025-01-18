@@ -1,0 +1,247 @@
+---
+host: lightapi.net
+service: role
+schemas:
+  getRoleRequest:
+    title: Role
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      roleId:
+        type: string
+        description: Role Id
+      roleDesc:
+        type: string
+        description: Role Desc
+    required:
+    - offset
+    - limit
+    - hostId
+  queryRolePermissionRequest:
+    title: Role Permission
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      roleId:
+        type: string
+        description: Role Id
+      apiId:
+        type: string
+        description: Api Id
+      apiVersion:
+        type: string
+        description: Api Version
+      endpoint:
+        type: string
+        description: Endpoint
+    required:
+    - offset
+    - limit
+    - hostId
+  queryRoleUserRequest:
+    title: Role User
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      roleId:
+        type: string
+        description: Role Id
+      userId:
+        type: string
+        description: User Id
+      entityId:
+        type: string
+        description: Entity Id
+      email:
+        type: string
+        description: Email
+      firstName:
+        type: string
+        description: First Name
+      lastName:
+        type: string
+        description: Last Name
+      userType:
+        type: string
+        description: User Type
+    required:
+    - offset
+    - limit
+    - hostId
+  getRoleLabelRequest:
+    title: Role Label
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+    required:
+    - hostId
+  queryRoleRowFilterRequest:
+    title: Role Row Filter
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      roleId:
+        type: string
+        description: Role Id
+      apiId:
+        type: string
+        description: Api Id
+      apiVersion:
+        type: string
+        description: Api Version
+      endpoint:
+        type: string
+        description: Endpoint
+    required:
+    - offset
+    - limit
+    - hostId
+  queryRoleColFilterRequest:
+    title: Role Col Filter
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      roleId:
+        type: string
+        description: Role Id
+      apiId:
+        type: string
+        description: Api Id
+      apiVersion:
+        type: string
+        description: Api Version
+      endpoint:
+        type: string
+        description: Endpoint
+    required:
+    - offset
+    - limit
+    - hostId
+action:
+- name: getRole
+  version: 0.1.0
+  handler: GetRole
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getRoleRequest'
+    example: |
+      offset: 0
+      limit: 10
+      hostId: host123
+      roleId: role123
+      roleDesc: "This is a role"
+- name: queryRolePermission
+  version: 0.1.0
+  handler: QueryRolePermission
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryRolePermissionRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      roleId: role123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: "endpoint"
+- name: queryRoleUser
+  version: 0.1.0
+  handler: QueryRoleUser
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryRoleUserRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      roleId: role123
+      userId: user123
+      entityId: cust123
+      email: test@example.com
+      firstName: John
+      lastName: Doe
+      userType: C
+- name: getRoleLabel
+  version: 0.1.0
+  handler: GetRoleLabel
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getRoleLabelRequest'
+    example: 
+      hostId: host123
+- name: queryRoleRowFilter
+  version: 0.1.0
+  handler: QueryRoleRowFilter
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryRoleRowFilterRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      roleId: role123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
+- name: queryRoleColFilter
+  version: 0.1.0
+  handler: QueryRoleColFilter
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryRoleColFilterRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      roleId: role123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint

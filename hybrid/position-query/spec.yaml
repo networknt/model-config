@@ -1,0 +1,275 @@
+---
+host: lightapi.net
+service: position
+schemas:
+  getPositionRequest:
+    title: Position
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      positionId:
+        type: string
+        description: Position Id
+      positionDesc:
+        type: string
+        description: Position Desc
+      inheritToAncestor:
+        type: string
+        description: Inherit To Ancestor
+      inheritToSibling:
+        type: string
+        description: Inherit To Sibling
+    required:
+    - offset
+    - limit
+    - hostId
+  queryPositionPermissionRequest:
+    title: Position Permission
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      positionId:
+        type: string
+        description: Position Id
+      apiId:
+        type: string
+        description: Api Id
+      apiVersion:
+        type: string
+        description: Api Version
+      endpoint:
+        type: string
+        description: Endpoint
+      inheritToAncestor:
+        type: string
+        description: Inherit To Ancestor
+      inheritToSibling:
+        type: string
+        description: Inherit To Sibling
+    required:
+    - offset
+    - limit
+    - hostId
+  queryPositionUserRequest:
+    title: Position User
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      positionId:
+        type: string
+        description: Position Id
+      positionType:
+        type: string
+        description: Position Type
+      inheritToAncestor:
+        type: string
+        description: Inherit To Ancestor
+      inheritToSibling:
+        type: string
+        description: Inherit To Sibling
+      userId:
+        type: string
+        description: User Id
+      entityId:
+        type: string
+        description: Entity Id
+      email:
+        type: string
+        description: Email
+      firstName:
+        type: string
+        description: First Name
+      lastName:
+        type: string
+        description: Last Name
+      userType:
+        type: string
+        description: User Type
+    required:
+    - offset
+    - limit
+    - hostId
+  getPositionLabelRequest:
+    title: Position Label
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+    required:
+    - hostId
+  queryPositionRowFilterRequest:
+    title: Position Row Filter
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      positionId:
+        type: string
+        description: Position Id
+      apiId:
+        type: string
+        description: Api Id
+      apiVersion:
+        type: string
+        description: Api Version
+      endpoint:
+        type: string
+        description: Endpoint
+    required:
+    - offset
+    - limit
+    - hostId
+  queryPositionColFilterRequest:
+    title: Position Col Filter
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      positionId:
+        type: string
+        description: Position Id
+      apiId:
+        type: string
+        description: Api Id
+      apiVersion:
+        type: string
+        description: Api Version
+      endpoint:
+        type: string
+        description: Endpoint
+    required:
+    - offset
+    - limit
+    - hostId
+action:
+- name: getPosition
+  version: 0.1.0
+  handler: GetPosition
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getPositionRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      positionId: position123
+      positionDesc: "This is a position"
+      inheritToAncestor: "true"
+      inheritToSibling: "false"
+- name: queryPositionPermission
+  version: 0.1.0
+  handler: QueryPositionPermission
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryPositionPermissionRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      positionId: position123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: "endpoint"
+      inheritToAncestor: "true"
+      inheritToSibling: "false"
+- name: queryPositionUser
+  version: 0.1.0
+  handler: QueryPositionUser
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryPositionUserRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      positionId: position123
+      positionType: "test"
+      inheritToAncestor: "true"
+      inheritToSibling: "false"
+      userId: user123
+      entityId: cust123
+      email: test@example.com
+      firstName: John
+      lastName: Doe
+      userType: C
+- name: getPositionLabel
+  version: 0.1.0
+  handler: GetPositionLabel
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getPositionLabelRequest'
+    example: 
+      hostId: host123
+- name: queryPositionRowFilter
+  version: 0.1.0
+  handler: QueryPositionRowFilter
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryPositionRowFilterRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      positionId: position123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
+- name: queryPositionColFilter
+  version: 0.1.0
+  handler: QueryPositionColFilter
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryPositionColFilterRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      positionId: position123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint

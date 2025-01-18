@@ -1,0 +1,92 @@
+---
+host: taiji.io
+service: currency
+schemas:
+  sendRequest:
+    title: Send Currency
+    type: object
+    properties:
+      currency:
+        type: string
+      address:
+        type: string
+      password:
+        type: string
+      toAddress:
+        type: string
+      amount:
+        type: string
+      unit:
+        type: string
+    required:
+    - currency
+    - address
+    - password
+    - toAddress
+    - amount
+    - unit
+  balanceRequest:
+    title: Currency Balance
+    type: object
+    properties:
+      address:
+        type: string
+    required:
+    - address
+  transactionRequest:
+    title: Currency Transaction
+    type: object
+    properties:
+      pageNumber:
+        type: integer
+        description: Page Number
+      pageSize:
+        type: integer
+        description: Page Size
+      address:
+        type: string
+      currency:
+        type: string
+        enum:
+        - taiji
+    required:
+    - address
+    - currency
+    - pageNumber
+    - pageSize
+action:
+- name: send
+  version: 1.0.0
+  handler: SendCurrency
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/sendRequest'
+    example: 
+      currency: "USD"
+      address: "0x1234567890abcdef"
+      password: "mypassword"
+      toAddress: "0xabcdef1234567890"
+      amount: "100"
+      unit: "token"
+- name: balance
+  version: 1.0.0
+  handler: GetBalance
+  scope: t.r
+  request:
+    schema:
+      $ref: '#/schemas/balanceRequest'
+    example: 
+      address: "0x1234567890abcdef"
+- name: transaction
+  version: 1.0.0
+  handler: GetTransaction
+  scope: t.r
+  request:
+    schema:
+      $ref: '#/schemas/transactionRequest'
+    example: 
+      address: "0x1234567890abcdef"
+      currency: "taiji"
+      pageNumber: 1
+      pageSize: 10

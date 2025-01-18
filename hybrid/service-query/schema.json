@@ -1,0 +1,351 @@
+{
+  "host": "lightapi.net",
+  "service": "service",
+  "action": [
+    {
+      "name": "getService",
+      "version": "0.1.0",
+      "handler": "GetService",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "getServiceById",
+      "version": "0.1.0",
+      "handler": "GetServiceById",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          }
+        },
+        "required": [
+          "serviceId"
+        ]
+      }
+    },
+    {
+      "name": "getServiceVersion",
+      "version": "0.1.0",
+      "handler": "GetServiceVersion",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId"
+        ]
+      }
+    },
+    {
+      "name": "getServiceEndpoint",
+      "version": "0.1.0",
+      "handler": "GetServiceEndpoint",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service Endpoint",
+        "type": "object",
+        "properties": {
+          "limit" : {
+            "type" : "integer",
+            "description" : "Record Limit"
+          },
+          "offset" : {
+            "type" : "integer",
+            "description" : "Record Offset"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint" : {
+            "type" : "string",
+            "description" : "Endpoint"
+          },
+          "method" : {
+            "type" : "string",
+            "description" : "Method"
+          },
+          "path" : {
+            "type" : "string",
+            "description" : "Path"
+          },
+          "desc" : {
+            "type" : "string",
+            "description" : "Desc"
+          }
+        },
+        "required": [
+          "limit", 
+          "offset", 
+          "hostId",
+          "apiId",
+          "apiVersion"
+        ]
+      }
+    },
+    {
+      "name": "getEndpointScope",
+      "version": "0.1.0",
+      "handler": "GetEndpointScope",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Endpoint Scope",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion",
+          "endpoint"
+        ]
+      }
+    },
+    {
+      "name": "getEndpointRule",
+      "version": "0.1.0",
+      "handler": "GetEndpointRule",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Endpoint Rule",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion",
+          "endpoint"
+        ]
+      }
+    },
+    {
+      "name": "getServiceRule",
+      "version": "0.1.0",
+      "handler": "GetServiceRule",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service Rule",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion"
+        ]
+      }
+    },
+    {
+      "name": "getServicePermission",
+      "version": "0.1.0",
+      "handler": "GetServicePermission",
+      "scope": "portal.r",
+      "schema": {
+        "title": "Service Permission",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion"
+        ]
+      }
+    },
+    {
+      "name": "getServiceRoleById",
+      "version": "0.1.0",
+      "handler": "GetServiceRoleById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "Service Id"
+          }
+        },
+        "required": [
+          "serviceId"
+        ]
+      }
+    },
+    {
+      "name": "getApiLabel",
+      "version": "0.1.0",
+      "handler": "GetApiLabel",
+      "skipAuth": true,
+      "schema": {
+        "title": "Api",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "getApiVersionLabel",
+      "version": "0.1.0",
+      "handler": "GetApiVersionLabel",
+      "skipAuth": true,
+      "schema": {
+        "title": "Api Version",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId"
+        ]
+      }
+    },
+    {
+      "name": "getEndpointLabel",
+      "version": "0.1.0",
+      "handler": "GetEndpointLabel",
+      "skipAuth": true,
+      "schema": {
+        "title": "Endpoint",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "Api Version"
+          }
+        },
+        "required": [
+          "hostId",
+          "apiId",
+          "apiVersion"
+        ]
+      }
+    }
+  ]
+}
+

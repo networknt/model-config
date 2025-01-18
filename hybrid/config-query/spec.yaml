@@ -1,0 +1,31 @@
+---
+host: lightapi.net
+service: config
+schemas:
+  getConfigRequest:
+    title: Get all configurations
+    type: object
+  getConfigByIdRequest:
+    title: Get Configurations by Id
+    type: object
+    properties:
+      configId:
+        type: string
+        description: Config Id
+action:
+- name: getConfig
+  version: 0.1.0
+  handler: GetConfig
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getConfigRequest'
+- name: getConfigById
+  version: 0.1.0
+  handler: GetConfigById
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getConfigByIdRequest'
+    example: 
+      configId: config123

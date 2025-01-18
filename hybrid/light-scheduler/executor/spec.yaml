@@ -1,0 +1,198 @@
+---
+host: taiji.io
+service: token
+schemas:
+  createRequest:
+    title: Create Token
+    type: object
+    properties:
+      currency:
+        type: string
+      address:
+        type: string
+      password:
+        type: string
+      name:
+        type: string
+      symbol:
+        type: string
+      totalSupply:
+        type: string
+      decimals:
+        type: string
+    required:
+    - currency
+    - address
+    - password
+    - name
+    - symbol
+    - totalSupply
+    - decimals
+  transferRequest:
+    title: Transfer Token
+    type: object
+    properties:
+      address:
+        type: string
+      password:
+        type: string
+      tokenAddressOrSymbol:
+        type: string
+      toAddress:
+        type: string
+      amount:
+        type: string
+    required:
+    - address
+    - password
+    - tokenAddressOrSymbol
+    - toAddress
+    - amount
+  approveRequest:
+    title: Approve Token
+    type: object
+    properties:
+      address:
+        type: string
+      password:
+        type: string
+      tokenAddressOrSymbol:
+        type: string
+      toAddress:
+        type: string
+      amount:
+        type: string
+    required:
+    - address
+    - password
+    - tokenAddressOrSymbol
+    - toAddress
+    - amount
+  withdrawRequest:
+    title: Withdraw Token
+    type: object
+    properties:
+      address:
+        type: string
+      password:
+        type: string
+      tokenAddressOrSymbol:
+        type: string
+      fromAddress:
+        type: string
+      amount:
+        type: string
+    required:
+    - address
+    - password
+    - tokenAddressOrSymbol
+    - fromAddress
+    - amount
+  infoRequest:
+    title: Token Info
+    type: object
+    properties:
+      tokenAddressOrSymbol:
+        type: string
+  accountRequest:
+    title: Token Account
+    type: object
+    properties:
+      address:
+        type: string
+      symbol:
+        type: string
+    required:
+    - address
+  transactionRequest:
+    title: Token Transaction
+    type: object
+    properties:
+      address:
+        type: string
+      symbol:
+        type: string
+    required:
+    - address
+action:
+- name: create
+  version: 1.0.0
+  handler: CreateToken
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/createRequest'
+    example: 
+      currency: "USD"
+      address: "0x1234567890abcdef"
+      password: "mypassword"
+      name: "My Token"
+      symbol: "MTK"
+      totalSupply: "1000000"
+      decimals: "18"
+- name: transfer
+  version: 1.0.0
+  handler: TransferToken
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/transferRequest'
+    example: 
+      address: "0x1234567890abcdef"
+      password: "mypassword"
+      tokenAddressOrSymbol: "MTK"
+      toAddress: "0xabcdef1234567890"
+      amount: "100"
+- name: approve
+  version: 1.0.0
+  handler: ApproveToken
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/approveRequest'
+    example: 
+      address: "0x1234567890abcdef"
+      password: "mypassword"
+      tokenAddressOrSymbol: "MTK"
+      toAddress: "0xabcdef1234567890"
+      amount: "100"
+- name: withdraw
+  version: 1.0.0
+  handler: WithdrawToken
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/withdrawRequest'
+    example: 
+      address: "0x1234567890abcdef"
+      password: "mypassword"
+      tokenAddressOrSymbol: "MTK"
+      fromAddress: "0xabcdef1234567890"
+      amount: "100"
+- name: info
+  version: 1.0.0
+  handler: TokenInfo
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/infoRequest'
+    example: 
+      tokenAddressOrSymbol: "MTK"
+- name: account
+  version: 1.0.0
+  handler: TokenAccount
+  scope: t.r
+  request:
+    schema:
+      $ref: '#/schemas/accountRequest'
+    example: 
+      address: "0x1234567890abcdef"
+- name: transaction
+  version: 1.0.0
+  handler: TokenTransaction
+  scope: t.r
+  request:
+    schema:
+      $ref: '#/schemas/transactionRequest'
+    example: 
+      address: "0x1234567890abcdef"

@@ -1,0 +1,102 @@
+---
+host: lightapi.net
+service: schema
+schemas:
+  getJsonSchemaByIdRequest:
+    title: Json Schema
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Schema Id
+    required:
+    - host
+    - id
+  getJsonSchemaRequest:
+    title: Json Schemas
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+    required:
+    - limit
+    - offset
+    - host
+  getJsonSchemaListRequest:
+    title: Json Schemas
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+      categories:
+        type: array
+        description: Categories
+        maxItems: 10
+        items:
+          type: string
+      tags:
+        type: array
+        description: Tags
+        maxItems: 10
+        items:
+          type: string
+    required:
+    - limit
+    - offset
+    - host
+action:
+- name: getJsonSchemaById
+  version: 0.1.0
+  handler: GetJsonSchemaById
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getJsonSchemaByIdRequest'
+    example: 
+      host: host123
+      id: schema123
+- name: getJsonSchema
+  version: 0.1.0
+  handler: GetJsonSchema
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getJsonSchemaRequest'
+    example: 
+      offset: 0
+      limit: 10
+      host: host123
+- name: getJsonSchemaList
+  version: 0.1.0
+  handler: GetJsonSchemaList
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getJsonSchemaListRequest'
+    example: 
+      offset: 0
+      limit: 10
+      host: host123
+      categories:
+        - "tech"
+        - "dev"
+      tags:
+        - "json"
+        - "schema"

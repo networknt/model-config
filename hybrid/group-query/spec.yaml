@@ -1,0 +1,247 @@
+---
+host: lightapi.net
+service: group
+schemas:
+  getGroupRequest:
+    title: Group
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      groupId:
+        type: string
+        description: Group Id
+      groupDesc:
+        type: string
+        description: Group Desc
+    required:
+    - offset
+    - limit
+    - hostId
+  queryGroupPermissionRequest:
+    title: Group Permission
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      groupId:
+        type: string
+        description: Group Id
+      apiId:
+        type: string
+        description: Api Id
+      apiVersion:
+        type: string
+        description: Api Version
+      endpoint:
+        type: string
+        description: Endpoint
+    required:
+    - offset
+    - limit
+    - hostId
+  queryGroupUserRequest:
+    title: Group User
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      groupId:
+        type: string
+        description: Group Id
+      userId:
+        type: string
+        description: User Id
+      entityId:
+        type: string
+        description: Entity Id
+      email:
+        type: string
+        description: Email
+      firstName:
+        type: string
+        description: First Name
+      lastName:
+        type: string
+        description: Last Name
+      userType:
+        type: string
+        description: User Type
+    required:
+    - offset
+    - limit
+    - hostId
+  getGroupLabelRequest:
+    title: Group Label
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+    required:
+    - hostId
+  queryGroupRowFilterRequest:
+    title: Group Row Filter
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      groupId:
+        type: string
+        description: Group Id
+      apiId:
+        type: string
+        description: Api Id
+      apiVersion:
+        type: string
+        description: Api Version
+      endpoint:
+        type: string
+        description: Endpoint
+    required:
+    - offset
+    - limit
+    - hostId
+  queryGroupColFilterRequest:
+    title: Group Col Filter
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Offset
+      limit:
+        type: integer
+        description: Limit
+      hostId:
+        type: string
+        description: Host Id
+      groupId:
+        type: string
+        description: Group Id
+      apiId:
+        type: string
+        description: Api Id
+      apiVersion:
+        type: string
+        description: Api Version
+      endpoint:
+        type: string
+        description: Endpoint
+    required:
+    - offset
+    - limit
+    - hostId
+action:
+- name: getGroup
+  version: 0.1.0
+  handler: GetGroup
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getGroupRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      groupId: group123
+      groupDesc: "This is a group"
+- name: queryGroupPermission
+  version: 0.1.0
+  handler: QueryGroupPermission
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryGroupPermissionRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: "endpoint"
+- name: queryGroupUser
+  version: 0.1.0
+  handler: QueryGroupUser
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryGroupUserRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      groupId: group123
+      userId: user123
+      entityId: cust123
+      email: test@example.com
+      firstName: John
+      lastName: Doe
+      userType: C
+- name: getGroupLabel
+  version: 0.1.0
+  handler: GetGroupLabel
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getGroupLabelRequest'
+    example: 
+      hostId: host123
+- name: queryGroupRowFilter
+  version: 0.1.0
+  handler: QueryGroupRowFilter
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryGroupRowFilterRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
+- name: queryGroupColFilter
+  version: 0.1.0
+  handler: QueryGroupColFilter
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/queryGroupColFilterRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint

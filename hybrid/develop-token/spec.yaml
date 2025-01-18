@@ -1,0 +1,104 @@
+---
+host: lightapi.net
+service: token
+schemas:
+  longLivedRequest:
+    title: Long Lived Token
+    type: object
+    properties:
+      host:
+        type: string
+      path:
+        type: string
+      token:
+        type: string
+      environment:
+        type: string
+        enum:
+        - test
+        - prod
+    required:
+    - host
+    - path
+  shortLivedRequest:
+    title: Short Lived Token
+    type: object
+    properties:
+      registryUrl:
+        type: string
+      environment:
+        type: string
+        enum:
+        - test
+        - prod
+    required:
+    - registryUrl
+  expiredRequest:
+    title: Expired Token
+    type: object
+    properties:
+      registryUrl:
+        type: string
+      environment:
+        type: string
+        enum:
+        - test
+        - prod
+    required:
+    - registryUrl
+  customRequest:
+    title: Expired Token
+    type: object
+    properties:
+      registryUrl:
+        type: string
+      environment:
+        type: string
+        enum:
+        - test
+        - prod
+    required:
+    - registryUrl
+action:
+- name: long-lived
+  version: 0.1.0
+  handler: LongLived
+  scope: token.long.r
+  request:
+    schema:
+      $ref: '#/schemas/longLivedRequest'
+    example: 
+      host: "host123"
+      path: "/api/test"
+      token: "jwt_token"
+      environment: "test"
+- name: short-lived
+  version: 0.1.0
+  handler: ShortLived
+  scope: token.short.r
+  request:
+    schema:
+      $ref: '#/schemas/shortLivedRequest'
+    example: 
+      registryUrl: "example.com"
+      environment: "prod"
+- name: expired
+  version: 0.1.0
+  handler: Expired
+  scope: token.expired.r
+  request:
+    schema:
+      $ref: '#/schemas/expiredRequest'
+    example: 
+      registryUrl: "example.com"
+      environment: "test"
+- name: custom
+  version: 0.1.0
+  handler: Custom
+  scope: token.expired.r
+  request:
+    schema:
+      $ref: '#/schemas/customRequest'
+    example: 
+      registryUrl: "example.com"
+      environment: "prod"

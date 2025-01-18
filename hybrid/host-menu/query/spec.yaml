@@ -1,0 +1,42 @@
+---
+host: lightapi.net
+service: menu
+schemas:
+  getMenuByHostRequest:
+    title: Service
+    type: object
+    properties:
+      host:
+        type: string
+    required:
+    - host
+  getMenuRequest:
+    title: Service
+    type: object
+  getMenuItemRequest:
+    title: Service
+    type: object
+action:
+- name: getMenuByHost
+  version: 0.1.0
+  handler: GetMenuByHost
+  scope: menu.r
+  request:
+    schema:
+      $ref: '#/schemas/getMenuByHostRequest'
+    example: 
+      host: host123
+- name: getMenu
+  version: 0.1.0
+  handler: GetMenu
+  scope: menu.all.r
+  request:
+    schema:
+      $ref: '#/schemas/getMenuRequest'
+- name: getMenuItem
+  version: 0.1.0
+  handler: GetMenuItem
+  scope: menuItem.all.r
+  request:
+    schema:
+      $ref: '#/schemas/getMenuItemRequest'

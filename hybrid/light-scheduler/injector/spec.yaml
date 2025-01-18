@@ -1,0 +1,76 @@
+---
+host: com.networknt
+service: injector
+schemas:
+  createScheduleRequest:
+    title: Create Schedule
+    type: object
+    properties:
+      type:
+        type: string
+      triggerTime:
+        type: long
+      payload:
+        type: string
+    required:
+    - type
+    - triggerTime
+    - payload
+  updateScheduleRequest:
+    title: Update Schedule
+    type: object
+    properties:
+      id:
+        type: string
+      type:
+        type: string
+      triggerTime:
+        type: long
+      payload:
+        type: string
+    required:
+    - id
+    - type
+    - triggerTime
+    - payload
+  deleteScheduleRequest:
+    title: Delete Schedule
+    type: object
+    properties:
+      id:
+        type: string
+    required:
+    - id
+action:
+- name: create
+  version: 1.0.0
+  handler: CreateSchedule
+  scope: s.w
+  request:
+    schema:
+      $ref: '#/schemas/createScheduleRequest'
+    example: 
+      type: "type1"
+      triggerTime: 1716047675
+      payload: "payload1"
+- name: update
+  version: 1.0.0
+  handler: UpdateSchedule
+  scope: s.w
+  request:
+    schema:
+      $ref: '#/schemas/updateScheduleRequest'
+    example: 
+      id: "schedule123"
+      type: "type2"
+      triggerTime: 1716047676
+      payload: "payload2"
+- name: delete
+  version: 1.0.0
+  handler: DeleteSchedule
+  scope: s.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteScheduleRequest'
+    example: 
+      id: "schedule123"

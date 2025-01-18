@@ -1,0 +1,173 @@
+---
+host: lightapi.net
+service: menu
+schemas:
+  deleteMenuRequest:
+    title: Service
+    type: object
+    properties:
+      host:
+        type: string
+    required:
+    - host
+  createMenuRequest:
+    title: Service
+    type: object
+    properties:
+      host:
+        type: string
+      description:
+        type: string
+      contains:
+        type: array
+        items:
+          type: string
+    required:
+    - host
+  updateMenuRequest:
+    title: Service
+    type: object
+    properties:
+      host:
+        type: string
+      description:
+        type: string
+      contains:
+        type: array
+        items:
+          type: string
+    required:
+    - host
+  deleteMenuItemRequest:
+    title: Service
+    type: object
+    properties:
+      menuItemId:
+        type: string
+    required:
+    - menuItemId
+  createMenuItemRequest:
+    title: Service
+    type: object
+    properties:
+      menuItemId:
+        type: string
+      host:
+        type: string
+      label:
+        type: string
+      route:
+        type: string
+      roles:
+        type: array
+        items:
+          type: string
+      contains:
+        type: array
+        items:
+          type: string
+    required:
+    - menuItemId
+    - label
+  updateMenuItemRequest:
+    title: Service
+    type: object
+    properties:
+      menuItemId:
+        type: string
+      host:
+        type: string
+      label:
+        type: string
+      route:
+        type: string
+      roles:
+        type: array
+        items:
+          type: string
+      contains:
+        type: array
+        items:
+          type: string
+    required:
+    - menuItemId
+    - label
+action:
+- name: deleteMenu
+  version: 0.1.0
+  handler: DeleteMenu
+  scope: menu.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteMenuRequest'
+    example: 
+      host: host123
+- name: createMenu
+  version: 0.1.0
+  handler: CreateMenu
+  scope: menu.w
+  request:
+    schema:
+      $ref: '#/schemas/createMenuRequest'
+    example: 
+      host: host123
+      description: "This is my menu"
+      contains:
+        - "menu1"
+        - "menu2"
+- name: updateMenu
+  version: 0.1.0
+  handler: UpdateMenu
+  scope: menu.w
+  request:
+    schema:
+      $ref: '#/schemas/updateMenuRequest'
+    example: 
+      host: host123
+      description: "This is my updated menu"
+      contains:
+        - "menu2"
+        - "menu3"
+- name: deleteMenuItem
+  version: 0.1.0
+  handler: DeleteMenuItem
+  scope: menuItem.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteMenuItemRequest'
+    example: 
+      menuItemId: menuItem123
+- name: createMenuItem
+  version: 0.1.0
+  handler: CreateMenuItem
+  scope: menuItem.w
+  request:
+    schema:
+      $ref: '#/schemas/createMenuItemRequest'
+    example: 
+      menuItemId: menuItem123
+      host: host123
+      label: "My Menu Item"
+      route: "menu"
+      roles:
+        - "user"
+        - "admin"
+      contains:
+        - "item1"
+        - "item2"
+- name: updateMenuItem
+  version: 0.1.0
+  handler: UpdateMenuItem
+  scope: menuItem.w
+  request:
+    schema:
+      $ref: '#/schemas/updateMenuItemRequest'
+    example: 
+      menuItemId: menuItem123
+      host: host123
+      label: "My Updated Menu Item"
+      route: "menu"
+      roles:
+        - "guest"
+      contains:
+        - "item3"

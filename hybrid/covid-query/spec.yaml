@@ -1,0 +1,160 @@
+---
+host: lightapi.net
+service: covid
+schemas:
+  getCityRequest:
+    title: Service
+    type: object
+    properties:
+      country:
+        type: string
+        description: country
+      province:
+        type: string
+        description: province
+      city:
+        type: string
+        description: city
+    required:
+    - country
+    - province
+    - city
+  getEntityRequest:
+    title: Service
+    type: object
+    properties:
+      email:
+        type: string
+        description: email
+    required:
+    - email
+  getStatusByEmailRequest:
+    title: Service
+    type: object
+    properties:
+      email:
+        type: string
+        description: email
+    required:
+    - email
+  getStatusByUserIdRequest:
+    title: Service
+    type: object
+    properties:
+      userId:
+        type: string
+        description: userId
+    required:
+    - userId
+  getWebsiteByEmailRequest:
+    title: Service
+    type: object
+    properties:
+      email:
+        type: string
+        description: email
+    required:
+    - email
+  getWebsiteByUserIdRequest:
+    title: Service
+    type: object
+    properties:
+      userId:
+        type: string
+        description: userId
+    required:
+    - userId
+  getCityMapRequest:
+    title: Service
+    type: object
+    properties:
+      country:
+        type: string
+        description: country
+      province:
+        type: string
+        description: province
+      city:
+        type: string
+        description: city
+      category:
+        type: string
+        description: category
+      subcategory:
+        type: string
+        description: subcategory
+    required:
+    - country
+    - province
+    - city
+    - category
+action:
+- name: getCity
+  version: 0.1.0
+  handler: GetCity
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getCityRequest'
+    example: 
+      country: "US"
+      province: "CA"
+      city: "Los Angeles"
+- name: getEntity
+  version: 0.1.0
+  handler: GetEntity
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getEntityRequest'
+    example: 
+      email: test@example.com
+- name: getStatusByEmail
+  version: 0.1.0
+  handler: GetStatusByEmail
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getStatusByEmailRequest'
+    example: 
+       email: test@example.com
+- name: getStatusByUserId
+  version: 0.1.0
+  handler: GetStatusByUserId
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getStatusByUserIdRequest'
+    example: 
+      userId: user123
+- name: getWebsiteByEmail
+  version: 0.1.0
+  handler: GetWebsiteByEmail
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getWebsiteByEmailRequest'
+    example: 
+      email: test@example.com
+- name: getWebsiteByUserId
+  version: 0.1.0
+  handler: GetWebsiteByUserId
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getWebsiteByUserIdRequest'
+    example: 
+      userId: user123
+- name: getCityMap
+  version: 0.1.0
+  handler: GetCityMap
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getCityMapRequest'
+    example: 
+      country: "US"
+      province: "CA"
+      city: "Los Angeles"
+      category: "test"
+      subcategory: "covid"

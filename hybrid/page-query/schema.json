@@ -1,0 +1,59 @@
+{
+  "host": "lightapi.net",
+  "service": "page",
+  "action": [
+    {
+      "name": "getPageById",
+      "version": "0.1.0",
+      "handler": "GetPageById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Page",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Page Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getPage",
+      "version": "0.1.0",
+      "handler": "GetPage",
+      "skipAuth": true,
+      "schema": {
+        "title": "Pages",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    }
+  ]
+}    

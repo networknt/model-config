@@ -1,14 +1,14 @@
 {
   "host": "lightapi.net",
-  "service": "market",
+  "service": "role",
   "action": [
     {
-      "name": "getAttribute",
+      "name": "getRole",
       "version": "0.1.0",
-      "handler": "GetAttribute",
+      "handler": "GetRole",
       "scope": "portal.r",
       "schema": {
-        "title": "Attribute",
+        "title": "Role",
         "type": "object",
         "properties": {
           "offset": {
@@ -23,17 +23,13 @@
             "type": "string",
             "description": "Host Id"
           },
-          "attributeId": {
+          "roleId": {
             "type": "string",
-            "description": "Attribute Id"
+            "description": "Role Id"
           },
-          "attributeType": {
+          "roleDesc": {
             "type": "string",
-            "description": "Attribute Type"
-          },
-          "attributeDesc": {
-            "type": "string",
-            "description": "Attribute Desc"
+            "description": "Role Desc"
           }
         },
         "required": [
@@ -44,12 +40,12 @@
       }
     },
     {
-      "name": "queryAttributePermission",
+      "name": "queryRolePermission",
       "version": "0.1.0",
-      "handler": "QueryAttributePermission",
+      "handler": "QueryRolePermission",
       "scope": "portal.r",
       "schema": {
-        "title": "Attribute Permission",
+        "title": "Role Permission",
         "type": "object",
         "properties": {
           "offset": {
@@ -64,17 +60,9 @@
             "type": "string",
             "description": "Host Id"
           },
-          "attributeId": {
+          "roleId": {
             "type": "string",
-            "description": "Attribute Id"
-          },
-          "attributeType": {
-            "type": "string",
-            "description": "Attribute Type"
-          },
-          "attributeValue": {
-            "type": "string",
-            "description": "Attribute Value"
+            "description": "Role Id"
           },
           "apiId": {
             "type": "string",
@@ -97,12 +85,12 @@
       }
     },
     {
-      "name": "queryAttributeUser",
+      "name": "queryRoleUser",
       "version": "0.1.0",
-      "handler": "QueryAttributeUser",
+      "handler": "QueryRoleUser",
       "scope": "portal.r",
       "schema": {
-        "title": "Attribute User",
+        "title": "Role User",
         "type": "object",
         "properties": {
           "offset": {
@@ -117,17 +105,9 @@
             "type": "string",
             "description": "Host Id"
           },
-          "attributeId": {
+          "roleId": {
             "type": "string",
-            "description": "Attribute Id"
-          },
-          "attributeType": {
-            "type": "string",
-            "description": "Attribute Type"
-          },
-          "attributeValue": {
-            "type": "string",
-            "description": "Attribute Value"
+            "description": "Role Id"
           },
           "userId": {
             "type": "string",
@@ -162,12 +142,12 @@
       }
     },
     {
-      "name": "getAttributeLabel",
+      "name": "getRoleLabel",
       "version": "0.1.0",
-      "handler": "GetAttributeLabel",
+      "handler": "GetRoleLabel",
       "skipAuth": true,
       "schema": {
-        "title": "Attribute Label",
+        "title": "Role Label",
         "type": "object",
         "properties": {
           "hostId": {
@@ -181,12 +161,12 @@
       }
     },
     {
-      "name": "queryAttributeRowFilter",
+      "name": "queryRoleRowFilter",
       "version": "0.1.0",
-      "handler": "QueryAttributeRowFilter",
+      "handler": "QueryRoleRowFilter",
       "scope": "portal.r",
       "schema": {
-        "title": "Attribute Row Filter",
+        "title": "Role Row Filter",
         "type": "object",
         "properties": {
           "offset": {
@@ -201,13 +181,9 @@
             "type": "string",
             "description": "Host Id"
           },
-          "attributeId": {
+          "roleId": {
             "type": "string",
-            "description": "Attribute Id"
-          },
-          "attributeValue": {
-            "type": "string",
-            "description": "Attribute Value"
+            "description": "Role Id"
           },
           "apiId": {
             "type": "string",
@@ -230,12 +206,12 @@
       }
     },
     {
-      "name": "queryAttributeColFilter",
+      "name": "queryRoleColFilter",
       "version": "0.1.0",
-      "handler": "QueryAttributeColFilter",
+      "handler": "QueryRoleColFilter",
       "scope": "portal.r",
       "schema": {
-        "title": "Attribute Col Filter",
+        "title": "Role Col Filter",
         "type": "object",
         "properties": {
           "offset": {
@@ -250,13 +226,9 @@
             "type": "string",
             "description": "Host Id"
           },
-          "attributeId": {
+          "roleId": {
             "type": "string",
-            "description": "Attribute Id"
-          },
-          "attributeValue": {
-            "type": "string",
-            "description": "Attribute Value"
+            "description": "Role Id"
           },
           "apiId": {
             "type": "string",
@@ -276,34 +248,7 @@
           "limit",
           "hostId"
         ]
-      }
-    },
-    {
-      "name": "getConfig",
-      "version": "0.1.0",
-      "handler": "GetConfig",
-      "scope": "portal.r",
-      "schema": {
-        "title": "Get all configurations",
-        "type": "object"
-      }
-    },
-    {
-      "name": "getConfigById",
-      "version": "0.1.0",
-      "handler": "GetConfigById",
-      "scope": "portal.r",
-      "schema": {
-        "title": "Get Configurations by Id",
-        "type": "object",
-        "properties": {
-          "configId": {
-            "type": "string",
-            "description": "Config Id"
-          }
-        }
       }
     }
-
   ]
 }

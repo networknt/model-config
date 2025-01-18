@@ -1,0 +1,129 @@
+{
+  "host": "lightapi.net",
+  "service": "rule",
+  "action": [
+    {
+      "name": "getRuleById",
+      "version": "0.1.0",
+      "handler": "GetRuleById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Rule",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "ruleId": {
+            "type": "string",
+            "description": "Rule id"
+          }
+        },
+        "required": [
+          "host",
+          "ruleId"
+        ]
+      }
+    },
+    {
+      "name": "getRule",
+      "version": "0.1.0",
+      "handler": "GetRule",
+      "skipAuth": true,
+      "schema": {
+        "title": "Rules",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record limit"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "hostId"
+        ]
+      }
+    },
+    {
+      "name": "getRuleByType",
+      "version": "0.1.0",
+      "handler": "GetRuleByType",
+      "skipAuth": true,
+      "schema": {
+        "title": "Rules",
+        "type": "object",
+        "properties": {
+          "ruleType": {
+            "type": "string",
+            "description": "Rule Type"
+          },
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          }
+        },
+        "required": [
+          "hostId", "ruleType"
+        ]
+      }
+    },
+    {
+      "name": "getRuleByGroup",
+      "version": "0.1.0",
+      "handler": "GetRuleByGroup",
+      "skipAuth": true,
+      "schema": {
+        "title": "Rules",
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string",
+            "description": "Group Id"
+          },
+          "host": {
+            "type": "string",
+            "description": "Rule Host"
+          }
+        },
+        "required": [
+          "host", "groupId"
+        ]
+      }
+    },
+    {
+      "name": "getRuleByApiId",
+      "version": "0.1.0",
+      "handler": "GetRuleByApiId",
+      "skipAuth": true,
+      "schema": {
+        "title": "Rules",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          }
+        },
+        "required": [
+          "host", "apiId"
+        ]
+      }
+    }
+  ]
+}
+

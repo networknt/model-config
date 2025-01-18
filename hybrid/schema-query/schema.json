@@ -1,0 +1,105 @@
+{
+  "host": "lightapi.net",
+  "service": "schema",
+  "action": [
+    {
+      "name": "getJsonSchemaById",
+      "version": "0.1.0",
+      "handler": "GetJsonSchemaById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Json Schema",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Schema Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getJsonSchema",
+      "version": "0.1.0",
+      "handler": "GetJsonSchema",
+      "skipAuth": true,
+      "schema": {
+        "title": "Json Schemas",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "getJsonSchemaList",
+      "version": "0.1.0",
+      "handler": "GetJsonSchemaList",
+      "skipAuth": true,
+      "schema": {
+        "title": "Json Schemas",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    }
+  ]
+}
+

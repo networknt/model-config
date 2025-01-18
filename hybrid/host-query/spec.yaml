@@ -1,0 +1,64 @@
+---
+host: lightapi.net
+service: host
+schemas:
+  getHostRequest:
+    title: Host List
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record offset
+      limit:
+        type: integer
+        description: Record limit
+    required:
+    - limit
+    - offset
+  getHostByIdRequest:
+    title: Host Dashboard
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+    required:
+    - hostId
+  getHostDomainByIdRequest:
+    title: Host Domain
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+    required:
+    - hostId
+action:
+- name: getHost
+  version: 0.1.0
+  handler: GetHost
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getHostRequest'
+    example: 
+      offset: 0
+      limit: 10
+- name: getHostById
+  version: 0.1.0
+  handler: GetHostById
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getHostByIdRequest'
+    example: 
+      hostId: host123
+- name: getHostDomainById
+  version: 0.1.0
+  handler: GetHostDomainById
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getHostDomainByIdRequest'
+    example: 
+      hostId: host123

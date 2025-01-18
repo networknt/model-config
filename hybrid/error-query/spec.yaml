@@ -1,0 +1,56 @@
+---
+host: lightapi.net
+service: error
+schemas:
+  getErrorByCodeRequest:
+    title: Error
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      errorCode:
+        type: string
+        description: Error Code
+    required:
+    - host
+    - errorCode
+  getErrorRequest:
+    title: Errors
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+    required:
+    - limit
+    - offset
+    - host
+action:
+- name: getErrorByCode
+  version: 0.1.0
+  handler: GetErrorByCode
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getErrorByCodeRequest'
+    example: 
+      host: host123
+      errorCode: "ERR_123"
+- name: getError
+  version: 0.1.0
+  handler: GetError
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getErrorRequest'
+    example: 
+      offset: 0
+      limit: 10
+      host: host123

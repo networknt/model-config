@@ -1,0 +1,105 @@
+{
+  "host": "lightapi.net",
+  "service": "blog",
+  "action": [
+    {
+      "name": "getBlogById",
+      "version": "0.1.0",
+      "handler": "GetBlogById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Blog",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Blog Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getBlog",
+      "version": "0.1.0",
+      "handler": "GetBlog",
+      "skipAuth": true,
+      "schema": {
+        "title": "Blogs",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    },
+    {
+      "name": "getBlogList",
+      "version": "0.1.0",
+      "handler": "GetBlogList",
+      "skipAuth": true,
+      "schema": {
+        "title": "Blogs",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    }
+  ]
+}
+

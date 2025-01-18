@@ -1,0 +1,270 @@
+---
+host: lightapi.net
+service: form
+schemas:
+  deleteFormRequest:
+    title: Service
+    type: object
+    properties:
+      formId:
+        type: string
+    required:
+    - formId
+  createFormRequest:
+    title: Service
+    type: object
+    properties:
+      formId:
+        type: string
+      version:
+        type: string
+      action:
+        type: object
+        properties:
+          host:
+            type: string
+            description: action host
+          service:
+            type: string
+            description: action service
+          action:
+            type: string
+            description: action to do
+          version:
+            type: string
+            description: action version
+          method:
+            type: string
+            description: action method
+      schema:
+          type: object
+          properties:
+            type:
+              type: string
+              description: schema type
+            title:
+              type: string
+              description: action name
+            required:
+              type: array
+              items:
+                type: string
+              description: lis of required fields
+            properties:
+              type: array
+              items:
+                type: object
+                properties:
+                   name:
+                      type: string
+                      description: Property name
+                   title:
+                       type: string
+                       description: Property type
+                   readonly:
+                        type: boolean
+                        description: indicate if it is readonly
+                   type:
+                       type: string
+                       description: Property type
+                   maxItems:
+                       type: number
+                       format: integer
+                       description: action success url forward
+              description: list of form properties
+      formFields:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+              description: form field key
+            type:
+              type: string
+              description: form field type
+            multiple:
+              type: boolean
+              description: indicate if it is multiple
+            rows:
+              type: string
+              description: form field row define
+      description:
+        type: string
+    required:
+    - formId
+  updateFormRequest:
+    title: Service
+    type: object
+    properties:
+      formId:
+        type: string
+      version:
+        type: string
+      action:
+        type: object
+        properties:
+          host:
+            type: string
+            description: action host
+          service:
+            type: string
+            description: action service
+          action:
+            type: string
+            description: action to do
+          version:
+            type: string
+            description: action version
+          method:
+            type: string
+            description: action method
+      schema:
+          type: object
+          properties:
+            type:
+              type: string
+              description: schema type
+            title:
+              type: string
+              description: action name
+            required:
+              type: array
+              items:
+                type: string
+              description: lis of required fields
+            properties:
+              type: array
+              items:
+                type: object
+                properties:
+                   name:
+                      type: string
+                      description: Property name
+                   title:
+                       type: string
+                       description: Property type
+                   readonly:
+                        type: boolean
+                        description: indicate if it is readonly
+                   type:
+                       type: string
+                       description: Property type
+                   maxItems:
+                       type: number
+                       format: integer
+                       description: action success url forward
+              description: list of form properties
+      formFields:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+              description: form field key
+            type:
+              type: string
+              description: form field type
+            multiple:
+              type: boolean
+              description: indicate if it is multiple
+            rows:
+              type: string
+              description: form field row define
+      description:
+        type: string
+    required:
+    - formId
+action:
+- name: deleteForm
+  version: 0.1.0
+  handler: DeleteForm
+  scope: form.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteFormRequest'
+    example: 
+      formId: form123
+- name: createForm
+  version: 0.1.0
+  handler: CreateForm
+  scope: form.w
+  request:
+    schema:
+      $ref: '#/schemas/createFormRequest'
+    example: 
+      formId: form123
+      version: "1.0.0"
+      action:
+        Action:
+           host: lightapi.net
+           service: pet
+           action: getPet
+           version: 0.1.0
+           method: get
+      schema:
+          Schema:
+             type: "object"
+             title: "Pet"
+             required:
+               - "name"
+             properties:
+               - Property:
+                  name: "name"
+                  type: "string"
+                  title: "pet name"
+                  readonly: true
+                  maxItems: 1
+      formFields:
+        - FormField:
+            key: "name"
+            type: "text"
+            multiple: false
+            rows: "1"
+      description: "This is a form description"
+- name: updateForm
+  version: 0.1.0
+  handler: UpdateForm
+  scope: form.w
+  request:
+    schema:
+      $ref: '#/schemas/updateFormRequest'
+    example: 
+      formId: form123
+      version: "1.1.0"
+      action:
+        Action:
+           host: lightapi.net
+           service: pet
+           action: createPet
+           version: 0.1.1
+           method: post
+      schema:
+          Schema:
+             type: "object"
+             title: "Pet"
+             required:
+               - "name"
+               - "type"
+             properties:
+               - Property:
+                  name: "name"
+                  type: "string"
+                  title: "pet name"
+               - Property:
+                  name: "type"
+                  type: "string"
+                  title: "pet type"
+      formFields:
+        - FormField:
+            key: "name"
+            type: "text"
+            multiple: false
+            rows: "1"
+        - FormField:
+            key: "type"
+            type: "select"
+            multiple: false
+            rows: "1"
+      description: "This is an updated description"

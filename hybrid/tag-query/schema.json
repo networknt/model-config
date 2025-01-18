@@ -1,0 +1,25 @@
+{
+  "host": "lightapi.net",
+  "service": "tag",
+  "action": [
+    {
+      "name": "getTags",
+      "version": "0.1.0",
+      "handler": "GetTags",
+      "skipAuth": true,
+      "schema": {
+        "title": "Tags",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "host"
+        ]
+      }
+    }
+  ]
+}    

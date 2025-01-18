@@ -1,0 +1,60 @@
+{
+  "host": "lightapi.net",
+  "service": "news",
+  "action": [
+    {
+      "name": "getNewsById",
+      "version": "0.1.0",
+      "handler": "GetNewsById",
+      "skipAuth": true,
+      "schema": {
+        "title": "Blog",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "News Id"
+          }
+        },
+        "required": [
+          "host",
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getNews",
+      "version": "0.1.0",
+      "handler": "GetNews",
+      "skipAuth": true,
+      "schema": {
+        "title": "News",
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Record Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Record Limit"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": [
+          "limit",
+          "offset",
+          "host"
+        ]
+      }
+    }
+  ]
+}
+

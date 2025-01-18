@@ -1,0 +1,522 @@
+---
+host: lightapi.net
+service: config
+schemas:
+  retrieveConfigRequest:
+    title: Retrieve Config Zip File
+    type: object
+    properties:
+      version:
+        type: string
+      profile:
+        type: string
+      serviceId:
+        type: string
+    required:
+    - version
+    - profile
+    - serviceId
+  initializeServerRequest:
+    title: Initialize Server Encryption Key
+    type: object
+    properties:
+      key:
+        type: string
+    required:
+    - key
+  createServiceRequest:
+    title: Create a new service with meta data by service onwer
+    type: object
+    properties:
+      serviceId:
+        type: string
+      encryptionAlgorithm:
+        type: string
+        enum:
+        - AES
+      encryptionSalt:
+        type: string
+      templateRepository:
+        type: string
+      profile:
+        type: string
+      version:
+        type: string
+      serviceOwner:
+        type: string
+    required:
+    - serviceId
+    - encryptionAlgorithm
+    - templateRepository
+    - profile
+    - version
+    - serviceOwner
+  updateServiceRequest:
+    title: Update meta data for a created service
+    type: object
+    properties:
+      serviceId:
+        type: string
+      profile:
+        type: string
+      version:
+        type: string
+      encryptionAlgorithm:
+        type: string
+        enum:
+        - AES
+      encryptionSalt:
+        type: string
+      templateRepository:
+        type: string
+      serviceOwner:
+        type: string
+    required:
+    - serviceId
+    - profile
+    - version
+    - encryptionAlgorithm
+    - templateRepository
+    - serviceOwner
+  deleteServiceRequest:
+    title: Delete a created service
+    type: object
+    properties:
+      serviceId:
+        type: string
+      profile:
+        type: string
+      version:
+        type: string
+    required:
+    - serviceId
+    - profile
+    - version
+  queryServiceRequest:
+    title: Query meta data for a created service
+    type: object
+    properties:
+      serviceId:
+        type: string
+      profile:
+        type: string
+      version:
+        type: string
+    required:
+    - serviceId
+  createServiceValueRequest:
+    title: Create a new service specific key value entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      key:
+        type: string
+      value:
+        type: string
+    required:
+    - configServiceId
+    - key
+    - value
+  createServiceValuesRequest:
+      title: Create a list of service key value entry
+      type: object
+      properties:
+        configServiceId:
+          type: string
+        values:
+          type: array
+          items:
+            properties:
+              key:
+                type: string
+              value:
+                type: string
+      required:
+        - configServiceId
+  updateServiceValueRequest:
+    title: Update a service specific key value entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      key:
+        type: string
+      value:
+        type: string
+    required:
+    - configServiceId
+    - key
+    - value
+  updateServiceValuesRequest:
+    title: Update a list of service key value entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      values:
+        type: array
+        items:
+          properties:
+            key:
+              type: string
+            value:
+              type: string
+    required:
+    - configServiceId
+  deleteServiceValueRequest:
+    title: Delete a service specific key value entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      key:
+        type: string
+    required:
+    - configServiceId
+    - key
+  deleteServiceValuesRequest:
+    title: Delete services vy service Id
+    type: object
+    properties:
+      configServiceId:
+        type: string
+    required:
+    - configServiceId
+  queryServiceValueRequest:
+    title: Query a service specific key value entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      key:
+        type: string
+    required:
+    - configServiceId
+    - key
+  queryServiceValuesRequest:
+    title: Query all service specific key value entries
+    type: object
+    properties:
+      configServiceId:
+        type: string
+    required:
+    - configServiceId
+  createServiceSecretRequest:
+    title: Create a new service specific key secret entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      key:
+        type: string
+      secret:
+        type: string
+    required:
+    - configServiceId
+    - key
+    - secret
+  createServiceSecretsRequest:
+    title: Create a list of service key secret value entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      values:
+        type: array
+        items:
+          properties:
+            key:
+              type: string
+            value:
+              type: string
+    required:
+    - configServiceId
+  updateServiceSecretRequest:
+    title: Update a service specific key secret entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      key:
+        type: string
+      value:
+        type: string
+    required:
+    - configServiceId
+    - key
+    - secret
+  updateServiceSecretsRequest:
+    title: Update a list of service key secret value entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      values:
+        type: array
+        items:
+          properties:
+            key:
+              type: string
+            value:
+              type: string
+    required:
+    - configServiceId
+  deleteServiceSecretRequest:
+    title: Delete a service specific key secret entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      key:
+        type: string
+    required:
+    - configServiceId
+    - key
+  queryServiceSecretRequest:
+    title: Query a service specific key secret entry
+    type: object
+    properties:
+      configServiceId:
+        type: string
+      key:
+        type: string
+    required:
+    - configServiceId
+    - key
+  queryServiceSecretsRequest:
+    title: Query all service specific key secret entries
+    type: object
+    properties:
+      configServiceId:
+        type: string
+    required:
+    - configServiceId
+action:
+- name: retrieve-config
+  version: 0.1.0
+  handler: RetrieveConfig
+  request:
+    schema:
+      $ref: '#/schemas/retrieveConfigRequest'
+    example: 
+      version: "1.0.0"
+      profile: "dev"
+      serviceId: "myservice"
+- name: initialize-server
+  version: 0.1.0
+  handler: InitializeServer
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/initializeServerRequest'
+    example: 
+      key: "myencryptionkey"
+- name: create-service
+  version: 0.1.0
+  handler: CreateService
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/createServiceRequest'
+    example: 
+      serviceId: "myservice"
+      encryptionAlgorithm: "AES"
+      encryptionSalt: "somesalt"
+      templateRepository: "light-example"
+      profile: "dev"
+      version: "1.0.0"
+      serviceOwner: "test"
+- name: update-service
+  version: 0.1.0
+  handler: UpdateService
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/updateServiceRequest'
+    example: 
+      serviceId: "myservice"
+      profile: "test"
+      version: "1.1.0"
+      encryptionAlgorithm: "AES"
+      encryptionSalt: "somesalt2"
+      templateRepository: "light-example-updated"
+      serviceOwner: "test2"
+- name: delete-service
+  version: 0.1.0
+  handler: DeleteService
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteServiceRequest'
+    example: 
+      serviceId: "myservice"
+      profile: "dev"
+      version: "1.0.0"
+- name: query-service
+  version: 0.1.0
+  handler: QueryService
+  scope: light.config.r
+  request:
+    schema:
+      $ref: '#/schemas/queryServiceRequest'
+    example: 
+       serviceId: "myservice"
+- name: create-service-value
+  version: 0.1.0
+  handler: CreateServiceValue
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/createServiceValueRequest'
+    example: 
+      configServiceId: "myservice"
+      key: "mykey"
+      value: "myvalue"
+- name: create-service-values
+  version: 0.1.0
+  handler: CreateServiceValues
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/createServiceValuesRequest'
+    example: 
+      configServiceId: "myservice"
+      values:
+       - key: "key1"
+         value: "value1"
+       - key: "key2"
+         value: "value2"
+- name: update-service-value
+  version: 0.1.0
+  handler: UpdateServiceValue
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/updateServiceValueRequest'
+    example: 
+      configServiceId: "myservice"
+      key: "mykey"
+      value: "myvalueupdated"
+- name: update-service-values
+  version: 0.1.0
+  handler: UpdateServiceValues
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/updateServiceValuesRequest'
+    example: 
+      configServiceId: "myservice"
+      values:
+        - key: "key1updated"
+          value: "value1updated"
+        - key: "key2updated"
+          value: "value2updated"
+- name: delete-service-value
+  version: 0.1.0
+  handler: DeleteServiceValue
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteServiceValueRequest'
+    example: 
+      configServiceId: "myservice"
+      key: "mykey"
+- name: delete-service-values
+  version: 0.1.0
+  handler: DeleteServiceValues
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteServiceValuesRequest'
+    example: 
+      configServiceId: "myservice"
+- name: query-service-value
+  version: 0.1.0
+  handler: QueryServiceValue
+  scope: light.config.r
+  request:
+    schema:
+      $ref: '#/schemas/queryServiceValueRequest'
+    example: 
+      configServiceId: "myservice"
+      key: "mykey"
+- name: query-service-secrets
+  version: 0.1.0
+  handler: QueryServiceSecrets
+  scope: light.config.r
+  request:
+    schema:
+      $ref: '#/schemas/queryServiceSecretsRequest'
+    example: 
+      configServiceId: "myservice"
+- name: create-service-secret
+  version: 0.1.0
+  handler: CreateServiceSecret
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/createServiceSecretRequest'
+    example: 
+      configServiceId: "myservice"
+      key: "mykey"
+      secret: "mysecret"
+- name: create-service-secrets
+  version: 0.1.0
+  handler: CreateServiceSecrets
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/createServiceSecretsRequest'
+    example: 
+      configServiceId: "myservice"
+      values:
+        - key: "key1"
+          value: "secret1"
+        - key: "key2"
+          value: "secret2"
+- name: update-service-secret
+  version: 0.1.0
+  handler: UpdateServiceSecret
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/updateServiceSecretRequest'
+    example: 
+      configServiceId: "myservice"
+      key: "mykey"
+      value: "mysecretupdated"
+- name: update-service-secrets
+  version: 0.1.0
+  handler: UpdateServiceSecrets
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/updateServiceSecretsRequest'
+    example: 
+       configServiceId: "myservice"
+       values:
+         - key: "key1"
+           value: "secret1updated"
+         - key: "key2"
+           value: "secret2updated"
+- name: delete-service-secret
+  version: 0.1.0
+  handler: DeleteServiceSecret
+  scope: light.config.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteServiceSecretRequest'
+    example: 
+      configServiceId: "myservice"
+      key: "mykey"
+- name: query-service-secret
+  version: 0.1.0
+  handler: QueryServiceSecret
+  scope: light.config.r
+  request:
+    schema:
+      $ref: '#/schemas/queryServiceSecretRequest'
+    example: 
+      configServiceId: "myservice"
+      key: "mykey"

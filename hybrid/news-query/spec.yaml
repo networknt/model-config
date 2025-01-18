@@ -1,0 +1,56 @@
+---
+host: lightapi.net
+service: news
+schemas:
+  getNewsByIdRequest:
+    title: Blog
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: News Id
+    required:
+    - host
+    - id
+  getNewsRequest:
+    title: News
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      host:
+        type: string
+        description: Host
+    required:
+    - limit
+    - offset
+    - host
+action:
+- name: getNewsById
+  version: 0.1.0
+  handler: GetNewsById
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getNewsByIdRequest'
+    example: 
+      host: host123
+      id: news123
+- name: getNews
+  version: 0.1.0
+  handler: GetNews
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getNewsRequest'
+    example: 
+      offset: 0
+      limit: 10
+      host: host123

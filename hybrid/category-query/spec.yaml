@@ -1,0 +1,46 @@
+---
+host: lightapi.net
+service: category
+schemas:
+  getCategoryRequest:
+    title: Category
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+    required:
+    - host
+  getCategoryByNameRequest:
+    title: Category
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      name:
+        type: string
+        description: Name
+    required:
+    - host
+    - name
+action:
+- name: getCategory
+  version: 0.1.0
+  handler: GetCategory
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getCategoryRequest'
+    example: 
+      host: host123
+- name: getCategoryByName
+  version: 0.1.0
+  handler: GetCategoryByName
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getCategoryByNameRequest'
+    example: 
+      host: host123
+      name: "MyCategory"

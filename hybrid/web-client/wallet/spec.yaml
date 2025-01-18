@@ -1,0 +1,82 @@
+---
+host: taiji.io
+service: wallet
+schemas:
+  createRequest:
+    title: Service
+    type: object
+    properties:
+      password:
+        type: string
+      passwordConfirm:
+        type: string
+      region:
+        type: string
+    required:
+    - password
+    - passwordConfirm
+    - region
+  openRequest:
+    title: Open Wallet
+    type: object
+    properties:
+      address:
+        type: string
+      password:
+        type: string
+  closeRequest:
+    title: Close Wallet
+    type: object
+  resetRequest:
+    title: Service
+    type: object
+    properties:
+      address:
+        type: string
+      oldPassword:
+        type: string
+      newPassword:
+        type: string
+      newPasswordConfirm:
+        type: string
+action:
+- name: create
+  version: 1.0.0
+  handler: CreateWallet
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/createRequest'
+    example: 
+      password: "mypassword"
+      passwordConfirm: "mypassword"
+      region: "US"
+- name: open
+  version: 1.0.0
+  handler: OpenWallet
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/openRequest'
+    example: 
+      address: "0x1234567890abcdef"
+      password: "mypassword"
+- name: close
+  version: 1.0.0
+  handler: CloseWallet
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/closeRequest'
+- name: reset
+  version: 1.0.0
+  handler: ResetPassword
+  scope: t.w
+  request:
+    schema:
+      $ref: '#/schemas/resetRequest'
+    example: 
+      address: "0x1234567890abcdef"
+      oldPassword: "oldpassword"
+      newPassword: "newpassword"
+      newPasswordConfirm: "newpassword"

@@ -1,0 +1,59 @@
+---
+host: lightapi.net
+service: certification
+schemas:
+  certifyEndpointRequest:
+    title: Endpoint Certification
+    type: object
+    properties:
+      host:
+        type: string
+      path:
+        type: string
+      token:
+        type: string
+      environment:
+        type: string
+        enum:
+        - test
+        - prod
+    required:
+    - host
+    - path
+  certifyRegistryRequest:
+    title: Registry Certification
+    type: object
+    properties:
+      registryUrl:
+        type: string
+      environment:
+        type: string
+        enum:
+        - test
+        - prod
+    required:
+    - registryUrl
+action:
+- name: certifyEndpoint
+  version: 0.1.0
+  handler: Endpoint
+  scope: cert.endpoint.r
+  request:
+    schema:
+      $ref: '#/schemas/certifyEndpointRequest'
+    example: 
+      host: "host123"
+      path: "/api/test"
+      token: "jwt_token"
+      environment: "test"
+- name: certifyRegistry
+  version: 0.1.0
+  handler: Registry
+  scope: cert.registry.r
+  request:
+    schema:
+      $ref: '#/schemas/certifyRegistryRequest'
+    example: 
+      registryUrl: "http://example.com/registry"
+      environment: "prod"
+
