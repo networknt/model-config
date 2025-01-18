@@ -1,0 +1,119 @@
+{
+  "host": "lightapi.net",
+  "service": "template",
+  "action": [
+    {
+      "name": "createTemplate",
+      "version": "0.1.0",
+      "handler": "CreateTemplate",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Template",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Template Host"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Template Id"
+          },
+          "templateType": {
+            "type": "string",
+            "description": "Template Type",
+            "enum": ["faq", "error"]
+          },
+          "status": {
+            "type": "string",
+            "description": "Template Status",
+            "enum": ["draft", "published"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Template Title"
+          },
+          "fields": {
+            "type": "object",
+            "description": "Template Fields"
+          }
+        },
+        "required": [
+          "host",
+          "templateId",
+          "templateType",
+          "status",
+          "title",
+          "fields"
+        ]
+      }
+    },
+    {
+      "name": "updateTemplate",
+      "version": "0.1.0",
+      "handler": "UpdateTemplate",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Template",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Template Host"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Template Id"
+          },
+          "templateType": {
+            "type": "string",
+            "description": "Template Type",
+            "enum": ["faq", "error"]
+          },
+          "status": {
+            "type": "string",
+            "description": "Template Status",
+            "enum": ["draft", "published"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Template Title"
+          },
+          "fields": {
+            "type": "object",
+            "description": "Template Fields"
+          }
+        },
+        "required": [
+          "host",
+          "templateId",
+          "templateType",
+          "status",
+          "title",
+          "fields"
+        ]
+      }
+    },
+    {
+      "name": "deleteTemplate",
+      "version": "0.1.0",
+      "handler": "DeleteTemplate",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Template",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Template Host"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Template Id"
+          }
+        },
+        "required": ["host", "templateId"]
+      }
+    }
+  ]
+}    
