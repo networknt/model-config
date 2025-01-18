@@ -1,0 +1,211 @@
+{
+  "host": "lightapi.net",
+  "service": "schema",
+  "action": [
+    {
+      "name": "createJsonSchema",
+      "version": "0.1.0",
+      "handler": "CreateJsonSchema",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Json Schema",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Schema Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Schema Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": ["draft", "published"]
+          },
+          "version": {
+            "title": "Schema Version",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["v4", "v6", "v7", "v2019-09"]
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Schema Name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Schema Description"
+          },
+          "email": {
+            "type": "string",
+            "description": "Contact Email"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "schema": {
+            "type": "string",
+            "description": "Json Schema"
+          },
+          "example": {
+            "type": "string",
+            "description": "Json Example"
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum": ["O", "C"]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "version",
+          "name",
+          "description",
+          "categories",
+          "tags",
+          "schema",
+          "example",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "updateJsonSchema",
+      "version": "0.1.0",
+      "handler": "UpdateJsonSchema",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Json Schema",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Schema Host",
+            "readonly": true
+          },
+          "id": {
+            "type": "string",
+            "description": "Schema Id",
+            "readonly": true
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": ["draft", "published"]
+          },
+          "version": {
+            "title": "Schema Version",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["v4", "v6", "v7", "v2019-09"]
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Schema Name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Schema Description"
+          },
+          "owner": {
+            "type": "string",
+            "description": "Owner Id",
+            "readonly": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Contact Email"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "schema": {
+            "type": "string",
+            "description": "Json Schema"
+          },
+          "example": {
+            "type": "string",
+            "description": "Json Example"
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum": ["O", "C"]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "version",
+          "name",
+          "description",
+          "owner",
+          "categories",
+          "tags",
+          "schema",
+          "example",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "deleteJsonSchema",
+      "version": "0.1.0",
+      "handler": "DeleteJsonSchema",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Json Schema",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Schema Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Schema Id"
+          }
+        },
+        "required": ["host", "id"]
+      }
+    }
+  ]
+}    
