@@ -1,0 +1,498 @@
+---
+host: lightapi.net
+service: group
+schemas:
+  createGroupRequest:
+    title: Group
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      groupId:
+        type: string
+        description: Group Id
+      groupDesc:
+        title: Group Desc
+        type: string
+    required:
+    - hostId
+    - groupId
+  updateGroupRequest:
+    title: Group
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      groupId:
+        type: string
+        description: Group Id
+      groupDesc:
+        title: Group Desc
+        type: string
+    required:
+    - hostId
+    - groupId
+    - groupDesc
+  deleteGroupRequest:
+    title: Group
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      groupId:
+        type: string
+        description: Group Id
+    required:
+    - hostId
+    - groupId
+  createGroupUserRequest:
+    title: Group User
+    type: object
+    properties:
+      hostId:
+        title: Host Id
+        type: string
+      groupId:
+        title: Group Id
+        type: string
+      userId:
+        title: User Id
+        type: string
+      startTs:
+        title: Start Timestamp
+        type: string
+        format: date-time
+      endTs:
+        title: End Timestamp
+        type: string
+        format: date-time
+    required:
+    - hostId
+    - groupId
+    - userId
+  deleteGroupUserRequest:
+    title: Group User
+    type: object
+    properties:
+      hostId:
+        title: Host Id
+        type: string
+      groupId:
+        title: Group Id
+        type: string
+      userId:
+        title: User Id
+        type: string
+    required:
+    - hostId
+    - groupId
+    - userId
+  createGroupRowFilterRequest:
+    title: Group Row Filter
+    type: object
+    properties:
+      hostId:
+        title: Host Id
+        type: string
+      groupId:
+        title: Group Id
+        type: string
+      apiId:
+        title: Api Id
+        type: string
+      apiVersion:
+        title: Api Version
+        type: string
+      endpoint:
+        title: Endpoint
+        type: string
+      colName:
+        title: Column Name
+        type: string
+      operator:
+        title: Operator
+        type: string
+      colValue:
+        title: Column Value
+        type: string
+    required:
+    - hostId
+    - groupId
+    - apiId
+    - apiVersion
+    - endpoint
+    - colName
+    - operator
+    - colValue
+  updateGroupRowFilterRequest:
+    title: Group Row Filter
+    type: object
+    properties:
+      hostId:
+        title: Host Id
+        type: string
+      groupId:
+        title: Group Id
+        type: string
+      apiId:
+        title: Api Id
+        type: string
+      apiVersion:
+        title: Api Version
+        type: string
+      endpoint:
+        title: Endpoint
+        type: string
+      colName:
+        title: Column Name
+        type: string
+      operator:
+        title: Operator
+        type: string
+      colValue:
+        title: Column Value
+        type: string
+    required:
+    - hostId
+    - groupId
+    - apiId
+    - apiVersion
+    - endpoint
+    - colName
+    - operator
+    - colValue
+  deleteGroupRowFilterRequest:
+    title: Group Row Filter
+    type: object
+    properties:
+      hostId:
+        title: Host Id
+        type: string
+      groupId:
+        title: Group Id
+        type: string
+      apiId:
+        title: Api Id
+        type: string
+      apiVersion:
+        title: Api Version
+        type: string
+      endpoint:
+        title: Endpoint
+        type: string
+      colName:
+        title: Column Name
+        type: string
+    required:
+    - hostId
+    - groupId
+    - apiId
+    - apiVersion
+    - endpoint
+    - colName
+  createGroupColFilterRequest:
+    title: Group Column Filter
+    type: object
+    properties:
+      hostId:
+        title: Host Id
+        type: string
+      groupId:
+        title: Group Id
+        type: string
+      apiId:
+        title: Api Id
+        type: string
+      apiVersion:
+        title: Api Version
+        type: string
+      endpoint:
+        title: Endpoint
+        type: string
+      columns:
+        title: Columns
+        type: string
+    required:
+    - hostId
+    - groupId
+    - apiId
+    - apiVersion
+    - endpoint
+    - columns
+  updateGroupColFilterRequest:
+    title: Group Col Filter
+    type: object
+    properties:
+      hostId:
+        title: Host Id
+        type: string
+      groupId:
+        title: Group Id
+        type: string
+      apiId:
+        title: Api Id
+        type: string
+      apiVersion:
+        title: Api Version
+        type: string
+      endpoint:
+        title: Endpoint
+        type: string
+      columns:
+        title: Columns
+        type: string
+    required:
+    - hostId
+    - groupId
+    - apiId
+    - apiVersion
+    - endpoint
+    - columns
+  deleteGroupColFilterRequest:
+    title: Group Col Filter
+    type: object
+    properties:
+      hostId:
+        title: Host Id
+        type: string
+      groupId:
+        title: Group Id
+        type: string
+      apiId:
+        title: Api Id
+        type: string
+      apiVersion:
+        title: Api Version
+        type: string
+      endpoint:
+        title: Endpoint
+        type: string
+    required:
+    - hostId
+    - groupId
+    - apiId
+    - apiVersion
+    - endpoint
+  createGroupPermissionRequest:
+    title: Group Permission
+    type: object
+    properties:
+      hostId:
+        title: Host Id
+        type: string
+      groupId:
+        title: Group Id
+        type: string
+      apiId:
+        title: Api Id
+        type: string
+      apiVersion:
+        title: Api Version
+        type: string
+      endpoint:
+        title: Endpoint
+        type: string
+    required:
+    - hostId
+    - groupId
+    - apiId
+    - apiVersion
+    - endpoint
+  deleteGroupPermissionRequest:
+    title: Group Permission
+    type: object
+    properties:
+      hostId:
+        title: Host Id
+        type: string
+      groupId:
+        title: Group Id
+        type: string
+      apiId:
+        title: Api Id
+        type: string
+      apiVersion:
+        title: Api Version
+        type: string
+      endpoint:
+        title: Endpoint
+        type: string
+    required:
+    - hostId
+    - groupId
+    - apiId
+    - apiVersion
+    - endpoint
+action:
+- name: createGroup
+  version: 0.1.0
+  handler: CreateGroup
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createGroupRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      groupDesc: "This is my sample group"
+- name: updateGroup
+  version: 0.1.0
+  handler: UpdateGroup
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateGroupRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      groupDesc: "This is my updated group"
+- name: deleteGroup
+  version: 0.1.0
+  handler: DeleteGroup
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteGroupRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+- name: createGroupUser
+  version: 0.1.0
+  handler: CreateGroupUser
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createGroupUserRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      userId: user123
+      startTs: 2024-04-01T10:00:00Z
+      endTs: 2024-04-30T10:00:00Z
+- name: deleteGroupUser
+  version: 0.1.0
+  handler: DeleteGroupUser
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteGroupUserRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      userId: user123
+- name: createGroupRowFilter
+  version: 0.1.0
+  handler: CreateGroupRowFilter
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createGroupRowFilterRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
+      colName: name
+      operator: equals
+      colValue: test
+- name: updateGroupRowFilter
+  version: 0.1.0
+  handler: UpdateGroupRowFilter
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateGroupRowFilterRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
+      colName: name
+      operator: contains
+      colValue: test
+- name: deleteGroupRowFilter
+  version: 0.1.0
+  handler: DeleteGroupRowFilter
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteGroupRowFilterRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
+      colName: name
+- name: createGroupColFilter
+  version: 0.1.0
+  handler: CreateGroupColFilter
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createGroupColFilterRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
+      columns: col1, col2
+- name: updateGroupColFilter
+  version: 0.1.0
+  handler: UpdateGroupColFilter
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateGroupColFilterRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
+      columns: col2, col3
+- name: deleteGroupColFilter
+  version: 0.1.0
+  handler: DeleteGroupColFilter
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteGroupColFilterRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
+- name: createGroupPermission
+  version: 0.1.0
+  handler: CreateGroupPermission
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createGroupPermissionRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
+- name: deleteGroupPermission
+  version: 0.1.0
+  handler: DeleteGroupPermission
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteGroupPermissionRequest'
+    example: 
+      hostId: host123
+      groupId: group123
+      apiId: api123
+      apiVersion: 1.0.0
+      endpoint: endpoint
