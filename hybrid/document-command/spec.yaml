@@ -1,0 +1,168 @@
+---
+host: lightapi.net
+service: document
+schemas:
+  createDocumentRequest:
+    title: Create Document
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Id
+      status:
+        type: string
+        description: Status
+        enum:
+        - draft
+        - published
+      title:
+        type: string
+        description: Title
+      body:
+        type: string
+        description: Body
+      categories:
+        type: array
+        description: Categories
+        maxItems: 10
+        items:
+          type: string
+      tags:
+        type: array
+        description: Tags
+        maxItems: 10
+        items:
+          type: string
+      commentStatus:
+        type: string
+        description: Comment Open or Closed
+        default: O
+        enum:
+        - O
+        - C
+    required:
+    - host
+    - id
+    - status
+    - title
+    - body
+    - categories
+    - tags
+    - commentStatus
+  updateDocumentRequest:
+    title: Update Document
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Id
+      status:
+        type: string
+        description: Status
+        enum:
+        - draft
+        - published
+      title:
+        type: string
+        description: Title
+      body:
+        type: string
+        description: Body
+      categories:
+        type: array
+        description: Categories
+        maxItems: 10
+        items:
+          type: string
+      tags:
+        type: array
+        description: Tags
+        maxItems: 10
+        items:
+          type: string
+      commentStatus:
+        type: string
+        description: Comment Open or Closed
+        default: O
+        enum:
+        - O
+        - C
+    required:
+    - host
+    - id
+    - status
+    - title
+    - body
+    - categories
+    - tags
+    - commentStatus
+  deleteDocumentRequest:
+    title: Delete Document
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Document Id
+    required:
+    - host
+    - id
+action:
+- name: createDocument
+  version: 0.1.0
+  handler: CreateDocument
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createDocumentRequest'
+    example: 
+      host: host123
+      id: doc123
+      status: draft
+      title: "My Document"
+      body: "This is the content of my document."
+      categories:
+        - "tech"
+        - "programming"
+      tags:
+        - "java"
+        - "maven"
+      commentStatus: O
+- name: updateDocument
+  version: 0.1.0
+  handler: UpdateDocument
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateDocumentRequest'
+    example: 
+      host: host123
+      id: doc123
+      status: published
+      title: "Updated Document"
+      body: "This is the updated content of my document."
+      categories:
+        - "tech"
+        - "devops"
+      tags:
+        - "docker"
+        - "kubernetes"
+      commentStatus: C
+- name: deleteDocument
+  version: 0.1.0
+  handler: DeleteDocument
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteDocumentRequest'
+    example: 
+      host: host123
+      id: doc123

@@ -1,0 +1,158 @@
+{
+  "host": "lightapi.net",
+  "service": "document",
+  "action": [
+    {
+      "name": "createDocument",
+      "version": "0.1.0",
+      "handler": "CreateDocument",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Document",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": ["draft", "published"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum": ["O", "C"]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "title",
+          "body",
+          "summary",
+          "categories",
+          "tags",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "updateDocument",
+      "version": "0.1.0",
+      "handler": "UpdateDocument",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Document",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "enum": ["draft", "published"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title"
+          },
+          "body": {
+            "type": "string",
+            "description": "Body"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          },
+          "commentStatus": {
+            "type": "string",
+            "description": "Comment Open or Closed",
+            "default": "O",
+            "enum": ["O", "C"]
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "status",
+          "title",
+          "body",
+          "categories",
+          "tags",
+          "commentStatus"
+        ]
+      }
+    },
+    {
+      "name": "deleteDocument",
+      "version": "0.1.0",
+      "handler": "DeleteDocument",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Document",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Document Id"
+          }
+        },
+        "required": ["host", "id"]
+      }
+    }
+  ]
+}    
