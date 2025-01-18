@@ -1,0 +1,133 @@
+{
+  "host": "lightapi.net",
+  "service": "form",
+  "action": [
+    {
+      "name": "createSchemaForm",
+      "version": "0.1.0",
+      "handler": "CreateSchemaForm",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create Schema Form",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "News Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Form Id"
+          },
+          "name": {
+            "type": "string",
+            "description": "Form Name"
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition"
+          },
+          "desc": {
+            "type": "string",
+            "description": "Description"
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "Image Url"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "name",
+          "definition",
+          "desc",
+          "imageUrl",
+          "categories"
+        ]
+      }
+    },
+    {
+      "name": "updateSchemaForm",
+      "version": "0.1.0",
+      "handler": "UpdateSchemaForm",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update Schema Form",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Form Id"
+          },
+          "name": {
+            "type": "string",
+            "description": "Form Name"
+          },
+          "definition": {
+            "type": "string",
+            "description": "Definition"
+          },
+          "desc": {
+            "type": "string",
+            "description": "Decription"
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "Image Url"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Categories",
+            "maxItems": 10,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "host",
+          "id",
+          "name",
+          "definition",
+          "desc",
+          "imageUrl",
+          "categories"
+        ]
+      }
+    },
+    {
+      "name": "deleteSchemaForm",
+      "version": "0.1.0",
+      "handler": "DeleteSchemaForm",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete Schema Form",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host"
+          },
+          "id": {
+            "type": "string",
+            "description": "Form Id"
+          }
+        },
+        "required": ["host", "id"]
+      }
+    }
+  ]
+}    

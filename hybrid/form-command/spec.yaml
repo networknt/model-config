@@ -1,0 +1,134 @@
+---
+host: lightapi.net
+service: form
+schemas:
+  createSchemaFormRequest:
+    title: Create Schema Form
+    type: object
+    properties:
+      host:
+        type: string
+        description: News Host
+      id:
+        type: string
+        description: Form Id
+      name:
+        type: string
+        description: Form Name
+      definition:
+        type: string
+        description: Definition
+      desc:
+        type: string
+        description: Description
+      imageUrl:
+        type: string
+        description: Image Url
+      categories:
+        type: array
+        description: Categories
+        maxItems: 10
+        items:
+          type: string
+    required:
+    - host
+    - id
+    - name
+    - definition
+    - desc
+    - imageUrl
+    - categories
+  updateSchemaFormRequest:
+    title: Update Schema Form
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Form Id
+      name:
+        type: string
+        description: Form Name
+      definition:
+        type: string
+        description: Definition
+      desc:
+        type: string
+        description: Decription
+      imageUrl:
+        type: string
+        description: Image Url
+      categories:
+        type: array
+        description: Categories
+        maxItems: 10
+        items:
+          type: string
+    required:
+    - host
+    - id
+    - name
+    - definition
+    - desc
+    - imageUrl
+    - categories
+  deleteSchemaFormRequest:
+    title: Delete Schema Form
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Form Id
+    required:
+    - host
+    - id
+action:
+- name: createSchemaForm
+  version: 0.1.0
+  handler: CreateSchemaForm
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createSchemaFormRequest'
+    example: 
+      host: host123
+      id: form123
+      name: "My Form"
+      definition: "This is a form definition"
+      desc: "This is a form description"
+      imageUrl: "example.com"
+      categories:
+        - "general"
+        - "feedback"
+- name: updateSchemaForm
+  version: 0.1.0
+  handler: UpdateSchemaForm
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateSchemaFormRequest'
+    example: 
+      host: host123
+      id: form123
+      name: "Updated Form Name"
+      definition: "This is an updated form definition."
+      desc: "Updated description."
+      imageUrl: "example.com"
+      categories:
+        - "survey"
+        - "application"
+- name: deleteSchemaForm
+  version: 0.1.0
+  handler: DeleteSchemaForm
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteSchemaFormRequest'
+    example: 
+      host: host123
+      id: form123
