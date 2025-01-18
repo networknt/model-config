@@ -1,0 +1,169 @@
+---
+host: lightapi.net
+service: client
+schemas:
+  createClientRequest:
+    title: Service
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host of the client that is an indicator of the organization
+      lob:
+        type: string
+        description: Line of Business
+      clientType:
+        type: string
+        description: Client Type
+        enum:
+        - confidential
+        - public
+        - trusted
+        - external
+      clientProfile:
+        type: string
+        description: Client Profile
+        enum:
+        - webserver
+        - browser
+        - mobile
+        - service
+        - batch
+      clientName:
+        type: string
+        description: Client Name
+      clientDesc:
+        type: string
+        description: Client Description
+      scope:
+        type: string
+        description: Scope
+      customClaim:
+        title: Custom Claim
+        type: string
+      redirectUri:
+        title: Redirect URI
+        type: string
+      authenticateClass:
+        title: Authenticate Class
+        type: string
+      derefClientId:
+        title: Dereference Client ID
+        type: string
+      serviceId:
+        title: Reference Service Id
+        type: string
+    required:
+    - host
+    - clientType
+    - clientProfile
+    - clientName
+    - clientDesc
+    - scope
+  updateClientRequest:
+    title: Service
+    type: object
+    properties:
+      clientId:
+        title: Client Id
+        type: string
+        readonly: true
+      host:
+        type: string
+        description: Host of the client that is an indicator of the organization
+      lob:
+        type: string
+        description: Line of Business
+      clientType:
+        type: string
+        description: Client Type
+      clientProfile:
+        type: string
+        description: Client Profile
+      clientName:
+        type: string
+        description: Client Name
+      clientDesc:
+        type: string
+        description: Client Description
+      scope:
+        type: string
+        description: Scope
+      customClaim:
+        title: Custom Claim
+        type: string
+      redirectUri:
+        title: Redirect URI
+        type: string
+      authenticateClass:
+        title: Authenticate Class
+        type: string
+      derefClientId:
+        title: Dereference Client ID
+        type: string
+      serviceId:
+        title: Reference Service Id
+        type: string
+    required:
+    - clientId
+    - host
+    - clientType
+    - clientProfile
+    - clientName
+    - clientDesc
+    - scope
+  deleteClientRequest:
+    title: Service
+    type: object
+    properties:
+      clientId:
+        type: string
+        description: Client Id
+      host:
+        type: string
+        description: Host
+    required:
+    - clientId
+    - host
+action:
+- name: createClient
+  version: 0.1.0
+  handler: CreateClient
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createClientRequest'
+    example: 
+      host: "lightapi.net"
+      lob: "retail"
+      clientType: "confidential"
+      clientProfile: "service"
+      clientName: "My Client App"
+      clientDesc: "This is a test application"
+      scope: "test.r"
+- name: updateClient
+  version: 0.1.0
+  handler: UpdateClient
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateClientRequest'
+    example: 
+      clientId: "client123"
+      host: "lightapi.net"
+      lob: "wholesale"
+      clientType: "public"
+      clientProfile: "browser"
+      clientName: "Updated Client Name"
+      clientDesc: "This is the updated client"
+      scope: "test.w"
+- name: deleteClient
+  version: 0.1.0
+  handler: DeleteClient
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteClientRequest'
+    example: 
+      clientId: "client123"
+      host: "lightapi.net"

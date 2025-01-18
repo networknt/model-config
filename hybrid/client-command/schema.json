@@ -1,0 +1,244 @@
+{
+  "host": "lightapi.net",
+  "service": "client",
+  "action": [
+    {
+      "name": "createClient",
+      "version": "0.1.0",
+      "handler": "CreateClient",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Host of the client that is an indicator of the organization"
+          },
+          "lob": {
+            "type": "string",
+            "description": "Line of Business"
+          },
+          "clientType": {
+            "type": "string",
+            "description": "Client Type",
+            "enum": ["confidential", "public", "trusted", "external"]
+          },
+          "clientProfile": {
+            "type": "string",
+            "description": "Client Profile",
+            "enum": ["webserver", "browser", "mobile", "service", "batch"]
+          },
+          "clientName": {
+            "type": "string",
+            "description": "Client Name"
+          },
+          "clientDesc": {
+            "type": "string",
+            "description": "Client Description"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Scope"
+          },
+          "customClaim": {
+            "title": "Custom Claim",
+            "type": "string"
+          },
+          "redirectUri": {
+            "title": "Redirect URI",
+            "type": "string"
+          },
+          "authenticateClass": {
+            "title": "Authenticate Class",
+            "type": "string"
+          },
+          "derefClientId": {
+            "title": "Dereference Client ID",
+            "type": "string"
+          },
+          "serviceId": {
+            "title": "Reference Service Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "host",
+          "clientType",
+          "clientProfile",
+          "clientName",
+          "clientDesc",
+          "scope"
+        ]
+      }
+    },
+    {
+      "name": "updateClient",
+      "version": "0.1.0",
+      "handler": "UpdateClient",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "title": "Client Id",
+            "type": "string",
+            "readonly": true
+          },
+          "host": {
+            "type": "string",
+            "description": "Host of the client that is an indicator of the organization"
+          },
+          "lob": {
+            "type": "string",
+            "description": "Line of Business"
+          },
+          "clientType": {
+            "type": "string",
+            "description": "Client Type"
+          },
+          "clientProfile": {
+            "type": "string",
+            "description": "Client Profile"
+          },
+          "clientName": {
+            "type": "string",
+            "description": "Client Name"
+          },
+          "clientDesc": {
+            "type": "string",
+            "description": "Client Description"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Scope"
+          },
+          "customClaim": {
+            "title": "Custom Claim",
+            "type": "string"
+          },
+          "redirectUri": {
+            "title": "Redirect URI",
+            "type": "string"
+          },
+          "authenticateClass": {
+            "title": "Authenticate Class",
+            "type": "string"
+          },
+          "derefClientId": {
+            "title": "Dereference Client ID",
+            "type": "string"
+          },
+          "serviceId": {
+            "title": "Reference Service Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "clientId",
+          "host",
+          "clientType",
+          "clientProfile",
+          "clientName",
+          "clientDesc",
+          "scope"
+        ]
+      }
+    },
+    {
+      "name": "deleteClient",
+      "version": "0.1.0",
+      "handler": "DeleteClient",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "description": "Client Id"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host"
+          }
+        },
+        "required": ["clientId", "host"]
+      }
+    },
+    {
+      "name": "createService",
+      "version": "0.1.0",
+      "handler": "CreateService",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Service",
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "description": "Host Id"
+          },
+          "apiId": {
+            "type": "string",
+            "description": "Api Id"
+          },
+          "apiName": {
+            "type": "string",
+            "description": "Api Name"
+          },
+          "apiType": {
+            "title": "Api Type",
+            "type": "string"
+          },
+          "apiDesc": {
+            "title": "Api Desc",
+            "type": "string"
+          },
+          "operationOwner": {
+            "title": "Operation Owner",
+            "type": "string"
+          },
+          "deliveryOwner": {
+            "title": "Delivery Owner",
+            "type": "string"
+          },
+          "region": {
+            "title": "Region",
+            "type": "string"
+          },
+          "businessGroup": {
+            "title": "Business Group",
+            "type": "string"
+          },
+          "lob": {
+            "type": "string",
+            "title": "Line of Business"
+          },
+          "platform": {
+            "type": "string",
+            "title": "platform"
+          },
+          "capability": {
+            "type": "string",
+            "title": "Capability"
+          },
+          "gitRepo": {
+            "type": "string",
+            "title": "Git Repo"
+          },
+          "apiTags": {
+            "title": "Tags",
+            "type": "string"
+          },
+          "apiStatus": {
+            "title": "Api Status",
+            "type": "string"
+          }
+        },
+        "required": ["hostId", "apiId", "apiName", "apiType", "apiStatus"]
+      }
+    }
+  ]
+}
