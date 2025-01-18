@@ -1,0 +1,101 @@
+{
+  "host": "lightapi.net",
+  "service": "config",
+  "action": [
+    {
+      "name": "createConfig",
+      "version": "0.1.0",
+      "handler": "CreateConfig",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Create a configuration module or handler",
+        "type": "object",
+        "properties": {
+          "configId": {
+            "type": "string",
+            "description": "Configuration Id, which is the name of the config file"
+          },
+          "configType": {
+            "type": "string",
+            "description": "Configuration Type, Handler or Module"
+          },
+          "infraType": {
+            "type": "string",
+            "description": "infrastructure type: GN Generic LN Linux WD Windows KB Kubernetes OS Openshift AW AWS AZ Azure GC GCP"
+          },
+          "configDesc": {
+            "type": "string",
+            "description": "Configuration Description"
+          },
+          "classPath": {
+            "type": "string",
+            "description": "Java class path or package"
+          }
+        },
+        "required": [
+          "configId",
+          "configType",
+          "infraType",
+          "configDesc",
+          "classPath"
+        ]
+      }
+    },
+    {
+      "name": "updateConfig",
+      "version": "0.1.0",
+      "handler": "UpdateConfig",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Update a configuration module or handler",
+        "type": "object",
+        "properties": {
+          "configId": {
+            "type": "string",
+            "description": "Configuration Id, which is the name of the config file"
+          },
+          "configType": {
+            "type": "string",
+            "description": "Configuration Type. Handler or Module"
+          },
+          "infraType": {
+            "type": "string",
+            "description": "infrastructure type: GN Generic LN Linux WD Windows KB Kubernetes OS Openshift AW AWS AZ Azure GC GCP"
+          },
+          "configDesc": {
+            "type": "string",
+            "description": "Configuration Description"
+          },
+          "classPath": {
+            "type": "string",
+            "description": "Java class path or package"
+          }
+        },
+        "required": [
+          "configId",
+          "configType",
+          "infraType",
+          "configDesc",
+          "classPath"
+        ]
+      }
+    },
+    {
+      "name": "deleteConfig",
+      "version": "0.1.0",
+      "handler": "DeleteConfig",
+      "scope": "portal.w",
+      "schema": {
+        "title": "Delete a configuration moddule or handler",
+        "type": "object",
+        "properties": {
+          "configId": {
+            "type": "string",
+            "description": "Configuration Id, which is the name of the config file"
+          }
+        },
+        "required": ["configId"]
+      }
+    }
+  ]
+}

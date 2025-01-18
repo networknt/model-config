@@ -1,0 +1,99 @@
+---
+host: lightapi.net
+service: config
+schemas:
+  createConfigRequest:
+    title: Create a configuration module or handler
+    type: object
+    properties:
+      configId:
+        type: string
+        description: Configuration Id, which is the name of the config file
+      configType:
+        type: string
+        description: Configuration Type, Handler or Module
+      infraType:
+        type: string
+        description: GN Generic LN Linux WD Windows KB Kubernetes OS Openshift AW AWS AZ Azure GC GCP
+      configDesc:
+        type: string
+        description: Configuration Description
+      classPath:
+        type: string
+        description: Java class path or package
+    required:
+    - configId
+    - configType
+    - infraType
+    - configDesc
+    - classPath
+  updateConfigRequest:
+    title: Update a configuration module or handler
+    type: object
+    properties:
+      configId:
+        type: string
+        description: Configuration Id, which is the name of the config file
+      configType:
+        type: string
+        description: Configuration Type. Handler or Module
+      infraType:
+        type: string
+        description: GN Generic LN Linux WD Windows KB Kubernetes OS Openshift AW AWS AZ Azure GC GCP
+      configDesc:
+        type: string
+        description: Configuration Description
+      classPath:
+        type: string
+        description: Java class path or package
+    required:
+    - configId
+    - configType
+    - infraType
+    - configDesc
+    - classPath
+  deleteConfigRequest:
+    title: Delete a configuration moddule or handler
+    type: object
+    properties:
+      configId:
+        type: string
+        description: Configuration Id, which is the name of the config file
+    required:
+    - configId
+action:
+- name: createConfig
+  version: 0.1.0
+  handler: CreateConfig
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createConfigRequest'
+    example: 
+      configId: myconfig
+      configType: Handler
+      infraType: LN
+      configDesc: "This is my handler configuration"
+      classPath: "com.example.handler"
+- name: updateConfig
+  version: 0.1.0
+  handler: UpdateConfig
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateConfigRequest'
+    example: 
+      configId: myconfig
+      configType: Module
+      infraType: KB
+      configDesc: "This is my updated module configuration"
+      classPath: "com.example.module"
+- name: deleteConfig
+  version: 0.1.0
+  handler: DeleteConfig
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteConfigRequest'
+    example: 
+      configId: myconfig
