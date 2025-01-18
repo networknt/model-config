@@ -1,0 +1,185 @@
+---
+host: lightapi.net
+service: blog
+schemas:
+  createBlogRequest:
+    title: Create Blog
+    type: object
+    properties:
+      host:
+        type: string
+        description: Blog Host
+      id:
+        type: string
+        description: Id
+      status:
+        type: string
+        description: Status
+        enum:
+        - draft
+        - published
+      title:
+        type: string
+        description: Title
+      body:
+        type: string
+        description: Body
+      summary:
+        type: string
+        description: Summary
+      categories:
+        type: array
+        description: Categories
+        maxItems: 10
+        items:
+          type: string
+      tags:
+        type: array
+        description: Tags
+        maxItems: 10
+        items:
+          type: string
+      featuredImageUrl:
+        type: string
+        description: Featured Image URL
+      commentStatus:
+        type: string
+        description: Comment Open or Closed
+        default: O
+        enum:
+        - O
+        - C
+    required:
+    - host
+    - id
+    - status
+    - title
+    - body
+    - summary
+    - categories
+    - tags
+    - commentStatus
+  updateBlogRequest:
+    title: Update Blog
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Id
+      status:
+        type: string
+        description: Status
+        enum:
+        - draft
+        - published
+      title:
+        type: string
+        description: Title
+      body:
+        type: string
+        description: Body
+      summary:
+        type: string
+        description: Summary
+      categories:
+        type: array
+        description: Categories
+        maxItems: 10
+        items:
+          type: string
+      tags:
+        type: array
+        description: Tags
+        maxItems: 10
+        items:
+          type: string
+      featuredImageUrl:
+        type: string
+        description: Featured Image URL
+      commentStatus:
+        type: string
+        description: Comment Open or Closed
+        default: O
+        enum:
+        - O
+        - C
+    required:
+    - host
+    - id
+    - status
+    - title
+    - body
+    - summary
+    - categories
+    - tags
+    - commentStatus
+  deleteBlogRequest:
+    title: Delete Blog
+    type: object
+    properties:
+      host:
+        type: string
+        description: Host
+      id:
+        type: string
+        description: Blog Id
+    required:
+    - host
+    - id
+action:
+- name: createBlog
+  version: 0.1.0
+  handler: CreateBlog
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createBlogRequest'
+    example: 
+      host: host123
+      id: blog123
+      status: draft
+      title: "My Blog Post"
+      body: "This is the content of my blog post."
+      summary: "This is a summary of the blog post."
+      categories:
+        - tech
+        - programming
+      tags:
+        - java
+        - maven
+      commentStatus: O
+- name: updateBlog
+  version: 0.1.0
+  handler: UpdateBlog
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateBlogRequest'
+    example: 
+      host: host123
+      id: blog123
+      status: published
+      title: "Updated Blog Post"
+      body: "This is the updated content of my blog post."
+      summary: "This is an updated summary."
+      categories:
+        - tech
+        - devops
+      tags:
+        - docker
+        - kubernetes
+      featuredImageUrl: example.com
+      commentStatus: C
+- name: deleteBlog
+  version: 0.1.0
+  handler: DeleteBlog
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteBlogRequest'
+    example: 
+      host: host123
+      id: blog123
