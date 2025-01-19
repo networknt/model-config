@@ -2,12 +2,12 @@ This is the ref-query for the portal reference data management as part of the li
 
 ```
 cd ~/networknt
-java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o light-portal/ref-query -m model-config/hybrid/ref-query/schema.json -c model-config/hybrid/ref-query/config.json
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o ref-query -m model-config/hybrid/ref-query/spec.yaml -c model-config/hybrid/ref-query/config.yaml
 ```
 
 Generate the project to the /tmp folder for comparison. 
 
 ```
 cd ~/networknt
-java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o /tmp/ref-query -m model-config/hybrid/ref-query/schema.json -c model-config/hybrid/ref-query/config.json
+java -jar light-codegen/codegen-cli/target/codegen-cli.jar -f light-hybrid-4j-service -o /tmp/ref-query -m model-config/hybrid/ref-query/spec.yaml -c model-config/hybrid/ref-query/config.yaml
 ```
