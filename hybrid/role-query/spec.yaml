@@ -167,7 +167,7 @@ action:
   request:
     schema:
       $ref: '#/schemas/getRoleRequest'
-    example: |
+    example: 
       offset: 0
       limit: 10
       hostId: host123
