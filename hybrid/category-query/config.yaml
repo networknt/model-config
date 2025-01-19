@@ -1,0 +1,26 @@
+---
+rootPackage: net.lightapi.portal.category.query
+handlerPackage: net.lightapi.portal.category.query.handler
+modelPackage: net.lightapi.portal.category.query.model
+artifactId: category-query
+categoryId: net.lightapi
+name: category-query
+version: 0.1.0
+jsonPath: "/portal/query"
+overwriteHandler: true
+overwriteHandlerTest: true
+httpPort: 8082
+enableHttp: false
+httpsPort: 8447
+enableHttps: true
+enableHttp2: true
+enableRegistry: false
+supportDb: false
+supportH2ForTest: false
+supportClient: false
+kafkaProducer: true
+kafkaConsumer: false
+kafkaStreams: false
+supportAvro: true
+buildMaven: true
+kafkaTopic: portal-event
