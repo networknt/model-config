@@ -257,7 +257,7 @@ action:
       hostId: host123
       apiId: api123
       apiVersion: 1.0.0
-      endpoint: "/api/test"
+      endpoint: "test"
 - name: getEndpointRule
   version: 0.1.0
   handler: GetEndpointRule
@@ -269,7 +269,7 @@ action:
       hostId: host123
       apiId: api123
       apiVersion: 1.0.0
-      endpoint: "/api/test"
+      endpoint: "test"
 - name: getServiceRule
   version: 0.1.0
   handler: GetServiceRule
