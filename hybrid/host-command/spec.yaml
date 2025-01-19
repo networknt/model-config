@@ -1,0 +1,56 @@
+---
+host: lightapi.net
+service: host
+schemas:
+  createHostRequest:
+    title: Create Host
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      userId:
+        type: string
+        description: User Id
+      email: 
+        type: string
+        description: Email  
+    required:
+    - hostId
+    - userId
+    - email
+  deleteHostRequest:
+    title: Delete Host
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      userId: 
+        type: string
+        description: User Id  
+    required:
+    - hostId
+    - userId
+action:
+- name: createHost
+  version: 0.1.0
+  handler: CreateHost
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createHostRequest'
+    example: 
+      hostId: host123
+      userId: user123
+      email: john@example.com
+- name: deleteHost
+  version: 0.1.0
+  handler: DeleteHost
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteHostRequest'
+    example: 
+      hostId: host123
+      userId: user123
