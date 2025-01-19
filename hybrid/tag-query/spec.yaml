@@ -6,18 +6,44 @@ schemas:
     title: Tags
     type: object
     properties:
-      host:
+      hostId:
         type: string
-        description: Host
+        description: Host Id
     required:
-    - host
+    - hostId
+  getTagsByTypeRequest:
+    title: Tags
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      tagType:
+        type: string
+        description: Tag Type
+    required:
+    - hostId
+    - tagType
 action:
 - name: getTags
   version: 0.1.0
   handler: GetTags
-  skipAuth: true
+  description: get all tags for a host for admin
+  skipAuth: false
+  scope: portal.r
   request:
     schema:
       $ref: '#/schemas/getTagsRequest'
     example: 
-      host: host123
+      hostId: host123
+- name: getTagsByType
+  version: 0.1.0
+  handler: GetTagsByType
+  description: get tags for a specific type to populate dropdown
+  skipAuth: true
+  request:
+    schema:
+      $ref: '#/schemas/getTagsByTypeRequest'
+    example: 
+      hostId: host123
+      tagType: api
