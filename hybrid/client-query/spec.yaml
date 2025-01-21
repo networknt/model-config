@@ -1,51 +1,125 @@
 ---
-host: lightapi.net
-service: client
+host: "lightapi.net"
+service: "client"
 schemas:
-  getClientRequest:
-    title: Service
-    type: object
+  getAppRequest:
+    title: "Service"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Record Offset
+        type: "integer"
+        description: "Record Offset"
       limit:
-        type: integer
-        description: Record Limit
-      host:
-        type: string
-        description: Host
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      appName:
+        type: "string"
+        description: "App Name"
+      appDesc:
+        type: "string"
+        description: "App Description"
+      isKafkaApp:
+        type: "boolean"
+        description: "Is Kafka App"
+      operationOwner:
+        type: "string"
+        description: "Operation Owner"
+      deliveryOwner:
+        type: "string"
+        description: "Delivery Owner"
     required:
-    - host
-    - offset
-    - limit
+      - "hostId"
+      - "offset"
+      - "limit"
+  getClientRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "HostId"
+      appId:
+        type: "string"
+        description: "AppId"
+      clientId:
+        type: "string"
+        description: "ClientId"
+      clientType:
+        type: "string"
+        description: "ClientType"
+      clientProfile:
+        type: "string"
+        description: "ClientProfile"
+      clientScope:
+        type: "string"
+        description: "ClientScope"
+      customClaim:
+        type: "string"
+        description: "CustomClaim"
+      redirectUri:
+        type: "string"
+        description: "RedirectUri"
+      authenticateClass:
+        type: "string"
+        description: "AuthenticateClass"
+      deRefClientId:
+        type: "string"
+        description: "DeRefClientId"
+    required:
+    - "hostId"
+    - "offset"
+    - "limit"
+    - "appId"
   getClientByIdRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       clientId:
-        type: string
-        description: Client Id
+        type: "string"
+        description: "Client Id"
     required:
-    - clientId
+    - "clientId"
 action:
-- name: getClient
-  version: 0.1.0
-  handler: GetClient
-  scope: portal.r
+- name: "getApp"
+  version: "0.1.0"
+  handler: "GetApp"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getClientRequest'
-    example: 
-      host: "lightapi.net"
+      $ref: "#/schemas/getAppRequest"
+    example:
+      hostId: "host123"
       offset: 0
       limit: 10
-- name: getClientById
-  version: 0.1.0
-  handler: GetClientById
-  scope: portal.r
+- name: "getClient"
+  version: "0.1.0"
+  handler: "GetClient"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getClientByIdRequest'
-    example: 
+      $ref: "#/schemas/getClientRequest"
+    example:
+      hostId: "host123"
+      offset: 0
+      limit: 10
+- name: "getClientById"
+  version: "0.1.0"
+  handler: "GetClientById"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getClientByIdRequest"
+    example:
       clientId: "client123"
