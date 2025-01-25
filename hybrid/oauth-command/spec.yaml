@@ -1,294 +1,422 @@
 ---
-host: lightapi.net
-service: oauth
+host: "lightapi.net"
+service: "oauth"
 schemas:
   createRefreshTokenRequest:
-    title: Refresh Token
-    type: object
+    title: "Refresh Token"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       refreshToken:
-        type: string
-        description: Refresh Token
+        type: "string"
+        description: "Refresh Token"
       userId:
-        type: string
-        description: User Id
+        type: "string"
+        description: "User Id"
       userType:
-        type: string
-        description: User Type
+        type: "string"
+        description: "User Type"
       roles:
-        type: string
-        description: Roles
+        type: "string"
+        description: "Roles"
       clientId:
-        type: string
-        description: Client Id
+        type: "string"
+        description: "Client Id"
       scope:
-        type: string
-        description: Scope
+        type: "string"
+        description: "Scope"
       csrf:
-        type: string
-        description: csrf token
+        type: "string"
+        description: "csrf token"
     required:
-    - hostId
-    - refreshToken
-    - userId
-    - clientId
-    - scope
-    - csrf
+    - "hostId"
+    - "refreshToken"
+    - "userId"
+    - "clientId"
+    - "scope"
+    - "csrf"
   deleteRefreshTokenRequest:
-    title: Refresh Token
-    type: object
+    title: "Refresh Token"
+    type: "object"
     properties:
       refreshToken:
-        type: string
-        description: Refresh Token
+        type: "string"
+        description: "Refresh Token"
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       userId:
-        type: string
-        description: User Id
+        type: "string"
+        description: "User Id"
     required:
-    - refreshToken
-    - hostId
-    - userId
+    - "refreshToken"
+    - "hostId"
+    - "userId"
   createAuthCodeRequest:
-    title: Auth Code
-    type: object
+    title: "Auth Code"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       authCode:
-        type: string
-        description: Auth Code
+        type: "string"
+        description: "Auth Code"
       redirectUri:
-        type: string
-        description: Redirect Uri
+        type: "string"
+        description: "Redirect Uri"
       remember:
-        type: string
-        description: Remember Session
+        type: "string"
+        description: "Remember Session"
     required:
-    - hostId
-    - authCode
-    - redirectUri
-    - remember
+    - "hostId"
+    - "authCode"
+    - "redirectUri"
+    - "remember"
   deleteAuthCodeRequest:
-    title: Auth Code
-    type: object
+    title: "Auth Code"
+    type: "object"
     properties:
       authCode:
-        type: string
-        description: Auth Code
+        type: "string"
+        description: "Auth Code"
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
     required:
-    - authCode
-    - hostId
+    - "authCode"
+    - "hostId"
   createRefTokenRequest:
-    title: Reference Token
-    type: object
+    title: "Reference Token"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Host
+      hostId:
+        type: "string"
+        description: "Host Id"
       refToken:
-        type: string
-        description: Reference Token
+        type: "string"
+        description: "Reference Token"
       jwt:
-        type: string
-        description: Jwt Token
+        type: "string"
+        description: "Jwt Token"
       clientId:
-        type: string
-        description: Client Id
+        type: "string"
+        description: "Client Id"
     required:
-    - host
-    - refToken
-    - jwt
-    - clientId
+    - "hostId"
+    - "refToken"
+    - "jwt"
+    - "clientId"
   deleteRefTokenRequest:
-    title: Reference Token
-    type: object
+    title: "Reference Token"
+    type: "object"
     properties:
       refToken:
-        type: string
-        description: Reference Token
-      host:
-        type: string
-        description: Host
+        type: "string"
+        description: "Reference Token"
+      hostId:
+        type: "string"
+        description: "Host Id"
     required:
-    - refToken
-    - host
+    - "refToken"
+    - "hostId"
   createProviderRequest:
-    title: OAuth Provider
-    type: object
+    title: "OAuth Provider"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Host
+      hostId:
+        type: "string"
+        description: "Host Id"
       providerId:
-        type: string
-        description: Provider Id
+        type: "string"
+        description: "Provider Id"
       providerName:
-        type: string
-        description: Provider Name
-      serverUrl:
-        type: string
-        description: Server Url
-      uri:
-        type: string
-        description: Uri
+        type: "string"
+        description: "Provider Name"
+      providerDesc:
+        type: "string"
+        description: "Provider Desc"
+      operationOwner:
+        type: "string"
+        description: "Operation Owner"
+      deliveryOwner:
+        type: "string"
+        description: "Delivery Owner"
     required:
-    - host
-    - providerId
-    - providerName
-    - serverUrl
+    - "hostId"
+    - "providerId"
+    - "providerName"
+    - "providerDesc"
+    - "operationOwner"
+    - "deliveryOwner"
   updateProviderRequest:
-    title: OAuth Provider
-    type: object
+    title: "OAuth Provider"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Host
+      hostId:
+        type: "string"
+        description: "Host Id"
       providerId:
-        type: string
-        description: Provider Id
-        readonly: true
+        type: "string"
+        description: "Provider Id"
       providerName:
-        type: string
-        description: Provider Name
-      serverUrl:
-        type: string
-        description: Server Url
-      uri:
-        type: string
-        description: Uri
+        type: "string"
+        description: "Provider Name"
+      providerDesc:
+        type: "string"
+        description: "Provider Desc"
+      operationOwner:
+        type: "string"
+        description: "Operation Owner"
+      deliveryOwner:
+        type: "string"
+        description: "Delivery Owner"
     required:
-    - host
-    - providerId
-    - providerName
-    - serverUrl
+    - "hostId"
+    - "providerId"
+    - "providerName"
+    - "providerDesc"
+    - "operationOwner"
+    - "deliveryOwner"
   deleteProviderRequest:
-    title: OAuth Provider
-    type: object
+    title: "OAuth Provider"
+    type: "object"
     properties:
+      hostId:
+        type: "string"
+        description: "HostId"
       providerId:
-        type: string
-        description: Provider Id
-      host:
-        type: string
-        description: Host
+        type: "string"
+        description: "Provider Id"
     required:
-    - providerId
-    - host
+    - "hostId"
+    - "providerId"
+  createProviderKeyRequest:
+    title: "OAuth Provider Key"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+      kid:
+        type: "string"
+        description: "Key Id"
+      publicKey:
+        type: "string"
+        description: "Public Key"
+      privateKey:
+        type: "string"
+        description: "Private Key"
+      keyType:
+        type: "string"
+        description: "Key Type"
+    required:
+    - "hostId"
+    - "providerId"
+    - "kid"
+    - "publicKey"
+    - "privateKey"
+    - "keyType"
+
+  updateProviderKeyRequest:
+    title: "OAuth Provider Key"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+      kid:
+        type: "string"
+        description: "Key Id"
+      publicKey:
+        type: "string"
+        description: "Public Key"
+      privateKey:
+        type: "string"
+        description: "Private Key"
+      keyType:
+        type: "string"
+        description: "Key Type"
+    required:
+      - "hostId"
+      - "providerId"
+      - "kid"
+      - "publicKey"
+      - "privateKey"
+      - "keyType"
+  deleteProviderKeyRequest:
+    title: "OAuth Provider Key"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+      kid:
+        type: "string"
+        description: "Key Id"
+    required:
+      - "hostId"
+      - "providerId"
+      - "kid"
+
 action:
-- name: createRefreshToken
-  version: 0.1.0
-  handler: CreateRefreshToken
-  scope: portal.w
+- name: "createRefreshToken"
+  version: "0.1.0"
+  handler: "CreateRefreshToken"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createRefreshTokenRequest'
-    example: 
-      hostId: host123
+      $ref: "#/schemas/createRefreshTokenRequest"
+    example:
+      hostId: "host123"
       refreshToken: "refresh_token_123"
-      userId: user123
+      userId: "user123"
       userType: "customer"
       roles: "user"
-      clientId: client123
-      scope: test.r
+      clientId: "client123"
+      scope: "test.r"
       csrf: "csrf_token_123"
-- name: deleteRefreshToken
-  version: 0.1.0
-  handler: DeleteRefreshToken
-  scope: portal.w
+- name: "deleteRefreshToken"
+  version: "0.1.0"
+  handler: "DeleteRefreshToken"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteRefreshTokenRequest'
-    example: 
+      $ref: "#/schemas/deleteRefreshTokenRequest"
+    example:
       refreshToken: "refresh_token_123"
-      hostId: host123
-      userId: user123
-- name: createAuthCode
-  version: 0.1.0
-  handler: CreateAuthCode
-  scope: portal.w
+      hostId: "host123"
+      userId: "user123"
+- name: "createAuthCode"
+  version: "0.1.0"
+  handler: "CreateAuthCode"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createAuthCodeRequest'
-    example: 
-      hostId: host123
+      $ref: "#/schemas/createAuthCodeRequest"
+    example:
+      hostId: "host123"
       authCode: "auth_code_123"
       redirectUri: "example.com"
       remember: "true"
-- name: deleteAuthCode
-  version: 0.1.0
-  handler: DeleteAuthCode
-  scope: portal.w
+- name: "deleteAuthCode"
+  version: "0.1.0"
+  handler: "DeleteAuthCode"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteAuthCodeRequest'
-    example: 
+      $ref: "#/schemas/deleteAuthCodeRequest"
+    example:
       authCode: "auth_code_123"
-      hostId: host123
-- name: createRefToken
-  version: 0.1.0
-  handler: CreateRefToken
-  scope: portal.w
+      hostId: "host123"
+- name: "createRefToken"
+  version: "0.1.0"
+  handler: "CreateRefToken"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createRefTokenRequest'
-    example: 
-      host: host123
+      $ref: "#/schemas/createRefTokenRequest"
+    example:
+      hostId: "host123"
       refToken: "ref_token_123"
       jwt: "jwt_token_123"
-      clientId: client123
-- name: deleteRefToken
-  version: 0.1.0
-  handler: DeleteRefToken
-  scope: portal.w
+      clientId: "client123"
+- name: "deleteRefToken"
+  version: "0.1.0"
+  handler: "DeleteRefToken"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteRefTokenRequest'
-    example: 
+      $ref: "#/schemas/deleteRefTokenRequest"
+    example:
       refToken: "ref_token_123"
-      host: host123
-- name: createProvider
-  version: 0.1.0
-  handler: CreateProvider
-  scope: portal.w
+      hostId: "host123"
+- name: "createProvider"
+  version: "0.1.0"
+  handler: "CreateProvider"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createProviderRequest'
-    example: 
-      host: "lightapi.net"
+      $ref: "#/schemas/createProviderRequest"
+    example:
+      hostId: "host123"
       providerId: "provider123"
       providerName: "My OAuth Provider"
-      serverUrl: "example.com"
-      uri: "example.com"
-- name: updateProvider
-  version: 0.1.0
-  handler: UpdateProvider
-  scope: portal.w
+      providerDesc: "OAuth Provider Description"
+      operationOwner: "Operation Owner"
+      deliveryOwner: "Delivery Owner"
+- name: "updateProvider"
+  version: "0.1.0"
+  handler: "UpdateProvider"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateProviderRequest'
-    example: 
-      host: "lightapi.net"
+      $ref: "#/schemas/updateProviderRequest"
+    example:
+      hostId: "host123"
       providerId: "provider123"
       providerName: "Updated Provider Name"
-      serverUrl: "example.com"
-      uri: "example.com"
-- name: deleteProvider
-  version: 0.1.0
-  handler: DeleteProvider
-  scope: portal.w
+      providerDesc: "Updated Provider Desc"
+      operationOwner: "Updated Operation Owner"
+      deliveryOwner: "Updated Delivery Owner"
+- name: "deleteProvider"
+  version: "0.1.0"
+  handler: "DeleteProvider"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteProviderRequest'
-    example: 
+      $ref: "#/schemas/deleteProviderRequest"
+    example:
+      hostId: "host123"
       providerId: "provider123"
-      host: "lightapi.net"
+
+- name: "createProviderKey"
+  version: "0.1.0"
+  handler: "CreateProviderKey"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createProviderKeyRequest"
+    example:
+      hostId: "host123"
+      providerId: "provider123"
+      kid: "kid123"
+      publicKey: "Public Key"
+      privateKey: "Private Key"
+      keyType: "C"
+- name: "updateProviderKey"
+  version: "0.1.0"
+  handler: "UpdateProviderKey"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateProviderKeyRequest"
+    example:
+      hostId: "host123"
+      providerId: "provider123"
+      kid: "kid123"
+      publicKey: "Public Key"
+      privateKey: "Private Key"
+      keyType: "C"
+- name: "deleteProviderKey"
+  version: "0.1.0"
+  handler: "DeleteProviderKey"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteProviderKeyRequest"
+    example:
+      hostId: "host123"
+      providerId: "provider123"
+      kid: "kid123"
