@@ -1,194 +1,322 @@
 ---
-host: lightapi.net
-service: oauth
+host: "lightapi.net"
+service: "oauth"
 schemas:
-  getRefreshTokenDetailRequest:
-    title: Refresh Token
-    type: object
-    properties:
-      refreshToken:
-        type: string
-        description: Refresh Token
-    required:
-    - refreshToken
-  getRefreshTokenRequest:
-    title: Refresh Token
-    type: object
-    properties:
-      offset:
-        type: integer
-        description: Record Offset
-      limit:
-        type: integer
-        description: Record Limit
-      host:
-        type: string
-        description: Host
-    required:
-    - limit
-    - offset
-    - host
-  getAuthCodeDetailRequest:
-    title: Auth Code
-    type: object
-    properties:
-      hostId:
-        type: string
-        description: Host Id
-      authCode:
-        type: string
-        description: Auth Code
-    required:
-    - hostId
-    - authCode
-  getAuthCodeRequest:
-    title: Auth Code
-    type: object
-    properties:
-      offset:
-        type: integer
-        description: Record Offset
-      limit:
-        type: integer
-        description: Record Limit
-      host:
-        type: string
-        description: Host
-    required:
-    - limit
-    - offset
-    - host
-  getRefTokenDetailRequest:
-    title: Reference Token
-    type: object
-    properties:
-      refToken:
-        type: string
-        description: Reference Token
-    required:
-    - refToken
-  getRefTokenRequest:
-    title: Reference Token
-    type: object
-    properties:
-      offset:
-        type: integer
-        description: Record Offset
-      limit:
-        type: integer
-        description: Record Limit
-      host:
-        type: string
-        description: Host
-    required:
-    - limit
-    - offset
-    - host
-  getProviderDetailRequest:
-    title: OAuth Provider
-    type: object
+  getClientByProviderClientIdRequest:
+    title: "Client"
+    type: "object"
     properties:
       providerId:
-        type: string
-        description: Provider Id
+        type: "string"
+        description: "Provider Id"
+      clientId:
+        type: "string"
+        description: "Client Id"
     required:
-    - providerId
-  getProviderRequest:
-    title: OAuth Provider
-    type: object
+      - "providerId"
+      - "clientId"
+  getRefreshTokenDetailRequest:
+    title: "Refresh Token"
+    type: "object"
+    properties:
+      refreshToken:
+        type: "string"
+        description: "Refresh Token"
+    required:
+    - "refreshToken"
+  getRefreshTokenRequest:
+    title: "Refresh Token"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Record Offset
+        type: "integer"
+        description: "Record Offset"
       limit:
-        type: integer
-        description: Record Limit
-      host:
-        type: string
-        description: Host
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      refreshToken:
+        type: "string"
+        description: "Refresh Token"
+      userId:
+        type: "string"
+        description: "User Id"
+      entityId:
+        type: "string"
+        description: "Entity Id"
+      email:
+        type: "string"
+        description: "Email"
+      firstName:
+        type: "string"
+        description: "First Name"
+      lastName:
+        type: "string"
+        description: "Last Name"
+      clientId:
+        type: "string"
+        description: "Client Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      appName:
+        type: "string"
+        description: "App Name"
+      scope:
+        type: "string"
+        description: "Scope"
+      userType:
+        type: "string"
+        description: "User Type"
+      roles:
+        type: "string"
+        description: "Roles"
+      groups:
+        type: "string"
+        description: "Groups"
+      positions:
+        type: "string"
+        description: "Positions"
+      attributes:
+        type: "string"
+        description: "Attributes"
+      csrf:
+        type: "string"
+        description: "CSRF"
+      customClaim:
+        type: "string"
+        description: "Custom Claim"
+      updateUser:
+        type: "string"
+        description: "Update User"
+      updateTs:
+        type: "string"
+        description: "Update Timestamp"
     required:
-    - limit
-    - offset
-    - host
+    - "limit"
+    - "offset"
+    - "hostId"
+  getAuthCodeDetailRequest:
+    title: "Auth Code"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      authCode:
+        type: "string"
+        description: "Auth Code"
+    required:
+    - "hostId"
+    - "authCode"
+  getAuthCodeRequest:
+    title: "Auth Code"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      authCode:
+        type: "string"
+        description: "Auth Code"
+      userId:
+        type: "string"
+        description: "User Id"
+      entityId:
+        type: "string"
+        description: "Entity Id"
+      userType:
+        type: "string"
+        description: "User Type"
+      email:
+        type: "string"
+        description: "Email"
+      roles:
+        type: "string"
+        description: "Roles"
+      groups:
+        type: "string"
+        description: "Groups"
+      positions:
+        type: "string"
+        description: "Positions"
+      attributes:
+        type: "string"
+        description: "Attributes"
+      redirectUri:
+        type: "string"
+        description: "Redirect Uri"
+      scope:
+        type: "string"
+        description: "Scope"
+      remember:
+        type: "string"
+        description: "Remember"
+      codeChallenge:
+        type: "string"
+        description: "Code Challenge"
+      challengeMethod:
+        type: "string"
+        description: "Challenge Method"
+      updateUser:
+        type: "string"
+        description: "Update User"
+      updateTs:
+        type: "string"
+        description: "Update Timestamp"
+    required:
+    - "limit"
+    - "offset"
+    - "hostId"
+  getRefTokenDetailRequest:
+    title: "Reference Token"
+    type: "object"
+    properties:
+      refToken:
+        type: "string"
+        description: "Reference Token"
+    required:
+    - "refToken"
+  getRefTokenRequest:
+    title: "Reference Token"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "limit"
+    - "offset"
+    - "hostId"
+  getProviderDetailRequest:
+    title: "OAuth Provider"
+    type: "object"
+    properties:
+      providerId:
+        type: "string"
+        description: "Provider Id"
+    required:
+    - "providerId"
+  getProviderRequest:
+    title: "OAuth Provider"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "HostId"
+    required:
+    - "limit"
+    - "offset"
+    - "hostId"
 action:
-- name: getRefreshTokenDetail
-  version: 0.1.0
-  handler: GetRefreshTokenDetail
-  scope: portal.r
+- name: "getClientByProviderClientId"
+  version: "0.1.0"
+  handler: "GetClientByProviderClientId"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getRefreshTokenDetailRequest'
-    example: 
-      refreshToken: "refresh_token_123"
-- name: getRefreshToken
-  version: 0.1.0
-  handler: GetRefreshToken
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getRefreshTokenRequest'
-    example: 
-      offset: 0
-      limit: 10
-      host: host123
-- name: getAuthCodeDetail
-  version: 0.1.0
-  handler: GetAuthCodeDetail
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getAuthCodeDetailRequest'
-    example: 
-      hostId: host123
-      authCode: "auth_code_123"
-- name: getAuthCode
-  version: 0.1.0
-  handler: GetAuthCode
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getAuthCodeRequest'
-    example: 
-      offset: 0
-      limit: 10
-      host: host123
-- name: getRefTokenDetail
-  version: 0.1.0
-  handler: GetRefTokenDetail
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getRefTokenDetailRequest'
-    example: 
-      refToken: "ref_token_123"
-- name: getRefToken
-  version: 0.1.0
-  handler: GetRefToken
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getRefTokenRequest'
-    example: 
-      offset: 0
-      limit: 10
-      host: host123
-- name: getProviderDetail
-  version: 0.1.0
-  handler: GetProviderDetail
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getProviderDetailRequest'
-    example: 
+      $ref: "#/schemas/getClientByProviderClientIdRequest"
+    example:
       providerId: "provider123"
-- name: getProvider
-  version: 0.1.0
-  handler: GetProvider
-  scope: portal.r
+      clientId: "client123"
+- name: "getRefreshTokenDetail"
+  version: "0.1.0"
+  handler: "GetRefreshTokenDetail"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getProviderRequest'
-    example: 
+      $ref: "#/schemas/getRefreshTokenDetailRequest"
+    example:
+      refreshToken: "refresh_token_123"
+- name: "getRefreshToken"
+  version: "0.1.0"
+  handler: "GetRefreshToken"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getRefreshTokenRequest"
+    example:
       offset: 0
       limit: 10
-      host: host123
+      hostId: "host123"
+- name: "getAuthCodeDetail"
+  version: "0.1.0"
+  handler: "GetAuthCodeDetail"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getAuthCodeDetailRequest"
+    example:
+      hostId: "host123"
+      authCode: "auth_code_123"
+- name: "getAuthCode"
+  version: "0.1.0"
+  handler: "GetAuthCode"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getAuthCodeRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getRefTokenDetail"
+  version: "0.1.0"
+  handler: "GetRefTokenDetail"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getRefTokenDetailRequest"
+    example:
+      refToken: "ref_token_123"
+- name: "getRefToken"
+  version: "0.1.0"
+  handler: "GetRefToken"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getRefTokenRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getProviderDetail"
+  version: "0.1.0"
+  handler: "GetProviderDetail"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProviderDetailRequest"
+    example:
+      providerId: "provider123"
+- name: "getProvider"
+  version: "0.1.0"
+  handler: "GetProvider"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProviderRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
