@@ -13,8 +13,8 @@ schemas:
         type: "string"
         description: "Client Id"
     required:
-      - "providerId"
-      - "clientId"
+    - "providerId"
+    - "clientId"
   getRefreshTokenDetailRequest:
     title: "Refresh Token"
     type: "object"
@@ -224,10 +224,65 @@ schemas:
       hostId:
         type: "string"
         description: "HostId"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+      providerName:
+        type: "string"
+        description: "Provider Name"
+      providerDesc:
+        type: "string"
+        description: "Provider Desc"
+      operationOwner:
+        type: "string"
+        description: "Operation Owner"
+      deliveryOwner:
+        type: "string"
+        description: "Delivery Owner"
+      jwk:
+        type: "string"
+        description: "JWK"
+      updateUser:
+        type: "string"
+        description: "Update User"
+      updateTs:
+        type: "string"
+        description: "Update Timestamp"
     required:
     - "limit"
     - "offset"
     - "hostId"
+  getProviderKeyRequest:
+    title: "OAuth Provider Key"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "HostId"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+      kid:
+        type: "string"
+        description: "Key Id"
+      publicKey:
+        type: "string"
+        description: "Public Key"
+      privateKey:
+        type: "string"
+        description: "Private Key"
+      keyType:
+        type: "string"
+        description: "Key Type"
+      updateUser:
+        type: "string"
+        description: "Update User"
+      updateTs:
+        type: "string"
+        description: "Update Timestamp"
+    required:
+    - "hostId"
+    - "providerId"
 action:
 - name: "getClientByProviderClientId"
   version: "0.1.0"
@@ -320,3 +375,13 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getProviderKey"
+  version: "0.1.0"
+  handler: "GetProviderKey"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProviderKeyRequest"
+    example:
+      hostId: "host123"
+      providerId: "provider123"

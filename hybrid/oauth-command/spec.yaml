@@ -151,6 +151,19 @@ schemas:
     - "providerDesc"
     - "operationOwner"
     - "deliveryOwner"
+  rotateProviderRequest:
+    title: "OAuth Provider"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+    required:
+      - "hostId"
+      - "providerId"
   updateProviderRequest:
     title: "OAuth Provider"
     type: "object"
@@ -193,83 +206,6 @@ schemas:
     required:
     - "hostId"
     - "providerId"
-  createProviderKeyRequest:
-    title: "OAuth Provider Key"
-    type: "object"
-    properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
-      providerId:
-        type: "string"
-        description: "Provider Id"
-      kid:
-        type: "string"
-        description: "Key Id"
-      publicKey:
-        type: "string"
-        description: "Public Key"
-      privateKey:
-        type: "string"
-        description: "Private Key"
-      keyType:
-        type: "string"
-        description: "Key Type"
-    required:
-    - "hostId"
-    - "providerId"
-    - "kid"
-    - "publicKey"
-    - "privateKey"
-    - "keyType"
-
-  updateProviderKeyRequest:
-    title: "OAuth Provider Key"
-    type: "object"
-    properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
-      providerId:
-        type: "string"
-        description: "Provider Id"
-      kid:
-        type: "string"
-        description: "Key Id"
-      publicKey:
-        type: "string"
-        description: "Public Key"
-      privateKey:
-        type: "string"
-        description: "Private Key"
-      keyType:
-        type: "string"
-        description: "Key Type"
-    required:
-      - "hostId"
-      - "providerId"
-      - "kid"
-      - "publicKey"
-      - "privateKey"
-      - "keyType"
-  deleteProviderKeyRequest:
-    title: "OAuth Provider Key"
-    type: "object"
-    properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
-      providerId:
-        type: "string"
-        description: "Provider Id"
-      kid:
-        type: "string"
-        description: "Key Id"
-    required:
-      - "hostId"
-      - "providerId"
-      - "kid"
-
 action:
 - name: "createRefreshToken"
   version: "0.1.0"
@@ -356,6 +292,16 @@ action:
       providerDesc: "OAuth Provider Description"
       operationOwner: "Operation Owner"
       deliveryOwner: "Delivery Owner"
+- name: "rotateProvider"
+  version: "0.1.0"
+  handler: "RotateProvider"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/rotateProviderRequest"
+    example:
+      hostId: "host123"
+      providerId: "provider123"
 - name: "updateProvider"
   version: "0.1.0"
   handler: "UpdateProvider"
@@ -381,42 +327,4 @@ action:
       hostId: "host123"
       providerId: "provider123"
 
-- name: "createProviderKey"
-  version: "0.1.0"
-  handler: "CreateProviderKey"
-  scope: "portal.w"
-  request:
-    schema:
-      $ref: "#/schemas/createProviderKeyRequest"
-    example:
-      hostId: "host123"
-      providerId: "provider123"
-      kid: "kid123"
-      publicKey: "Public Key"
-      privateKey: "Private Key"
-      keyType: "C"
-- name: "updateProviderKey"
-  version: "0.1.0"
-  handler: "UpdateProviderKey"
-  scope: "portal.w"
-  request:
-    schema:
-      $ref: "#/schemas/updateProviderKeyRequest"
-    example:
-      hostId: "host123"
-      providerId: "provider123"
-      kid: "kid123"
-      publicKey: "Public Key"
-      privateKey: "Private Key"
-      keyType: "C"
-- name: "deleteProviderKey"
-  version: "0.1.0"
-  handler: "DeleteProviderKey"
-  scope: "portal.w"
-  request:
-    schema:
-      $ref: "#/schemas/deleteProviderKeyRequest"
-    example:
-      hostId: "host123"
-      providerId: "provider123"
-      kid: "kid123"
+
