@@ -2,23 +2,95 @@
 host: lightapi.net
 service: host
 schemas:
+  createOrgRequest:
+    title: Create Org
+    type: object
+    properties:
+      domain:
+        type: string
+        description: Domain Name
+      orgName:
+        type: string
+        description: Org Name
+      orgDesc:
+        type: string
+        description: Org Desc
+      orgOwner:
+        type: string
+        description: Org Owner  
+    required:
+    - domain
+    - orgName    
+  updateOrgRequest:
+    title: Update Org
+    type: object
+    properties:
+      domain:
+        type: string
+        description: Domain Name
+      orgName:
+        type: string
+        description: Org Name
+      orgDesc:
+        type: string
+        description: Org Desc
+      orgOwner:
+        type: string
+        description: Org Owner  
+    required:
+    - domain
+    - orgName    
+  deleteOrgRequest:
+    title: Delete Org
+    type: object
+    properties:
+      domain:
+        type: string
+        description: Domain Name
+    required:
+    - domain
   createHostRequest:
     title: Create Host
+    type: object
+    properties:
+      domain:
+        type: string
+        description: Domain
+      subDomain:
+        type: string
+        description: Sub Domain
+      hostDesc:
+        type: string
+        description: Host Desc  
+      hostOwner: 
+        type: string
+        description: Host Owner
+    required:
+    - domain
+    - subDomain
+  updateHostRequest:
+    title: Update Host
     type: object
     properties:
       hostId:
         type: string
         description: Host Id
-      userId:
+      domain:
         type: string
-        description: User Id
-      email: 
+        description: Domain
+      subDomain:
         type: string
-        description: Email  
+        description: Sub Domain
+      hostDesc:
+        type: string
+        description: Host Desc  
+      hostOwner: 
+        type: string
+        description: Host Owner
     required:
-    - hostId
-    - userId
-    - email
+    - hostId  
+    - domain
+    - subDomain
   deleteHostRequest:
     title: Delete Host
     type: object
@@ -26,13 +98,42 @@ schemas:
       hostId:
         type: string
         description: Host Id
-      userId: 
-        type: string
-        description: User Id  
     required:
     - hostId
-    - userId
 action:
+- name: createOrg
+  version: 0.1.0
+  handler: CreateOrg
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createOrgRequest'
+    example: 
+      domain: example.com
+      orgName: org name
+      orgDesc: org description
+      orgOwner: user123
+- name: updateOrg
+  version: 0.1.0
+  handler: UpdateOrg
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateOrgRequest'
+    example: 
+      domain: example.com
+      orgName: org name
+      orgDesc: org description
+      orgOwner: user123
+- name: deleteOrg
+  version: 0.1.0
+  handler: DeleteOrg
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteOrgRequest'
+    example: 
+      domain: example.com
 - name: createHost
   version: 0.1.0
   handler: CreateHost
@@ -41,9 +142,19 @@ action:
     schema:
       $ref: '#/schemas/createHostRequest'
     example: 
+      domain: example.com
+      subDomain: dev
+- name: updateHost
+  version: 0.1.0
+  handler: UpdateHost
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateHostRequest'
+    example: 
       hostId: host123
-      userId: user123
-      email: john@example.com
+      domain: example.com
+      subDomain: dev
 - name: deleteHost
   version: 0.1.0
   handler: DeleteHost
@@ -53,4 +164,3 @@ action:
       $ref: '#/schemas/deleteHostRequest'
     example: 
       hostId: host123
-      userId: user123

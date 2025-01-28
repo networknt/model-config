@@ -44,6 +44,11 @@ action:
     example: 
       offset: 0
       limit: 10
+- name: getHostLabel
+  version: 0.1.0
+  handler: GetHostLabel
+  skipAuth: true
+
 - name: getHostById
   version: 0.1.0
   handler: GetHostById
