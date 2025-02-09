@@ -1,0 +1,137 @@
+---
+host: lightapi.net
+service: instance
+schemas:
+  createInstanceRequest:
+    title: Instance
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      productId:
+        type: string
+        description: Product Id
+      productVersion:
+        title: Product Version
+        type: string
+      serviceId:
+        title: Service Id
+        type: string
+      serviceDesc:
+        title: Service Desc
+        type: string
+      instanceDesc:
+        title: Instance Desc
+        type: string
+      platformId:
+        title: Version Status
+        type: string
+      tagId:
+        title: Tag Id
+        type: string
+    required:
+    - hostId
+    - productId
+    - productVersion
+    - serviceId
+    - serviceDesc
+    - instanceDesc
+    - platformId
+  updateInstanceRequest:
+    title: Instance
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      instanceId:
+        type: string
+        description: Instance Id
+      productId:
+        type: string
+        description: Product Id
+      productVersion:
+        title: Product Version
+        type: string
+      serviceId:
+        title: Service Id
+        type: string
+      serviceDesc:
+        title: Service Desc
+        type: string
+      instanceDesc:
+        title: Instance Desc
+        type: string
+      platformId:
+        title: Version Status
+        type: string
+      tagId:
+        title: Tag Id
+        type: string
+    required:
+    - hostId
+    - instanceId
+    - productId
+    - productVersion
+    - serviceId
+    - serviceDesc
+    - instanceDesc
+    - platformId
+  deleteInstanceRequest:
+    title: Instance
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      instanceId:
+        type: string
+        description: Instance Id
+    required:
+    - hostId
+    - instanceId
+action:
+- name: createInstance
+  version: 0.1.0
+  handler: CreateInstance
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createInstanceRequest'
+    example: 
+      hostId: host123
+      productId: lg
+      productVersion: "1.5.1"
+      serviceId: "lg-ca-gb-sv0a0322-corp"
+      serviceDesc: "corp gateway"
+      instanceDesc: "predev gateway"
+      platformId: "platform123"
+      tagId: "tag112"
+- name: updateInstance
+  version: 0.1.0
+  handler: UpdateInstance
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateInstanceRequest'
+    example: 
+      hostId: host123
+      instanceId: instance123
+      productId: lg
+      productVersion: "1.5.1"
+      serviceId: "lg-ca-gb-sv0a0322-corp"
+      serviceDesc: "corp gateway"
+      instanceDesc: "predev gateway"
+      platformId: "platform123"
+      tagId: "tag112"
+- name: deleteInstance
+  version: 0.1.0
+  handler: DeleteInstance
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteInstanceRequest'
+    example: 
+      hostId: host123
+      instanceId: instance123

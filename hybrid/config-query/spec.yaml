@@ -1,31 +1,424 @@
 ---
-host: lightapi.net
-service: config
+host: "lightapi.net"
+service: "config"
 schemas:
   getConfigRequest:
-    title: Get all configurations
-    type: object
+    title: "Get Config"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      configType:
+        type: "string"
+        description: "Config Type"
+      light4jVersion:
+        type: "string"
+        description: "Light-4j Version"
+      classPath:
+        type: "string"
+        description: "Class Path"
+      configDesc:
+        type: "string"
+        description: "Config Desc"
+    required:
+    - "offset"
+    - "limit"
   getConfigByIdRequest:
-    title: Get Configurations by Id
-    type: object
+    title: "Get Config By Id"
+    type: "object"
     properties:
       configId:
-        type: string
-        description: Config Id
+        type: "string"
+        description: "Config Id"
+    required:
+    - "configId"
+  getConfigPropertyRequest:
+    title: "Get Config Property"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyType:
+        type: "string"
+        description: "Property Type"
+      light4jVersion:
+        type: "string"
+        description: "Light-4j Version"
+      displayOrder:
+        type: "integer"
+        description: "Display Order"
+      required:
+        type: "boolean"
+        description: "Required"
+      propertyDesc:
+        type: "string"
+        description: "Property Desc"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      valueType:
+        type: "string"
+        description: "Value Type"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+      resourceType:
+        type: "string"
+        description: "Resource Type"
+    required:
+    - "offset"
+    - "limit"
+  getConfigPropertyByIdRequest:
+    title: "Get Config Property By Id"
+    type: "object"
+    properties:
+      configId:
+        type: "string"
+        description: "Config Id"
+    required:
+    - "configId"
+
+  getConfigEnvironmentRequest:
+    title: "Get Config Environment"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      environment:
+        type: "string"
+        description: "Environment"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "offset"
+    - "limit"
+  getConfigInstanceApiRequest:
+    title: "Get Config Instance Api"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      apiVersion:
+        type: "string"
+        description: "Api Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getConfigInstanceAppRequest:
+    title: "Get Config Instance App"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      appVersion:
+        type: "string"
+        description: "App Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getConfigInstanceRequest:
+    title: "Get Config Instance"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getConfigProductRequest:
+    title: "Get Config Product"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      productId:
+        type: "string"
+        description: "Product Id"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "offset"
+    - "limit"
+  getConfigProductVersionRequest:
+    title: "Get Config Product Version"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+
 action:
-- name: getConfig
-  version: 0.1.0
-  handler: GetConfig
-  scope: portal.r
+- name: "getConfig"
+  version: "0.1.0"
+  handler: "GetConfig"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getConfigRequest'
-- name: getConfigById
-  version: 0.1.0
-  handler: GetConfigById
-  scope: portal.r
+      $ref: "#/schemas/getConfigRequest"
+    example:
+      offset: 0
+      limit: 10
+- name: "getConfigById"
+  version: "0.1.0"
+  handler: "GetConfigById"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getConfigByIdRequest'
-    example: 
-      configId: config123
+      $ref: "#/schemas/getConfigByIdRequest"
+    example:
+      configId: "config123"
+- name: "getConfigProperty"
+  version: "0.1.0"
+  handler: "GetConfigProperty"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigPropertyRequest"
+    example:
+      offset: 0
+      limit: 10
+- name: "getConfigPropertyById"
+  version: "0.1.0"
+  handler: "GetConfigPropertyById"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigPropertyByIdRequest"
+    example:
+      configId: "config123"
+- name: "getConfigEnvironment"
+  version: "0.1.0"
+  handler: "GetConfigEnvironment"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigEnvironmentRequest"
+    example:
+      offset: 0
+      limit: 10
+- name: "getConfigInstanceApi"
+  version: "0.1.0"
+  handler: "GetConfigInstanceApi"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigInstanceApiRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getConfigInstanceApp"
+  version: "0.1.0"
+  handler: "GetConfigInstanceApp"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigInstanceAppRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getConfigInstance"
+  version: "0.1.0"
+  handler: "GetConfigInstance"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigInstanceRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getConfigProduct"
+  version: "0.1.0"
+  handler: "GetConfigProduct"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigProductRequest"
+    example:
+      offset: 0
+      limit: 10
+- name: "getConfigProductVersion"
+  version: "0.1.0"
+  handler: "GetConfigProductVersion"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigProductVersionRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"

@@ -1,0 +1,127 @@
+---
+host: lightapi.net
+service: product
+schemas:
+  createProductVersionRequest:
+    title: Product Version
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      productId:
+        type: string
+        description: Product Id
+      productVersion:
+        title: Product Version
+        type: string
+      light4jVersion:
+        title: Light-4j Version
+        type: string
+      versionDesc:
+        title: Version Desc
+        type: string
+      currentFlag:
+        title: Current Flag
+        type: string
+      versionStatus:
+        title: Version Status
+        type: string
+    required:
+    - hostId
+    - productId
+    - productVersion
+    - light4jVersion
+    - currentFlag
+    - versionStatus
+  updateProductVersionRequest:
+    title: Product Version
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      productId:
+        type: string
+        description: Product Id
+      productVersion:
+        title: Product Version
+        type: string
+      light4jVersion:
+        title: Light-4j Version
+        type: string
+      versionDesc:
+        title: Version Desc
+        type: string
+      currentFlag:
+        title: Current Flag
+        type: string
+      versionStatus:
+        title: Version Status
+        type: string
+    required:
+    - hostId
+    - productId
+    - productVersion
+    - light4jVersion
+    - currentFlag
+    - versionStatus
+  deleteProductVersionRequest:
+    title: Position
+    type: object
+    properties:
+      hostId:
+        type: string
+        description: Host Id
+      productId:
+        type: string
+        description: Product Id
+      productVersion:
+        type: string
+        description: Product Version
+    required:
+    - hostId
+    - productId
+    - productVersion
+action:
+- name: createProductVersion
+  version: 0.1.0
+  handler: CreateProductVersion
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/createProductVersionRequest'
+    example: 
+      hostId: host123
+      productId: lg
+      productVersion: "1.5.1"
+      light4jVersion: "2.1.38"
+      versionDesc: "A patch release to fix a small issue in gateway"
+      currentFlag: true
+      versionStatus: S
+- name: updateProductVersion
+  version: 0.1.0
+  handler: UpdateProductVersion
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/updateProductVersionRequest'
+    example: 
+      hostId: host123
+      productId: lg
+      productVersion: "1.5.1"
+      light4jVersion: "2.1.38"
+      versionDesc: "A patch release to fix a small issue in gateway"
+      currentFlag: true
+      versionStatus: S
+- name: deleteProductVersion
+  version: 0.1.0
+  handler: DeleteProductVersion
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/deleteProductVersionRequest'
+    example: 
+      hostId: host123
+      productId: lg
+      productVersion: 1.5.1

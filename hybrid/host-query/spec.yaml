@@ -1,69 +1,111 @@
 ---
-host: lightapi.net
-service: host
+host: "lightapi.net"
+service: "host"
 schemas:
-  getHostRequest:
-    title: Host List
-    type: object
+  getOrgRequest:
+    title: "Org List"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Record offset
+        type: "integer"
+        description: "Record offset"
       limit:
-        type: integer
-        description: Record limit
+        type: "integer"
+        description: "Record limit"
     required:
-    - limit
-    - offset
+      - "limit"
+      - "offset"
+  getHostRequest:
+    title: "Host List"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record offset"
+      limit:
+        type: "integer"
+        description: "Record limit"
+    required:
+    - "limit"
+    - "offset"
+  getHostByDomainRequest:
+    title: "Host List"
+    type: "object"
+    properties:
+      domain:
+        type: "string"
+        description: "Domain"
+    required:
+    - "domain"
   getHostByIdRequest:
-    title: Host Dashboard
-    type: object
+    title: "Host Dashboard"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
     required:
-    - hostId
+    - "hostId"
   getHostDomainByIdRequest:
-    title: Host Domain
-    type: object
+    title: "Host Domain"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
     required:
-    - hostId
+    - "hostId"
 action:
-- name: getHost
-  version: 0.1.0
-  handler: GetHost
-  scope: portal.r
+- name: "getOrg"
+  version: "0.1.0"
+  handler: "GetOrg"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getHostRequest'
-    example: 
+      $ref: "#/schemas/getOrgRequest"
+    example:
       offset: 0
       limit: 10
-- name: getHostLabel
-  version: 0.1.0
-  handler: GetHostLabel
+- name: "getHost"
+  version: "0.1.0"
+  handler: "GetHost"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getHostRequest"
+    example:
+      offset: 0
+      limit: 10
+- name: "getHostByDomain"
+  version: "0.1.0"
+  handler: "GetHostByDomain"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getHostByDomainRequest"
+    example:
+      domain: "example.com"
+- name: "getHostLabel"
+  version: "0.1.0"
+  handler: "GetHostLabel"
   skipAuth: true
-
-- name: getHostById
-  version: 0.1.0
-  handler: GetHostById
-  scope: portal.r
+  request:
+    schema: null
+- name: "getHostById"
+  version: "0.1.0"
+  handler: "GetHostById"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getHostByIdRequest'
-    example: 
-      hostId: host123
-- name: getHostDomainById
-  version: 0.1.0
-  handler: GetHostDomainById
-  scope: portal.r
+      $ref: "#/schemas/getHostByIdRequest"
+    example:
+      hostId: "host123"
+- name: "getHostDomainById"
+  version: "0.1.0"
+  handler: "GetHostDomainById"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getHostDomainByIdRequest'
-    example: 
-      hostId: host123
+      $ref: "#/schemas/getHostDomainByIdRequest"
+    example:
+      hostId: "host123"

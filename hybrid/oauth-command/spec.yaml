@@ -146,11 +146,7 @@ schemas:
         description: "Delivery Owner"
     required:
     - "hostId"
-    - "providerId"
     - "providerName"
-    - "providerDesc"
-    - "operationOwner"
-    - "deliveryOwner"
   rotateProviderRequest:
     title: "OAuth Provider"
     type: "object"
@@ -162,8 +158,8 @@ schemas:
         type: "string"
         description: "Provider Id"
     required:
-      - "hostId"
-      - "providerId"
+    - "hostId"
+    - "providerId"
   updateProviderRequest:
     title: "OAuth Provider"
     type: "object"
@@ -190,9 +186,6 @@ schemas:
     - "hostId"
     - "providerId"
     - "providerName"
-    - "providerDesc"
-    - "operationOwner"
-    - "deliveryOwner"
   deleteProviderRequest:
     title: "OAuth Provider"
     type: "object"
@@ -326,5 +319,4 @@ action:
     example:
       hostId: "host123"
       providerId: "provider123"
-
 

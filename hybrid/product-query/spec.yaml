@@ -1,0 +1,92 @@
+---
+host: "lightapi.net"
+service: "product"
+schemas:
+  getProductVersionRequest:
+    title: "Product Version"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      light4jVersion:
+        type: "string"
+        description: "Light-4j Version"
+      versionDesc:
+        type: "string"
+        description: "Version Desc"
+      currentFlag:
+        type: "boolean"
+        description: "Current Flag"
+      versionStatus:
+        type: "string"
+        description: "Version Status"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getProductIdLabelRequest:
+    title: "Product Id"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
+  getProductVersionLabelRequest:
+    title: "Product Version"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+    required:
+    - "hostId"
+    - "productId"
+action:
+- name: "getProductVersion"
+  version: "0.1.0"
+  handler: "GetProductVersion"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProductVersionRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getProductIdLabel"
+  version: "0.1.0"
+  handler: "GetProductIdLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getProductIdLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getProductVersionLabel"
+  version: "0.1.0"
+  handler: "GetProductVersionLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getProductVersionLabelRequest"
+    example:
+      hostId: "host123"
+      productId: "product123"

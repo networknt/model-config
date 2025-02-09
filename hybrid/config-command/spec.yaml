@@ -1,99 +1,961 @@
 ---
-host: lightapi.net
-service: config
+host: "lightapi.net"
+service: "config"
 schemas:
   createConfigRequest:
-    title: Create a configuration module or handler
-    type: object
+    title: "Create Config"
+    type: "object"
     properties:
-      configId:
-        type: string
-        description: Configuration Id, which is the name of the config file
+      configName:
+        type: "string"
+        description: "Config Name, which is the name of the config file"
       configType:
-        type: string
-        description: Configuration Type, Handler or Module
-      infraType:
-        type: string
-        description: GN Generic LN Linux WD Windows KB Kubernetes OS Openshift AW AWS AZ Azure GC GCP
-      configDesc:
-        type: string
-        description: Configuration Description
+        type: "string"
+        description: "Config Type, Handler or Module or Deployment"
+      light4jVersion:
+        type: "string"
+        description: "light-4j Version"
       classPath:
-        type: string
-        description: Java class path or package
+        type: "string"
+        description: "Java class path or package"
+      configDesc:
+        type: "string"
+        description: "Config Desc"
     required:
-    - configId
-    - configType
-    - infraType
-    - configDesc
-    - classPath
+    - "configName"
+    - "configType"
   updateConfigRequest:
-    title: Update a configuration module or handler
-    type: object
+    title: "Update a configuration module or handler"
+    type: "object"
     properties:
       configId:
-        type: string
-        description: Configuration Id, which is the name of the config file
+        type: "string"
+        description: "Config Id, which is a UUID"
+      configName:
+        type: "string"
+        description: "Config Name, which is the name of the config file"
       configType:
-        type: string
-        description: Configuration Type. Handler or Module
-      infraType:
-        type: string
-        description: GN Generic LN Linux WD Windows KB Kubernetes OS Openshift AW AWS AZ Azure GC GCP
-      configDesc:
-        type: string
-        description: Configuration Description
+        type: "string"
+        description: "Config Type, Handler or Module or Deployment"
+      light4jVersion:
+        type: "string"
+        description: "light-4j Version"
       classPath:
-        type: string
-        description: Java class path or package
+        type: "string"
+        description: "Java class path or package"
+      configDesc:
+        type: "string"
+        description: "Config Desc"
     required:
-    - configId
-    - configType
-    - infraType
-    - configDesc
-    - classPath
+    - "configId"
+    - "configName"
+    - "configType"
   deleteConfigRequest:
-    title: Delete a configuration moddule or handler
-    type: object
+    title: "Delete a config"
+    type: "object"
     properties:
       configId:
-        type: string
-        description: Configuration Id, which is the name of the config file
+        type: "string"
+        description: "Config Id"
     required:
-    - configId
+    - "configId"
+  createConfigPropertyRequest:
+    title: "Create Config Property"
+    type: "object"
+    properties:
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyType:
+        type: "string"
+        description: "Property Type"
+      light4jVersion:
+        type: "string"
+        description: "light-4j Version"
+      displayOrder:
+        type: "int"
+        description: "Display Order"
+      required:
+        type: "boolean"
+        description: "Required"
+      propertyDesc:
+        type: "string"
+        description: "Property Desc"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+      resourceType:
+        type: "string"
+        description: "Resource Type"
+    required:
+    - "configId"
+    - "propertyName"
+  updateConfigPropertyRequest:
+    title: "Update a configuration module or handler"
+    type: "object"
+    properties:
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyType:
+        type: "string"
+        description: "Property Type"
+      light4jVersion:
+        type: "string"
+        description: "light-4j Version"
+      displayOrder:
+        type: "int"
+        description: "Display Order"
+      required:
+        type: "boolean"
+        description: "Required"
+      propertyDesc:
+        type: "string"
+        description: "Property Desc"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+      resourceType:
+        type: "string"
+        description: "Resource Type"
+    required:
+    - "configId"
+    - "propertyName"
+  deleteConfigPropertyRequest:
+    title: "Delete a config property"
+    type: "object"
+    properties:
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+    required:
+    - "configId"
+    - "propertyName"
+  createConfigEnvironmentRequest:
+    title: "Create Environment Config"
+    type: "object"
+    properties:
+      environment:
+        type: "string"
+        description: "Environment"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "environment"
+    - "configId"
+    - "propertyName"
+  updateConfigEnvironmentRequest:
+    title: "Update Environment Config"
+    type: "object"
+    properties:
+      environment:
+        type: "string"
+        description: "Environment"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "environment"
+    - "configId"
+    - "propertyName"
+  deleteConfigEnvironmentRequest:
+    title: "Delete Environment Config"
+    type: "object"
+    properties:
+      environment:
+        type: "string"
+        description: "Environment"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+    required:
+    - "environment"
+    - "configId"
+    - "propertyName"
+  createConfigInstanceApiRequest:
+    title: "Create Instance Api Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      apiVersion:
+        type: "string"
+        description: "Api Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "apiId"
+    - "apiVersion"
+    - "configId"
+    - "propertyName"
+  updateConfigInstanceApiRequest:
+    title: "Update Instance Api Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      apiVersion:
+        type: "string"
+        description: "Api Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "apiId"
+    - "apiVersion"
+    - "configId"
+    - "propertyName"
+  deleteConfigInstanceApiRequest:
+    title: "Delete Instance Api Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      apiVersion:
+        type: "string"
+        description: "Api Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "apiId"
+    - "apiVersion"
+    - "configId"
+    - "propertyName"
+  createConfigInstanceAppRequest:
+    title: "Create Instance App Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      appVersion:
+        type: "string"
+        description: "App Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "appId"
+    - "appVersion"
+    - "configId"
+    - "propertyName"
+  updateConfigInstanceAppRequest:
+    title: "Update Instance App Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      appVersion:
+        type: "string"
+        description: "App Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "appId"
+    - "appVersion"
+    - "configId"
+    - "propertyName"
+  deleteConfigInstanceAppRequest:
+    title: "Delete Instance App Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      appVersion:
+        type: "string"
+        description: "App Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "appId"
+    - "appVersion"
+    - "configId"
+    - "propertyName"
+  createConfigInstanceRequest:
+    title: "Create Instance Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "configId"
+    - "propertyName"
+  updateConfigInstanceRequest:
+    title: "Update Instance Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "configId"
+    - "propertyName"
+  deleteConfigInstanceRequest:
+    title: "Delete Instance Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "configId"
+    - "propertyName"
+  createConfigProductRequest:
+    title: "Create Product Config"
+    type: "object"
+    properties:
+      productId:
+        type: "string"
+        description: "Product Id"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "productId"
+    - "configId"
+    - "propertyName"
+  updateConfigProductRequest:
+    title: "Update Product Config"
+    type: "object"
+    properties:
+      productId:
+        type: "string"
+        description: "Product Id"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "productId"
+    - "configId"
+    - "propertyName"
+  deleteConfigProductRequest:
+    title: "Delete Product Config"
+    type: "object"
+    properties:
+      productId:
+        type: "string"
+        description: "Product Id"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+    required:
+    - "productId"
+    - "configId"
+    - "propertyName"
+  createConfigProductVersionRequest:
+    title: "Create Product Version Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "hostId"
+    - "productId"
+    - "productVersion"
+    - "configId"
+    - "propertyName"
+  updateConfigProductVersionRequest:
+    title: "Update Product Version Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+      propertyFile:
+        type: "string"
+        description: "Property File"
+    required:
+    - "hostId"
+    - "productId"
+    - "productVersion"
+    - "configId"
+    - "propertyName"
+  deleteConfigProductVersionRequest:
+    title: "Delete Product Version Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+    required:
+    - "hostId"
+    - "productId"
+    - "productVersion"
+    - "configId"
+    - "propertyName"
 action:
-- name: createConfig
-  version: 0.1.0
-  handler: CreateConfig
-  scope: portal.w
+- name: "createConfig"
+  version: "0.1.0"
+  handler: "CreateConfig"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createConfigRequest'
-    example: 
-      configId: myconfig
-      configType: Handler
-      infraType: LN
-      configDesc: "This is my handler configuration"
+      $ref: "#/schemas/createConfigRequest"
+    example:
+      configName: "name"
+      configType: "Handler"
+      light4jVersion: "2.1.38"
       classPath: "com.example.handler"
-- name: updateConfig
-  version: 0.1.0
-  handler: UpdateConfig
-  scope: portal.w
+      configDesc: "This is my handler configuration"
+- name: "updateConfig"
+  version: "0.1.0"
+  handler: "UpdateConfig"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateConfigRequest'
-    example: 
-      configId: myconfig
-      configType: Module
-      infraType: KB
-      configDesc: "This is my updated module configuration"
+      $ref: "#/schemas/updateConfigRequest"
+    example:
+      configId: "config123"
+      configName: "name"
+      configType: "Module"
+      light4jVersion: "2.1.38"
       classPath: "com.example.module"
-- name: deleteConfig
-  version: 0.1.0
-  handler: DeleteConfig
-  scope: portal.w
+      configDesc: "This is my updated module configuration"
+- name: "deleteConfig"
+  version: "0.1.0"
+  handler: "DeleteConfig"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteConfigRequest'
-    example: 
-      configId: myconfig
+      $ref: "#/schemas/deleteConfigRequest"
+    example:
+      configId: "config123"
+- name: "createConfigProperty"
+  version: "0.1.0"
+  handler: "CreatePropertyConfig"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createConfigPropertyRequest"
+    example:
+      configId: "config123"
+      propertyName: "name"
+      propertyType: "String"
+      light4jVersion: "2.1.38"
+      displayOrder: 1
+      required: true
+      propertyDesc: "This is my handler configuration"
+      propertyValue: "value"
+      valueType: "String"
+      propertyFile: "file"
+      resourceType: "all"
+- name: "updateConfigProperty"
+  version: "0.1.0"
+  handler: "UpdatePropertyConfig"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateConfigPropertyRequest"
+    example:
+      configId: "config123"
+      propertyName: "name"
+      propertyType: "String"
+      light4jVersion: "2.1.38"
+      displayOrder: 1
+      required: true
+      propertyDesc: "This is my handler configuration"
+      propertyValue: "value"
+      valueType: "String"
+      propertyFile: "file"
+      resourceType: "all"
+- name: "deleteConfigProperty"
+  version: "0.1.0"
+  handler: "DeleteConfigProperty"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteConfigPropertyRequest"
+    example:
+      configId: "config123"
+      propertyName: "name"
+- name: "createConfigEnvironment"
+  version: "0.1.0"
+  handler: "CreateConfigEnvironment"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createConfigEnvironmentRequest"
+    example:
+      environment: "dev"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "updateConfigEnvironment"
+  version: "0.1.0"
+  handler: "UpdateConfigEnvironment"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateConfigEnvironmentRequest"
+    example:
+      environment: "dev"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "deleteConfigEnvironment"
+  version: "0.1.0"
+  handler: "DeleteConfigEnvironment"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteConfigEnvironmentRequest"
+    example:
+      environment: "dev"
+      configId: "config123"
+      propertyName: "name"
+- name: "createConfigInstanceApi"
+  version: "0.1.0"
+  handler: "CreateConfigInstanceApi"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createConfigInstanceApiRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      apiId: "api123"
+      apiVersion: "1.0.0"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "updateConfigInstanceApi"
+  version: "0.1.0"
+  handler: "UpdateConfigInstanceApi"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateConfigInstanceApiRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      apiId: "api123"
+      apiVersion: "1.0.0"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "deleteConfigInstanceApi"
+  version: "0.1.0"
+  handler: "DeleteConfigInstanceApi"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteConfigInstanceApiRequest"
+    example:
+      hostId: "host123"
+      instanceId:
+      apiId: "api123"
+      apiVersion: "1.0.0"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "createConfigInstanceApp"
+  version: "0.1.0"
+  handler: "CreateConfigInstanceApp"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createConfigInstanceAppRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      appId: "app123"
+      appVersion: "1.0.0"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "updateConfigInstanceApp"
+  version: "0.1.0"
+  handler: "UpdateConfigInstanceApp"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateConfigInstanceAppRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      appId: "app123"
+      appVersion: "1.0.0"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "deleteConfigInstanceApp"
+  version: "0.1.0"
+  handler: "DeleteConfigInstanceApp"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteConfigInstanceAppRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      appId: "app123"
+      appVersion: "1.0.0"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "createConfigInstance"
+  version: "0.1.0"
+  handler: "CreateConfigInstance"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createConfigInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "updateConfigInstance"
+  version: "0.1.0"
+  handler: "UpdateConfigInstance"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateConfigInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "deleteConfigInstance"
+  version: "0.1.0"
+  handler: "DeleteConfigInstance"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteConfigInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "createConfigProduct"
+  version: "0.1.0"
+  handler: "CreateConfigProduct"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createConfigProductRequest"
+    example:
+      productId: "product123"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "updateConfigProduct"
+  version: "0.1.0"
+  handler: "UpdateConfigProduct"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateConfigProductRequest"
+    example:
+      productId: "product123"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "deleteConfigProduct"
+  version: "0.1.0"
+  handler: "DeleteConfigProduct"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteConfigProductRequest"
+    example:
+      productId: "product123"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "createConfigProductVersion"
+  version: "0.1.0"
+  handler: "CreateConfigProductVersion"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createConfigProductVersionRequest"
+    example:
+      hostId: "host123"
+      productId: "product123"
+      productVersion: "1.0.0"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "updateConfigProductVersion"
+  version: "0.1.0"
+  handler: "UpdateConfigProductVersion"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateConfigProductVersionRequest"
+    example:
+      hostId: "host123"
+      productId: "product123"
+      productVersion: "1.0.0"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"
+- name: "deleteConfigProductVersion"
+  version: "0.1.0"
+  handler: "DeleteConfigProductVersion"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteConfigProductVersionRequest"
+    example:
+      hostId: "host123"
+      productId: "product123"
+      productVersion: "1.0.0"
+      configId: "config123"
+      propertyName: "name"
+      propertyValue: "value"

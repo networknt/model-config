@@ -1,0 +1,137 @@
+---
+host: "lightapi.net"
+service: "deployment"
+schemas:
+  getPlatformRequest:
+    title: "Platform"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      platformId:
+        type: "string"
+        description: "Platform Id"
+      platformName:
+        type: "string"
+        description: "Platform Name"
+      platformVersion:
+        title: "Platform Version"
+        type: "string"
+      clientType:
+        title: "Client Type"
+        type: "string"
+      clientUrl:
+        title: "Client Url"
+        type: "string"
+      credentials:
+        title: "Credentials"
+        type: "string"
+      proxyUrl:
+        title: "Proxy Url"
+        type: "string"
+      proxyPort:
+        title: "Proxy Port"
+        type: "integer"
+      environment:
+        title: "Environment"
+        type: "string"
+      systemEnv:
+        title: "System Env"
+        type: "string"
+      runtimeEnv:
+        title: "Runtime Env"
+        type: "string"
+      zone:
+        title: "Zone"
+        type: "string"
+      region:
+        title: "Region"
+        type: "string"
+      lob:
+        title: "Lob"
+        type: "string"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getPlatformLabelRequest:
+    title: "Platform Label"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
+  getDeploymentRequest:
+    title: "Product Version"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      deploymentStatus:
+        title: "Deployment Status"
+        type: "string"
+      deploymentType:
+        title: "Deployment Type"
+        type: "string"
+      pipelineId:
+        title: "Pipeline Id"
+        type: "string"
+      scheduleTs:
+        title: "Schedule Timestamp"
+        type: "string"
+        format: "date-time"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+action:
+- name: "getPlatform"
+  version: "0.1.0"
+  handler: "GetPlatform"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getPlatformRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getPlatformLabel"
+  version: "0.1.0"
+  handler: "GetPlatformLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getPlatformLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getDeployment"
+  version: "0.1.0"
+  handler: "GetDeployment"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getDeploymentRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"

@@ -1,0 +1,72 @@
+---
+host: "lightapi.net"
+service: "instance"
+schemas:
+  getInstanceRequest:
+    title: "Instance"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      serviceId:
+        type: "string"
+        description: "Service Id"
+      serviceDesc:
+        type: "string"
+        description: "Service Desc"
+      instanceDesc:
+        type: "string"
+        description: "Instance Desc"
+      tagId:
+        type: "string"
+        description: "Tag Id"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getInstanceLabelRequest:
+    title: "Instance Label"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
+action:
+- name: "getInstance"
+  version: "0.1.0"
+  handler: "GetInstance"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getInstanceRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getInstanceLabel"
+  version: "0.1.0"
+  handler: "GetInstanceLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getInstanceLabelRequest"
+    example:
+      hostId: "host123"

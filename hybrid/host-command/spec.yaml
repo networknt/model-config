@@ -1,166 +1,184 @@
 ---
-host: lightapi.net
-service: host
+host: "lightapi.net"
+service: "host"
 schemas:
   createOrgRequest:
-    title: Create Org
-    type: object
+    title: "Create Org"
+    type: "object"
     properties:
       domain:
-        type: string
-        description: Domain Name
+        type: "string"
+        description: "Domain Name"
       orgName:
-        type: string
-        description: Org Name
+        type: "string"
+        description: "Org Name"
       orgDesc:
-        type: string
-        description: Org Desc
+        type: "string"
+        description: "Org Desc"
       orgOwner:
-        type: string
-        description: Org Owner  
+        type: "string"
+        description: "Org Owner"
     required:
-    - domain
-    - orgName    
+    - "domain"
+    - "orgName"
   updateOrgRequest:
-    title: Update Org
-    type: object
+    title: "Update Org"
+    type: "object"
     properties:
       domain:
-        type: string
-        description: Domain Name
+        type: "string"
+        description: "Domain Name"
       orgName:
-        type: string
-        description: Org Name
+        type: "string"
+        description: "Org Name"
       orgDesc:
-        type: string
-        description: Org Desc
+        type: "string"
+        description: "Org Desc"
       orgOwner:
-        type: string
-        description: Org Owner  
+        type: "string"
+        description: "Org Owner"
     required:
-    - domain
-    - orgName    
+    - "domain"
+    - "orgName"
   deleteOrgRequest:
-    title: Delete Org
-    type: object
+    title: "Delete Org"
+    type: "object"
     properties:
       domain:
-        type: string
-        description: Domain Name
+        type: "string"
+        description: "Domain Name"
     required:
-    - domain
+    - "domain"
   createHostRequest:
-    title: Create Host
-    type: object
+    title: "Create Host"
+    type: "object"
     properties:
       domain:
-        type: string
-        description: Domain
+        type: "string"
+        description: "Domain"
       subDomain:
-        type: string
-        description: Sub Domain
+        type: "string"
+        description: "Sub Domain"
       hostDesc:
-        type: string
-        description: Host Desc  
-      hostOwner: 
-        type: string
-        description: Host Owner
+        type: "string"
+        description: "Host Desc"
+      hostOwner:
+        type: "string"
+        description: "Host Owner"
     required:
-    - domain
-    - subDomain
+    - "domain"
+    - "subDomain"
   updateHostRequest:
-    title: Update Host
-    type: object
+    title: "Update Host"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       domain:
-        type: string
-        description: Domain
+        type: "string"
+        description: "Domain"
       subDomain:
-        type: string
-        description: Sub Domain
+        type: "string"
+        description: "Sub Domain"
       hostDesc:
-        type: string
-        description: Host Desc  
-      hostOwner: 
-        type: string
-        description: Host Owner
+        type: "string"
+        description: "Host Desc"
+      hostOwner:
+        type: "string"
+        description: "Host Owner"
     required:
-    - hostId  
-    - domain
-    - subDomain
+    - "hostId"
+    - "domain"
+    - "subDomain"
   deleteHostRequest:
-    title: Delete Host
-    type: object
+    title: "Delete Host"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
     required:
-    - hostId
+    - "hostId"
+  switchHostRequest:
+    title: "Switch Host"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+      - "hostId"
 action:
-- name: createOrg
-  version: 0.1.0
-  handler: CreateOrg
-  scope: portal.w
+- name: "createOrg"
+  version: "0.1.0"
+  handler: "CreateOrg"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createOrgRequest'
-    example: 
-      domain: example.com
-      orgName: org name
-      orgDesc: org description
-      orgOwner: user123
-- name: updateOrg
-  version: 0.1.0
-  handler: UpdateOrg
-  scope: portal.w
+      $ref: "#/schemas/createOrgRequest"
+    example:
+      domain: "example.com"
+      orgName: "org name"
+      orgDesc: "org description"
+      orgOwner: "user123"
+- name: "updateOrg"
+  version: "0.1.0"
+  handler: "UpdateOrg"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateOrgRequest'
-    example: 
-      domain: example.com
-      orgName: org name
-      orgDesc: org description
-      orgOwner: user123
-- name: deleteOrg
-  version: 0.1.0
-  handler: DeleteOrg
-  scope: portal.w
+      $ref: "#/schemas/updateOrgRequest"
+    example:
+      domain: "example.com"
+      orgName: "org name"
+      orgDesc: "org description"
+      orgOwner: "user123"
+- name: "deleteOrg"
+  version: "0.1.0"
+  handler: "DeleteOrg"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteOrgRequest'
-    example: 
-      domain: example.com
-- name: createHost
-  version: 0.1.0
-  handler: CreateHost
-  scope: portal.w
+      $ref: "#/schemas/deleteOrgRequest"
+    example:
+      domain: "example.com"
+- name: "createHost"
+  version: "0.1.0"
+  handler: "CreateHost"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createHostRequest'
-    example: 
-      domain: example.com
-      subDomain: dev
-- name: updateHost
-  version: 0.1.0
-  handler: UpdateHost
-  scope: portal.w
+      $ref: "#/schemas/createHostRequest"
+    example:
+      domain: "example.com"
+      subDomain: "dev"
+- name: "updateHost"
+  version: "0.1.0"
+  handler: "UpdateHost"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateHostRequest'
-    example: 
-      hostId: host123
-      domain: example.com
-      subDomain: dev
-- name: deleteHost
-  version: 0.1.0
-  handler: DeleteHost
-  scope: portal.w
+      $ref: "#/schemas/updateHostRequest"
+    example:
+      hostId: "host123"
+      domain: "example.com"
+      subDomain: "dev"
+- name: "deleteHost"
+  version: "0.1.0"
+  handler: "DeleteHost"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteHostRequest'
-    example: 
-      hostId: host123
+      $ref: "#/schemas/deleteHostRequest"
+    example:
+      hostId: "host123"
+- name: "switchHost"
+  version: "0.1.0"
+  handler: "SwitchHost"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/switchHostRequest"
+    example:
+      hostId: "host123"
