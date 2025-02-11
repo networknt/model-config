@@ -100,7 +100,6 @@ schemas:
         description: "Config Id"
     required:
     - "configId"
-
   getConfigEnvironmentRequest:
     title: "Get Config Environment"
     type: "object"
@@ -318,7 +317,6 @@ schemas:
     - "offset"
     - "limit"
     - "hostId"
-
 action:
 - name: "getConfig"
   version: "0.1.0"
@@ -339,6 +337,12 @@ action:
       $ref: "#/schemas/getConfigByIdRequest"
     example:
       configId: "config123"
+- name: "getConfigIdLabel"
+  version: "0.1.0"
+  handler: "GetConfigIdLabel"
+  skipAuth: true
+  request:
+    schema:
 - name: "getConfigProperty"
   version: "0.1.0"
   handler: "GetConfigProperty"

@@ -76,7 +76,7 @@ schemas:
         type: "string"
         description: "light-4j Version"
       displayOrder:
-        type: "int"
+        type: "integer"
         description: "Display Order"
       required:
         type: "boolean"
@@ -113,7 +113,7 @@ schemas:
         type: "string"
         description: "light-4j Version"
       displayOrder:
-        type: "int"
+        type: "integer"
         description: "Display Order"
       required:
         type: "boolean"
@@ -671,7 +671,7 @@ action:
       configId: "config123"
 - name: "createConfigProperty"
   version: "0.1.0"
-  handler: "CreatePropertyConfig"
+  handler: "CreateConfigProperty"
   scope: "portal.w"
   request:
     schema:
@@ -690,7 +690,7 @@ action:
       resourceType: "all"
 - name: "updateConfigProperty"
   version: "0.1.0"
-  handler: "UpdatePropertyConfig"
+  handler: "UpdateConfigProperty"
   scope: "portal.w"
   request:
     schema:
@@ -791,7 +791,7 @@ action:
       $ref: "#/schemas/deleteConfigInstanceApiRequest"
     example:
       hostId: "host123"
-      instanceId:
+      instanceId: "instance123"
       apiId: "api123"
       apiVersion: "1.0.0"
       configId: "config123"

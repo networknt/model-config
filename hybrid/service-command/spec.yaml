@@ -1,448 +1,334 @@
 ---
-host: lightapi.net
-service: service
+host: "lightapi.net"
+service: "service"
 schemas:
   createServiceRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       apiId:
-        type: string
-        description: Api Id
+        type: "string"
+        description: "Api Id"
       apiName:
-        type: string
-        description: Api Name
+        type: "string"
+        description: "Api Name"
       apiType:
-        title: Api Type
-        type: string
+        title: "Api Type"
+        type: "string"
       apiDesc:
-        title: Api Desc
-        type: string
+        title: "Api Desc"
+        type: "string"
       operationOwner:
-        title: Operation Owner
-        type: string
+        title: "Operation Owner"
+        type: "string"
       deliveryOwner:
-        title: Delivery Owner
-        type: string
+        title: "Delivery Owner"
+        type: "string"
       region:
-        title: Region
-        type: string
+        title: "Region"
+        type: "string"
       businessGroup:
-        title: Business Group
-        type: string
+        title: "Business Group"
+        type: "string"
       lob:
-        type: string
-        title: Line of Business
+        type: "string"
+        title: "Line of Business"
       platform:
-        type: string
-        title: platform
+        type: "string"
+        title: "platform"
       capability:
-        type: string
-        title: Capability
+        type: "string"
+        title: "Capability"
       gitRepo:
-        type: string
-        title: Git Repo
+        type: "string"
+        title: "Git Repo"
       apiTags:
-        title: Tags
-        type: string
+        title: "Tags"
+        type: "string"
       apiStatus:
-        title: Api Status
-        type: string
+        title: "Api Status"
+        type: "string"
     required:
-    - hostId
-    - apiId
-    - apiName
-    - apiType
-    - apiStatus
+    - "hostId"
+    - "apiId"
+    - "apiName"
+    - "apiType"
+    - "apiStatus"
   updateServiceRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       apiId:
-        type: string
-        description: Api Id
+        type: "string"
+        description: "Api Id"
       apiName:
-        type: string
-        description: Api Name
+        type: "string"
+        description: "Api Name"
       apiType:
         title: Api Type
         type: string
       apiDesc:
-        title: Api Desc
-        type: string
+        title: "Api Desc"
+        type: "string"
       operationOwner:
-        title: Operation Owner
-        type: string
+        title: "Operation Owner"
+        type: "string"
       deliveryOwner:
-        title: Delivery Owner
-        type: string
+        title: "Delivery Owner"
+        type: "string"
       region:
-        title: Region
-        type: string
+        title: "Region"
+        type: "string"
       businessGroup:
-        title: Business Group
-        type: string
+        title: "Business Group"
+        type: "string"
       lob:
-        type: string
-        title: Line of Business
+        type: "string"
+        title: "Line of Business"
       platform:
-        type: string
-        title: platform
+        type: "string"
+        title: "platform"
       capability:
-        title: Capability
-        type: string
+        title: "Capability"
+        type: "string"
       gitRepo:
-        type: string
-        title: Git Repo
+        type: "string"
+        title: "Git Repo"
       apiTags:
-        title: Tags
-        type: string
+        title: "Tags"
+        type: "string"
       apiStatus:
-        title: Api Status
-        type: string
+        title: "Api Status"
+        type: "string"
     required:
-    - hostId
-    - apiId
-    - apiName
-    - apiType
-    - apiStatus
+    - "hostId"
+    - "apiId"
+    - "apiName"
+    - "apiType"
+    - "apiStatus"
   deleteServiceRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
-      apiId:
-        type: string
-        description: Api Id
       hostId:
-        type: string
-        description: HostId
+        type: "string"
+        description: "HostId"
+      apiId:
+        type: "string"
+        description: "Api Id"
     required:
-    - apiId
-    - hostId
+    - "hostId"
+    - "apiId"
   updateServiceSpecRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       apiId:
-        type: string
-        description: API Id
+        type: "string"
+        description: "API Id"
       apiVersion:
-        type: string
-        description: API Version
+        type: "string"
+        description: "API Version"
       serviceId:
-        type: string
-        description: Service Id
+        type: "string"
+        description: "Service Id"
       apiVersionDesc:
-        type: string
-        description: Api Version Desc
+        type: "string"
+        description: "Api Version Desc"
       specLink:
-        type: string
-        description: Spec Link
+        type: "string"
+        description: "Spec Link"
       spec:
-        type: string
-        description: API Specification
+        type: "string"
+        description: "API Specification"
     required:
-    - hostId
-    - apiId
-    - apiVersion
-    - spec
-  updateServiceFilterRequest:
-    title: Service
-    type: object
-    properties:
-      serviceId:
-        type: string
-        description: Service Id
-      host:
-        type: string
-        description: Host
-      endpoint:
-        type: string
-        description: Endpoint
-      filters:
-        type: array
-        items:
-          type: object
-          properties:
-            ruleId:
-              type: string
-              description: Rule Id
-            roles:
-              type: array
-              items:
-                type: string
-              description: Rule roles
-            variables:
-              type: string
-              description: Rule variables
-          required:
-          - ruleId
-    required:
-    - serviceId
-    - host
-    - filters
-  updateServiceAccessRequest:
-    title: Service
-    type: object
-    properties:
-      serviceId:
-        type: string
-        description: Service Id
-      host:
-        type: string
-        description: Host
-      endpoint:
-        type: string
-        description: Endpoint
-      accesses:
-        type: array
-        items:
-          type: object
-          properties:
-            ruleId:
-              type: string
-              description: Rule Id
-            roles:
-              type: array
-              items:
-                type: string
-              description: Rule roles
-            variables:
-              type: string
-              description: Rule variables
-          required:
-          - ruleId
-    required:
-    - serviceId
-    - host
-    - accesses
+    - "hostId"
+    - "apiId"
+    - "apiVersion"
+    - "spec"
   createServiceVersionRequest:
-    title: Service Version
-    type: object
+    title: "Service Version"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       apiId:
-        type: string
-        description: Api Id
+        type: "string"
+        description: "Api Id"
       apiVersion:
-        title: Api Version
-        type: string
+        title: "Api Version"
+        type: "string"
       serviceId:
-        type: string
-        description: Service Id
+        type: "string"
+        description: "Service Id"
       apiVersionDesc:
-        type: string
-        description: Api Version Desc
+        type: "string"
+        description: "Api Version Desc"
       specLink:
-        title: Spec Link
-        type: string
+        title: "Spec Link"
+        type: "string"
       spec:
-        title: Spec
-        type: string
+        title: "Spec"
+        type: "string"
     required:
-    - hostId
-    - apiId
-    - apiVersion
-    - serviceId
+    - "hostId"
+    - "apiId"
+    - "apiVersion"
+    - "apiType"
+    - "serviceId"
   updateServiceVersionRequest:
-    title: Service Version
-    type: object
+    title: "Service Version"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       apiId:
-        type: string
-        description: Api Id
+        type: "string"
+        description: "Api Id"
       apiVersion:
-        title: Api Version
-        type: string
+        title: "Api Version"
+        type: "string"
       serviceId:
-        type: string
-        description: Service Id
+        type: "string"
+        description: "Service Id"
       apiVersionDesc:
-        title: Api Version Desc
-        type: string
+        title: "Api Version Desc"
+        type: "string"
       specLink:
-        type: string
-        description: Spec Link
+        type: "string"
+        description: "Spec Link"
       spec:
-        title: Spec
-        type: string
+        title: "Spec"
+        type: "string"
     required:
-    - hostId
-    - apiId
-    - apiVersion
+    - "hostId"
+    - "apiId"
+    - "apiVersion"
+    - "apiType"
+    - "serviceId"
   deleteServiceVersionRequest:
-    title: Service Version
-    type: object
+    title: "Service Version"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       apiId:
-        type: string
-        description: Api Id
+        type: "string"
+        description: "Api Id"
       apiVersion:
-        type: string
-        description: Api Version
+        type: "string"
+        description: "Api Version"
     required:
-    - hostId
-    - apiId
-    - apiVersion
+    - "hostId"
+    - "apiId"
+    - "apiVersion"
   createEndpointRuleRequest:
-    title: Service Endpoint Rule
-    type: object
+    title: "Service Endpoint Rule"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       apiId:
-        type: string
-        description: Api Id
+        type: "string"
+        description: "Api Id"
       apiVersion:
-        title: Api Version
-        type: string
+        title: "Api Version"
+        type: "string"
       endpoint:
-        type: string
-        description: Api Endpoint
+        type: "string"
+        description: "Api Endpoint"
       ruleId:
-        title: Rule Id
-        type: string
+        title: "Rule Id"
+        type: "string"
     required:
-    - hostId
-    - apiId
-    - apiVersion
-    - endpoint
-    - ruleId
+    - "hostId"
+    - "apiId"
+    - "apiVersion"
+    - "endpoint"
+    - "ruleId"
   deleteEndpointRuleRequest:
-    title: Service Endpoint Rule
-    type: object
+    title: "Service Endpoint Rule"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       apiId:
-        type: string
-        description: Api Id
+        type: "string"
+        description: "Api Id"
       apiVersion:
-        title: Api Version
-        type: string
+        title: "Api Version"
+        type: "string"
       endpoint:
-        type: string
-        description: Api Endpoint
+        type: "string"
+        description: "Api Endpoint"
       ruleId:
-        title: Rule Id
-        type: string
+        title: "Rule Id"
+        type: "string"
     required:
-    - hostId
-    - apiId
-    - apiVersion
-    - endpoint
-    - ruleId
+    - "hostId"
+    - "apiId"
+    - "apiVersion"
+    - "endpoint"
+    - "ruleId"
 action:
-- name: createService
-  version: 0.1.0
-  handler: CreateService
-  scope: portal.w
+- name: "createService"
+  version: "0.1.0"
+  handler: "CreateService"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createServiceRequest'
-    example: 
+      $ref: "#/schemas/createServiceRequest"
+    example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiName: "myapi"
       apiType: "openapi"
       apiStatus: "draft"
-- name: updateService
-  version: 0.1.0
-  handler: UpdateService
-  scope: portal.w
+- name: "updateService"
+  version: "0.1.0"
+  handler: "UpdateService"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateServiceRequest'
-    example: 
+      $ref: "#/schemas/updateServiceRequest"
+    example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiName: "myapi"
       apiType: "graphql"
       apiStatus: "published"
-- name: deleteService
-  version: 0.1.0
-  handler: DeleteService
-  scope: portal.w
+- name: "deleteService"
+  version: "0.1.0"
+  handler: "DeleteService"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteServiceRequest'
-    example: 
+      $ref: "#/schemas/deleteServiceRequest"
+    example:
       apiId: "api123"
       hostId: "lightapi.net"
-- name: updateServiceSpec
-  version: 0.1.0
-  handler: UpdateServiceSpec
-  scope: portal.w
+- name: "updateServiceSpec"
+  version: "0.1.0"
+  handler: "UpdateServiceSpec"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateServiceSpecRequest'
-    example: 
-      hostId: "lightapi.net"
-      apiId: "api123"
-      apiVersion: "1.0.0"
-      serviceId: "service123"
-      apiVersionDesc: "This is my first spec."
-      specLink: "example.com"
-      spec: "spec"
-- name: updateServiceFilter
-  version: 0.1.0
-  handler: UpdateServiceFilter
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/updateServiceFilterRequest'
-    example: 
-      serviceId: "service123"
-      host: "lightapi.net"
-      endpoint: "pets"
-      filters:
-        - ruleId: "rule123"
-          roles:
-            - "admin"
-          variables: "var1=val1"
-- name: updateServiceAccess
-  version: 0.1.0
-  handler: UpdateServiceAccess
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/updateServiceAccessRequest'
-    example: 
-      serviceId: "service123"
-      host: "lightapi.net"
-      endpoint: "pets"
-      accesses:
-         - ruleId: "rule123"
-           roles:
-             - "admin"
-           variables: "var1=val1"
-- name: createServiceVersion
-  version: 0.1.0
-  handler: CreateServiceVersion
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/createServiceVersionRequest'
-    example: 
+      $ref: "#/schemas/updateServiceSpecRequest"
+    example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiVersion: "1.0.0"
@@ -450,14 +336,29 @@ action:
       apiVersionDesc: "This is my first spec."
       specLink: "example.com"
       spec: "spec"
-- name: updateServiceVersion
-  version: 0.1.0
-  handler: UpdateServiceVersion
-  scope: portal.w
+- name: "createServiceVersion"
+  version: "0.1.0"
+  handler: "CreateServiceVersion"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateServiceVersionRequest'
-    example: 
+      $ref: "#/schemas/createServiceVersionRequest"
+    example:
+      hostId: "lightapi.net"
+      apiId: "api123"
+      apiVersion: "1.0.0"
+      serviceId: "service123"
+      apiVersionDesc: "This is my first spec."
+      specLink: "example.com"
+      spec: "spec"
+- name: "updateServiceVersion"
+  version: "0.1.0"
+  handler: "UpdateServiceVersion"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateServiceVersionRequest"
+    example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiVersion: "1.1.0"
@@ -465,38 +366,38 @@ action:
       apiVersionDesc: "This is my second spec."
       specLink: "example.com"
       spec: "spec"
-- name: deleteServiceVersion
-  version: 0.1.0
-  handler: DeleteServiceVersion
-  scope: portal.w
+- name: "deleteServiceVersion"
+  version: "0.1.0"
+  handler: "DeleteServiceVersion"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteServiceVersionRequest'
-    example: 
+      $ref: "#/schemas/deleteServiceVersionRequest"
+    example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiVersion: "1.0.0"
-- name: createEndpointRule
-  version: 0.1.0
-  handler: CreateEndpointRule
-  scope: portal.w
+- name: "createEndpointRule"
+  version: "0.1.0"
+  handler: "CreateEndpointRule"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createEndpointRuleRequest'
-    example: 
+      $ref: "#/schemas/createEndpointRuleRequest"
+    example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiVersion: "1.0.0"
       endpoint: "pets"
       ruleId: "rule123"
-- name: deleteEndpointRule
-  version: 0.1.0
-  handler: DeleteEndpointRule
-  scope: portal.w
+- name: "deleteEndpointRule"
+  version: "0.1.0"
+  handler: "DeleteEndpointRule"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteEndpointRuleRequest'
-    example: 
+      $ref: "#/schemas/deleteEndpointRuleRequest"
+    example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiVersion: "1.0.0"
