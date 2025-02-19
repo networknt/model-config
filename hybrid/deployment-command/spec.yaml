@@ -1,283 +1,377 @@
 ---
-host: lightapi.net
-service: deployment
+host: "lightapi.net"
+service: "deployment"
 schemas:
+  createPipelineRequest:
+    title: "Pipeline"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
+      endpoint:
+        title: "Endpoint"
+        type: "string"
+      requestSchema:
+        title: "Request Schema"
+        type: "string"
+      responseSchema:
+        title: "Response Schema"
+        type: "string"
+    required:
+    - "hostId"
+    - "pipelineId"
+    - "endpoint"
+    - "requestSchema"
+    - "responseSchema"
+  updatePipelineRequest:
+    title: "Pipeline"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
+      endpoint:
+        title: "Endpoint"
+        type: "string"
+      requestSchema:
+        title: "Request Schema"
+        type: "string"
+      responseSchema:
+        title: "Response Schema"
+        type: "string"
+    required:
+    - "hostId"
+    - "pipelineId"
+    - "endpoint"
+    - "requestSchema"
+    - "responseSchema"
+  deletePipelineRequest:
+    title: "Pipeline"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
+    required:
+    - "hostId"
+    - "pipelineId"
   createPlatformRequest:
-    title: Platform
-    type: object
+    title: "Platform"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       platformName:
-        type: string
-        description: Platform Name
+        type: "string"
+        description: "Platform Name"
       platformVersion:
-        title: Platform Version
-        type: string
+        title: "Platform Version"
+        type: "string"
       clientType:
-        title: Client Type
-        type: string
+        title: "Client Type"
+        type: "string"
       clientUrl:
-        title: Client Url
-        type: string
+        title: "Client Url"
+        type: "string"
       credentials:
-        title: Credentials
-        type: string
+        title: "Credentials"
+        type: "string"
       proxyUrl:
-        title: Proxy Url
-        type: string
+        title: "Proxy Url"
+        type: "string"
       proxyPort:
-        title: Proxy Port
-        type: integer
+        title: "Proxy Port"
+        type: "integer"
       environment:
-        title: Environment
-        type: string
+        title: "Environment"
+        type: "string"
       systemEnv:
-        title: System Env
-        type: string
+        title: "System Env"
+        type: "string"
       runtimeEnv:
-        title: Runtime Env
-        type: string
+        title: "Runtime Env"
+        type: "string"
       zone:
-        title: Zone
-        type: string
+        title: "Zone"
+        type: "string"
       region:
-        title: Region
-        type: string
+        title: "Region"
+        type: "string"
       lob:
-        title: Lob
-        type: string
+        title: "Lob"
+        type: "string"
     required:
-    - hostId
-    - platformName
-    - platformVersion
-    - clientType
-    - clientUrl
-    - credentials
+    - "hostId"
+    - "platformName"
+    - "platformVersion"
+    - "clientType"
+    - "clientUrl"
+    - "credentials"
   updatePlatformRequest:
-    title: Platform
-    type: object
+    title: "Platform"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       platformId:
-        type: string
-        description: Platform Id
+        type: "string"
+        description: "Platform Id"
       platformName:
-        type: string
-        description: Platform Name
+        type: "string"
+        description: "Platform Name"
       platformVersion:
-        title: Platform Version
-        type: string
+        title: "Platform Version"
+        type: "string"
       clientType:
-        title: Client Type
-        type: string
+        title: "Client Type"
+        type: "string"
       clientUrl:
-        title: Client Url
-        type: string
+        title: "Client Url"
+        type: "string"
       credentials:
-        title: Credentials
-        type: string
+        title: "Credentials"
+        type: "string"
       proxyUrl:
-        title: Proxy Url
-        type: string
+        title: "Proxy Url"
+        type: "string"
       proxyPort:
-        title: Proxy Port
-        type: integer
+        title: "Proxy Port"
+        type: "integer"
       environment:
-        title: Environment
-        type: string
+        title: "Environment"
+        type: "string"
       systemEnv:
-        title: System Env
-        type: string
+        title: "System Env"
+        type: "string"
       runtimeEnv:
-        title: Runtime Env
-        type: string
+        title: "Runtime Env"
+        type: "string"
       zone:
-        title: Zone
-        type: string
+        title: "Zone"
+        type: "string"
       region:
-        title: Region
-        type: string
+        title: "Region"
+        type: "string"
       lob:
-        title: Lob
-        type: string
+        title: "Lob"
+        type: "string"
     required:
-    - hostId
-    - platformId
-    - platformName
-    - platformVersion
-    - clientType
-    - clientUrl
-    - credentials
+    - "hostId"
+    - "platformId"
+    - "platformName"
+    - "platformVersion"
+    - "clientType"
+    - "clientUrl"
+    - "credentials"
   deletePlatformRequest:
-    title: Platform
-    type: object
+    title: "Platform"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       platformId:
-        type: string
-        description: Platform Id
+        type: "string"
+        description: "Platform Id"
     required:
-    - hostId
-    - platformId
-  
+    - "hostId"
+    - "platformId"
   createDeploymentRequest:
-    title: Deployment
-    type: object
+    title: "Deployment"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       instanceId:
-        type: string
-        description: Instance Id
+        type: "string"
+        description: "Instance Id"
       deploymentStatus:
-        title: Deployment Status
-        type: string
+        title: "Deployment Status"
+        type: "string"
       deploymentType:
-        title: Deployment Type
-        type: string
+        title: "Deployment Type"
+        type: "string"
       pipelineId:
-        title: Pipeline Id
-        type: string
+        title: "Pipeline Id"
+        type: "string"
       scheduleTs:
-        title: Schedule Timestamp
-        type: string
-        format: date-time
+        title: "Schedule Timestamp"
+        type: "string"
+        format: "date-time"
     required:
-    - hostId
-    - instanceId
-    - deploymentStatus
-    - deploymentType
-    - pipelineId
-    - scheduleTs
+    - "hostId"
+    - "instanceId"
+    - "deploymentStatus"
+    - "deploymentType"
+    - "pipelineId"
   updateDeploymentRequest:
-    title: Deployment
-    type: object
+    title: "Deployment"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       deploymentId:
-        type: string
-        description: Deployment Id  
+        type: "string"
+        description: "Deployment Id"
       instanceId:
-        type: string
-        description: Instance Id
+        type: "string"
+        description: "Instance Id"
       deploymentStatus:
-        title: Deployment Status
-        type: string
+        title: "Deployment Status"
+        type: "string"
       deploymentType:
-        title: Deployment Type
-        type: string
+        title: "Deployment Type"
+        type: "string"
       pipelineId:
-        title: Pipeline Id
-        type: string
+        title: "Pipeline Id"
+        type: "string"
       scheduleTs:
-        title: Schedule Timestamp
-        type: string
-        format: date-time
+        title: "Schedule Timestamp"
+        type: "string"
+        format: "date-time"
     required:
-    - hostId
-    - deploymentId
-    - instanceId
-    - deploymentStatus
-    - deploymentType
-    - pipelineId
-    - scheduleTs
+    - "hostId"
+    - "deploymentId"
+    - "instanceId"
+    - "deploymentStatus"
+    - "deploymentType"
+    - "pipelineId"
   deleteDeploymentRequest:
-    title: Deployment
-    type: object
+    title: "Deployment"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       deploymentId:
-        type: string
-        description: Deployment Id
+        type: "string"
+        description: "Deployment Id"
     required:
-    - hostId
-    - deploymentId
-
+    - "hostId"
+    - "deploymentId"
 action:
-- name: createPlatform
-  version: 0.1.0
-  handler: CreatePlatform
-  scope: portal.w
+- name: "createPipeline"
+  version: "0.1.0"
+  handler: "CreatePipeline"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createPlatformRequest'
-    example: 
-      hostId: host123
-      platformName: platformName
+      $ref: "#/schemas/createPipelineRequest"
+    example:
+      hostId: "host123"
+      platformId: "pipeline123"
+      endpoint: "example.com"
+      requestSchema: "{}"
+      responseSchema: "{}"
+- name: "updatePipeline"
+  version: "0.1.0"
+  handler: "UpdatePipeline"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updatePipelineRequest"
+    example:
+      hostId: "host123"
+      pipelineId: "pipeline123"
+      endpoint: "example.com"
+      requestSchema: "{}"
+      responseSchema: "{}"
+- name: "deletePipeline"
+  version: "0.1.0"
+  handler: "DeletePipeline"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deletePipelineRequest"
+    example:
+      hostId: "host123"
+      pipelineId: "pipeline123"
+- name: "createPlatform"
+  version: "0.1.0"
+  handler: "CreatePlatform"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createPlatformRequest"
+    example:
+      hostId: "host123"
+      platformName: "platformName"
       platformVersion: "1.0.0"
       clientType: "http"
       clientUrl: "client url"
       credentials: "credentials"
-- name: updatePlatform
-  version: 0.1.0
-  handler: UpdatePlatform
-  scope: portal.w
+- name: "updatePlatform"
+  version: "0.1.0"
+  handler: "UpdatePlatform"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updatePlatformRequest'
-    example: 
-      hostId: host123
-      platformId: platform123
-      platformName: platformName
+      $ref: "#/schemas/updatePlatformRequest"
+    example:
+      hostId: "host123"
+      platformId: "platform123"
+      platformName: "platformName"
       platformVersion: "1.0.0"
       clientType: "http"
       clientUrl: "client url"
       credentials: "credentials"
-- name: deletePlatform
-  version: 0.1.0
-  handler: DeletePlatform
-  scope: portal.w
+- name: "deletePlatform"
+  version: "0.1.0"
+  handler: "DeletePlatform"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deletePlatformRequest'
-    example: 
-      hostId: host123
-      platformId: platform123
-
-- name: createDeployment
-  version: 0.1.0
-  handler: CreateDeployment
-  scope: portal.w
+      $ref: "#/schemas/deletePlatformRequest"
+    example:
+      hostId: "host123"
+      platformId: "platform123"
+- name: "createDeployment"
+  version: "0.1.0"
+  handler: "CreateDeployment"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createDeploymentRequest'
-    example: 
-      hostId: host123
-      instanceId: instance123
+      $ref: "#/schemas/createDeploymentRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
       deploymentStatus: "start"
       deploymentType: "First"
-      pipelineId: pipeline123
-- name: updateDeployment
-  version: 0.1.0
-  handler: UpdateDeployment
-  scope: portal.w
+      pipelineId: "pipeline123"
+- name: "updateDeployment"
+  version: "0.1.0"
+  handler: "UpdateDeployment"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateDeploymentRequest'
-    example: 
-      hostId: host123
-      deploymentId: deployment123
-      instanceId: instance123
+      $ref: "#/schemas/updateDeploymentRequest"
+    example:
+      hostId: "host123"
+      deploymentId: "deployment123"
+      instanceId: "instance123"
       deploymentStatus: "start"
       deploymentType: "First"
-- name: deleteDeployment
-  version: 0.1.0
-  handler: DeleteDeployment
-  scope: portal.w
+- name: "deleteDeployment"
+  version: "0.1.0"
+  handler: "DeleteDeployment"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteDeploymentRequest'
-    example: 
-      hostId: host123
-      deploymentId: deployment123
+      $ref: "#/schemas/deleteDeploymentRequest"
+    example:
+      hostId: "host123"
+      deploymentId: "deployment123"

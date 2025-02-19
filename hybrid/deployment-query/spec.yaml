@@ -2,6 +2,44 @@
 host: "lightapi.net"
 service: "deployment"
 schemas:
+  getPipelineRequest:
+    title: "Pipeline"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
+      endpoint:
+        type: "string"
+        description: "Endpoint"
+      requestSchema:
+        title: "Request Schema"
+        type: "string"
+      responseSchema:
+        title: "Response Schema"
+        type: "string"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getPipelineLabelRequest:
+    title: "Pipeline Label"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
   getPlatformRequest:
     title: "Platform"
     type: "object"
@@ -104,6 +142,26 @@ schemas:
     - "limit"
     - "hostId"
 action:
+- name: "getPipeline"
+  version: "0.1.0"
+  handler: "GetPipeline"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getPipelineRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getPipelineLabel"
+  version: "0.1.0"
+  handler: "GetPipelineLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getPipelineLabelRequest"
+    example:
+      hostId: "host123"
 - name: "getPlatform"
   version: "0.1.0"
   handler: "GetPlatform"
