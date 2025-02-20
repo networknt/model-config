@@ -199,6 +199,107 @@ schemas:
     required:
     - "hostId"
     - "providerId"
+  createClientRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      clientName:
+        type: "string"
+        description: "Client Name"
+      clientType:
+        type: "string"
+        description: "Client Type"
+      clientProfile:
+        type: "string"
+        description: "Client Profile"
+      clientScope:
+        type: "string"
+        description: "Client Scope"
+      customClaim:
+        title: "Custom Claim"
+        type: "string"
+      redirectUri:
+        title: "Redirect URI"
+        type: "string"
+      authenticateClass:
+        title: "Authenticate Class"
+        type: "string"
+      deRefClientId:
+        title: "Dereference Client ID"
+        type: "string"
+    required:
+    - "hostId"
+    - "clientName"
+    - "clientType"
+    - "clientProfile"
+  updateClientRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      clientId:
+        type: "string"
+        description: "Client Id"
+      clientName:
+        type: "string"
+        description: "Client Name"
+      clientType:
+        type: "string"
+        description: "Client Type"
+      clientProfile:
+        type: "string"
+        description: "Client Profile"
+      clientScope:
+        type: "string"
+        description: "Client Scope"
+      customClaim:
+        title: "Custom Claim"
+        type: "string"
+      redirectUri:
+        title: "Redirect URI"
+        type: "string"
+      authenticateClass:
+        title: "Authenticate Class"
+        type: "string"
+      deRefClientId:
+        title: "Dereference Client ID"
+        type: "string"
+    required:
+    - "hostId"
+    - "clientId"
+    - "clientName"
+    - "clientType"
+    - "clientProfile"
+  deleteClientRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      clientId:
+        type: "string"
+        description: "Client Id"
+    required:
+    - "hostId"
+    - "clientId"
 action:
 - name: "createRefreshToken"
   version: "0.1.0"
@@ -319,4 +420,41 @@ action:
     example:
       hostId: "host123"
       providerId: "provider123"
-
+- name: "createClient"
+  version: "0.1.0"
+  handler: "CreateClient"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createClientRequest"
+    example:
+      hostId: "host123"
+      appId: "app123"
+      clientId: "client123"
+      clientType: "confidential"
+      clientProfile: "service"
+      clientSecret: "secret"
+- name: "updateClient"
+  version: "0.1.0"
+  handler: "UpdateClient"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateClientRequest"
+    example:
+      hostId: "host123"
+      appId: "app123"
+      clientId: "client123"
+      clientType: "confidential"
+      clientProfile: "service"
+      clientSecret: "secret"
+- name: "deleteClient"
+  version: "0.1.0"
+  handler: "DeleteClient"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteClientRequest"
+    example:
+      hostId: "host123"
+      clientId: "client123"

@@ -102,14 +102,10 @@ schemas:
     title: "Auth Code"
     type: "object"
     properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
       authCode:
         type: "string"
         description: "Auth Code"
     required:
-    - "hostId"
     - "authCode"
   getAuthCodeRequest:
     title: "Auth Code"
@@ -256,9 +252,6 @@ schemas:
     title: "OAuth Provider Key"
     type: "object"
     properties:
-      hostId:
-        type: "string"
-        description: "HostId"
       providerId:
         type: "string"
         description: "Provider Id"
@@ -281,8 +274,60 @@ schemas:
         type: "string"
         description: "Update Timestamp"
     required:
-    - "hostId"
     - "providerId"
+  getClientRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "HostId"
+      appId:
+        type: "string"
+        description: "AppId"
+      clientId:
+        type: "string"
+        description: "ClientId"
+      clientType:
+        type: "string"
+        description: "ClientType"
+      clientProfile:
+        type: "string"
+        description: "ClientProfile"
+      clientScope:
+        type: "string"
+        description: "ClientScope"
+      customClaim:
+        type: "string"
+        description: "CustomClaim"
+      redirectUri:
+        type: "string"
+        description: "RedirectUri"
+      authenticateClass:
+        type: "string"
+        description: "AuthenticateClass"
+      deRefClientId:
+        type: "string"
+        description: "DeRefClientId"
+    required:
+    - "hostId"
+    - "offset"
+    - "limit"
+  getClientByIdRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      clientId:
+        type: "string"
+        description: "Client Id"
+    required:
+    - "clientId"
 action:
 - name: "getClientByProviderClientId"
   version: "0.1.0"
@@ -322,7 +367,6 @@ action:
     schema:
       $ref: "#/schemas/getAuthCodeDetailRequest"
     example:
-      hostId: "host123"
       authCode: "auth_code_123"
 - name: "getAuthCode"
   version: "0.1.0"
@@ -383,5 +427,24 @@ action:
     schema:
       $ref: "#/schemas/getProviderKeyRequest"
     example:
-      hostId: "host123"
       providerId: "provider123"
+- name: "getClient"
+  version: "0.1.0"
+  handler: "GetClient"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getClientRequest"
+    example:
+      hostId: "host123"
+      offset: 0
+      limit: 10
+- name: "getClientById"
+  version: "0.1.0"
+  handler: "GetClientById"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getClientByIdRequest"
+    example:
+      clientId: "client123"
