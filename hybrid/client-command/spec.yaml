@@ -1,169 +1,247 @@
 ---
-host: lightapi.net
-service: client
+host: "lightapi.net"
+service: "client"
 schemas:
+  createAppRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      appName:
+        type: "string"
+        description: "App Name"
+      appDesc:
+        type: "string"
+        description: "App Desc"
+      isKafkaApp:
+        type: "boolean"
+        description: "Is Kafka App"
+      operationOwner:
+        type: "string"
+        description: "Operation Owner"
+      deliveryOwner:
+        type: "string"
+        description: "Delivery Owner"
+    required:
+    - "hostId"
+    - "appId"
+    - "appName"
+  updateAppRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      appName:
+        type: "string"
+        description: "App Name"
+      appDesc:
+        type: "string"
+        description: "App Desc"
+      isKafkaApp:
+        type: "boolean"
+        description: "Is Kafka App"
+      operationOwner:
+        type: "string"
+        description: "Operation Owner"
+      deliveryOwner:
+        type: "string"
+        description: "Delivery Owner"
+    required:
+    - "hostId"
+    - "appId"
+    - "appName"
+  deleteAppRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      appId:
+        type: "string"
+        description: "App Id"
+    required:
+    - "hostId"
+    - "appId"
   createClientRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Host of the client that is an indicator of the organization
-      lob:
-        type: string
-        description: Line of Business
+      hostId:
+        type: "string"
+        description: "Host Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      clientId:
+        type: "string"
+        description: "Client Id"
       clientType:
-        type: string
-        description: Client Type
-        enum:
-        - confidential
-        - public
-        - trusted
-        - external
+        type: "string"
+        description: "Client Type"
       clientProfile:
-        type: string
-        description: Client Profile
-        enum:
-        - webserver
-        - browser
-        - mobile
-        - service
-        - batch
-      clientName:
-        type: string
-        description: Client Name
-      clientDesc:
-        type: string
-        description: Client Description
-      scope:
-        type: string
-        description: Scope
+        type: "string"
+        description: "Client Profile"
+      clientSecret:
+        type: "string"
+        description: "Client Secret"
+      clientScope:
+        type: "string"
+        description: "Client Scope"
       customClaim:
-        title: Custom Claim
-        type: string
+        title: "Custom Claim"
+        type: "string"
       redirectUri:
-        title: Redirect URI
-        type: string
+        title: "Redirect URI"
+        type: "string"
       authenticateClass:
-        title: Authenticate Class
-        type: string
-      derefClientId:
-        title: Dereference Client ID
-        type: string
-      serviceId:
-        title: Reference Service Id
-        type: string
+        title: "Authenticate Class"
+        type: "string"
+      deRefClientId:
+        title: "Dereference Client ID"
+        type: "string"
     required:
-    - host
-    - clientType
-    - clientProfile
-    - clientName
-    - clientDesc
-    - scope
+    - "hostId"
+    - "appId"
+    - "clientId"
+    - "clientType"
+    - "clientProfile"
+    - "clientSecret"
   updateClientRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      appId:
+        type: "string"
+        description: "App Id"
       clientId:
-        title: Client Id
-        type: string
-        readonly: true
-      host:
-        type: string
-        description: Host of the client that is an indicator of the organization
-      lob:
-        type: string
-        description: Line of Business
+        type: "string"
+        description: "Client Id"
       clientType:
-        type: string
-        description: Client Type
+        type: "string"
+        description: "Client Type"
       clientProfile:
-        type: string
-        description: Client Profile
-      clientName:
-        type: string
-        description: Client Name
-      clientDesc:
-        type: string
-        description: Client Description
-      scope:
-        type: string
-        description: Scope
+        type: "string"
+        description: "Client Profile"
+      clientSecret:
+        type: "string"
+        description: "Client Secret"
+      clientScope:
+        type: "string"
+        description: "Client Scope"
       customClaim:
-        title: Custom Claim
-        type: string
+        title: "Custom Claim"
+        type: "string"
       redirectUri:
-        title: Redirect URI
-        type: string
+        title: "Redirect URI"
+        type: "string"
       authenticateClass:
-        title: Authenticate Class
-        type: string
-      derefClientId:
-        title: Dereference Client ID
-        type: string
-      serviceId:
-        title: Reference Service Id
-        type: string
+        title: "Authenticate Class"
+        type: "string"
+      deRefClientId:
+        title: "Dereference Client ID"
+        type: "string"
     required:
-    - clientId
-    - host
-    - clientType
-    - clientProfile
-    - clientName
-    - clientDesc
-    - scope
+    - "hostId"
+    - "appId"
+    - "clientId"
+    - "clientType"
+    - "clientProfile"
+    - "clientSecret"
   deleteClientRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
       clientId:
-        type: string
-        description: Client Id
-      host:
-        type: string
-        description: Host
+        type: "string"
+        description: "Client Id"
     required:
-    - clientId
-    - host
+    - "hostId"
+    - "clientId"
 action:
-- name: createClient
-  version: 0.1.0
-  handler: CreateClient
-  scope: portal.w
+- name: "createApp"
+  version: "0.1.0"
+  handler: "CreateApp"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createClientRequest'
-    example: 
-      host: "lightapi.net"
-      lob: "retail"
+      $ref: "#/schemas/createAppRequest"
+    example:
+      hostId: "host123"
+      appId: "app123"
+      appName: "petstore app"
+- name: "updateApp"
+  version: "0.1.0"
+  handler: "UpdateApp"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateAppRequest"
+    example:
+      hostId: "host123"
+      appId: "app123"
+      appName: "petstore app"
+- name: "deleteApp"
+  version: "0.1.0"
+  handler: "DeleteApp"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteAppRequest"
+    example:
+      hostId: "host123"
+      appId: "app123"
+- name: "createClient"
+  version: "0.1.0"
+  handler: "CreateClient"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createClientRequest"
+    example:
+      hostId: "host123"
+      appId: "app123"
+      clientId: "client123"
       clientType: "confidential"
       clientProfile: "service"
-      clientName: "My Client App"
-      clientDesc: "This is a test application"
-      scope: "test.r"
-- name: updateClient
-  version: 0.1.0
-  handler: UpdateClient
-  scope: portal.w
+      clientSecret: "secret"
+- name: "updateClient"
+  version: "0.1.0"
+  handler: "UpdateClient"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateClientRequest'
-    example: 
+      $ref: "#/schemas/updateClientRequest"
+    example:
+      hostId: "host123"
+      appId: "app123"
       clientId: "client123"
-      host: "lightapi.net"
-      lob: "wholesale"
-      clientType: "public"
-      clientProfile: "browser"
-      clientName: "Updated Client Name"
-      clientDesc: "This is the updated client"
-      scope: "test.w"
-- name: deleteClient
-  version: 0.1.0
-  handler: DeleteClient
-  scope: portal.w
+      clientType: "confidential"
+      clientProfile: "service"
+      clientSecret: "secret"
+- name: "deleteClient"
+  version: "0.1.0"
+  handler: "DeleteClient"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteClientRequest'
-    example: 
+      $ref: "#/schemas/deleteClientRequest"
+    example:
+      hostId: "host123"
       clientId: "client123"
-      host: "lightapi.net"

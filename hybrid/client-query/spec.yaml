@@ -34,9 +34,9 @@ schemas:
         type: "string"
         description: "Delivery Owner"
     required:
-      - "hostId"
-      - "offset"
-      - "limit"
+    - "hostId"
+    - "offset"
+    - "limit"
   getClientRequest:
     title: "Service"
     type: "object"
@@ -81,7 +81,6 @@ schemas:
     - "hostId"
     - "offset"
     - "limit"
-    - "appId"
   getClientByIdRequest:
     title: "Service"
     type: "object"
