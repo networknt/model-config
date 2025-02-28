@@ -18,6 +18,9 @@ schemas:
       instanceId:
         type: "string"
         description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
       productId:
         type: "string"
         description: "Product Id"
@@ -27,6 +30,18 @@ schemas:
       serviceId:
         type: "string"
         description: "Service Id"
+      apiId:
+        title: "Api Id"
+        type: "string"
+      apiVersion:
+        title: "Api Version"
+        type: "string"
+      environment:
+        type: "string"
+        description: "Environment"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
       serviceDesc:
         type: "string"
         description: "Service Desc"
@@ -40,6 +55,64 @@ schemas:
     - "offset"
     - "limit"
     - "hostId"
+  getInstanceApiRequest:
+    title: "Instance Api"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      apiVersion:
+        type: "string"
+        description: "Api Version"
+      active:
+        type: "string"
+        description: "Active"
+    required:
+      - "offset"
+      - "limit"
+      - "hostId"
+  getInstanceAppRequest:
+    title: "Instance App"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      appVersion:
+        type: "string"
+        description: "App Version"
+      active:
+        type: "string"
+        description: "Active"
+    required:
+      - "offset"
+      - "limit"
+      - "hostId"
   getInstanceLabelRequest:
     title: "Instance Label"
     type: "object"
@@ -57,6 +130,28 @@ action:
   request:
     schema:
       $ref: "#/schemas/getInstanceRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getInstanceApi"
+  version: "0.1.0"
+  handler: "GetInstanceApi"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getInstanceApiRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getInstanceApp"
+  version: "0.1.0"
+  handler: "GetInstanceApp"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getInstanceAppRequest"
     example:
       offset: 0
       limit: 10

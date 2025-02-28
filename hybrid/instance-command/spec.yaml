@@ -1,137 +1,371 @@
 ---
-host: lightapi.net
-service: instance
+host: "lightapi.net"
+service: "instance"
 schemas:
   createInstanceRequest:
-    title: Instance
-    type: object
+    title: "Instance"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
       productId:
-        type: string
-        description: Product Id
+        type: "string"
+        description: "Product Id"
       productVersion:
-        title: Product Version
-        type: string
+        title: "Product Version"
+        type: "string"
       serviceId:
-        title: Service Id
-        type: string
+        title: "Service Id"
+        type: "string"
+      apiId:
+        title: "Api Id"
+        type: "string"
+      apiVersion:
+        title: "Api Version"
+        type: "string"
+      environment:
+        title: "Environment"
+        type: "string"
+      pipelineId:
+        title: "Pipeline Id"
+        type: "string"
       serviceDesc:
-        title: Service Desc
-        type: string
+        title: "Service Desc"
+        type: "string"
       instanceDesc:
-        title: Instance Desc
-        type: string
-      platformId:
-        title: Version Status
-        type: string
+        title: "Instance Desc"
+        type: "string"
       tagId:
-        title: Tag Id
-        type: string
+        title: "Tag Id"
+        type: "string"
     required:
-    - hostId
-    - productId
-    - productVersion
-    - serviceId
-    - serviceDesc
-    - instanceDesc
-    - platformId
+    - "hostId"
+    - "instanceName"
+    - "productId"
+    - "productVersion"
+    - "serviceId"
+    - "pipelineId"
   updateInstanceRequest:
-    title: Instance
-    type: object
+    title: "Instance"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       instanceId:
-        type: string
-        description: Instance Id
+        type: "string"
+        description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
       productId:
-        type: string
-        description: Product Id
+        type: "string"
+        description: "Product Id"
       productVersion:
-        title: Product Version
-        type: string
+        title: "Product Version"
+        type: "string"
       serviceId:
-        title: Service Id
-        type: string
+        title: "Service Id"
+        type: "string"
+      apiId:
+        title: "Api Id"
+        type: "string"
+      apiVersion:
+        title: "Api Version"
+        type: "string"
+      environment:
+        title: "Environment"
+        type: "string"
+      pipelineId:
+        title: "Pipeline Id"
+        type: "string"
       serviceDesc:
-        title: Service Desc
-        type: string
+        title: "Service Desc"
+        type: "string"
       instanceDesc:
-        title: Instance Desc
-        type: string
-      platformId:
-        title: Version Status
-        type: string
+        title: "Instance Desc"
+        type: "string"
       tagId:
-        title: Tag Id
-        type: string
+        title: "Tag Id"
+        type: "string"
     required:
-    - hostId
-    - instanceId
-    - productId
-    - productVersion
-    - serviceId
-    - serviceDesc
-    - instanceDesc
-    - platformId
+    - "hostId"
+    - "instanceId"
+    - "instanceName"
+    - "productId"
+    - "productVersion"
+    - "serviceId"
+    - "pipelineId"
   deleteInstanceRequest:
-    title: Instance
-    type: object
+    title: "Instance"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       instanceId:
-        type: string
-        description: Instance Id
+        type: "string"
+        description: "Instance Id"
     required:
-    - hostId
-    - instanceId
+    - "hostId"
+    - "instanceId"
+  createInstanceApiRequest:
+    title: "Instance Api"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        title: "Api Id"
+        type: "string"
+      apiVersion:
+        title: "Api Version"
+        type: "string"
+      active:
+        title: "Active"
+        type: "boolean"
+    required:
+      - "hostId"
+      - "instanceId"
+      - "apiId"
+      - "apiVersion"
+  updateInstanceApiRequest:
+    title: "Instance Api"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        title: "Api Id"
+        type: "string"
+      apiVersion:
+        title: "Api Version"
+        type: "string"
+      active:
+        title: "Active"
+        type: "boolean"
+    required:
+      - "hostId"
+      - "instanceId"
+      - "apiId"
+      - "apiVersion"
+  deleteInstanceApiRequest:
+    title: "Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        title: "Api Id"
+        type: "string"
+      apiVersion:
+        title: "Api Version"
+        type: "string"
+    required:
+      - "hostId"
+      - "instanceId"
+      - "apiId"
+      - "apiVersion"
+  createInstanceAppRequest:
+    title: "Instance App"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        title: "Api Id"
+        type: "string"
+      apiVersion:
+        title: "Api Version"
+        type: "string"
+      active:
+        title: "Active"
+        type: "boolean"
+    required:
+      - "hostId"
+      - "instanceId"
+      - "apiId"
+      - "apiVersion"
+  updateInstanceAppRequest:
+    title: "Instance App"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        title: "Api Id"
+        type: "string"
+      apiVersion:
+        title: "Api Version"
+        type: "string"
+      active:
+        title: "Active"
+        type: "boolean"
+    required:
+      - "hostId"
+      - "instanceId"
+      - "apiId"
+      - "apiVersion"
+  deleteInstanceAppRequest:
+    title: "Instance App"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      apiId:
+        title: "Api Id"
+        type: "string"
+      apiVersion:
+        title: "Api Version"
+        type: "string"
+    required:
+      - "hostId"
+      - "instanceId"
+      - "apiId"
+      - "apiVersion"
 action:
-- name: createInstance
-  version: 0.1.0
-  handler: CreateInstance
-  scope: portal.w
+- name: "createInstance"
+  version: "0.1.0"
+  handler: "CreateInstance"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createInstanceRequest'
-    example: 
-      hostId: host123
-      productId: lg
+      $ref: "#/schemas/createInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceName: "predev"
+      productId: "lg"
       productVersion: "1.5.1"
       serviceId: "lg-ca-gb-sv0a0322-corp"
       serviceDesc: "corp gateway"
       instanceDesc: "predev gateway"
       platformId: "platform123"
       tagId: "tag112"
-- name: updateInstance
-  version: 0.1.0
-  handler: UpdateInstance
-  scope: portal.w
+- name: "updateInstance"
+  version: "0.1.0"
+  handler: "UpdateInstance"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateInstanceRequest'
-    example: 
-      hostId: host123
-      instanceId: instance123
-      productId: lg
+      $ref: "#/schemas/updateInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      instanceName: "predev"
+      productId: "lg"
       productVersion: "1.5.1"
       serviceId: "lg-ca-gb-sv0a0322-corp"
       serviceDesc: "corp gateway"
       instanceDesc: "predev gateway"
       platformId: "platform123"
       tagId: "tag112"
-- name: deleteInstance
-  version: 0.1.0
-  handler: DeleteInstance
-  scope: portal.w
+- name: "deleteInstance"
+  version: "0.1.0"
+  handler: "DeleteInstance"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteInstanceRequest'
-    example: 
-      hostId: host123
-      instanceId: instance123
+      $ref: "#/schemas/deleteInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+- name: "createInstanceApi"
+  version: "0.1.0"
+  handler: "CreateInstanceApi"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createInstanceApiRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      apiId: "api123"
+      apiVersion: "1.0.0"
+- name: "updateInstanceApi"
+  version: "0.1.0"
+  handler: "UpdateInstanceApi"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateInstanceApiRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      apiId: "api123"
+      apiVersion: "1.0.0"
+- name: "deleteInstanceApi"
+  version: "0.1.0"
+  handler: "DeleteInstanceApi"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteInstanceApiRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      apiId: "api123"
+      apiVersion: "1.0.0"
+- name: "createInstanceApp"
+  version: "0.1.0"
+  handler: "CreateInstanceApp"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createInstanceAppRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      apiId: "api123"
+      apiVersion: "1.0.0"
+- name: "updateInstanceApp"
+  version: "0.1.0"
+  handler: "UpdateInstanceApp"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateInstanceAppRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      apiId: "api123"
+      apiVersion: "1.0.0"
+- name: "deleteInstanceApp"
+  version: "0.1.0"
+  handler: "DeleteInstanceApp"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteInstanceAppRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      apiId: "api123"
+      apiVersion: "1.0.0"
