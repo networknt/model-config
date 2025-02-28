@@ -18,6 +18,9 @@ schemas:
       configName:
         type: "string"
         description: "Config Name"
+      configPhase:
+        type: "string"
+        description: "Config Phase"
       configType:
         type: "string"
         description: "Config Type"
@@ -91,6 +94,15 @@ schemas:
     required:
     - "offset"
     - "limit"
+  getPropertyNameLabelRequest:
+    title: "Get Property Name Label"
+    type: "object"
+    properties:
+      configId:
+        type: "string"
+        description: "Config Id"
+    required:
+      - "configId"
   getConfigPropertyByIdRequest:
     title: "Get Config Property By Id"
     type: "object"
@@ -342,7 +354,14 @@ action:
   handler: "GetConfigIdLabel"
   skipAuth: true
   request:
+    schema: null
+- name: "getPropertyNameLabel"
+  version: "0.1.0"
+  handler: "GetPropertyNameLabel"
+  skipAuth: true
+  request:
     schema:
+      $ref: "#/schemas/getPropertyNameLabelRequest"
 - name: "getConfigProperty"
   version: "0.1.0"
   handler: "GetConfigProperty"
