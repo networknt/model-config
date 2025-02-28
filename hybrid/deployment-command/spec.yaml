@@ -12,6 +12,9 @@ schemas:
       pipelineId:
         type: "string"
         description: "Pipeline Id"
+      platformId:
+        type: "string"
+        description: "Platform Id"
       endpoint:
         title: "Endpoint"
         type: "string"
@@ -24,6 +27,7 @@ schemas:
     required:
     - "hostId"
     - "pipelineId"
+    - "platformId"
     - "endpoint"
     - "requestSchema"
     - "responseSchema"
@@ -37,6 +41,9 @@ schemas:
       pipelineId:
         type: "string"
         description: "Pipeline Id"
+      platformId:
+        type: "string"
+        description: "Platform Id"
       endpoint:
         title: "Endpoint"
         type: "string"
@@ -49,6 +56,7 @@ schemas:
     required:
     - "hostId"
     - "pipelineId"
+    - "platformId"
     - "endpoint"
     - "requestSchema"
     - "responseSchema"
@@ -204,9 +212,6 @@ schemas:
       deploymentType:
         title: "Deployment Type"
         type: "string"
-      pipelineId:
-        title: "Pipeline Id"
-        type: "string"
       scheduleTs:
         title: "Schedule Timestamp"
         type: "string"
@@ -216,7 +221,6 @@ schemas:
     - "instanceId"
     - "deploymentStatus"
     - "deploymentType"
-    - "pipelineId"
   updateDeploymentRequest:
     title: "Deployment"
     type: "object"
@@ -236,9 +240,6 @@ schemas:
       deploymentType:
         title: "Deployment Type"
         type: "string"
-      pipelineId:
-        title: "Pipeline Id"
-        type: "string"
       scheduleTs:
         title: "Schedule Timestamp"
         type: "string"
@@ -249,7 +250,23 @@ schemas:
     - "instanceId"
     - "deploymentStatus"
     - "deploymentType"
-    - "pipelineId"
+  updateDeploymentJobIdRequest:
+    title: "Deployment Job Id"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      deploymentId:
+        type: "string"
+        description: "Deployment Id"
+      platformJobId:
+        type: "string"
+        description: "Platform Job Id"
+    required:
+    - "hostId"
+    - "deploymentId"
+    - "platformJobId"
   deleteDeploymentRequest:
     title: "Deployment"
     type: "object"
@@ -365,6 +382,17 @@ action:
       instanceId: "instance123"
       deploymentStatus: "start"
       deploymentType: "First"
+- name: "updateDeploymentJobId"
+  version: "0.1.0"
+  handler: "UpdateDeploymentJobId"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateDeploymentJobIdRequest"
+    example:
+      hostId: "host123"
+      deploymentId: "deployment123"
+      platformJobId: "job123"
 - name: "deleteDeployment"
   version: "0.1.0"
   handler: "DeleteDeployment"
