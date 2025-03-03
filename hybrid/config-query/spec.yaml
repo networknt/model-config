@@ -94,6 +94,15 @@ schemas:
     required:
     - "offset"
     - "limit"
+  getConfigIdApiAppLabelRequest:
+    title: "Get Config Id Api App Label"
+    type: "object"
+    properties:
+      resourceType:
+        type: "string"
+        description: "Resource Type"
+    required:
+    - "resourceType"
   getPropertyNameLabelRequest:
     title: "Get Property Name Label"
     type: "object"
@@ -102,7 +111,20 @@ schemas:
         type: "string"
         description: "Config Id"
     required:
-      - "configId"
+    - "configId"
+  getPropertyNameApiAppLabelRequest:
+    title: "Get Property Name Api App Label"
+    type: "object"
+    properties:
+      configId:
+        type: "string"
+        description: "Config Id"
+      resourceType:
+        type: "string"
+        description: "Resource Type"
+    required:
+    - "configId"
+    - "resourceType"
   getConfigPropertyByIdRequest:
     title: "Get Config Property By Id"
     type: "object"
@@ -159,6 +181,9 @@ schemas:
       instanceId:
         type: "string"
         description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
       apiId:
         type: "string"
         description: "Api Id"
@@ -200,6 +225,9 @@ schemas:
       instanceId:
         type: "string"
         description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
       appId:
         type: "string"
         description: "App Id"
@@ -355,6 +383,13 @@ action:
   skipAuth: true
   request:
     schema: null
+- name: "getConfigIdApiAppLabel"
+  version: "0.1.0"
+  handler: "GetConfigIdApiAppLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getConfigIdApiAppLabelRequest"
 - name: "getPropertyNameLabel"
   version: "0.1.0"
   handler: "GetPropertyNameLabel"
@@ -362,6 +397,13 @@ action:
   request:
     schema:
       $ref: "#/schemas/getPropertyNameLabelRequest"
+- name: "getPropertyNameApiAppLabel"
+  version: "0.1.0"
+  handler: "GetPropertyNameApiAppLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getPropertyNameApiAppLabelRequest"
 - name: "getConfigProperty"
   version: "0.1.0"
   handler: "GetConfigProperty"

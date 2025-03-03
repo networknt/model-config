@@ -37,6 +37,15 @@ schemas:
     - "hostId"
     - "offset"
     - "limit"
+  getAppIdLabelRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+      - "hostId"
 action:
 - name: "getApp"
   version: "0.1.0"
@@ -49,3 +58,12 @@ action:
       hostId: "host123"
       offset: 0
       limit: 10
+- name: "getAppIdLabel"
+  version: "0.1.0"
+  handler: "GetAppIdLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getAppIdLabelRequest"
+    example:
+      hostId: "host123"
