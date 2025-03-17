@@ -134,6 +134,19 @@ schemas:
         description: "Config Id"
     required:
     - "configId"
+  getConfigPropertyByIdNameRequest:
+    title: "Get Config Property By Id Name"
+    type: "object"
+    properties:
+      configId:
+        type: "string"
+        description: "Config Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+    required:
+    - "configId"
+    - "propertyName"
   getConfigEnvironmentRequest:
     title: "Get Config Environment"
     type: "object"
@@ -423,6 +436,16 @@ action:
       $ref: "#/schemas/getConfigPropertyByIdRequest"
     example:
       configId: "config123"
+- name: "getConfigPropertyByIdName"
+  version: "0.1.0"
+  handler: "GetConfigPropertyByIdName"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigPropertyByIdNameRequest"
+    example:
+      configId: "config123"
+      propertyName: "property123"
 - name: "getConfigEnvironment"
   version: "0.1.0"
   handler: "GetConfigEnvironment"
