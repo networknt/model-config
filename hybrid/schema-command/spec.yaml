@@ -1,228 +1,218 @@
 ---
-host: lightapi.net
-service: schema
+host: "lightapi.net"
+service: "schema"
 schemas:
-  createJsonSchemaRequest:
-    title: Create Json Schema
-    type: object
+  createSchemaRequest:
+    title: "Create Schema"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Schema Host
-      id:
-        type: string
-        description: Schema Id
-      status:
-        type: string
-        description: Status
+      hostId:
+        type: "string"
+        description: "Host Id"
+      schemaId:
+        type: "string"
+        description: "Schema Id"
+      schemaVersion:
+        type: "string"
+        description: "Schema Version"
+      schemaType:
+        type: "string"
+        description: "Schema Type"
+      specVersion:
+        type: "string"
+        description: "Spec Version"
         enum:
-        - draft
-        - published
-      version:
-        title: Schema Version
-        type: array
-        items:
-          type: string
-          enum:
-          - v4
-          - v6
-          - v7
-          - v2019-09
-      name:
-        type: string
-        description: Schema Name
-      description:
-        type: string
-        description: Schema Description
-      email:
-        type: string
-        description: Contact Email
-      categories:
-        type: array
-        description: Categories
-        maxItems: 10
-        items:
-          type: string
+          - "v4"
+          - "v6"
+          - "v7"
+          - "v2019-09"
+          - "v2020-12"
+      schemaSource:
+        type: "string"
+        description: "Schema Source"
+      schemaName:
+        type: "string"
+        description: "Schema Name"
+      schemaDesc:
+        type: "string"
+        description: "Schema Desc"
+      schemaBody:
+        type: "string"
+        description: "Schema Body"
+      schemaOwner:
+        type: "string"
+        description: "Schema Owner"
+      schemaStatus:
+        type: "string"
+        description: "Schema Status"
+      commonFlag:
+        type: "string"
+        description: "Common Flag"
       tags:
-        type: array
-        description: Tags
+        type: "array"
+        description: "Tags"
         maxItems: 10
         items:
-          type: string
-      schema:
-        type: string
-        description: Json Schema
+          type: "string"
       example:
-        type: string
-        description: Json Example
+        type: "string"
+        description: "Json Example"
       commentStatus:
-        type: string
-        description: Comment Open or Closed
-        default: O
-        enum:
-        - O
-        - C
+        type: "string"
+        description: "Comment Status"
+        default: "O"
     required:
-    - host
-    - id
-    - status
-    - version
-    - name
-    - description
-    - categories
-    - tags
-    - schema
-    - example
-    - commentStatus
-  updateJsonSchemaRequest:
-    title: Update Json Schema
-    type: object
+    - "hostId"
+    - "schemaId"
+    - "schemaVersion"
+    - "schemaType"
+    - "specVersion"
+    - "schemaSource"
+    - "schemaName"
+    - "schemaBody"
+    - "schemaOwner"
+    - "schemaStatus"
+    - "commonFlag"
+    - "commentStatus"
+  updateSchemaRequest:
+    title: "Update Schema"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Schema Host
+      hostId:
+        type: "string"
+        description: "Schema HostId"
         readonly: true
-      id:
-        type: string
-        description: Schema Id
+      schemaId:
+        type: "string"
+        description: "Schema Id"
         readonly: true
-      status:
-        type: string
-        description: Status
+      schemaVersion:
+        type: "string"
+        description: "Schema Version"
+      schemaType:
+        type: "string"
+        description: "Schema Type"
+      specVersion:
+        type: "string"
+        description: "Spec Version"
         enum:
-        - draft
-        - published
-      version:
-        title: Schema Version
-        type: array
-        items:
-          type: string
-          enum:
-          - v4
-          - v6
-          - v7
-          - v2019-09
-      name:
-        type: string
-        description: Schema Name
-      description:
-        type: string
-        description: Schema Description
-      owner:
-        type: string
-        description: Owner Id
-        readonly: true
-      email:
-        type: string
-        description: Contact Email
-      categories:
-        type: array
-        description: Categories
-        maxItems: 10
-        items:
-          type: string
+          - "v4"
+          - "v6"
+          - "v7"
+          - "v2019-09"
+          - "v2020-12"
+      schemaSource:
+        type: "string"
+        description: "Schema Source"
+      schemaName:
+        type: "string"
+        description: "Schema Name"
+      schemaDesc:
+        type: "string"
+        description: "Schema Desc"
+      schemaBody:
+        type: "string"
+        description: "Schema Body"
+      schemaOwner:
+        type: "string"
+        description: "Schema Owner"
+      schemaStatus:
+        type: "string"
+        description: "Schema Status"
+      commonFlag:
+        type: "string"
+        description: "Common Flag"
       tags:
-        type: array
-        description: Tags
+        type: "array"
+        description: "Tags"
         maxItems: 10
         items:
-          type: string
-      schema:
-        type: string
-        description: Json Schema
+          type: "string"
       example:
-        type: string
-        description: Json Example
+        type: "string"
+        description: "Json Example"
       commentStatus:
-        type: string
-        description: Comment Open or Closed
-        default: O
-        enum:
-        - O
-        - C
+        type: "string"
+        description: "Comment Status"
+        default: "O"
     required:
-    - host
-    - id
-    - status
-    - version
-    - name
-    - description
-    - owner
-    - categories
-    - tags
-    - schema
-    - example
-    - commentStatus
-  deleteJsonSchemaRequest:
-    title: Delete Json Schema
-    type: object
+      - "hostId"
+      - "schemaId"
+      - "schemaVersion"
+      - "schemaType"
+      - "specVersion"
+      - "schemaSource"
+      - "schemaName"
+      - "schemaBody"
+      - "schemaOwner"
+      - "schemaStatus"
+      - "commonFlag"
+      - "commentStatus"
+  deleteSchemaRequest:
+    title: "Delete Schema"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Schema Host
-      id:
-        type: string
-        description: Schema Id
+      hostId:
+        type: "string"
+        description: "Schema HostId"
+      schemaId:
+        type: "string"
+        description: "Schema Id"
     required:
-    - host
-    - id
+    - "hostId"
+    - "schemaId"
 action:
-- name: createJsonSchema
-  version: 0.1.0
-  handler: CreateJsonSchema
-  scope: portal.w
+- name: "createSchema"
+  version: "0.1.0"
+  handler: "CreateSchema"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createJsonSchemaRequest'
-    example: 
-      host: host123
-      id: schema123
-      status: draft
-      version:
-        - v4
-      name: "My Schema"
-      description: "This is a description of my schema"
-      categories:
-        - "tech"
-        - "dev"
-      tags:
-        - "json"
-        - "schema"
-      schema: "schema"
+      $ref: "#/schemas/createSchemaRequest"
+    example:
+      hostId: "host123"
+      schemaId: "schema123"
+      schemaVersion: "1.0.0"
+      schemaType: "json"
+      specVersion: "v4"
+      schemaSource: "portal"
+      schemaName: "My Schema"
+      schemaBody: "This is a description of my schema"
+      schemaOwner: "user123"
+      schemaStatus: "P"
+      commonFlag: "Y"
+      tags: "json schema"
       example: "test"
-      commentStatus: O
-      email: test@example.com
-- name: updateJsonSchema
-  version: 0.1.0
-  handler: UpdateJsonSchema
-  scope: portal.w
+      commentStatus: "O"
+- name: "updateSchema"
+  version: "0.1.0"
+  handler: "UpdateSchema"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateJsonSchemaRequest'
-    example: 
-      host: host123
-      id: schema123
-      status: published
-      version:
-        - v7
-      name: "Updated Schema"
-      description: "This is my updated schema description"
-      owner: "user123"
-      categories:
-        - "general"
-      tags:
-        - "schema"
-      schema: "schema"
+      $ref: "#/schemas/updateSchemaRequest"
+    example:
+      hostId: "host123"
+      schemaId: "schema123"
+      schemaVersion: "1.0.0"
+      schemaType: "json"
+      specVersion: "v4"
+      schemaSource: "portal"
+      schemaName: "My Schema"
+      schemaBody: "This is a description of my schema"
+      schemaOwner: "user123"
+      schemaStatus: "P"
+      commonFlag: "Y"
+      tags: "json schema"
       example: "test"
-      commentStatus: C
-      email: test2@example.com
-- name: deleteJsonSchema
-  version: 0.1.0
-  handler: DeleteJsonSchema
-  scope: portal.w
+      commentStatus: "O"
+- name: "deleteSchema"
+  version: "0.1.0"
+  handler: "DeleteSchema"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteJsonSchemaRequest'
-    example: 
-      host: host123
-      id: schema123
+      $ref: "#/schemas/deleteSchemaRequest"
+    example:
+      hostId: "host123"
+      schemaId: "schema123"

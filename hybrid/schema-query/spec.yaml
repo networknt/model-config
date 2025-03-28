@@ -1,102 +1,102 @@
 ---
-host: lightapi.net
-service: schema
+host: "lightapi.net"
+service: "schema"
 schemas:
-  getJsonSchemaByIdRequest:
-    title: Json Schema
-    type: object
+  getSchemaByIdRequest:
+    title: "Schema"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Host
-      id:
-        type: string
-        description: Schema Id
+      hostId:
+        type: "string"
+        description: "HostId"
+      schemaId:
+        type: "string"
+        description: "Schema Id"
     required:
-    - host
-    - id
-  getJsonSchemaRequest:
-    title: Json Schemas
-    type: object
+    - "hostId"
+    - "schemaId"
+  getSchemaRequest:
+    title: "Schemas"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Record Offset
+        type: "integer"
+        description: "Record Offset"
       limit:
-        type: integer
-        description: Record Limit
-      host:
-        type: string
-        description: Host
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "HostId"
     required:
-    - limit
-    - offset
-    - host
-  getJsonSchemaListRequest:
-    title: Json Schemas
-    type: object
+    - "limit"
+    - "offset"
+    - "hostId"
+  getSchemaListRequest:
+    title: "Json Schemas"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Record Offset
+        type: "integer"
+        description: "Record Offset"
       limit:
-        type: integer
-        description: Record Limit
-      host:
-        type: string
-        description: Host
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "HostId"
       categories:
-        type: array
-        description: Categories
+        type: "array"
+        description: "Categories"
         maxItems: 10
         items:
-          type: string
+          type: "string"
       tags:
-        type: array
-        description: Tags
+        type: "array"
+        description: "Tags"
         maxItems: 10
         items:
-          type: string
+          type: "string"
     required:
-    - limit
-    - offset
-    - host
+    - "limit"
+    - "offset"
+    - "hostId"
 action:
-- name: getJsonSchemaById
-  version: 0.1.0
-  handler: GetJsonSchemaById
-  skipAuth: true
+- name: "getSchemaById"
+  version: "0.1.0"
+  handler: "GetSchemaById"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/getJsonSchemaByIdRequest'
-    example: 
-      host: host123
-      id: schema123
-- name: getJsonSchema
-  version: 0.1.0
-  handler: GetJsonSchema
-  skipAuth: true
+      $ref: "#/schemas/getSchemaByIdRequest"
+    example:
+      hostId: "host123"
+      schemaId: "schema123"
+- name: "getSchema"
+  version: "0.1.0"
+  handler: "GetSchema"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/getJsonSchemaRequest'
-    example: 
+      $ref: "#/schemas/getSchemaRequest"
+    example:
       offset: 0
       limit: 10
-      host: host123
-- name: getJsonSchemaList
-  version: 0.1.0
-  handler: GetJsonSchemaList
-  skipAuth: true
+      hostId: "host123"
+- name: "getSchemaList"
+  version: "0.1.0"
+  handler: "GetSchemaList"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/getJsonSchemaListRequest'
-    example: 
+      $ref: "#/schemas/getSchemaListRequest"
+    example:
       offset: 0
       limit: 10
-      host: host123
+      hostId: "host123"
       categories:
-        - "tech"
-        - "dev"
+      - "tech"
+      - "dev"
       tags:
-        - "json"
-        - "schema"
+      - "json"
+      - "schema"
