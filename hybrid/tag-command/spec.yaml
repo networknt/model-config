@@ -1,0 +1,106 @@
+---
+host: "lightapi.net"
+service: "tag"
+schemas:
+  createTagRequest:
+    title: "Create Tag"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      tagId:
+        type: "string"
+        description: "Tag Id"
+      entityType:
+        type: "string"
+        description: "Entity Type"
+      tagName:
+        type: "string"
+        description: "Tag Name"
+      globalFlag:
+        type: "boolean"
+        description: "Global Flag"
+      tagDesc:
+        type: "string"
+        description: "Tag Desc"
+    required:
+    - "hostId"
+    - "tagId"
+    - "entityType"
+    - "tagName"
+  updateTagRequest:
+    title: "Update Tag"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      tagId:
+        type: "string"
+        description: "Tag Id"
+      entityType:
+        type: "string"
+        description: "Entity Type"
+      tagName:
+        type: "string"
+        description: "Tag Name"
+      globalFlag:
+        type: "boolean"
+        description: "Global Flag"
+      tagDesc:
+        type: "string"
+        description: "Tag Desc"
+    required:
+    - "hostId"
+    - "tagId"
+    - "entityType"
+    - "tagName"
+  deleteTagRequest:
+    title: "Delete Tag"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      tagId:
+        type: "string"
+        description: "Tag Id"
+    required:
+    - "hostId"
+    - "tagId"
+action:
+- name: "createTag"
+  version: "0.1.0"
+  handler: "CreateTag"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createTagRequest"
+    example:
+      hostId: "host123"
+      tagId: "tag123"
+      entityType: "schema"
+      tagName: "my-tag"
+- name: "updateTag"
+  version: "0.1.0"
+  handler: "UpdateTag"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateTagRequest"
+    example:
+      hostId: "host123"
+      tagId: "tag123"
+      entityType: "schema"
+      tagName: "my-tag"
+- name: "deleteTag"
+  version: "0.1.0"
+  handler: "DeleteTag"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteTagRequest"
+    example:
+      hostId: "host123"
+      tagId: "tag123"

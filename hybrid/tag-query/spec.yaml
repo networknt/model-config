@@ -2,48 +2,133 @@
 host: lightapi.net
 service: tag
 schemas:
-  getTagsRequest:
-    title: Tags
-    type: object
+  getTagRequest:
+    title: "Tag"
+    description: "Get all type of tags for a host including global tags."
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      tagId:
+        type: "string"
+        description: "Tag Id"
+      entityType:
+        type: "string"
+        description: "Entity Type"
+      tagName:
+        type: "string"
+        description: "Tag Name"
+      globalFlag:
+        type: "boolean"
+        description: "Global Flag"
+      tagDesc:
+        type: "string"
+        description: "Tag Desc"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getTagLabel:
+    title: "Tag"
+    description: "Get a list of tags by label for a host including global tags."
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
     required:
-    - hostId
-  getTagsByTypeRequest:
-    title: Tags
-    type: object
+    - "hostId"
+  getTagByIdRequest:
+    title: "Tag"
+    description: "Get a tag by id for a host."
+    type: "object"
+    properties:
+      tagId:
+        type: "string"
+        description: "Tag Id"
+    required:
+    - "tagId"
+  getTagByNameRequest:
+    title: "Tag"
+    description: "Get a list of tags by same name for a host including global tags."
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
-      tagType:
-        type: string
-        description: Tag Type
+        type: "string"
+        description: "Host Id"
+      tagName:
+        type: "string"
+        description: "Tag Name"
     required:
-    - hostId
-    - tagType
+    - "hostId"
+    - "tagName"
+  getTagByTypeRequest:
+    title: "Tag"
+    description: "Get a list of tags by type for a host including global tags."
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      entityType:
+        type: "string"
+        description: "Entity Type"
+    required:
+    - "hostId"
+    - "entityType"
 action:
-- name: getTags
-  version: 0.1.0
-  handler: GetTags
-  description: get all tags for a host for admin
-  skipAuth: false
-  scope: portal.r
+- name: "getTag"
+  version: "0.1.0"
+  handler: "GetTag"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getTagsRequest'
-    example: 
-      hostId: host123
-- name: getTagsByType
-  version: 0.1.0
-  handler: GetTagsByType
-  description: get tags for a specific type to populate dropdown
+      $ref: "#/schemas/getTagRequest"
+    example:
+      hostId: "host123"
+- name: "getTagLabel"
+  version: "0.1.0"
+  handler: "GetTagLabel"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/getTagsByTypeRequest'
-    example: 
-      hostId: host123
-      tagType: api
+      $ref: "#/schemas/getTagLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getTagById"
+  version: "0.1.0"
+  handler: "GetTagById"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getTagByIdRequest"
+    example:
+      hostId: "host123"
+      tagId: "tag123"
+- name: "getTagByName"
+  version: "0.1.0"
+  handler: "GetTagByName"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getTagByNameRequest"
+    example:
+      hostId: "host123"
+      tagName: "my-tag"
+- name: "getTagByType"
+  version: "0.1.0"
+  handler: "GetTagByType"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getTagByTypeRequest"
+    example:
+      hostId: "host123"
+      entityType: "product"

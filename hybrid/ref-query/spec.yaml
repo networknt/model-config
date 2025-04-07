@@ -1,173 +1,263 @@
 ---
-host: lightapi.net
-service: ref
+host: "lightapi.net"
+service: "ref"
 schemas:
-  getTableRequest:
-    title: Service
-    type: object
+  getRefTableRequest:
+    title: "Ref Table"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Record Offset
+        type: "integer"
+        description: "Record Offset"
       limit:
-        type: integer
-        description: Record Limit
+        type: "integer"
+        description: "Record Limit"
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
+      tableId:
+        type: "string"
+        description: "Table Id"
       tableName:
-        type: string
-        description: Table name
+        type: "string"
+        description: "Table Name"
       tableDesc:
-        type: string
-        description: Table desc
+        type: "string"
+        description: "Table Desc"
       active:
-        type: string
-        description: Active Flag
+        type: "boolean"
+        description: "Active"
       editable:
-        type: string
-        description: Editable Flag
-      common:
-        type: string
-        description: Common Flag
+        type: "boolean"
+        description: "Editable"
     required:
-    - offset
-    - limit
-    - hostId
-  getTableByIdRequest:
-    title: Service
-    type: object
+      - "offset"
+      - "limit"
+      - "hostId"
+  getRefTableByIdRequest:
+    title: "Ref Table"
+    type: "object"
     properties:
       tableId:
-        type: string
-        description: Table Id
+        type: "string"
+        description: "Table Id"
     required:
-    - tableId
-  getValueByTableIdRequest:
-    title: Service
-    type: object
+      - "tableId"
+  getRefTableLabelRequest:
+    title: "Ref Table Label"
+    type: "object"
     properties:
-      tableId:
-        type: string
-        description: Table Id
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+      - "hostId"
+  getRefValueRequest:
+    title: "Ref Value"
+    type: "object"
+    properties:
       offset:
-        type: integer
-        description: Record Offset
+        type: "integer"
+        description: "Record Offset"
       limit:
-        type: integer
-        description: Record Limit
+        type: "integer"
+        description: "Record Limit"
+      valueId:
+        type: "string"
+        description: "Value Id"
+      tableId:
+        type: "string"
+        description: "Table Id"
+      valueCode:
+        type: "string"
+        description: "Value Code"
+      valueDesc:
+        type: "string"
+        description: "Value Desc"
+      displayOrder:
+        type: "integer"
+        description: "Display Order"
       active:
-         type: string
-         description: Active Flag
+        type: "boolean"
+        description: "Active"
     required:
-    - tableId
-  getLocaleByIdRequest:
-    title: Service
-    type: object
+      - "limit"
+      - "offset"
+
+  getRefValueByIdRequest:
+    title: "Ref Value"
+    type: "object"
     properties:
       valueId:
-        type: string
-        description: Value Id
+        type: "string"
+        description: "Value Id"
     required:
-    - valueId
-  getRelationTypeRequest:
-    title: Service
-    type: object
+      - "valueId"
+  getRefValueLabelRequest:
+    title: "Ref Value Label"
+    type: "object"
+    properties:
+      tableId:
+        type: "string"
+        description: "Table Id"
+    required:
+      - "tableId"
+
+
+  getRefLocaleRequest:
+    title: "Ref Locale"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Record Offset
+        type: "integer"
+        description: "Record Offset"
       limit:
-        type: integer
-        description: Record Limit
+        type: "integer"
+        description: "Record Limit"
+      valueId:
+        type: "string"
+        description: "ValueId"
+      language:
+        type: "string"
+        description: "Language"
+      valueLabel:
+        type: "string"
+        description: "Value Label"
     required:
-    - offset
-    - limit
-  getRelationByIdRequest:
-     title: Service
-     type: object
-     properties:
-       offset:
-         type: integer
-         description: Record Offset
-       limit:
-         type: integer
-         description: Record Limit
-       relationId:
-         type: string
-         description: Relation Id
-       valueIdFrom:
-         type: string
-         description: Value Id From
-       valueIdTo:
-         type: string
-         description: Value Id To
-     required:
-     - offset
-     - limit
-     - relationId
+      - "limit"
+      - "offset"
+  getRefRelationTypeRequest:
+    title: "Ref Relation Type"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      relationId:
+        type: "string"
+        description: "Relation Id"
+      relationName:
+        type: "string"
+        description: "Relation Name"
+      relationDesc:
+        type: "string"
+        description: "Relation Desc"
+    required:
+      - "limit"
+      - "offset"
+  getRefRelationRequest:
+    title: "Ref Relation"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      relationId:
+        type: "string"
+        description: "Relation Id"
+      valueIdFrom:
+        type: "string"
+        description: "Value Id From"
+      valueIdTo:
+        type: "string"
+        description: "Value Id To"
+      active:
+        type: "boolean"
+        description: "Active"
+    required:
+      - "limit"
+      - "offset"
 action:
-- name: getTable
-  version: 0.1.0
-  handler: GetTable
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getTableRequest'
-    example: 
-      offset: 0
-      limit: 10
-      hostId: host123
-- name: getTableById
-  version: 0.1.0
-  handler: GetTableById
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getTableByIdRequest'
-    example: 
-      tableId: table123
-- name: getValueByTableId
-  version: 0.1.0
-  handler: GetValueByTableId
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getValueByTableIdRequest'
-    example: 
-      tableId: table123
-      offset: 0
-      limit: 10
-      active: "Y"
-- name: getLocaleById
-  version: 0.1.0
-  handler: GetLocaleById
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getLocaleByIdRequest'
-    example: 
-      valueId: value123
-- name: getRelationType
-  version: 0.1.0
-  handler: GetRelationType
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getRelationTypeRequest'
-    example: 
-      offset: 0
-      limit: 10
-- name: getRelationById
-  version: 0.1.0
-  handler: GetRelationById
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getRelationByIdRequest'
-    example: 
-      offset: 0
-      limit: 10
-      relationId: relation123
-      valueIdFrom: value123
-      valueIdTo: value456
+  - name: "getRefTable"
+    version: "0.1.0"
+    handler: "GetRefTable"
+    scope: "portal.r"
+    request:
+      schema:
+        $ref: "#/schemas/getRefTableRequest"
+      example:
+        offset: 0
+        limit: 10
+        hostId: "host123"
+  - name: "getRefTableById"
+    version: "0.1.0"
+    handler: "GetRefTableById"
+    scope: "portal.r"
+    request:
+      schema:
+        $ref: "#/schemas/getRefTableByIdRequest"
+      example:
+        tableId: "table123"
+  - name: "getRefTableLabel"
+    version: "0.1.0"
+    handler: "GetRefTableLabel"
+    scope: "portal.r"
+    request:
+      schema:
+        $ref: "#/schemas/getRefTableLabelRequest"
+      example:
+        hostId: "host123"
+  - name: "getRefValue"
+    version: "0.1.0"
+    handler: "GetRefValue"
+    scope: "portal.r"
+    request:
+      schema:
+        $ref: "#/schemas/getRefValueRequest"
+      example:
+        offset: 0
+        limit: 10
+  - name: "getRefValueById"
+    version: "0.1.0"
+    handler: "GetRefValueById"
+    scope: "portal.r"
+    request:
+      schema:
+        $ref: "#/schemas/getRefValueByIdRequest"
+      example:
+        valueId: "value123"
+  - name: "getRefValueLabel"
+    version: "0.1.0"
+    handler: "GetRefValueLabel"
+    scope: "portal.r"
+    request:
+      schema:
+        $ref: "#/schemas/getRefValueLabelRequest"
+      example:
+        tableId: "table123"
+  - name: "getRefLocale"
+    version: "0.1.0"
+    handler: "GetRefLocale"
+    scope: "portal.r"
+    request:
+      schema:
+        $ref: "#/schemas/getRefLocaleRequest"
+      example:
+        offset: 0
+        limit: 10
+  - name: "getRefRelationType"
+    version: "0.1.0"
+    handler: "GetRefRelationType"
+    scope: "portal.r"
+    request:
+      schema:
+        $ref: "#/schemas/getRefRelationTypeRequest"
+      example:
+        offset: 0
+        limit: 10
+  - name: "getRefRelation"
+    version: "0.1.0"
+    handler: "GetRefRelation"
+    scope: "portal.r"
+    request:
+      schema:
+        $ref: "#/schemas/getRefRelationRequest"
+      example:
+        offset: 0
+        limit: 10

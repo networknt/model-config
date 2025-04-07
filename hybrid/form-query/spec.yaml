@@ -1,0 +1,51 @@
+---
+host: lightapi.net
+service: form
+schemas:
+  getFormByIdRequest:
+    title: Form
+    type: object
+    properties:
+      formId:
+        type: string
+        description: Form Id
+    required:
+    - formId
+  getFormRequest:
+    title: Form
+    type: object
+    properties:
+      offset:
+        type: integer
+        description: Record Offset
+      limit:
+        type: integer
+        description: Record Limit
+      hostId:
+        type: string
+        description: Host Id
+    required:
+    - limit
+    - offset
+    - hostId
+action:
+- name: getFormById
+  version: 0.1.0
+  handler: GetFormById
+  scope: portal.r
+  request:
+    schema:
+      $ref: '#/schemas/getFormByIdRequest'
+    example: 
+      formId: form123
+- name: getForm
+  version: 0.1.0
+  handler: GetForm
+  scope: portal.w
+  request:
+    schema:
+      $ref: '#/schemas/getFormRequest'
+    example: 
+      offset: 0
+      limit: 10
+      hostId: host123

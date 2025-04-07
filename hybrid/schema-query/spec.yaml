@@ -6,15 +6,20 @@ schemas:
     title: "Schema"
     type: "object"
     properties:
-      hostId:
-        type: "string"
-        description: "HostId"
       schemaId:
         type: "string"
         description: "Schema Id"
     required:
-    - "hostId"
     - "schemaId"
+  getSchemaLabelRequest:
+    title: "Schema"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+      - "hostId"
   getSchemaRequest:
     title: "Schemas"
     type: "object"
@@ -27,12 +32,49 @@ schemas:
         description: "Record Limit"
       hostId:
         type: "string"
-        description: "HostId"
+        description: "Host Id"
+      schemaId:
+        type: "string"
+        description: "Schema Id"
+      schemaVersion:
+        type: "string"
+        description: "Schema Version"
+      schemaType:
+        type: "string"
+        description: "Schema Type"
+      specVersion:
+        type: "string"
+        description: "Spec Version"
+      schemaSource:
+        type: "string"
+        description: "Schema Source"
+      schemaName:
+        type: "string"
+        description: "Schema Name"
+      schemaDesc:
+        type: "string"
+        description: "Schema Desc"
+      schemaBody:
+        type: "string"
+        description: "Schema Body"
+      schemaOwner:
+        type: "string"
+        description: "Schema Owner"
+      schemaStatus:
+        type: "string"
+        description: "Schema Status"
+      example:
+        type: "string"
+        description: "Json Example"
+      commentStatus:
+        type: "string"
+        description: "Comment Status"
+        default: "O"
     required:
     - "limit"
     - "offset"
     - "hostId"
-  getSchemaListRequest:
+  getSchemaByCategoryIdRequest:
     title: "Json Schemas"
     type: "object"
     properties:
@@ -45,37 +87,58 @@ schemas:
       hostId:
         type: "string"
         description: "HostId"
-      categories:
-        type: "array"
-        description: "Categories"
-        maxItems: 10
-        items:
-          type: "string"
-      tags:
-        type: "array"
-        description: "Tags"
-        maxItems: 10
-        items:
-          type: "string"
+      categoryId:
+        type: "string"
+        description: "Category Id"
     required:
     - "limit"
     - "offset"
     - "hostId"
+    - "categoryId"
+  getSchemaByTagIdRequest:
+    title: "Json Schemas"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "HostId"
+      tagId:
+        type: "string"
+        description: "Tag Id"
+    required:
+      - "limit"
+      - "offset"
+      - "hostId"
+      - "tagId"
 action:
 - name: "getSchemaById"
   version: "0.1.0"
   handler: "GetSchemaById"
-  scope: "portal.w"
+  scope: "portal.r"
   request:
     schema:
       $ref: "#/schemas/getSchemaByIdRequest"
     example:
-      hostId: "host123"
       schemaId: "schema123"
+- name: "getSchemaLabel"
+  version: "0.1.0"
+  handler: "GetSchemaLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getSchemaLabelRequest"
+    example:
+      hostId: "host123"
 - name: "getSchema"
   version: "0.1.0"
   handler: "GetSchema"
-  scope: "portal.w"
+  scope: "portal.r"
   request:
     schema:
       $ref: "#/schemas/getSchemaRequest"
@@ -83,20 +146,27 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
-- name: "getSchemaList"
+- name: "getSchemaByCategoryId"
   version: "0.1.0"
-  handler: "GetSchemaList"
-  scope: "portal.w"
+  handler: "GetSchemaByCategoryId"
+  scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getSchemaListRequest"
+      $ref: "#/schemas/getSchemaByCategoryIdRequest"
     example:
       offset: 0
       limit: 10
       hostId: "host123"
-      categories:
-      - "tech"
-      - "dev"
-      tags:
-      - "json"
-      - "schema"
+      categoryId: "tech"
+- name: "getSchemaByTagId"
+  version: "0.1.0"
+  handler: "GetSchemaByTagId"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getSchemaByTagIdRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+      tagId: "json"

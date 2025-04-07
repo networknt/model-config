@@ -1,12 +1,12 @@
 ---
-rootPackage: net.lightapi.portal.error.query
-handlerPackage: net.lightapi.portal.error.query.handler
-modelPackage: net.lightapi.portal.error.query.model
-artifactId: error-query
+rootPackage: net.lightapi.portal.tag.command
+handlerPackage: net.lightapi.portal.tag.command.handler
+modelPackage: net.lightapi.portal.tag.command.model
+artifactId: tag-command
 groupId: net.lightapi
-name: error-query
+name: tag-command
 version: 0.1.0
-jsonPath: "/portal/query"
+jsonPath: "/portal/command"
 overwriteHandler: true
 overwriteHandlerTest: true
 httpPort: 8082

@@ -1,88 +1,118 @@
 ---
-host: lightapi.net
-service: category
+host: "lightapi.net"
+service: "category"
 schemas:
   createCategoryRequest:
-    title: Create Category
-    type: object
+    title: "Create Category"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Category Host
-      name:
-        type: string
-        description: Category Name
-      categories:
-        type: array
-        description: Categories
+      hostId:
+        type: "string"
+        description: "Host Id"
+      categoryId:
+        type: "string"
+        description: "Category Id"
+      entityType:
+        type: "string"
+        description: "Entity Type"
+      categoryName:
+        type: "string"
+        description: "Category Name"
+      globalFlag:
+        type: "boolean"
+        description: "Global Flag"
+      categoryDesc:
+        type: "string"
+        description: "Category Desc"
+      parentCategoryId:
+        type: "string"  
+        description: "Parent Category Id"
+      sortOrder:
+        type: "integer"
+        description: "Sort Order"
     required:
-    - host
-    - name
-    - categories
+    - "hostId"
+    - "categoryId"
+    - "entityType"
+    - "categoryName"
   updateCategoryRequest:
-    title: Update Category
-    type: object
+    title: "Update Category"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Category Host
-      name:
-        type: string
-        description: Category Name
-      categories:
-        type: array
-        description: Categories
+      hostId:
+        type: "string"
+        description: "Host Id"
+      categoryId:
+        type: "string"
+        description: "Category Id"
+      entityType:
+        type: "string"
+        description: "Entity Type"
+      categoryName:
+        type: "string"
+        description: "Category Name"
+      globalFlag:
+        type: "boolean"
+        description: "Global Flag"
+      categoryDesc:
+        type: "string"
+        description: "Category Desc"
+      parentCategoryId:
+        type: "string"
+        description: "Parent Category Id"
+      sortOrder:
+        type: "integer"
+        description: "Sort Order"
     required:
-    - host
-    - name
-    - categories
+    - "hostId"
+    - "categoryId"
+    - "entityType"
+    - "categoryName"
   deleteCategoryRequest:
-    title: Delete Category
-    type: object
+    title: "Delete Category"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Category Host
-      name:
-        type: string
-        description: Category Name
+      hostId:
+        type: "string"
+        description: "Host Id"
+      categoryId:
+        type: "string"
+        description: "Category Id"
     required:
-    - host
-    - name
+    - "hostId"
+    - "categoryId"
 action:
-- name: createCategory
-  version: 0.1.0
-  handler: CreateCategory
-  scope: portal.w
+- name: "createCategory"
+  version: "0.1.0"
+  handler: "CreateCategory"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createCategoryRequest'
-    example: 
-      host: host123
-      name: "My Category"
-      categories:
-        - "category1"
-        - "category2"
-- name: updateCategory
-  version: 0.1.0
-  handler: UpdateCategory
-  scope: portal.w
+      $ref: "#/schemas/createCategoryRequest"
+    example:
+      hostId: "host123"
+      categoryId: "category123"
+      entityType: "schema"
+      categoryName: "my-category"
+- name: "updateCategory"
+  version: "0.1.0"
+  handler: "UpdateCategory"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateCategoryRequest'
-    example: 
-      host: host123
-      name: "Updated Category Name"
-      categories:
-        - "updatedCategory1"
-        - "updatedCategory2"
-- name: deleteCategory
-  version: 0.1.0
-  handler: DeleteCategory
-  scope: portal.w
+      $ref: "#/schemas/updateCategoryRequest"
+    example:
+      hostId: "host123"
+      categoryId: "category123"
+      entityType: "schema"
+      categoryName: "my-category"
+- name: "deleteCategory"
+  version: "0.1.0"
+  handler: "DeleteCategory"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteCategoryRequest'
-    example: 
-      host: host123
-      name: "My Category"
+      $ref: "#/schemas/deleteCategoryRequest"
+    example:
+      hostId: "host123"
+      categoryId: "category123"

@@ -1,493 +1,464 @@
----
-host: lightapi.net
-service: ref
+host: "lightapi.net"
+service: "ref"
 schemas:
-  createTableRequest:
-    title: Service
-    type: object
+  createRefTableRequest:
+    title: "Create Ref Table"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: user host indicator the organization for user
+      hostId:
+        type: "string"
+        description: "Host Id"
       tableId:
-        type: string
-        description: unique table identifier
+        type: "string"
+        description: "Table Id"
       tableName:
-        type: string
-        description: reference table name
+        type: "string"
+        description: "Table Name"
       tableDesc:
-        type: string
-        description: table description
+        type: "string"
+        description: "Table Desc"
       active:
-        type: string
-        description: active flag
-        enum:
-        - Y
-        - N
+        type: "boolean"
+        description: "Active"
       editable:
-        type: string
-        description: editable flag
-        enum:
-        - Y
-        - N
-      common:
-        type: string
-        description: common flag
-        enum:
-        - Y
-        - N
+        type: "string"
+        description: "Editable"
     required:
-    - host
-    - tableId
-    - tableName
-    - tableDesc
-    - active
-    - editable
-    - common
-  updateTableRequest:
-    title: Service
-    type: object
+    - "hostId"
+    - "tableId"
+    - "tableName"
+  updateRefTableRequest:
+    title: "Update Ref Table"
+    type: "object"
     properties:
-      host:
-        type: string
-        description: user host indicator the organization for user
+      hostId:
+        type: "string"
+        description: "Host Id"
+        readonly: true
       tableId:
-        type: string
-        description: unique table identifier
+        type: "string"
+        description: "Table Id"
+        readonly: true
       tableName:
-        type: string
-        description: reference table name
+        type: "string"
+        description: "Table Name"
       tableDesc:
-        type: string
-        description: table description
+        type: "string"
+        description: "Table Desc"
       active:
-        type: string
-        description: active flag
-        enum:
-        - Y
-        - N
+        type: "boolean"
+        description: "Active"
       editable:
-        type: string
-        description: editable flag
-        enum:
-        - Y
-        - N
-      common:
-        type: string
-        description: common flag
-        enum:
-        - Y
-        - N
+        type: "string"
+        description: "Editable"
     required:
-    - host
-    - tableId
-    - tableName
-    - tableDesc
-    - active
-    - editable
-    - common
-  deleteTableRequest:
-    title: Service
-    type: object
+    - "hostId"
+    - "tableId"
+    - "tableName"
+  deleteRefTableRequest:
+    title: "Delete Ref Table"
+    type: "object"
     properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
       tableId:
-        type: string
-        description: unique table identifier
+        type: "string"
+        description: "Table Id"
     required:
-    - tableId
-  createValueRequest:
-    title: Service
-    type: object
+    - "hostId"
+    - "tableId"
+  createRefValueRequest:
+    title: "Create Ref Value"
+    type: "object"
     properties:
       valueId:
-        type: string
-        description: Value Id
+        type: "string"
+        description: "Value Id"
       tableId:
-        type: string
-        description: Table Id
+        type: "string"
+        description: "Table Id"
       valueCode:
-        type: string
-        description: Value Code
-      startTime:
-        type: string
-        description: Start Time
-      endTime:
-        type: string
-        description: End Time
+        type: "string"
+        description: "Value Code"
+      valueDesc:
+        type: "string"
+        description: "Value Desc"
+      startTs:
+        type: "string"
+        description: "Start Ts"
+      endTs:
+        type: "string"
+        description: "End Ts"
       displayOrder:
-        type: integer
-        description: Display Order
+        type: "integer"
+        description: "Display Order"
       active:
-        type: string
-        description: Active Flag
+        type: "boolean"
+        description: "Active"
     required:
-    - valueId
-    - tableId
-    - valueCode
-    - displayOrder
-    - active
-  updateValueRequest:
-    title: Service
-    type: object
+    - "valueId"
+    - "tableId"
+    - "valueCode"
+  updateRefValueRequest:
+    title: "Update Ref Value"
+    type: "object"
     properties:
       valueId:
-        type: string
-        description: Value Id
+        type: "string"
+        description: "Value Id"
       tableId:
-        type: string
-        description: Table Id
+        type: "string"
+        description: "Table Id"
       valueCode:
-        type: string
-        description: Value Code
-      startTime:
-        type: string
-        description: Start Time
-      endTime:
-        type: string
-        description: End Time
+        type: "string"
+        description: "Value Code"
+      valueDesc:
+        type: "string"
+        description: "Value Desc"
+      startTs:
+        type: "string"
+        description: "Start Ts"
+      endTs:
+        type: "string"
+        description: "End Ts"
       displayOrder:
-        type: integer
-        description: Display Order
+        type: "integer"
+        description: "Display Order"
       active:
-        type: string
-        description: Active Flag
+        type: "boolean"
+        description: "Active"
     required:
-    - valueId
-    - tableId
-    - valueCode
-    - displayOrder
-    - active
-  deleteValueRequest:
-    title: Service
-    type: object
+    - "valueId"
+    - "tableId"
+    - "valueCode"
+  deleteRefValueRequest:
+    title: "Delete Ref Value"
+    type: "object"
     properties:
       valueId:
-        type: string
-        description: Value Id
+        type: "string"
+        description: "Value Id"
     required:
-    - valueId
-  createLocaleRequest:
-    title: Service
-    type: object
+    - "valueId"
+  createRefLocaleRequest:
+    title: "Create Ref Locale"
+    type: "object"
     properties:
       valueId:
-        type: string
-        description: Value Id
+        type: "string"
+        description: "Value Id"
       language:
-        type: string
-        description: value desc language
-      valueDesc:
-        type: string
-        description: value desc
+        type: "string"
+        description: "Language"
+      valueLabel:
+        type: "string"
+        description: "Value Label"
     required:
-    - valueId
-    - language
-    - valueDesc
-  updateLocaleRequest:
-    title: Service
-    type: object
+    - "valueId"
+    - "language"
+    - "valueLabel"
+  updateRefLocaleRequest:
+    title: "Update Ref Locale"
+    type: "object"
     properties:
       valueId:
-        type: string
-        description: Value Id
+        type: "string"
+        description: "Value Id"
       language:
-        type: string
-        description: value desc language
-      valueDesc:
-        type: string
-        description: value desc
+        type: "string"
+        description: "Language"
+      valueLabel:
+        type: "string"
+        description: "Value Label"
     required:
-    - valueId
-    - language
-    - valueDesc
-  deleteLocaleRequest:
-    title: Service
-    type: object
+    - "valueId"
+    - "language"
+    - "valueLabel"
+  deleteRefLocaleRequest:
+    title: "Delete Ref Locale"
+    type: "object"
     properties:
       valueId:
-        type: string
-        description: Value Id
+        type: "string"
+        description: "Value Id"
       language:
-        type: string
-        description: value desc language
+        type: "string"
+        description: "Language"
     required:
-    - valueId
-    - language
-  createRelationTypeRequest:
-    title: Service
-    type: object
+    - "valueId"
+    - "language"
+  createRefRelationTypeRequest:
+    title: "Create Ref Relation Type"
+    type: "object"
     properties:
       relationId:
-        type: string
-        description: Relation Id
+        type: "string"
+        description: "Relation Id"
       relationName:
-        type: string
-        description: Relation Name
+        type: "string"
+        description: "Relation Name"
       relationDesc:
-        type: string
-        description: Relation Desc
+        type: "string"
+        description: "Relation Desc"
     required:
-    - relationId
-    - relationName
-    - relationDesc
-  updateRelationTypeRequest:
-    title: Service
-    type: object
+    - "relationId"
+    - "relationName"
+    - "relationDesc"
+  updateRefRelationTypeRequest:
+    title: "Update Ref Relation Type"
+    type: "object"
     properties:
       relationId:
-        type: string
-        description: Relation Id
+        type: "string"
+        description: "Relation Id"
       relationName:
-        type: string
-        description: Relation Name
+        type: "string"
+        description: "Relation Name"
       relationDesc:
-        type: string
-        description: Relation Desc
+        type: "string"
+        description: "Relation Desc"
     required:
-    - relationId
-    - relationName
-    - relationDesc
-  deleteRelationTypeRequest:
-    title: Service
-    type: object
+    - "relationId"
+    - "relationName"
+    - "relationDesc"
+  deleteRefRelationTypeRequest:
+    title: "Delete Ref Relation Type"
+    type: "object"
     properties:
       relationId:
-        type: string
-        description: Relation Id
+        type: "string"
+        description: "Relation Id"
     required:
-    - relationId
-  createRelationRequest:
-    title: Service
-    type: object
+    - "relationId"
+  createRefRelationRequest:
+    title: "Create Ref Relation"
+    type: "object"
     properties:
       relationId:
-        type: string
-        description: Relation Id
+        type: "string"
+        description: "Relation Id"
       valueIdFrom:
-        type: string
-        description: Value Id From
+        type: "string"
+        description: "Value Id From"
       valueIdTo:
-        type: string
-        description: Value Id To
+        type: "string"
+        description: "Value Id To"
       active:
-        type: string
-        description: Active Flag
+        type: "boolean"
+        description: "Active"
     required:
-    - relationId
-    - valueIdFrom
-    - valueIdTo
-  updateRelationRequest:
-    title: Service
-    type: object
+    - "relationId"
+    - "valueIdFrom"
+    - "valueIdTo"
+    - "active"
+  updateRefRelationRequest:
+    title: "Update Ref Relation"
+    type: "object"
     properties:
       relationId:
-        type: string
-        description: Relation Id
+        type: "string"
+        description: "Relation Id"
       valueIdFrom:
-        type: string
-        description: Value Id From
+        type: "string"
+        description: "Value Id From"
       valueIdTo:
-        type: string
-        description: Value Id To
+        type: "string"
+        description: "Value Id To"
       active:
-        type: string
-        description: Active Flag
+        type: "boolean"
+        description: "Active"
     required:
-    - relationId
-    - valueIdFrom
-    - valueIdTo
-    - active
-  deleteRelationRequest:
-    title: Service
-    type: object
+    - "relationId"
+    - "valueIdFrom"
+    - "valueIdTo"
+    - "active"
+  deleteRefRelationRequest:
+    title: "Delete Ref Relation"
+    type: "object"
     properties:
       relationId:
-        type: string
-        description: Relation Id
+        type: "string"
+        description: "Relation Id"
       valueIdFrom:
-        type: string
-        description: Value Id From
+        type: "string"
+        description: "Value Id From"
       valueIdTo:
-        type: string
-        description: Value Id To
+        type: "string"
+        description: "Value Id To"
     required:
-    - relationId
-    - valueIdFrom
-    - valueIdTo
+    - "relationId"
+    - "valueIdFrom"
+    - "valueIdTo"
 action:
-- name: createTable
-  version: 0.1.0
-  handler: CreateTable
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/createTableRequest'
-    example: 
-      host: lightapi.net
-      tableId: table123
-      tableName: countries
-      tableDesc: "List of Countries"
-      active: "Y"
-      editable: "Y"
-      common: "Y"
-- name: updateTable
-  version: 0.1.0
-  handler: UpdateTable
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/updateTableRequest'
-    example: 
-      host: lightapi.net
-      tableId: table123
-      tableName: languages
-      tableDesc: "List of languages"
-      active: "N"
-      editable: "Y"
-      common: "N"
-- name: deleteTable
-  version: 0.1.0
-  handler: DeleteTable
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/deleteTableRequest'
-    example: 
-      tableId: table123
-- name: createValue
-  version: 0.1.0
-  handler: CreateValue
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/createValueRequest'
-    example: 
-      valueId: value123
-      tableId: table123
-      valueCode: "US"
-      startTime: "2024-01-01T00:00:00Z"
-      endTime: "2024-12-31T23:59:59Z"
-      displayOrder: 1
-      active: "Y"
-- name: updateValue
-  version: 0.1.0
-  handler: UpdateValue
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/updateValueRequest'
-    example: 
-      valueId: value123
-      tableId: table123
-      valueCode: "CA"
-      startTime: "2024-01-01T00:00:00Z"
-      endTime: "2025-12-31T23:59:59Z"
-      displayOrder: 2
-      active: "N"
-- name: deleteValue
-  version: 0.1.0
-  handler: DeleteValue
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/deleteValueRequest'
-    example: 
-      valueId: value123
-- name: createLocale
-  version: 0.1.0
-  handler: CreateLocale
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/createLocaleRequest'
-    example: 
-      valueId: value123
-      language: "en"
-      valueDesc: "United States"
-- name: updateLocale
-  version: 0.1.0
-  handler: UpdateLocale
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/updateLocaleRequest'
-    example: 
-      valueId: value123
-      language: "fr"
-      valueDesc: "Etats-Unis"
-- name: deleteLocale
-  version: 0.1.0
-  handler: DeleteLocale
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/deleteLocaleRequest'
-    example: 
-      valueId: value123
-      language: "en"
-- name: createRelationType
-  version: 0.1.0
-  handler: CreateRelationType
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/createRelationTypeRequest'
-    example: 
-      relationId: relation123
-      relationName: "Is Part Of"
-      relationDesc: "Reference relation"
-- name: updateRelationType
-  version: 0.1.0
-  handler: UpdateRelationType
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/updateRelationTypeRequest'
-    example: 
-      relationId: relation123
-      relationName: "Belongs To"
-      relationDesc: "Belongs to relation"
-- name: deleteRelationType
-  version: 0.1.0
-  handler: DeleteRelationType
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/deleteRelationTypeRequest'
-    example: 
-      relationId: relation123
-- name: createRelation
-  version: 0.1.0
-  handler: CreateRelation
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/createRelationRequest'
-    example: 
-      relationId: relation123
-      valueIdFrom: value123
-      valueIdTo: value456
-      active: "Y"
-- name: updateRelation
-  version: 0.1.0
-  handler: UpdateRelation
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/updateRelationRequest'
-    example: 
-      relationId: relation123
-      valueIdFrom: value123
-      valueIdTo: value789
-      active: "N"
-- name: deleteRelation
-  version: 0.1.0
-  handler: DeleteRelation
-  scope: portal.w
-  request:
-    schema:
-      $ref: '#/schemas/deleteRelationRequest'
-    example: 
-      relationId: relation123
-      valueIdFrom: value123
-      valueIdTo: value456
+  - name: "createRefTable"
+    version: "0.1.0"
+    handler: "CreateRefTable"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/createRefTableRequest"
+      example:
+        hostId: "host123"
+        tableId: "table123"
+        tableName: "table name"
+        tableDesc: "table desc"
+        active: true
+        editable: true
+  - name: "updateRefTable"
+    version: "0.1.0"
+    handler: "UpdateRefTable"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/updateRefTableRequest"
+      example:
+        hostId: "host123"
+        tableId: "table123"
+        tableName: "table name"
+        tableDesc: "table desc"
+        active: true
+        editable: true
+  - name: "deleteRefTable"
+    version: "0.1.0"
+    handler: "DeleteRefTable"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/deleteRefTableRequest"
+      example:
+        hostId: "host123"
+        tableId: "table123"
+  - name: "createRefValue"
+    version: "0.1.0"
+    handler: "CreateRefValue"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/createRefValueRequest"
+      example:
+        valueId: "value123"
+        tableId: "table123"
+        valueCode: "value code"
+        valueDesc: "value desc"
+        active: true
+  - name: "updateRefValue"
+    version: "0.1.0"
+    handler: "UpdateRefValue"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/updateRefValueRequest"
+      example:
+        valueId: "value123"
+        tableId: "table123"
+        valueCode: "value code"
+        valueDesc: "value desc"
+        active: true
+  - name: "deleteRefValue"
+    version: "0.1.0"
+    handler: "DeleteRefValue"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/deleteRefValueRequest"
+      example:
+        valueId: "value123"
+  - name: "createRefLocale"
+    version: "0.1.0"
+    handler: "CreateRefLocale"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/createRefLocaleRequest"
+      example:
+        valueId: "value123"
+        language: "en"
+        valueLabel: "value label"
+  - name: "updateRefLocale"
+    version: "0.1.0"
+    handler: "UpdateRefLocale"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/updateRefLocaleRequest"
+      example:
+        valueId: "value123"
+        language: "en"
+        valueLabel: "value label"
+  - name: "deleteRefLocale"
+    version: "0.1.0"
+    handler: "DeleteRefLocale"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/deleteRefLocaleRequest"
+      example:
+        valueId: "value123"
+        language: "en"
+  - name: "createRefRelationType"
+    version: "0.1.0"
+    handler: "CreateRefRelationType"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/createRefRelationTypeRequest"
+      example:
+        relationId: "relationId"
+        relationName: "relationName"
+        relationDesc: "relationDesc"
+  - name: "updateRefRelationType"
+    version: "0.1.0"
+    handler: "UpdateRefRelationType"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/updateRefRelationTypeRequest"
+      example:
+        relationId: "relationId"
+        relationName: "relationName"
+        relationDesc: "relationDesc"
+  - name: "deleteRefRelationType"
+    version: "0.1.0"
+    handler: "DeleteRefRelationType"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/deleteRefRelationTypeRequest"
+      example:
+        relationId: "relationId"
+  - name: "createRefRelation"
+    version: "0.1.0"
+    handler: "CreateRefRelation"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/createRefRelationRequest"
+      example:
+        relationId: "relationId"
+        valueIdFrom: "valueIdFrom"
+        valueIdTo: "valueIdTo"
+        active: true
+  - name: "updateRefRelation"
+    version: "0.1.0"
+    handler: "UpdateRefRelation"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/updateRefRelationRequest"
+      example:
+        relationId: "relationId"
+        valueIdFrom: "valueIdFrom"
+        valueIdTo: "valueIdTo"
+        active: true
+  - name: "deleteRefRelation"
+    version: "0.1.0"
+    handler: "DeleteRefRelation"
+    scope: "portal.w"
+    request:
+      schema:
+        $ref: "#/schemas/deleteRefRelationRequest"
+      example:
+        relationId: "relationId"
+        valueIdFrom: "valueIdFrom"
+        valueIdTo: "valueIdTo"

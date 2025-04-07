@@ -1,46 +1,164 @@
 ---
-host: lightapi.net
-service: category
+host: "lightapi.net"
+service: "category"
 schemas:
   getCategoryRequest:
-    title: Category
-    type: object
+    title: "Category"
+    description: "Get all type of categories for a host including global categories."
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Host
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      categoryId:
+        type: "string"
+        description: "Category Id"
+      entityType:
+        type: "string"
+        description: "Entity Type"
+      categoryName:
+        type: "string"
+        description: "Category Name"
+      globalFlag:
+        type: "boolean"
+        description: "Global Flag"
+      categoryDesc:
+        type: "string"
+        description: "Category Desc"
+      parentCategoryId:
+        type: "string"
+        description: "Parent Category Id"
+      sortOrder:
+        type: "integer"
+        description: "Sort Order"
     required:
-    - host
+    - "offset"
+    - "limit"
+    - "hostId"
+  getCategoryLabel:
+    title: "Category"
+    description: "Get a list of categories by label for a host including global categories."
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
+  getCategoryByIdRequest:
+    title: "Category"
+    description: "Get a category by id for a host."
+    type: "object"
+    properties:
+      categoryId:
+        type: "string"
+        description: "Category Id"
+    required:
+    - "categoryId"
   getCategoryByNameRequest:
-    title: Category
-    type: object
+    title: "Category"
+    description: "Get a list of categories by same name for a host including global categories."
+    type: "object"
     properties:
-      host:
-        type: string
-        description: Host
-      name:
-        type: string
-        description: Name
+      hostId:
+        type: "string"
+        description: "Host Id"
+      categoryName:
+        type: "string"
+        description: "Category Name"
     required:
-    - host
-    - name
+    - "hostId"
+    - "categoryName"
+  getCategoryByTypeRequest:
+    title: "Category"
+    description: "Get a list of categories by type for a host including global categories."
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      entityType:
+        type: "string"
+        description: "Entity Type"
+    required:
+    - "hostId"
+    - "entityType"
+  getCategoryTreeRequest:
+    title: "Category"
+    description: "Get a list of categories for an entity type in nested structure."
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      entityType:
+        type: "string"
+        description: "Entity Type"
+    required:
+    - "hostId"
+    - "entityType"
 action:
-- name: getCategory
-  version: 0.1.0
-  handler: GetCategory
-  scope: portal.r
+- name: "getCategory"
+  version: "0.1.0"
+  handler: "GetCategory"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getCategoryRequest'
-    example: 
-      host: host123
-- name: getCategoryByName
-  version: 0.1.0
-  handler: GetCategoryByName
+      $ref: "#/schemas/getCategoryRequest"
+    example:
+      hostId: "host123"
+- name: "getCategoryLabel"
+  version: "0.1.0"
+  handler: "GetCategoryLabel"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/getCategoryByNameRequest'
-    example: 
-      host: host123
-      name: "MyCategory"
+      $ref: "#/schemas/getCategoryLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getCategoryById"
+  version: "0.1.0"
+  handler: "GetCategoryById"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getCategoryByIdRequest"
+    example:
+      hostId: "host123"
+      categoryId: "category123"
+- name: "getCategoryByName"
+  version: "0.1.0"
+  handler: "GetCategoryByName"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getCategoryByNameRequest"
+    example:
+      hostId: "host123"
+      categoryName: "my-category"
+- name: "getCategoryByType"
+  version: "0.1.0"
+  handler: "GetCategoryByType"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getCategoryByTypeRequest"
+    example:
+      hostId: "host123"
+      entityType: "product"
+- name: "getCategoryTree"
+  version: "0.1.0"
+  handler: "GetCategoryTree"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getCategoryTreeRequest"
+    example:
+      hostId: "host123"
+      entityType: "product"
