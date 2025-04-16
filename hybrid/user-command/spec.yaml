@@ -1,451 +1,441 @@
 ---
-host: lightapi.net
-service: user
+host: "lightapi.net"
+service: "user"
 schemas:
   createUserRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: user host indicator the organization for user
+        type: "string"
+        description: "user host indicator the organization for user"
       email:
-        type: string
-        pattern: "^\S+@\S+$"
-        description: user email address
+        type: "string"
+        description: "user email address"
       entityId:
-        type: string
-        description: a unique entity id for user type
+        type: "string"
+        description: "a unique entity id for user type"
       userType:
-        title: User Type
-        type: string
+        title: "User Type"
+        type: "string"
       referralId:
-        type: string
-        title: Referral Id or Email
+        type: "string"
+        title: "Referral Id or Email"
       managerId:
-        type: string
-        title: Manager Id or Email
+        type: "string"
+        title: "Manager Id or Email"
       language:
-        type: string
-        description: preferred language of user
+        type: "string"
+        description: "preferred language of user"
         enum:
-        - en
+        - "en"
       password:
-        type: string
-        description: raw password of user
+        type: "string"
+        description: "raw password of user"
       passwordConfirm:
-        type: string
-        description: password confirm of user
+        type: "string"
+        description: "password confirm of user"
       firstName:
-        type: string
-        description: firstName of the user
+        type: "string"
+        description: "firstName of the user"
       lastName:
-        type: string
-        description: firstName of the user
+        type: "string"
+        description: "firstName of the user"
       phoneNumber:
-        type: string
-        title: Phone Number
+        type: "string"
+        title: "Phone Number"
       gender:
-        type: string
-        description: user gender type
+        type: "string"
+        description: "user gender type"
       birthday:
-        type: string
-        format: date
-        description: birthday of the user
+        type: "string"
+        format: "date"
+        description: "birthday of the user"
       country:
-        type: string
-        description: country name
+        type: "string"
+        description: "country name"
       province:
-        type: string
-        description: province or state name
+        type: "string"
+        description: "province or state name"
       city:
-        type: string
-        description: city name
+        type: "string"
+        description: "city name"
       postCode:
-        type: string
-        description: postCode or zipCode
+        type: "string"
+        description: "postCode or zipCode"
       address:
-        type: string
-        description: address
+        type: "string"
+        description: "address"
     required:
-    - hostId
-    - email
-    - entityId
-    - userType
-    - language
-    - password
-    - passwordConfirm
+    - "hostId"
+    - "email"
+    - "entityId"
+    - "userType"
+    - "language"
+    - "password"
+    - "passwordConfirm"
   createSocialUserRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: user host indicator the organization for user
+        type: "string"
+        description: "user host indicator the organization for user"
       email:
-        type: string
-        description: user email address
+        type: "string"
+        description: "user email address"
       userId:
-        type: string
-        description: a unique user id
+        type: "string"
+        description: "a unique user id"
       userType:
-        title: User Type
-        type: string
+        title: "User Type"
+        type: "string"
       language:
-        type: string
-        description: preferred language of user
+        type: "string"
+        description: "preferred language of user"
       firstName:
-        type: string
-        description: firstName of the user
+        type: "string"
+        description: "firstName of the user"
       lastName:
-        type: string
-        description: firstName of the user
+        type: "string"
+        description: "firstName of the user"
     required:
-    - hostId
-    - email
-    - userId
-    - userType
-    - language
+    - "hostId"
+    - "email"
+    - "userId"
+    - "userType"
+    - "language"
   deleteUserByIdRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       hostId:
-        type: string
+        type: "string"
       userId:
-        type: string
+        type: "string"
     required:
-    - hostId
-    - userId
+    - "hostId"
+    - "userId"
   updateUserByIdRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: user host indicator the organization for user
+        type: "string"
+        description: "user host indicator the organization for user"
       email:
-        type: string
-        pattern: "^\S+@\S+$"
-        description: email address of the user
+        type: "string"
+        description: "email address of the user"
       userId:
-        type: string
-        description: a unique user id
+        type: "string"
+        description: "a unique user id"
       entityId:
-        type: string
-        title: Entity Id
+        type: "string"
+        title: "Entity Id"
       userType:
-        type: string
-        title: User Type
+        type: "string"
+        title: "User Type"
       referralId:
-        type: string
-        title: Referral Id or Email
+        type: "string"
+        title: "Referral Id or Email"
       managerId:
-        type: string
-        title: Manager Id or Email
+        type: "string"
+        title: "Manager Id or Email"
       language:
-        type: string
-        description: preferred language of user
+        type: "string"
+        description: "preferred language of user"
         enum:
-        - en
+        - "en"
       firstName:
-        type: string
-        description: firstName of the user
+        type: "string"
+        description: "firstName of the user"
       lastName:
-        type: string
-        description: firstName of the user
+        type: "string"
+        description: "firstName of the user"
       phoneNumber:
-        type: string
-        title: Phone Number
+        type: "string"
+        title: "Phone Number"
       gender:
-        type: string
-        description: user gender type
+        type: "string"
+        description: "user gender type"
       birthday:
-        type: string
-        format: date
-        description: birthday of the user
+        type: "string"
+        format: "date"
+        description: "birthday of the user"
       country:
-        type: string
-        description: country name
+        type: "string"
+        description: "country name"
       province:
-        type: string
-        description: province or state name
+        type: "string"
+        description: "province or state name"
       city:
-        type: string
-        description: city name
+        type: "string"
+        description: "city name"
       postCode:
-        type: string
-        description: postCode or zipCode
+        type: "string"
+        description: "postCode or zipCode"
       address:
-        type: string
-        description: address
+        type: "string"
+        description: "address"
     required:
-    - hostId
-    - email
-    - userId
-    - entityId
-    - userType
-    - language
+    - "hostId"
+    - "email"
+    - "userId"
+    - "entityId"
+    - "userType"
+    - "language"
   changePasswordRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       oldPassword:
-        type: string
-        description: the old password
+        type: "string"
+        description: "the old password"
       newPassword:
-        type: string
-        description: the new password
+        type: "string"
+        description: "the new password"
       passwordConfirm:
-        type: string
-        description: password confirm of user
+        type: "string"
+        description: "password confirm of user"
     required:
-    - oldPassword
-    - newPassword
-    - passwordConfirm
+    - "oldPassword"
+    - "newPassword"
+    - "passwordConfirm"
   forgetPasswordRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        description: email address of the user
+        type: "string"
+        description: "email address of the user"
     required:
-    - email
+    - "email"
   resetPasswordRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        description: email address of the user
+        type: "string"
+        description: "email address of the user"
       token:
-        type: string
-        description: password reset token received from email
+        type: "string"
+        description: "password reset token received from email"
       newPassword:
-        type: string
-        description: the new password
+        type: "string"
+        description: "the new password"
       passwordConfirm:
-        type: string
-        description: password confirm of user
+        type: "string"
+        description: "password confirm of user"
     required:
-    - email
-    - token
-    - newPassword
-    - passwordConfirm
+    - "email"
+    - "token"
+    - "newPassword"
+    - "passwordConfirm"
   confirmUserRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        pattern: "^\S+@\S+$"
+        type: "string"
       token:
-        type: string
+        type: "string"
     required:
-    - email
-    - token
+    - "email"
+    - "token"
   verifyUserRequest:
-     title: Service
-     type: object
-     properties:
+    title: "Service"
+    type: "object"
+    properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       userId:
-         type: string
-         description: User Id
-     required:
-     - hostId
-     - userId
+        type: "string"
+        description: "User Id"
+    required:
+    - "hostId"
+    - "userId"
   lockUserRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        pattern: "^\S+@\S+$"
+        type: "string"
       reason:
-        type: string
+        type: "string"
     required:
-    - email
-    - reason
+    - "email"
+    - "reason"
   unlockUserRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        pattern: "^\S+@\S+$"
+        type: "string"
       reason:
-        type: string
+        type: "string"
     required:
-    - email
-    - reason
+    - "email"
+    - "reason"
   sendMessageRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       userId:
-        type: string
+        type: "string"
       subject:
-        type: string
+        type: "string"
       content:
-        type: string
+        type: "string"
     required:
-    - userId
-    - subject
-    - content
+    - "userId"
+    - "subject"
+    - "content"
   updatePaymentRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        description: Merchant user email address
+        type: "string"
+        description: "Merchant user email address"
       payments:
-        type: array
-        description: A list of payments
+        type: "array"
+        description: "A list of payments"
     required:
-    - payments
+    - "payments"
   deletePaymentRequest:
-     title: Service
-     type: object
-     properties:
-       email:
-         type: string
-         description: Merchant user email address
-     required:
-       - email
+    title: "Service"
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        description: "Merchant user email address"
+    required:
+    - "email"
   paymentNonceRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       userId:
-        type: string
-        description: merchant userId
+        type: "string"
+        description: "merchant userId"
       nonce:
-        type: string
-        description: Payment method nonce
+        type: "string"
+        description: "Payment method nonce"
     required:
-    - userId
-    - nonce
+    - "userId"
+    - "nonce"
   createOrderRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       userId:
-        type: string
-        description: merchant userId
+        type: "string"
+        description: "merchant userId"
       order:
-        type: object
-        description: Order object
+        type: "object"
+        description: "Order object"
     required:
-    - userId
-    - order
+    - "userId"
+    - "order"
   cancelOrderRequest:
-    title: Service
-    type: object
-    properties:
-       email:
-         type: string
-         description: Customer email
-       merchantUserId:
-         type: string
-         description: Merchant User Id
-       orderId:
-         type: object
-         description: Order Id
-    required:
-    - email
-    - orderId
-  deliverOrderRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        description: Merchant email
-      customerUserId:
-        type: string
-        description: Customer User Id
+        type: "string"
+        description: "Customer email"
+      merchantUserId:
+        type: "string"
+        description: "Merchant User Id"
       orderId:
-        type: string
-        description: Order Id
+        type: "object"
+        description: "Order Id"
     required:
-    - email
-    - customerUserId
-    - orderId
-  updateRolesRequest:
-    title: Service
-    type: object
+    - "email"
+    - "orderId"
+  deliverOrderRequest:
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        description: User email
-      roles:
-        type: string
-        description: A list of roles in string separated by space
+        type: "string"
+        description: "Merchant email"
+      customerUserId:
+        type: "string"
+        description: "Customer User Id"
+      orderId:
+        type: "string"
+        description: "Order Id"
     required:
-    - email
-    - roles
-  createHostRequest:
-     title: Service
-     type: object
-     properties:
-      host:
-       type: string
-       description: Host name
-      orgName:
-        type: string
-        description: Org Name
-      orgDesc:
-        type: string
-        description: Org description
-     required:
-      - host
-      - orgName
-      - orgDesc
-  updateHostRequest:
-     title: Service
-     type: object
-     properties:
-      host:
-       type: string
-       description: Host name
-      orgName:
-        type: string
-        description: Org Name
-      orgDesc:
-        type: string
-        description: Org description
-     required:
-      - host
-      - orgName
-      - orgDesc
-  deleteHostRequest:
-    title: Service
-    type: object
+    - "email"
+    - "customerUserId"
+    - "orderId"
+  exportPortalEventRequest:
+    title: "Export"
+    type: "object"
     properties:
-      host:
-       type: string
-       description: host name
+      hostId:
+        type: "string"
+        description: "Host Id"
+      portalServices:
+        type: "string"
+        description: "Portal services"
+      startTs:
+        type: "string"
+        description: "Start timestamp"
+      endTs:
+        type: "string"
+        description: "End timestamp"
     required:
-      - host
+    - "hostId"
+    - "portalServices"
+  importPortalEventRequest:
+    title: "Import"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      portalServices:
+        type: "string"
+        description: "Portal services"
+      startTs:
+        type: "string"
+        description: "Start timestamp"
+      endTs:
+        type: "string"
+        description: "End timestamp"
+      eventText:
+        title: "Event Text"
+        description: "Event text to be imported"
+        type: "string"
+        minLength: 1
+      eventUrl:
+        title: "Event URL"
+        description: "Event URL to be imported"
+        type: "string"
+        minLength: 1
+    required:
+    - "hostId"
+    - "portalServices"
+    oneOf:
+    - required: ["eventText"]
+    - required: ["eventUrl"]
 action:
-- name: createUser
-  version: 0.1.0
-  handler: CreateUser
+- name: "createUser"
+  version: "0.1.0"
+  handler: "CreateUser"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/createUserRequest'
-    example: 
-      hostId: host123
-      email: test@example.com
-      entityId: cust123
-      userType: C
-      language: en
+      $ref: "#/schemas/createUserRequest"
+    example:
+      hostId: "host123"
+      email: "test@example.com"
+      entityId: "cust123"
+      userType: "C"
+      language: "en"
       password: "password"
       passwordConfirm: "password"
       firstName: "John"
@@ -458,45 +448,45 @@ action:
       city: "Los Angeles"
       postCode: "12345"
       address: "123 Main St"
-- name: createSocialUser
-  version: 0.1.0
-  handler: CreateSocialUser
-  scope: portal.w
+- name: "createSocialUser"
+  version: "0.1.0"
+  handler: "CreateSocialUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createSocialUserRequest'
-    example: 
-      hostId: host123
-      email: test@example.com
+      $ref: "#/schemas/createSocialUserRequest"
+    example:
+      hostId: "host123"
+      email: "test@example.com"
       userId: "socialuser123"
-      userType: C
-      language: en
+      userType: "C"
+      language: "en"
       firstName: "Jane"
       lastName: "Doe"
-- name: deleteUserById
-  version: 0.1.0
-  handler: DeleteUserById
-  scope: portal.w
+- name: "deleteUserById"
+  version: "0.1.0"
+  handler: "DeleteUserById"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteUserByIdRequest'
-    example: 
-      hostId: host123
-      userId: user123
-- name: updateUserById
-  version: 0.1.0
-  handler: UpdateUserById
-  scope: portal.w
+      $ref: "#/schemas/deleteUserByIdRequest"
+    example:
+      hostId: "host123"
+      userId: "user123"
+- name: "updateUserById"
+  version: "0.1.0"
+  handler: "UpdateUserById"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateUserByIdRequest'
-    example: 
-      hostId: host123
-      email: test@example.com
-      userId: user123
-      entityId: cust123
-      userType: E
-      language: en
+      $ref: "#/schemas/updateUserByIdRequest"
+    example:
+      hostId: "host123"
+      email: "test@example.com"
+      userId: "user123"
+      entityId: "cust123"
+      userType: "E"
+      language: "en"
       firstName: "Updated First"
       lastName: "Updated Last"
       phoneNumber: "555-1234"
@@ -507,198 +497,175 @@ action:
       city: "Toronto"
       postCode: "54321"
       address: "345 Fake St"
-- name: changePassword
-  version: 0.1.0
-  handler: ChangePassword
-  scope: portal.w
+- name: "changePassword"
+  version: "0.1.0"
+  handler: "ChangePassword"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/changePasswordRequest'
-    example: 
+      $ref: "#/schemas/changePasswordRequest"
+    example:
       oldPassword: "oldpassword"
       newPassword: "newpassword"
       passwordConfirm: "newpassword"
-- name: forgetPassword
-  version: 0.1.0
-  handler: ForgetPassword
+- name: "forgetPassword"
+  version: "0.1.0"
+  handler: "ForgetPassword"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/forgetPasswordRequest'
-    example: 
-      email: test@example.com
-- name: resetPassword
-  version: 0.1.0
-  handler: ResetPassword
+      $ref: "#/schemas/forgetPasswordRequest"
+    example:
+      email: "test@example.com"
+- name: "resetPassword"
+  version: "0.1.0"
+  handler: "ResetPassword"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/resetPasswordRequest'
-    example: 
-      email: test@example.com
+      $ref: "#/schemas/resetPasswordRequest"
+    example:
+      email: "test@example.com"
       token: "reset_token"
       newPassword: "newpassword"
       passwordConfirm: "newpassword"
-- name: confirmUser
-  version: 0.1.0
-  handler: ConfirmUser
+- name: "confirmUser"
+  version: "0.1.0"
+  handler: "ConfirmUser"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/confirmUserRequest'
-    example: 
-      email: test@example.com
+      $ref: "#/schemas/confirmUserRequest"
+    example:
+      email: "test@example.com"
       token: "confirm_token"
-- name: verifyUser
-  version: 0.1.0
-  handler: VerifyUser
-  scope: portal.w
+- name: "verifyUser"
+  version: "0.1.0"
+  handler: "VerifyUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/verifyUserRequest'
-    example: 
-      hostId: host123
-      userId: user123
-- name: lockUser
-  version: 0.1.0
-  handler: LockUser
-  scope: portal.w
+      $ref: "#/schemas/verifyUserRequest"
+    example:
+      hostId: "host123"
+      userId: "user123"
+- name: "lockUser"
+  version: "0.1.0"
+  handler: "LockUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/lockUserRequest'
-    example: 
-      email: test@example.com
+      $ref: "#/schemas/lockUserRequest"
+    example:
+      email: "test@example.com"
       reason: "suspicious activity"
-- name: unlockUser
-  version: 0.1.0
-  handler: UnlockUser
-  scope: portal.w
+- name: "unlockUser"
+  version: "0.1.0"
+  handler: "UnlockUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/unlockUserRequest'
-    example: 
-      email: test@example.com
+      $ref: "#/schemas/unlockUserRequest"
+    example:
+      email: "test@example.com"
       reason: "resolved"
-- name: sendMessage
-  version: 0.1.0
-  handler: SendMessage
-  scope: portal.w
+- name: "sendMessage"
+  version: "0.1.0"
+  handler: "SendMessage"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/sendMessageRequest'
-    example: 
-      userId: user123
+      $ref: "#/schemas/sendMessageRequest"
+    example:
+      userId: "user123"
       subject: "Welcome Message"
       content: "Hi there, welcome to our platform"
-- name: updatePayment
-  version: 0.1.0
-  handler: UpdatePayment
-  scope: portal.w
+- name: "updatePayment"
+  version: "0.1.0"
+  handler: "UpdatePayment"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updatePaymentRequest'
-    example: 
-        email: test@example.com
-        payments: 
-          - card_number: "1234-5678-9012-3456"
-            expiry_month: "12"
-            expiry_year: "2025"
-            cvv: "123"
-- name: deletePayment
-  version: 0.1.0
-  handler: DeletePayment
-  scope: portal.w
-  request:
-     schema:
-       $ref: '#/schemas/deletePaymentRequest'
-     example: 
-       email: test@example.com
-- name: paymentNonce
-  version: 0.1.0
-  handler: PaymentNonce
-  scope: portal.w
+      $ref: "#/schemas/updatePaymentRequest"
+    example:
+      email: "test@example.com"
+      payments:
+      - card_number: "1234-5678-9012-3456"
+        expiry_month: "12"
+        expiry_year: "2025"
+        cvv: "123"
+- name: "deletePayment"
+  version: "0.1.0"
+  handler: "DeletePayment"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/paymentNonceRequest'
-    example: 
-      userId: user123
+      $ref: "#/schemas/deletePaymentRequest"
+    example:
+      email: "test@example.com"
+- name: "paymentNonce"
+  version: "0.1.0"
+  handler: "PaymentNonce"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/paymentNonceRequest"
+    example:
+      userId: "user123"
       nonce: "payment_method_nonce"
-- name: createOrder
-  version: 0.1.0
-  handler: CreateOrder
-  scope: portal.w
+- name: "createOrder"
+  version: "0.1.0"
+  handler: "CreateOrder"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createOrderRequest'
-    example: 
-      userId: user123
-      order: {
-        "items": [
-           { "id": "item123", "qty": 2 }
-        ],
-        "total": 100
-      }
-- name: cancelOrder
-  version: 0.1.0
-  handler: CancelOrder
-  scope: portal.w
+      $ref: "#/schemas/createOrderRequest"
+    example:
+      userId: "user123"
+      order:
+        items:
+        - id: "item123"
+          qty: 2
+        total: 100
+- name: "cancelOrder"
+  version: "0.1.0"
+  handler: "CancelOrder"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/cancelOrderRequest'
-    example: 
-      email: test@example.com
-      merchantUserId: merchant123
+      $ref: "#/schemas/cancelOrderRequest"
+    example:
+      email: "test@example.com"
+      merchantUserId: "merchant123"
       orderId: "order123"
-- name: deliverOrder
-  version: 0.1.0
-  handler: DeliverOrder
-  scope: portal.w
+- name: "deliverOrder"
+  version: "0.1.0"
+  handler: "DeliverOrder"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deliverOrderRequest'
-    example: 
-      email: test@example.com
-      customerUserId: cust123
-      orderId: order123
-- name: updateRoles
-  version: 0.1.0
-  handler: UpdateRoles
-  scope: portal.w
+      $ref: "#/schemas/deliverOrderRequest"
+    example:
+      email: "test@example.com"
+      customerUserId: "cust123"
+      orderId: "order123"
+- name: "exportPortalEvent"
+  version: "0.1.0"
+  handler: "ExportPortalEvent"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/updateRolesRequest'
-    example: 
-      email: test@example.com
-      roles: "admin user"
-- name: createHost
-  version: 0.1.0
-  handler: CreateHost
-  scope: portal.w
-  request:
-     schema:
-       $ref: '#/schemas/createHostRequest'
-     example: 
-       host: "host123"
-       orgName: "My Org"
-       orgDesc: "This is my organization"
-- name: updateHost
-  version: 0.1.0
-  handler: UpdateHost
-  scope: portal.w
-  request:
-     schema:
-       $ref: '#/schemas/updateHostRequest'
-     example: 
-       host: "host123"
-       orgName: "My Org Updated"
-       orgDesc: "This is my updated organization"
-- name: deleteHost
-  version: 0.1.0
-  handler: DeleteHost
-  scope: portal.w
+      $ref: "#/schemas/exportPortalEventRequest"
+    example:
+      hostId: "host123"
+      portalServices: "service1,service2"
+- name: "importPortalEvent"
+  version: "0.1.0"
+  handler: "ImportPortalEvent"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteHostRequest'
-    example: 
-       host: "host123"
-
+      $ref: "#/schemas/importPortalEventRequest"
+    example:
+      hostId: "host123"
+      portalServices: "service1,service2"

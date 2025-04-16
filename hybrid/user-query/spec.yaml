@@ -1,450 +1,426 @@
 ---
-host: lightapi.net
-service: user
+host: "lightapi.net"
+service: "user"
 schemas:
   queryUserByEmailRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        description: user email address
+        type: "string"
+        description: "user email address"
     required:
-    - email
+    - "email"
   queryUserByIdRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       userId:
-        type: string
-        description: A unique user id
+        type: "string"
+        description: "A unique user id"
     required:
-    - userId
+    - "userId"
   queryUserByTypeEntityIdRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       userType:
-        type: string
-        description: User Type
+        type: "string"
+        description: "User Type"
       entityId:
-        type: string
-        description: A unique user id for the type
+        type: "string"
+        description: "A unique user id for the type"
     required:
-    - userType
-    - entityId
+    - "userType"
+    - "entityId"
   getNonceByUserIdRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       userId:
-        type: string
-        description: User Id
+        type: "string"
+        description: "User Id"
     required:
-    - userId
+    - "userId"
   getUserLabelRequest:
-    title: User Label
-    type: object
+    title: "User Label"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
     required:
-    - hostId
+    - "hostId"
   queryUserByWalletRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       taijiWallet:
-        type: string
-        description: user taiji wallet address
+        type: "string"
+        description: "user taiji wallet address"
     required:
-    - taijiWallet
+    - "taijiWallet"
   loginUserRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
+        type: "string"
       password:
-        type: string
+        type: "string"
     required:
-    - email
-    - password
+    - "email"
+    - "password"
   getPrivateMessageRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
+        type: "string"
     required:
-    - email
+    - "email"
   getNotificationRequest:
-    title: Service
-    type: object
-    properties:
-      email:
-        type: string
-    required:
-    - email
-  listUserByHostIdRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: user hostId
+        type: "string"
+      userId:
+        type: "string"
+    required:
+    - "hostId"
+    - "userId"
+  listUserByHostIdRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "user hostId"
       offset:
-        type: integer
-        description: Record Offset
+        type: "integer"
+        description: "Record Offset"
       limit:
-        type: integer
-        description: Record Limit
+        type: "integer"
+        description: "Record Limit"
       email:
-        type: string
-        description: Email
+        type: "string"
+        description: "Email"
       language:
-        type: string
-        description: Language
+        type: "string"
+        description: "Language"
       userType:
-        type: string
-        description: User Type
+        type: "string"
+        description: "User Type"
       entityId:
-        type: string
-        description: Entity Id
+        type: "string"
+        description: "Entity Id"
       referralId:
-        type: string
-        description: Referral Id
+        type: "string"
+        description: "Referral Id"
       managerId:
-        type: string
-        description: Manager Id
+        type: "string"
+        description: "Manager Id"
       firstName:
-        type: string
-        description: First Name
+        type: "string"
+        description: "First Name"
       lastName:
-        type: string
-        description: Last Name
+        type: "string"
+        description: "Last Name"
       phoneNumber:
-        type: string
-        description: Phone Number
+        type: "string"
+        description: "Phone Number"
       gender:
-        type: string
-        description: Gender
+        type: "string"
+        description: "Gender"
       birthday:
-        type: string
-        description: Birthday
+        type: "string"
+        description: "Birthday"
       country:
-        type: string
-        description: Country
+        type: "string"
+        description: "Country"
       province:
-        type: string
-        description: Province
+        type: "string"
+        description: "Province"
       city:
-        type: string
-        description: City
+        type: "string"
+        description: "City"
       address:
-        type: string
-        description: Address
+        type: "string"
+        description: "Address"
       postCode:
-        type: string
-        description: Post Code
+        type: "string"
+        description: "Post Code"
       verified:
-        type: boolean
-        description: Verified
+        type: "boolean"
+        description: "Verified"
       locked:
-        type: boolean
-        description: Locked
+        type: "boolean"
+        description: "Locked"
     required:
-    - hostId
-    - offset
-    - limit
+    - "hostId"
+    - "offset"
+    - "limit"
   getPaymentRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        description: Merchant user email address
+        type: "string"
+        description: "Merchant user email address"
     required:
-    - email
+    - "email"
   getPaymentByIdRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       userId:
-        type: string
-        description: A unique user id
+        type: "string"
+        description: "A unique user id"
     required:
-    - userId
+    - "userId"
   getClientTokenRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       userId:
-        type: string
-        description: Merchant userId
+        type: "string"
+        description: "Merchant userId"
       merchantId:
-        type: string
-        description: Merchant Id
+        type: "string"
+        description: "Merchant Id"
     required:
-    - userId
-    - merchantId
+    - "userId"
+    - "merchantId"
   getCustomerOrderRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        description: Customer Email
+        type: "string"
+        description: "Customer Email"
       offset:
-        type: integer
-        description: Record Offset
+        type: "integer"
+        description: "Record Offset"
       limit:
-        type: integer
-        description: Record Limit
+        type: "integer"
+        description: "Record Limit"
     required:
-    - email
-    - offset
-    - limit
+    - "email"
+    - "offset"
+    - "limit"
   getMerchantOrderRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        description: Merchant Email
+        type: "string"
+        description: "Merchant Email"
       status:
-        type: string
-        description: Order Status
+        type: "string"
+        description: "Order Status"
       offset:
-        type: integer
-        description: Record Offset
+        type: "integer"
+        description: "Record Offset"
       limit:
-        type: integer
-        description: Record Limit
+        type: "integer"
+        description: "Record Limit"
     required:
-    - email
-    - status
-    - offset
-    - limit
+    - "email"
+    - "status"
+    - "offset"
+    - "limit"
   getReferenceRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       name:
-        type: string
-        description: Table name
+        type: "string"
+        description: "Table name"
       lang:
-        type: string
-        description: Label language
+        type: "string"
+        description: "Label language"
       rela:
-        type: string
-        description: Relationship name
+        type: "string"
+        description: "Relationship name"
       from:
-         type: string
-         description: From value in rela
+        type: "string"
+        description: "From value in rela"
     required:
-     - name
-  getHostRequest:
-    title: Service
-    type: object
-    properties:
-      offset:
-        type: integer
-        description: Record Offset
-      limit:
-        type: integer
-        description: Record Limit
-    required:
-    - offset
-    - limit
+    - "name"
   getRolesByEmailRequest:
-    title: Service
-    type: object
+    title: "Service"
+    type: "object"
     properties:
       email:
-        type: string
-        description: Merchant Email
+        type: "string"
+        description: "Merchant Email"
     required:
-    - email
+    - "email"
 action:
-- name: queryUserByEmail
-  version: 0.1.0
-  handler: QueryUserByEmail
-  scope: portal.r
+- name: "queryUserByEmail"
+  version: "0.1.0"
+  handler: "QueryUserByEmail"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryUserByEmailRequest'
-    example: 
-      email: test@example.com
-- name: queryUserById
-  version: 0.1.0
-  handler: QueryUserById
-  scope: portal.r
+      $ref: "#/schemas/queryUserByEmailRequest"
+    example:
+      email: "test@example.com"
+- name: "queryUserById"
+  version: "0.1.0"
+  handler: "QueryUserById"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryUserByIdRequest'
-    example: 
-      userId: user123
-- name: queryUserByTypeEntityId
-  version: 0.1.0
-  handler: QueryUserByTypeEntityId
-  scope: portal.r
+      $ref: "#/schemas/queryUserByIdRequest"
+    example:
+      userId: "user123"
+- name: "queryUserByTypeEntityId"
+  version: "0.1.0"
+  handler: "QueryUserByTypeEntityId"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryUserByTypeEntityIdRequest'
-    example: 
-      userType: C
-      entityId: cust123
-- name: getNonceByUserId
-  version: 0.1.0
-  handler: GetNonceByUserId
+      $ref: "#/schemas/queryUserByTypeEntityIdRequest"
+    example:
+      userType: "C"
+      entityId: "cust123"
+- name: "getNonceByUserId"
+  version: "0.1.0"
+  handler: "GetNonceByUserId"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/getNonceByUserIdRequest'
-    example: 
-      userId: user123
-- name: getUserLabel
-  version: 0.1.0
-  handler: GetUserLabel
+      $ref: "#/schemas/getNonceByUserIdRequest"
+    example:
+      userId: "user123"
+- name: "getUserLabel"
+  version: "0.1.0"
+  handler: "GetUserLabel"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/getUserLabelRequest'
-    example: 
-      hostId: host123
-- name: queryUserByWallet
-  version: 0.1.0
-  handler: QueryUserByWallet
-  scope: portal.r
+      $ref: "#/schemas/getUserLabelRequest"
+    example:
+      hostId: "host123"
+- name: "queryUserByWallet"
+  version: "0.1.0"
+  handler: "QueryUserByWallet"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryUserByWalletRequest'
-    example: 
+      $ref: "#/schemas/queryUserByWalletRequest"
+    example:
       taijiWallet: "0x1234567890abcdef"
-- name: loginUser
-  version: 0.1.0
-  handler: LoginUser
+- name: "loginUser"
+  version: "0.1.0"
+  handler: "LoginUser"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/loginUserRequest'
-    example: 
-      email: test@example.com
+      $ref: "#/schemas/loginUserRequest"
+    example:
+      email: "test@example.com"
       password: "password123"
-- name: getPrivateMessage
-  version: 0.1.0
-  handler: GetPrivateMessage
-  scope: portal.r
+- name: "getPrivateMessage"
+  version: "0.1.0"
+  handler: "GetPrivateMessage"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getPrivateMessageRequest'
-    example: 
-      email: test@example.com
-- name: getNotification
-  version: 0.1.0
-  handler: GetNotification
-  scope: portal.r
+      $ref: "#/schemas/getPrivateMessageRequest"
+    example:
+      email: "test@example.com"
+- name: "getNotification"
+  version: "0.1.0"
+  handler: "GetNotification"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getNotificationRequest'
-    example: 
-      email: test@example.com
-- name: listUserByHostId
-  version: 0.1.0
-  handler: ListUserByHostId
-  scope: portal.r
+      $ref: "#/schemas/getNotificationRequest"
+    example:
+      email: "test@example.com"
+- name: "listUserByHostId"
+  version: "0.1.0"
+  handler: "ListUserByHostId"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/listUserByHostIdRequest'
-    example: 
+      $ref: "#/schemas/listUserByHostIdRequest"
+    example:
       hostId: "host123"
       offset: 0
       limit: 10
-- name: getPayment
-  version: 0.1.0
-  handler: GetPayment
-  scope: portal.r
+- name: "getPayment"
+  version: "0.1.0"
+  handler: "GetPayment"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getPaymentRequest'
-    example: 
-      email: test@example.com
-- name: getPaymentById
-  version: 0.1.0
-  handler: GetPaymentById
-  scope: portal.r
+      $ref: "#/schemas/getPaymentRequest"
+    example:
+      email: "test@example.com"
+- name: "getPaymentById"
+  version: "0.1.0"
+  handler: "GetPaymentById"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getPaymentByIdRequest'
-    example: 
-      userId: user123
-- name: getClientToken
-  version: 0.1.0
-  handler: GetClientToken
-  scope: portal.r
+      $ref: "#/schemas/getPaymentByIdRequest"
+    example:
+      userId: "user123"
+- name: "getClientToken"
+  version: "0.1.0"
+  handler: "GetClientToken"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getClientTokenRequest'
-    example: 
-      userId: user123
-      merchantId: merchant123
-- name: getCustomerOrder
-  version: 0.1.0
-  handler: GetCustomerOrder
-  scope: portal.r
+      $ref: "#/schemas/getClientTokenRequest"
+    example:
+      userId: "user123"
+      merchantId: "merchant123"
+- name: "getCustomerOrder"
+  version: "0.1.0"
+  handler: "GetCustomerOrder"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getCustomerOrderRequest'
-    example: 
-      email: test@example.com
+      $ref: "#/schemas/getCustomerOrderRequest"
+    example:
+      email: "test@example.com"
       offset: 0
       limit: 10
-- name: getMerchantOrder
-  version: 0.1.0
-  handler: GetMerchantOrder
-  scope: portal.r
+- name: "getMerchantOrder"
+  version: "0.1.0"
+  handler: "GetMerchantOrder"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getMerchantOrderRequest'
-    example: 
-      email: test@example.com
+      $ref: "#/schemas/getMerchantOrderRequest"
+    example:
+      email: "test@example.com"
       status: "pending"
       offset: 0
       limit: 10
-- name: getReference
-  version: 0.1.0
-  handler: GetReference
+- name: "getReference"
+  version: "0.1.0"
+  handler: "GetReference"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/getReferenceRequest'
-    example: 
+      $ref: "#/schemas/getReferenceRequest"
+    example:
       name: "countries"
       lang: "en"
       rela: "region"
       from: "US"
-- name: listHost
-  version: 0.1.0
-  handler: ListHost
-  skipAuth: true
-- name: getHost
-  version: 0.1.0
-  handler: GetHost
-  scope: portal.r
+- name: "getRolesByEmail"
+  version: "0.1.0"
+  handler: "GetRolesByEmail"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getHostRequest'
-    example: 
-      offset: 0
-      limit: 10
-- name: getRolesByEmail
-  version: 0.1.0
-  handler: GetRolesByEmail
-  scope: portal.r
-  request:
-    schema:
-      $ref: '#/schemas/getRolesByEmailRequest'
-    example: 
-      email: test@example.com
+      $ref: "#/schemas/getRolesByEmailRequest"
+    example:
+      email: "test@example.com"

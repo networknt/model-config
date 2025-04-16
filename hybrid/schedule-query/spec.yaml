@@ -1,0 +1,90 @@
+---
+host: "lightapi.net"
+service: "schedule"
+schemas:
+  getScheduleByIdRequest:
+    title: "Schedule"
+    type: "object"
+    properties:
+      scheduleId:
+        type: "string"
+        description: "Schedule Id"
+    required:
+    - "scheduleId"
+  getScheduleLabelRequest:
+    title: "Schedule"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+      - "hostId"
+  getScheduleRequest:
+    title: "Schedules"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      scheduleId:
+        type: "string"
+        description: "Schedule Id"
+      scheduleName:
+        type: "string"
+        description: "Schedule Name"
+      frequencyUnit:
+        type: "string"
+        description: "Frequency Unit"
+      frequencyTime:
+        type: "integer"
+        description: "Frequency Time"
+      eventTopic:
+        type: "string"
+        description: "Event Topic"
+      eventType:
+        type: "string"
+        description: "Event Type"
+      eventData:
+        type: "object"
+        description: "Event Data"
+    required:
+    - "limit"
+    - "offset"
+    - "hostId"
+action:
+- name: "getScheduleById"
+  version: "0.1.0"
+  handler: "GetScheduleById"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getScheduleByIdRequest"
+    example:
+      scheduleId: "schedule123"
+- name: "getScheduleLabel"
+  version: "0.1.0"
+  handler: "GetScheduleLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getScheduleLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getSchedule"
+  version: "0.1.0"
+  handler: "GetSchedule"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getScheduleRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"

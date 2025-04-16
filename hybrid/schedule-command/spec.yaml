@@ -1,0 +1,135 @@
+---
+host: "lightapi.net"
+service: "schedule"
+schemas:
+  createScheduleRequest:
+    title: "Create Schedule"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+        readonly: true
+      scheduleId:
+        type: "string"
+        description: "Schedule Id"
+      scheduleName:
+        type: "string"
+        description: "Schedule Name"
+      frequencyUnit:
+        type: "string"
+        description: "Frequency Unit"
+      frequencyTime:
+        type: "integer"
+        description: "Frequency Time"
+      eventTopic:
+        type: "string"
+        description: "Event Topic"
+      eventType:
+        type: "string"
+        description: "Event Type"
+      eventData:
+        type: "object"
+        description: "Event Data"
+    required:
+    - "hostId"
+    - "scheduleId"
+    - "scheduleName"
+    - "frequencyUnit"
+    - "frequencyTime"
+    - "eventTopic"
+    - "eventType"
+    - "eventData"
+  updateScheduleRequest:
+    title: "Update Schedule"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+        readonly: true
+      scheduleId:
+        type: "string"
+        description: "Schedule Id"
+        readonly: true
+      scheduleName:
+        type: "string"
+        description: "Schedule Name"
+      frequencyUnit:
+        type: "string"
+        description: "Frequency Unit"
+      frequencyTime:
+        type: "integer"
+        description: "Frequency Time"
+      eventTopic:
+        type: "string"
+        description: "Event Topic"
+      eventType:
+        type: "string"
+        description: "Event Type"
+      eventData:
+        type: "object"
+        description: "Event Data"
+    required:
+    - "hostId"
+    - "scheduleId"
+    - "scheduleName"
+    - "frequencyUnit"
+    - "frequencyTime"
+    - "eventTopic"
+    - "eventType"
+    - "eventData"
+  deleteScheduleRequest:
+    title: "Delete Schedule"
+    type: "object"
+    properties:
+      scheduleId:
+        type: "string"
+        description: "Schedule Id"
+    required:
+    - "scheduleId"
+action:
+- name: "createSchedule"
+  version: "0.1.0"
+  handler: "CreateSchedule"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createScheduleRequest"
+    example:
+      hostId: "host123"
+      scheduleName: "1.0.0"
+      frequencyUnit: "MINUTES"
+      frequencyTime: 2
+      eventTopic: "portal-event"
+      eventType: "My Event"
+      eventData: 
+        key1: "value1"
+        key2: "value2"
+- name: "updateSchedule"
+  version: "0.1.0"
+  handler: "UpdateSchedule"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateScheduleRequest"
+    example:
+      hostId: "host123"
+      scheduleId: "schedule123"
+      scheduleName: "1.0.0"
+      frequencyUnit: "MINUTES"
+      frequencyTime: 2
+      eventTopic: "portal-event"
+      eventType: "My Event"
+      eventData: 
+        key1: "value1"
+        key2: "value2"
+- name: "deleteSchedule"
+  version: "0.1.0"
+  handler: "DeleteSchedule"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteScheduleRequest"
+    example:
+      scheduleId: "schedule123"
