@@ -15,6 +15,9 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
       productId:
         type: "string"
         description: "Product Id"
@@ -33,6 +36,73 @@ schemas:
       versionStatus:
         type: "string"
         description: "Version Status"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getProductVersionEnvironmentRequest:
+    title: "Product Version Environment"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      systemEnv:
+        type: "string"
+        description: "System Env"
+      runtimeEnv:
+        type: "string"
+        description: "Runtime Env"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getProductVersionPipelineRequest:
+    title: "Product Version Pipeline"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
+      pipelineName:
+        type: "string"
+        description: "Pipeline Name"
+      pipelineVersion:
+        type: "string"
+        description: "Pipeline Version"
     required:
     - "offset"
     - "limit"
@@ -59,6 +129,15 @@ schemas:
     required:
     - "hostId"
     - "productId"
+  getProductVersionIdLabelRequest:
+    title: "Product Version Id"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
 action:
 - name: "getProductVersion"
   version: "0.1.0"
@@ -67,6 +146,28 @@ action:
   request:
     schema:
       $ref: "#/schemas/getProductVersionRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getProductVersionEnvironment"
+  version: "0.1.0"
+  handler: "GetProductVersionEnvironment"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProductVersionEnvironmentRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getProductVersionPipeline"
+  version: "0.1.0"
+  handler: "GetProductVersionPipeline"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProductVersionPipelineRequest"
     example:
       offset: 0
       limit: 10
@@ -90,3 +191,12 @@ action:
     example:
       hostId: "host123"
       productId: "product123"
+- name: "getProductVersionIdLabel"
+  version: "0.1.0"
+  handler: "GetProductVersionIdLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getProductVersionIdLabelRequest"
+    example:
+      hostId: "host123"

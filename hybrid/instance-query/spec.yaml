@@ -21,6 +21,9 @@ schemas:
       instanceName:
         type: "string"
         description: "Instance Name"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
       productId:
         type: "string"
         description: "Product Id"
@@ -30,27 +33,39 @@ schemas:
       serviceId:
         type: "string"
         description: "Service Id"
-      apiId:
-        title: "Api Id"
-        type: "string"
-      apiVersion:
-        title: "Api Version"
-        type: "string"
+      current:
+        title: "Current"
+        type: "boolean"
+      readonly:
+        title: "Readonly"
+        type: "boolean"
       environment:
         type: "string"
         description: "Environment"
-      pipelineId:
-        type: "string"
-        description: "Pipeline Id"
       serviceDesc:
         type: "string"
         description: "Service Desc"
       instanceDesc:
         type: "string"
         description: "Instance Desc"
-      tagId:
+      zone:
         type: "string"
-        description: "Tag Id"
+        description: "Zone"
+      region:
+        type: "string"
+        description: "Region"
+      lob:
+        type: "string"
+        description: "Lob"
+      resourceName:
+        type: "string"
+        description: "Resource Name"
+      businessName:
+        type: "string"
+        description: "Business Name"
+      topicClassification:
+        type: "string"
+        description: "Topic Classification"
     required:
     - "offset"
     - "limit"
@@ -68,9 +83,24 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
+      instanceApiId:
+        type: "string"
+        description: "Instance Api Id"
       instanceId:
         type: "string"
         description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      apiVersionId:
+        type: "string"
+        description: "Api Version Id"
       apiId:
         type: "string"
         description: "Api Id"
@@ -80,6 +110,44 @@ schemas:
       active:
         type: "string"
         description: "Active"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getInstanceApiPathPrefixRequest:
+    title: "Instance Api Path Prefix"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceApiId:
+        type: "string"
+        description: "Instance Api Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      apiVersion:
+        type: "string"
+        description: "Api Version"
+      pathPrefix:
+        type: "string"
+        description: "Path Prefix"
     required:
       - "offset"
       - "limit"
@@ -97,9 +165,21 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
+      instanceAppId:
+        type: "string"
+        description: "Instance App Id"
       instanceId:
         type: "string"
         description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
       appId:
         type: "string"
         description: "App Id"
@@ -110,11 +190,120 @@ schemas:
         type: "string"
         description: "Active"
     required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getInstanceAppApiRequest:
+    title: "Instance App Api"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceAppId:
+        type: "string"
+        description: "Instance App Id"
+      appId:
+        type: "string"
+        description: "App Id"
+      appVersion:
+        type: "string"
+        description: "App Version"
+      instanceApiId:
+        type: "string"
+        description: "Instance Api Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      apiVersion:
+        type: "string"
+        description: "Api Version"
+      active:
+        type: "string"
+        description: "Active"
+    required:
       - "offset"
       - "limit"
       - "hostId"
+  getInstancePipelineRequest:
+    title: "Instance Pipeline"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
+      platformName:
+        type: "string"
+        description: "Platform Name"
+      platformVersion:
+        type: "string"
+        description: "Platform Version"
+      pipelineName:
+        type: "string"
+        description: "Pipeline Name"
+      pipelineVersion:
+        type: "string"
+        description: "Pipeline Version"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
   getInstanceLabelRequest:
     title: "Instance Label"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
+  getInstanceApiLabelRequest:
+    title: "Instance Api Label"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
+  getInstanceAppLabelRequest:
+    title: "Instance App Label"
     type: "object"
     properties:
       hostId:
@@ -145,6 +334,17 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getInstanceApiPathPrefix"
+  version: "0.1.0"
+  handler: "GetInstanceApiPathPrefix"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getInstanceApiPathPrefixRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
 - name: "getInstanceApp"
   version: "0.1.0"
   handler: "GetInstanceApp"
@@ -156,6 +356,28 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getInstanceAppApi"
+  version: "0.1.0"
+  handler: "GetInstanceAppApi"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getInstanceAppApiRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getInstancePipeline"
+  version: "0.1.0"
+  handler: "GetInstancePipeline"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getInstancePipelineRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
 - name: "getInstanceLabel"
   version: "0.1.0"
   handler: "GetInstanceLabel"
@@ -163,5 +385,23 @@ action:
   request:
     schema:
       $ref: "#/schemas/getInstanceLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getInstanceApiLabel"
+  version: "0.1.0"
+  handler: "GetInstanceApiLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getInstanceApiLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getInstanceAppLabel"
+  version: "0.1.0"
+  handler: "GetInstanceAppLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getInstanceAppLabelRequest"
     example:
       hostId: "host123"

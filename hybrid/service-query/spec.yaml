@@ -163,6 +163,15 @@ schemas:
         description: "Service Id"
     required:
     - "serviceId"
+  getApiVersionIdLabelRequest:
+    title: "Api Version Id"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
   getApiLabelRequest:
     title: "Api"
     type: "object"
@@ -310,6 +319,15 @@ action:
       $ref: "#/schemas/getServiceRoleByIdRequest"
     example:
       serviceId: "service123"
+- name: "getApiVersionIdLabel"
+  version: "0.1.0"
+  handler: "GetApiVersionIdLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getApiVersionIdLabelRequest"
+    example:
+      hostId: "host123"
 - name: "getApiLabel"
   version: "0.1.0"
   handler: "GetApiLabel"

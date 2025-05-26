@@ -61,6 +61,9 @@ schemas:
       configName:
         type: "string"
         description: "Config Name"
+      propertyId:
+        type: "string"
+        description: "Property Id"
       propertyName:
         type: "string"
         description: "Property Name"
@@ -103,8 +106,8 @@ schemas:
         description: "Resource Type"
     required:
     - "resourceType"
-  getPropertyNameLabelRequest:
-    title: "Get Property Name Label"
+  getPropertyIdLabelRequest:
+    title: "Get Property Id Label"
     type: "object"
     properties:
       configId:
@@ -157,6 +160,9 @@ schemas:
       limit:
         type: "integer"
         description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
       environment:
         type: "string"
         description: "Environment"
@@ -166,6 +172,9 @@ schemas:
       configName:
         type: "string"
         description: "Config Name"
+      propertyId:
+        type: "string"
+        description: "Property Id"
       propertyName:
         type: "string"
         description: "Property Name"
@@ -209,6 +218,9 @@ schemas:
       configName:
         type: "string"
         description: "Config Name"
+      propertyId:
+        type: "string"
+        description: "Property Id"
       propertyName:
         type: "string"
         description: "Property Name"
@@ -253,6 +265,9 @@ schemas:
       configName:
         type: "string"
         description: "Config Name"
+      propertyId:
+        type: "string"
+        description: "Property Id"
       propertyName:
         type: "string"
         description: "Property Name"
@@ -288,6 +303,9 @@ schemas:
       configName:
         type: "string"
         description: "Config Name"
+      propertyId:
+        type: "string"
+        description: "Property Id"
       propertyName:
         type: "string"
         description: "Property Name"
@@ -320,6 +338,9 @@ schemas:
       configName:
         type: "string"
         description: "Config Name"
+      propertyId:
+        type: "string"
+        description: "Property Id"
       propertyName:
         type: "string"
         description: "Property Name"
@@ -357,6 +378,9 @@ schemas:
       configName:
         type: "string"
         description: "Config Name"
+      propertyId:
+        type: "string"
+        description: "Property Id"
       propertyName:
         type: "string"
         description: "Property Name"
@@ -403,13 +427,13 @@ action:
   request:
     schema:
       $ref: "#/schemas/getConfigIdApiAppLabelRequest"
-- name: "getPropertyNameLabel"
+- name: "getPropertyIdLabel"
   version: "0.1.0"
-  handler: "GetPropertyNameLabel"
+  handler: "GetPropertyIdLabel"
   skipAuth: true
   request:
     schema:
-      $ref: "#/schemas/getPropertyNameLabelRequest"
+      $ref: "#/schemas/getPropertyIdLabelRequest"
 - name: "getPropertyNameApiAppLabel"
   version: "0.1.0"
   handler: "GetPropertyNameApiAppLabel"

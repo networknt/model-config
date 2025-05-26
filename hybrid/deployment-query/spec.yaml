@@ -18,9 +18,36 @@ schemas:
       pipelineId:
         type: "string"
         description: "Pipeline Id"
+      platformId:
+        type: "string"
+        description: "Platform Id"
+      platformName:
+        type: "string"
+        description: "Platform Name"
+      platformVersion:
+        type: "string"
+        description: "Platform Version"
+      pipelineVersion:
+        title: "Pipeline Version"
+        type: "string"
+      pipelineName:
+        title: "Pipeline Name"
+        type: "string"
+      current:
+        title: "Current"
+        type: "boolean"
       endpoint:
         type: "string"
         description: "Endpoint"
+      versionStatus:
+        title: "Version Status"
+        type: "string"
+      systemEnv:
+        title: "System Env"
+        type: "string"
+      runtimeEnv:
+        title: "Runtime Env"
+        type: "string"
       requestSchema:
         title: "Request Schema"
         type: "string"
@@ -77,14 +104,14 @@ schemas:
       proxyPort:
         title: "Proxy Port"
         type: "integer"
+      handlerClass:
+        title: "Handler Class"
+        type: "string"
+      consoleUrl:
+        title: "Console Url"
+        type: "string"
       environment:
         title: "Environment"
-        type: "string"
-      systemEnv:
-        title: "System Env"
-        type: "string"
-      runtimeEnv:
-        title: "Runtime Env"
         type: "string"
       zone:
         title: "Zone"
@@ -108,8 +135,8 @@ schemas:
         description: "Host Id"
     required:
     - "hostId"
-  getDeploymentRequest:
-    title: "Product Version"
+  getDeploymentInstanceRequest:
+    title: "Deployment Instance"
     type: "object"
     properties:
       offset:
@@ -124,19 +151,102 @@ schemas:
       instanceId:
         type: "string"
         description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
+      deploymentInstanceId:
+        type: "string"
+        description: "Deployment Instance Id"
+      serviceId:
+        type: "string"
+        description: "Service Id"
+      ipAddress:
+        title: "IP Address"
+        type: "string"
+      portNumber:
+        title: "Port Number"
+        type: "integer"
+      systemEnv:
+        title: "System Env"
+        type: "string"
+      runtimeEnv:
+        title: "Runtime Env"
+        type: "string"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
+      pipelineName:
+        type: "string"
+        description: "Pipeline Name"
+      pipelineVersion:
+        type: "string"
+        description: "Pipeline Version"
+      deployStatus:
+        title: "Deploy Status"
+        type: "string"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getDeploymentInstanceLabelRequest:
+    title: "Deployment Instance Label"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
+  getDeploymentInstancePipelineRequest:
+    title: "Deployment Instance Pipeline"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      systemEnv:
+        title: "System Env"
+        type: "string"
+      runtimeEnv:
+        title: "Runtime Env"
+        type: "string"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "systemEnv"
+    - "runtimeEnv"
+  getDeploymentRequest:
+    title: "Deployment"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      deploymentInstanceId:
+        type: "string"
+        description: "Deployment Instance Id"
       deploymentStatus:
         title: "Deployment Status"
         type: "string"
       deploymentType:
         title: "Deployment Type"
         type: "string"
-      pipelineId:
-        title: "Pipeline Id"
-        type: "string"
       scheduleTs:
         title: "Schedule Timestamp"
         type: "string"
         format: "date-time"
+      platformJobId:
+        title: "Platform Job Id"
+        type: "string"
     required:
     - "offset"
     - "limit"
@@ -182,6 +292,38 @@ action:
       $ref: "#/schemas/getPlatformLabelRequest"
     example:
       hostId: "host123"
+- name: "getDeploymentInstance"
+  version: "0.1.0"
+  handler: "GetDeploymentInstance"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getDeploymentInstanceRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getDeploymentInstanceLabel"
+  version: "0.1.0"
+  handler: "GetDeploymentInstanceLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getDeploymentInstanceLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getDeploymentInstancePipeline"
+  version: "0.1.0"
+  handler: "GetDeploymentInstancePipeline"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getDeploymentInstancePipelineRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      systemEnv: "VM Ubuntu 24.04"
+      runtimeEnv: "OpenJDK 21"
 - name: "getDeployment"
   version: "0.1.0"
   handler: "GetDeployment"

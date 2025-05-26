@@ -1,127 +1,295 @@
 ---
-host: lightapi.net
-service: product
+host: "lightapi.net"
+service: "product"
 schemas:
   createProductVersionRequest:
-    title: Product Version
-    type: object
+    title: "Product Version"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       productId:
-        type: string
-        description: Product Id
+        type: "string"
+        description: "Product Id"
       productVersion:
-        title: Product Version
-        type: string
+        title: "Product Version"
+        type: "string"
       light4jVersion:
-        title: Light-4j Version
-        type: string
+        title: "Light-4j Version"
+        type: "string"
+      breakCode:
+        title: "Break Code"
+        type: "boolean"
+      breakConfig:
+        title: "Break Config"
+        type: "boolean"
+      releaseNote:
+        title: "Release Note"
+        type: "string"
       versionDesc:
-        title: Version Desc
-        type: string
-      currentFlag:
-        title: Current Flag
-        type: string
+        title: "Version Desc"
+        type: "string"
+      releaseType:
+        title: "Release Type"
+        type: "string"
+      current:
+        title: "Current"
+        type: "boolean"
       versionStatus:
-        title: Version Status
-        type: string
+        title: "Version Status"
+        type: "string"
     required:
-    - hostId
-    - productId
-    - productVersion
-    - light4jVersion
-    - currentFlag
-    - versionStatus
+    - "hostId"
+    - "productId"
+    - "productVersion"
+    - "light4jVersion"
+    - "releaseType"
+    - "versionStatus"
+    if:
+      properties:
+        current:
+          const: true
+      required:
+        - current
+    then:
+      properties:
+        releaseType:
+          const: Production Release
   updateProductVersionRequest:
-    title: Product Version
-    type: object
+    title: "Product Version"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
       productId:
-        type: string
-        description: Product Id
+        type: "string"
+        description: "Product Id"
       productVersion:
-        title: Product Version
-        type: string
+        title: "Product Version"
+        type: "string"
       light4jVersion:
-        title: Light-4j Version
-        type: string
+        title: "Light-4j Version"
+        type: "string"
+      breakCode:
+        title: "Break Code"
+        type: "boolean"
+      breakConfig:
+        title: "Break Config"
+        type: "boolean"
+      releaseNote:
+        title: "Release Note"
+        type: "string"
       versionDesc:
-        title: Version Desc
-        type: string
-      currentFlag:
-        title: Current Flag
-        type: string
+        title: "Version Desc"
+        type: "string"
+      releaseType:
+        title: "Release Type"
+        type: "string"
+      current:
+        title: "Current Flag"
+        type: "boolean"
       versionStatus:
-        title: Version Status
-        type: string
+        title: "Version Status"
+        type: "string"
     required:
-    - hostId
-    - productId
-    - productVersion
-    - light4jVersion
-    - currentFlag
-    - versionStatus
+    - "hostId"
+    - "productVersionId"
+    - "productId"
+    - "productVersion"
+    - "light4jVersion"
+    - "releaseType"
+    - "versionStatus"
+    if:
+      properties:
+        current:
+          const: true
+      required:
+        - current
+    then:
+      properties:
+        releaseType:
+          const: Production Release
   deleteProductVersionRequest:
-    title: Position
-    type: object
+    title: "Position"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
-      productId:
-        type: string
-        description: Product Id
-      productVersion:
-        type: string
-        description: Product Version
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
     required:
-    - hostId
-    - productId
-    - productVersion
+    - "hostId"
+    - "productVersionId"
+  createProductVersionEnvironmentRequest:
+    title: "Product Version Environment"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      systemEnv:
+        title: "System Env"
+        type: "string"
+      runtimeEnv:
+        title: "Runtime Env"
+        type: "string"
+    required:
+    - "hostId"
+    - "productVersionId"
+    - "systemEnv"
+    - "runtimeEnv"
+  deleteProductVersionEnvironmentRequest:
+    title: "Product Version Environment"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      systemEnv:
+        type: "string"
+        description: "System Env"
+      runtimeEnv:
+        title: "Runtime Env"
+        type: "string"
+    required:
+    - "hostId"
+    - "productVersionId"
+    - "systemEnv"
+    - "runtimeEnv"
+  createProductVersionPipelineRequest:
+    title: "Product Version Pipeline"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      pipelineId:
+        title: "Pipeline Id"
+        type: "string"
+    required:
+    - "hostId"
+    - "productVersionId"
+    - "pipelineId"
+  deleteProductVersionPipelineRequest:
+    title: "Product Version Pipeline"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
+    required:
+    - "hostId"
+    - "productVersionId"
+    - "pipelineId"
 action:
-- name: createProductVersion
-  version: 0.1.0
-  handler: CreateProductVersion
-  scope: portal.w
+- name: "createProductVersion"
+  version: "0.1.0"
+  handler: "CreateProductVersion"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createProductVersionRequest'
-    example: 
-      hostId: host123
-      productId: lg
+      $ref: "#/schemas/createProductVersionRequest"
+    example:
+      hostId: "host123"
+      productId: "lg"
       productVersion: "1.5.1"
       light4jVersion: "2.1.38"
       versionDesc: "A patch release to fix a small issue in gateway"
+      releaseType: "Production Release"
       currentFlag: true
-      versionStatus: S
-- name: updateProductVersion
-  version: 0.1.0
-  handler: UpdateProductVersion
-  scope: portal.w
+      versionStatus: "S"
+- name: "updateProductVersion"
+  version: "0.1.0"
+  handler: "UpdateProductVersion"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateProductVersionRequest'
-    example: 
-      hostId: host123
-      productId: lg
+      $ref: "#/schemas/updateProductVersionRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersion123"
+      productId: "lg"
       productVersion: "1.5.1"
       light4jVersion: "2.1.38"
       versionDesc: "A patch release to fix a small issue in gateway"
+      releaseType: "Production Release"
       currentFlag: true
-      versionStatus: S
-- name: deleteProductVersion
-  version: 0.1.0
-  handler: DeleteProductVersion
-  scope: portal.w
+      versionStatus: "S"
+- name: "deleteProductVersion"
+  version: "0.1.0"
+  handler: "DeleteProductVersion"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteProductVersionRequest'
-    example: 
-      hostId: host123
-      productId: lg
-      productVersion: 1.5.1
+      $ref: "#/schemas/deleteProductVersionRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersion123"
+- name: "createProductVersionEnvironment"
+  version: "0.1.0"
+  handler: "CreateProductVersionEnvironment"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createProductVersionEnvironmentRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersionId123"
+      systemEnv: "VM Ubuntu 24.04"
+      runtimeEnv: "OpenJDK 21"
+- name: "deleteProductVersionEnvironment"
+  version: "0.1.0"
+  handler: "DeleteProductVersionEnvironment"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteProductVersionEnvironmentRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersionId123"
+      systemEnv: "VM Ubuntu 24.04"
+      runtimeEnv: "OpenJDK 21"
+- name: "createProductVersionPipeline"
+  version: "0.1.0"
+  handler: "CreateProductVersionPipeline"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createProductVersionPipelineRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersionId123"
+      pipelineId: "pipeline123"
+- name: "deleteProductVersionPipeline"
+  version: "0.1.0"
+  handler: "DeleteProductVersionPipeline"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteProductVersionPipelineRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersionId123"
+      pipelineId: "pipeline123"

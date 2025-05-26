@@ -9,14 +9,29 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      pipelineId:
-        type: "string"
-        description: "Pipeline Id"
       platformId:
         type: "string"
         description: "Platform Id"
+      pipelineVersion:
+        title: "Pipeline Version"
+        type: "string"
+      pipelineName:
+        title: "Pipeline Name"
+        type: "string"
+      current:
+        title: "Current"
+        type: "boolean"
       endpoint:
         title: "Endpoint"
+        type: "string"
+      versionStatus:
+        title: "Version Status"
+        type: "string"
+      systemEnv:
+        title: "System Environment"
+        type: "string"
+      runtimeEnv:
+        title: "Runtime Environment"
         type: "string"
       requestSchema:
         title: "Request Schema"
@@ -26,9 +41,11 @@ schemas:
         type: "string"
     required:
     - "hostId"
-    - "pipelineId"
     - "platformId"
+    - "pipelineVersion"
+    - "pipelineName"
     - "endpoint"
+    - "versionStatus"
     - "requestSchema"
     - "responseSchema"
   updatePipelineRequest:
@@ -44,8 +61,26 @@ schemas:
       platformId:
         type: "string"
         description: "Platform Id"
+      pipelineVersion:
+        title: "Pipeline Version"
+        type: "string"
+      pipelineName:
+        title: "Pipeline Name"
+        type: "string"
+      current:
+        title: "Current"
+        type: "boolean"
       endpoint:
         title: "Endpoint"
+        type: "string"
+      versionStatus:
+        title: "Version Status"
+        type: "string"
+      systemEnv:
+        title: "System Environment"
+        type: "string"
+      runtimeEnv:
+        title: "Runtime Environment"
         type: "string"
       requestSchema:
         title: "Request Schema"
@@ -57,7 +92,10 @@ schemas:
     - "hostId"
     - "pipelineId"
     - "platformId"
+    - "pipelineVersion"
+    - "pipelineName"
     - "endpoint"
+    - "versionStatus"
     - "requestSchema"
     - "responseSchema"
   deletePipelineRequest:
@@ -101,14 +139,14 @@ schemas:
       proxyPort:
         title: "Proxy Port"
         type: "integer"
+      handlerClass:
+        title: "Handler Class"
+        type: "string"
+      consoleUrl:
+        title: "Console Url"
+        type: "string"
       environment:
         title: "Environment"
-        type: "string"
-      systemEnv:
-        title: "System Env"
-        type: "string"
-      runtimeEnv:
-        title: "Runtime Env"
         type: "string"
       zone:
         title: "Zone"
@@ -126,6 +164,7 @@ schemas:
     - "clientType"
     - "clientUrl"
     - "credentials"
+    - "handlerClass"
   updatePlatformRequest:
     title: "Platform"
     type: "object"
@@ -157,14 +196,14 @@ schemas:
       proxyPort:
         title: "Proxy Port"
         type: "integer"
+      handlerClass:
+        title: "Handler Class"
+        type: "string"
+      consoleUrl:
+        title: "Console Url"
+        type: "string"
       environment:
         title: "Environment"
-        type: "string"
-      systemEnv:
-        title: "System Env"
-        type: "string"
-      runtimeEnv:
-        title: "Runtime Env"
         type: "string"
       zone:
         title: "Zone"
@@ -183,6 +222,7 @@ schemas:
     - "clientType"
     - "clientUrl"
     - "credentials"
+    - "handlerClass"
   deletePlatformRequest:
     title: "Platform"
     type: "object"
@@ -196,6 +236,93 @@ schemas:
     required:
     - "hostId"
     - "platformId"
+  createDeploymentInstanceRequest:
+    title: "Deployment Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      serviceId:
+        title: "Service Id"
+        type: "string"
+      ipAddress:
+        title: "IP Address"
+        type: "string"
+      portNumber:
+        title: "Port Number"
+        type: "integer"
+      systemEnv:
+        title: "System Env"
+        type: "string"
+      runtimeEnv:
+        title: "Runtime Env"
+        type: "string"
+      deployStatus:
+        title: "Deploy Status"
+        type: "string"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "serviceId"
+    - "systemEnv"
+    - "runtimeEnv"
+    - "deployStatus"
+  updateDeploymentInstanceRequest:
+    title: "Deployment Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      deploymentInstanceId:
+        type: "string"
+        description: "Deployment Instance Id"
+      serviceId:
+        title: "Service Id"
+        type: "string"
+      ipAddress:
+        title: "IP Address"
+        type: "string"
+      portNumber:
+        title: "Port Number"
+        type: "integer"
+      systemEnv:
+        title: "System Env"
+        type: "string"
+      runtimeEnv:
+        title: "Runtime Env"
+        type: "string"
+      deployStatus:
+        title: "Deploy Status"
+        type: "string"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "deploymentInstanceId"
+    - "serviceId"
+    - "systemEnv"
+    - "runtimeEnv"
+    - "deployStatus"
+  deleteDeploymentInstanceRequest:
+    title: "Deployment Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      deploymentInstanceId:
+        type: "string"
+        description: "Deployment Instance Id"
+    required:
+    - "hostId"
+    - "deploymentInstanceId"
   createDeploymentRequest:
     title: "Deployment"
     type: "object"
@@ -356,6 +483,45 @@ action:
     example:
       hostId: "host123"
       platformId: "platform123"
+- name: "createDeploymentInstance"
+  version: "0.1.0"
+  handler: "CreateDeploymentInstance"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createDeploymentInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      serviceId: "service123"
+      systemEnv: "Ubuntu Linux 24.04"
+      runtimeEnv: "OpenJDK 21"
+      deployStatus: "start"
+- name: "updateDeploymentInstance"
+  version: "0.1.0"
+  handler: "UpdateDeploymentInstance"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateDeploymentInstanceRequest"
+    example:
+      hostId: "host123"
+      deploymentInstanceId: "deploymentInstance123"
+      instanceId: "instance123"
+      serviceId: "service123"
+      systemEnv: "Ubuntu Linux 24.04"
+      runtimeEnv: "OpenJDK 21"
+      deployStatus: "start"
+- name: "deleteDeploymentInstance"
+  version: "0.1.0"
+  handler: "DeleteDeploymentInstance"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteDeploymentInstanceRequest"
+    example:
+      hostId: "host123"
+      deploymentInstanceId: "deploymentInstance123"
 - name: "createDeployment"
   version: "0.1.0"
   handler: "CreateDeployment"
