@@ -63,6 +63,9 @@ schemas:
       businessName:
         type: "string"
         description: "Business Name"
+      envTag:
+        type: "string"
+        description: "Env Tag"
       topicClassification:
         type: "string"
         description: "Topic Classification"
@@ -130,6 +133,9 @@ schemas:
       instanceApiId:
         type: "string"
         description: "Instance Api Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
       instanceName:
         type: "string"
         description: "Instance Name"
@@ -139,6 +145,9 @@ schemas:
       productVersion:
         type: "string"
         description: "Product Version"
+      apiVersionId:
+        type: "string"
+        description: "Api Version Id"
       apiId:
         type: "string"
         description: "Api Id"
@@ -149,9 +158,9 @@ schemas:
         type: "string"
         description: "Path Prefix"
     required:
-      - "offset"
-      - "limit"
-      - "hostId"
+    - "offset"
+    - "limit"
+    - "hostId"
   getInstanceAppRequest:
     title: "Instance App"
     type: "object"
@@ -237,9 +246,9 @@ schemas:
         type: "string"
         description: "Active"
     required:
-      - "offset"
-      - "limit"
-      - "hostId"
+    - "offset"
+    - "limit"
+    - "hostId"
   getInstancePipelineRequest:
     title: "Instance Pipeline"
     type: "object"
@@ -300,6 +309,9 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
     required:
     - "hostId"
   getInstanceAppLabelRequest:
@@ -309,6 +321,9 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
     required:
     - "hostId"
 action:

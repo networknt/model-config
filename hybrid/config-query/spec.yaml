@@ -115,8 +115,8 @@ schemas:
         description: "Config Id"
     required:
     - "configId"
-  getPropertyNameApiAppLabelRequest:
-    title: "Get Property Name Api App Label"
+  getPropertyIdApiAppLabelRequest:
+    title: "Get Property Id Api App Label"
     type: "object"
     properties:
       configId:
@@ -128,8 +128,8 @@ schemas:
     required:
     - "configId"
     - "resourceType"
-  getConfigPropertyByIdRequest:
-    title: "Get Config Property By Id"
+  getConfigPropertyByConfigIdRequest:
+    title: "Get Config Property By ConfigId"
     type: "object"
     properties:
       configId:
@@ -137,19 +137,19 @@ schemas:
         description: "Config Id"
     required:
     - "configId"
-  getConfigPropertyByIdNameRequest:
-    title: "Get Config Property By Id Name"
+  getConfigPropertyByPropertyIdRequest:
+    title: "Get Config Property By PropertyId"
     type: "object"
     properties:
       configId:
         type: "string"
         description: "Config Id"
-      propertyName:
+      propertyId:
         type: "string"
-        description: "Property Name"
+        description: "Property Id"
     required:
     - "configId"
-    - "propertyName"
+    - "propertyId"
   getConfigEnvironmentRequest:
     title: "Get Config Environment"
     type: "object"
@@ -181,9 +181,6 @@ schemas:
       propertyValue:
         type: "string"
         description: "Property Value"
-      propertyFile:
-        type: "string"
-        description: "Property File"
     required:
     - "offset"
     - "limit"
@@ -200,12 +197,18 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
+      instanceApiId:
+        type: "string"
+        description: "Instance Api Id"
       instanceId:
         type: "string"
         description: "Instance Id"
       instanceName:
         type: "string"
         description: "Instance Name"
+      apiVersionId:
+        type: "string"
+        description: "Api Version Id"
       apiId:
         type: "string"
         description: "Api Id"
@@ -227,9 +230,6 @@ schemas:
       propertyValue:
         type: "string"
         description: "Property Value"
-      propertyFile:
-        type: "string"
-        description: "Property File"
     required:
     - "offset"
     - "limit"
@@ -247,6 +247,9 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
+      instanceAppId:
+        type: "string"
+        description: "Instance App Id"
       instanceId:
         type: "string"
         description: "Instance Id"
@@ -274,9 +277,156 @@ schemas:
       propertyValue:
         type: "string"
         description: "Property Value"
-      propertyFile:
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getConfigInstanceAppApiRequest:
+    title: "Get Config Instance App Api"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
         type: "string"
-        description: "Property File"
+        description: "Host Id"
+      instanceAppId:
+        type: "string"
+        description: "Instance App Id"
+      instanceApiId:
+        type: "string"
+        description: "Instance Api Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
+      appId:
+        type: "string"
+        description: "App Id"
+      appVersion:
+        type: "string"
+        description: "App Version"
+      apiVersionId:
+        type: "string"
+        description: "Api Version Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      apiVersion:
+        type: "string"
+        description: "Api Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getConfigInstanceFileRequest:
+    title: "Config Instance File"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceFileId:
+        type: "string"
+        description: "Instance File Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
+      fileType:
+        type: "string"
+        description: "File Type"
+      fileName:
+        type: "string"
+        description: "File Name"
+      fileValue:
+        type: "string"
+        description: "File Value"
+      fileDesc:
+        type: "string"
+        description: "File Desc"
+      expirationTs:
+        type: "string"
+        description: "Expiration Ts"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getConfigDeploymentInstanceRequest:
+    title: "Config Deployment Instance"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      deploymentInstanceId:
+        type: "string"
+        description: "Deployment Instance Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      instanceName:
+        type: "string"
+        description: "Instance Name"
+      serviceId:
+        type: "string"
+        description: "Service Id"
+      ipAddress:
+        type: "string"
+        description: "Ip Address"
+      portNumber:
+        type: "string"
+        description: "Port Number"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+      propertyValue:
+        type: "string"
+        description: "Property Value"
     required:
     - "offset"
     - "limit"
@@ -434,13 +584,13 @@ action:
   request:
     schema:
       $ref: "#/schemas/getPropertyIdLabelRequest"
-- name: "getPropertyNameApiAppLabel"
+- name: "getPropertyIdApiAppLabel"
   version: "0.1.0"
-  handler: "GetPropertyNameApiAppLabel"
+  handler: "GetPropertyIdApiAppLabel"
   skipAuth: true
   request:
     schema:
-      $ref: "#/schemas/getPropertyNameApiAppLabelRequest"
+      $ref: "#/schemas/getPropertyIdApiAppLabelRequest"
 - name: "getConfigProperty"
   version: "0.1.0"
   handler: "GetConfigProperty"
@@ -451,25 +601,25 @@ action:
     example:
       offset: 0
       limit: 10
-- name: "getConfigPropertyById"
+- name: "getConfigPropertyByConfigId"
   version: "0.1.0"
-  handler: "GetConfigPropertyById"
+  handler: "GetConfigPropertyByConfigId"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getConfigPropertyByIdRequest"
+      $ref: "#/schemas/getConfigPropertyByConfigIdRequest"
     example:
       configId: "config123"
-- name: "getConfigPropertyByIdName"
+- name: "getConfigPropertyByPropertyId"
   version: "0.1.0"
-  handler: "GetConfigPropertyByIdName"
+  handler: "GetConfigPropertyByPropertyId"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getConfigPropertyByIdNameRequest"
+      $ref: "#/schemas/getConfigPropertyByPropertyIdRequest"
     example:
       configId: "config123"
-      propertyName: "property123"
+      propertyId: "property123"
 - name: "getConfigEnvironment"
   version: "0.1.0"
   handler: "GetConfigEnvironment"
@@ -498,6 +648,39 @@ action:
   request:
     schema:
       $ref: "#/schemas/getConfigInstanceAppRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getConfigInstanceAppApi"
+  version: "0.1.0"
+  handler: "GetConfigInstanceAppApi"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigInstanceAppApiRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getConfigInstanceFile"
+  version: "0.1.0"
+  handler: "GetConfigInstanceFile"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigInstanceFileRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getConfigDeploymentInstance"
+  version: "0.1.0"
+  handler: "GetConfigDeploymentInstance"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigDeploymentInstanceRequest"
     example:
       offset: 0
       limit: 10
