@@ -51,11 +51,11 @@ schemas:
         current:
           const: true
       required:
-        - current
+      - "current"
     then:
       properties:
         releaseType:
-          const: Production Release
+          const: "Production Release"
   updateProductVersionRequest:
     title: "Product Version"
     type: "object"
@@ -109,11 +109,11 @@ schemas:
         current:
           const: true
       required:
-        - current
+      - "current"
     then:
       properties:
         releaseType:
-          const: Production Release
+          const: "Production Release"
   deleteProductVersionRequest:
     title: "Position"
     type: "object"
@@ -203,6 +203,74 @@ schemas:
     - "hostId"
     - "productVersionId"
     - "pipelineId"
+  createProductVersionConfigRequest:
+    title: "Product Version Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      configId:
+        title: "Config Id"
+        type: "string"
+    required:
+    - "hostId"
+    - "productVersionId"
+    - "configId"
+  deleteProductVersionConfigRequest:
+    title: "Product Version Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      configId:
+        type: "string"
+        description: "Config Id"
+    required:
+    - "hostId"
+    - "productVersionId"
+    - "configId"
+  createProductVersionConfigPropertyRequest:
+    title: "Product Version Config Property"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      propertyId:
+        title: "Property Id"
+        type: "string"
+    required:
+    - "hostId"
+    - "productVersionId"
+    - "propertyId"
+  deleteProductVersionConfigPropertyRequest:
+    title: "Product Version Config Property"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+    required:
+    - "hostId"
+    - "productVersionId"
+    - "propertyId"
 action:
 - name: "createProductVersion"
   version: "0.1.0"
@@ -293,3 +361,47 @@ action:
       hostId: "host123"
       productVersionId: "productVersionId123"
       pipelineId: "pipeline123"
+- name: "createProductVersionConfig"
+  version: "0.1.0"
+  handler: "CreateProductVersionConfig"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createProductVersionConfigRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersionId123"
+      configId: "config123"
+- name: "deleteProductVersionConfig"
+  version: "0.1.0"
+  handler: "DeleteProductVersionConfig"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteProductVersionConfigRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersionId123"
+      configId: "config123"
+- name: "createProductVersionConfigProperty"
+  version: "0.1.0"
+  handler: "CreateProductVersionConfigProperty"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createProductVersionConfigPropertyRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersionId123"
+      propertyId: "property123"
+- name: "deleteProductVersionConfigProperty"
+  version: "0.1.0"
+  handler: "DeleteProductVersionConfigProperty"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteProductVersionConfigPropertyRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersionId123"
+      propertyId: "property123"

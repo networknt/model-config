@@ -107,6 +107,76 @@ schemas:
     - "offset"
     - "limit"
     - "hostId"
+  getProductVersionConfigRequest:
+    title: "Product Version Config"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getProductVersionConfigPropertyRequest:
+    title: "Product Version Config Property"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      productId:
+        type: "string"
+        description: "Product Id"
+      productVersion:
+        type: "string"
+        description: "Product Version"
+      configId:
+        type: "string"
+        description: "Config Id"
+      configName:
+        type: "string"
+        description: "Config Name"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      propertyName:
+        type: "string"
+        description: "Property Name"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
   getProductIdLabelRequest:
     title: "Product Id"
     type: "object"
@@ -168,6 +238,28 @@ action:
   request:
     schema:
       $ref: "#/schemas/getProductVersionPipelineRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getProductVersionConfig"
+  version: "0.1.0"
+  handler: "GetProductVersionConfig"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProductVersionConfigRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getProductVersionConfigProperty"
+  version: "0.1.0"
+  handler: "GetProductVersionConfigProperty"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProductVersionConfigPropertyRequest"
     example:
       offset: 0
       limit: 10
