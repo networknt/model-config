@@ -74,6 +74,70 @@ schemas:
     - "language"
     - "password"
     - "passwordConfirm"
+  onboardUserRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "user host indicator the organization for user"
+      email:
+        type: "string"
+        description: "user email address"
+      entityId:
+        type: "string"
+        description: "a unique entity id for user type"
+      userType:
+        title: "User Type"
+        type: "string"
+      referralId:
+        type: "string"
+        title: "Referral Id or Email"
+      managerId:
+        type: "string"
+        title: "Manager Id or Email"
+      language:
+        type: "string"
+        description: "preferred language of user"
+        enum:
+          - "en"
+      firstName:
+        type: "string"
+        description: "firstName of the user"
+      lastName:
+        type: "string"
+        description: "firstName of the user"
+      phoneNumber:
+        type: "string"
+        title: "Phone Number"
+      gender:
+        type: "string"
+        description: "user gender type"
+      birthday:
+        type: "string"
+        format: "date"
+        description: "birthday of the user"
+      country:
+        type: "string"
+        description: "country name"
+      province:
+        type: "string"
+        description: "province or state name"
+      city:
+        type: "string"
+        description: "city name"
+      postCode:
+        type: "string"
+        description: "postCode or zipCode"
+      address:
+        type: "string"
+        description: "address"
+    required:
+    - "hostId"
+    - "email"
+    - "entityId"
+    - "userType"
+    - "language"
   createSocialUserRequest:
     title: "Service"
     type: "object"
@@ -420,8 +484,10 @@ schemas:
     - "hostId"
     - "portalServices"
     oneOf:
-    - required: ["eventText"]
-    - required: ["eventUrl"]
+    - required:
+      - "eventText"
+    - required:
+      - "eventUrl"
 action:
 - name: "createUser"
   version: "0.1.0"
@@ -438,6 +504,29 @@ action:
       language: "en"
       password: "password"
       passwordConfirm: "password"
+      firstName: "John"
+      lastName: "Doe"
+      phoneNumber: "123-456-7890"
+      gender: "M"
+      birthday: "1980-01-01"
+      country: "US"
+      province: "CA"
+      city: "Los Angeles"
+      postCode: "12345"
+      address: "123 Main St"
+- name: "onboardUser"
+  version: "0.1.0"
+  handler: "OnboardUser"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/onboardUserRequest"
+    example:
+      hostId: "host123"
+      email: "test@example.com"
+      entityId: "cust123"
+      userType: "C"
+      language: "en"
       firstName: "John"
       lastName: "Doe"
       phoneNumber: "123-456-7890"
