@@ -51,6 +51,15 @@ schemas:
         description: "Host Id"
     required:
     - "hostId"
+  getUserLabelNotInHostRequest:
+    title: "User Label Not In Host"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
   queryUserByWalletRequest:
     title: "Service"
     type: "object"
@@ -257,6 +266,24 @@ schemas:
         description: "Merchant Email"
     required:
     - "email"
+  getHostsByUserIdRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      userId:
+        type: "string"
+        description: "User Id"
+    required:
+    - "userId"
+  getHostLabelByUserIdRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      userId:
+        type: "string"
+        description: "User Id"
+    required:
+    - "userId"
 action:
 - name: "queryUserByEmail"
   version: "0.1.0"
@@ -302,6 +329,15 @@ action:
   request:
     schema:
       $ref: "#/schemas/getUserLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getUserLabelNotInHost"
+  version: "0.1.0"
+  handler: "GetUserLabelNotInHost"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getUserLabelNotInHostRequest"
     example:
       hostId: "host123"
 - name: "queryUserByWallet"
@@ -424,3 +460,21 @@ action:
       $ref: "#/schemas/getRolesByEmailRequest"
     example:
       email: "test@example.com"
+- name: "getHostsByUserId"
+  version: "0.1.0"
+  handler: "GetHostsByUserId"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getHostsByUserIdRequest"
+    example:
+      userId: "01964b05-5532-7c79-8cde-191dcbd421b8"
+- name: "getHostLabelByUserId"
+  version: "0.1.0"
+  handler: "GetHostLabelByUserId"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getHostLabelByUserIdRequest"
+    example:
+      userId: "01964b05-5532-7c79-8cde-191dcbd421b8"

@@ -13,8 +13,8 @@ schemas:
         type: "integer"
         description: "Record limit"
     required:
-      - "limit"
-      - "offset"
+    - "limit"
+    - "offset"
   getHostRequest:
     title: "Host List"
     type: "object"
@@ -54,6 +54,17 @@ schemas:
         type: "string"
         description: "Host Id"
     required:
+    - "hostId"
+  getUserHostRequest:
+    title: "User Host"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "limit"
+    - "offset"
     - "hostId"
 action:
 - name: "getOrg"
@@ -108,4 +119,15 @@ action:
     schema:
       $ref: "#/schemas/getHostDomainByIdRequest"
     example:
+      hostId: "host123"
+- name: "getUserHost"
+  version: "0.1.0"
+  handler: "GetUserHost"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getUserHostRequest"
+    example:
+      offset: 0
+      limit: 10
       hostId: "host123"

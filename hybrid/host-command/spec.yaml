@@ -21,6 +21,7 @@ schemas:
     required:
     - "domain"
     - "orgName"
+    - "orgOwner"
   updateOrgRequest:
     title: "Update Org"
     type: "object"
@@ -40,6 +41,7 @@ schemas:
     required:
     - "domain"
     - "orgName"
+    - "orgOwner"
   deleteOrgRequest:
     title: "Delete Org"
     type: "object"
@@ -68,6 +70,7 @@ schemas:
     required:
     - "domain"
     - "subDomain"
+    - "hostOwner"
   updateHostRequest:
     title: "Update Host"
     type: "object"
@@ -91,6 +94,7 @@ schemas:
     - "hostId"
     - "domain"
     - "subDomain"
+    - "hostOwner"
   deleteHostRequest:
     title: "Delete Host"
     type: "object"
@@ -108,7 +112,37 @@ schemas:
         type: "string"
         description: "Host Id"
     required:
-      - "hostId"
+    - "hostId"
+  createUserHostRequest:
+    title: "Create User Host"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      userId:
+        type: "string"
+        description: "User Id"
+    required:
+    - "hostId"
+    - "userId"
+  deleteUserHostRequest:
+    title: "Delete User Host"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      userId:
+        type: "string"
+        description: "User Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "userId"
+    - "aggregateVersion"
 action:
 - name: "createOrg"
   version: "0.1.0"
@@ -182,3 +216,24 @@ action:
       $ref: "#/schemas/switchHostRequest"
     example:
       hostId: "host123"
+- name: "createUserHost"
+  version: "0.1.0"
+  handler: "CreateUserHost"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createUserHostRequest"
+    example:
+      hostId: "host123"
+      userId: "user123"
+- name: "deleteUserHost"
+  version: "0.1.0"
+  handler: "DeleteUserHost"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteUserHostRequest"
+    example:
+      hostId: "host123"
+      userId: "user123"
+      aggregateVersion: 1
