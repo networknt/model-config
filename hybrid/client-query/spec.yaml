@@ -15,28 +15,32 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      appId:
+      filters:
         type: "string"
-        description: "App Id"
-      appName:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "App Name"
-      appDesc:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "App Description"
-      isKafkaApp:
-        type: "boolean"
-        description: "Is Kafka App"
-      operationOwner:
-        type: "string"
-        description: "Operation Owner"
-      deliveryOwner:
-        type: "string"
-        description: "Delivery Owner"
+        description: "Sorting"
     required:
     - "hostId"
     - "offset"
     - "limit"
+  getAppByIdRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      appId:
+        type: "string"
+        description: "App Id"
+    required:
+      - "hostId"
+      - "appId"
   getAppIdLabelRequest:
     title: "Service"
     type: "object"
@@ -45,7 +49,7 @@ schemas:
         type: "string"
         description: "Host Id"
     required:
-      - "hostId"
+    - "hostId"
 action:
 - name: "getApp"
   version: "0.1.0"
@@ -58,6 +62,16 @@ action:
       hostId: "host123"
       offset: 0
       limit: 10
+- name: "getAppById"
+  version: "0.1.0"
+  handler: "GetAppById"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getAppByIdRequest"
+    example:
+      hostId: "host123"
+      appId: "app123"
 - name: "getAppIdLabel"
   version: "0.1.0"
   handler: "GetAppIdLabel"

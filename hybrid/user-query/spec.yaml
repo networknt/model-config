@@ -103,69 +103,24 @@ schemas:
     title: "Service"
     type: "object"
     properties:
-      hostId:
-        type: "string"
-        description: "user hostId"
       offset:
         type: "integer"
         description: "Record Offset"
       limit:
         type: "integer"
         description: "Record Limit"
-      email:
+      hostId:
         type: "string"
-        description: "Email"
-      language:
+        description: "user hostId"
+      filters:
         type: "string"
-        description: "Language"
-      userType:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "User Type"
-      entityId:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Entity Id"
-      referralId:
-        type: "string"
-        description: "Referral Id"
-      managerId:
-        type: "string"
-        description: "Manager Id"
-      firstName:
-        type: "string"
-        description: "First Name"
-      lastName:
-        type: "string"
-        description: "Last Name"
-      phoneNumber:
-        type: "string"
-        description: "Phone Number"
-      gender:
-        type: "string"
-        description: "Gender"
-      birthday:
-        type: "string"
-        description: "Birthday"
-      country:
-        type: "string"
-        description: "Country"
-      province:
-        type: "string"
-        description: "Province"
-      city:
-        type: "string"
-        description: "City"
-      address:
-        type: "string"
-        description: "Address"
-      postCode:
-        type: "string"
-        description: "Post Code"
-      verified:
-        type: "boolean"
-        description: "Verified"
-      locked:
-        type: "boolean"
-        description: "Locked"
+        description: "Sorting"
     required:
     - "hostId"
     - "offset"
@@ -284,6 +239,19 @@ schemas:
         description: "User Id"
     required:
     - "userId"
+  getUserByIdRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      userId:
+        type: "string"
+        description: "A unique user id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "userId"
+    - "aggregateVersion"
 action:
 - name: "queryUserByEmail"
   version: "0.1.0"
@@ -478,3 +446,13 @@ action:
       $ref: "#/schemas/getHostLabelByUserIdRequest"
     example:
       userId: "01964b05-5532-7c79-8cde-191dcbd421b8"
+- name: "getUserById"
+  version: "0.1.0"
+  handler: "GetUserById"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getUserByIdRequest"
+    example:
+      userId: "user123"
+      aggregateVersion: 1
