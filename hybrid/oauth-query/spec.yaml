@@ -37,63 +37,15 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      refreshToken:
+      filters:
         type: "string"
-        description: "Refresh Token"
-      userId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "User Id"
-      entityId:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Entity Id"
-      email:
-        type: "string"
-        description: "Email"
-      firstName:
-        type: "string"
-        description: "First Name"
-      lastName:
-        type: "string"
-        description: "Last Name"
-      clientId:
-        type: "string"
-        description: "Client Id"
-      appId:
-        type: "string"
-        description: "App Id"
-      appName:
-        type: "string"
-        description: "App Name"
-      scope:
-        type: "string"
-        description: "Scope"
-      userType:
-        type: "string"
-        description: "User Type"
-      roles:
-        type: "string"
-        description: "Roles"
-      groups:
-        type: "string"
-        description: "Groups"
-      positions:
-        type: "string"
-        description: "Positions"
-      attributes:
-        type: "string"
-        description: "Attributes"
-      csrf:
-        type: "string"
-        description: "CSRF"
-      customClaim:
-        type: "string"
-        description: "Custom Claim"
-      updateUser:
-        type: "string"
-        description: "Update User"
-      updateTs:
-        type: "string"
-        description: "Update Timestamp"
+        description: "Sorting"
     required:
     - "limit"
     - "offset"
@@ -120,54 +72,15 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      authCode:
+      filters:
         type: "string"
-        description: "Auth Code"
-      userId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "User Id"
-      entityId:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Entity Id"
-      userType:
-        type: "string"
-        description: "User Type"
-      email:
-        type: "string"
-        description: "Email"
-      roles:
-        type: "string"
-        description: "Roles"
-      groups:
-        type: "string"
-        description: "Groups"
-      positions:
-        type: "string"
-        description: "Positions"
-      attributes:
-        type: "string"
-        description: "Attributes"
-      redirectUri:
-        type: "string"
-        description: "Redirect Uri"
-      scope:
-        type: "string"
-        description: "Scope"
-      remember:
-        type: "string"
-        description: "Remember"
-      codeChallenge:
-        type: "string"
-        description: "Code Challenge"
-      challengeMethod:
-        type: "string"
-        description: "Challenge Method"
-      updateUser:
-        type: "string"
-        description: "Update User"
-      updateTs:
-        type: "string"
-        description: "Update Timestamp"
+        description: "Sorting"
     required:
     - "limit"
     - "offset"
@@ -194,6 +107,15 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
     - "limit"
     - "offset"
@@ -220,30 +142,15 @@ schemas:
       hostId:
         type: "string"
         description: "HostId"
-      providerId:
+      filters:
         type: "string"
-        description: "Provider Id"
-      providerName:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Provider Name"
-      providerDesc:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Provider Desc"
-      operationOwner:
-        type: "string"
-        description: "Operation Owner"
-      deliveryOwner:
-        type: "string"
-        description: "Delivery Owner"
-      jwk:
-        type: "string"
-        description: "JWK"
-      updateUser:
-        type: "string"
-        description: "Update User"
-      updateTs:
-        type: "string"
-        description: "Update Timestamp"
+        description: "Sorting"
     required:
     - "limit"
     - "offset"
@@ -288,46 +195,53 @@ schemas:
       hostId:
         type: "string"
         description: "HostId"
-      appId:
+      filters:
         type: "string"
-        description: "AppId"
-      clientId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "ClientId"
-      clientType:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "ClientType"
-      clientProfile:
-        type: "string"
-        description: "ClientProfile"
-      clientScope:
-        type: "string"
-        description: "ClientScope"
-      customClaim:
-        type: "string"
-        description: "CustomClaim"
-      redirectUri:
-        type: "string"
-        description: "RedirectUri"
-      authenticateClass:
-        type: "string"
-        description: "AuthenticateClass"
-      deRefClientId:
-        type: "string"
-        description: "DeRefClientId"
+        description: "Sorting"
     required:
     - "hostId"
     - "offset"
     - "limit"
-  getClientByIdRequest:
+  getFreshClientRequest:
     title: "Service"
     type: "object"
     properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
       clientId:
         type: "string"
         description: "Client Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
     required:
+    - "hostId"
     - "clientId"
+    - "aggregateVersion"
+  getFreshProviderRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "providerId"
+    - "aggregateVersion"
 action:
 - name: "getClientByProviderClientId"
   version: "0.1.0"
@@ -439,12 +353,25 @@ action:
       hostId: "host123"
       offset: 0
       limit: 10
-- name: "getClientById"
+- name: "getFreshClient"
   version: "0.1.0"
-  handler: "GetClientById"
+  handler: "GetFreshClient"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getClientByIdRequest"
+      $ref: "#/schemas/getFreshClientRequest"
     example:
       clientId: "client123"
+      hostId: "host123"
+      aggregateVersion: 1
+- name: "getFreshProvider"
+  version: "0.1.0"
+  handler: "GetFreshProvider"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshProviderRequest"
+    example:
+      providerId: "provider123"
+      hostId: "host123"
+      aggregateVersion: 1

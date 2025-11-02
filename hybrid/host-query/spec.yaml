@@ -37,6 +37,32 @@ schemas:
         description: "Domain"
     required:
     - "domain"
+  getFreshOrgRequest:
+    title: "Org"
+    type: "object"
+    properties:
+      domain:
+        type: "string"
+        description: "Domain"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "domain"
+    - "aggregateVersion"
+  getFreshHostRequest:
+    title: "Host"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "aggregateVersion"
   getHostByIdRequest:
     title: "Host Dashboard"
     type: "object"
@@ -59,6 +85,12 @@ schemas:
     title: "User Host"
     type: "object"
     properties:
+      offset:
+        type: "integer"
+        description: "Record offset"
+      limit:
+        type: "integer"
+        description: "Record limit"
       hostId:
         type: "string"
         description: "Host Id"
@@ -96,6 +128,26 @@ action:
       $ref: "#/schemas/getHostByDomainRequest"
     example:
       domain: "example.com"
+- name: "getFreshOrg"
+  version: "0.1.0"
+  handler: "GetFreshOrg"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshOrgRequest"
+    example:
+      domain: "example.com"
+      aggregateVersion: 1
+- name: "getFreshHost"
+  version: "0.1.0"
+  handler: "GetFreshHost"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshHostRequest"
+    example:
+      hostId: "host123"
+      aggregateVersion: 1
 - name: "getHostLabel"
   version: "0.1.0"
   handler: "GetHostLabel"
