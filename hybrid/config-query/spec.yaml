@@ -12,30 +12,31 @@ schemas:
       limit:
         type: "integer"
         description: "Limit"
-      configId:
+      filters:
         type: "string"
-        description: "Config Id"
-      configName:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Config Name"
-      configPhase:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Config Phase"
-      configType:
-        type: "string"
-        description: "Config Type"
-      light4jVersion:
-        type: "string"
-        description: "Light-4j Version"
-      classPath:
-        type: "string"
-        description: "Class Path"
-      configDesc:
-        type: "string"
-        description: "Config Desc"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
+  getFreshConfigRequest:
+    title: "Get Config"
+    type: "object"
+    properties:
+      configId:
+        type: "string"
+        description: "Config Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "configId"
+    - "aggregateVersion"
   getConfigByIdRequest:
     title: "Get Config By Id"
     type: "object"
@@ -55,48 +56,31 @@ schemas:
       limit:
         type: "integer"
         description: "Limit"
-      configId:
+      filters:
         type: "string"
-        description: "Config Id"
-      configName:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Config Name"
-      propertyId:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Property Id"
-      propertyName:
-        type: "string"
-        description: "Property Name"
-      propertyType:
-        type: "string"
-        description: "Property Type"
-      light4jVersion:
-        type: "string"
-        description: "Light-4j Version"
-      displayOrder:
-        type: "integer"
-        description: "Display Order"
-      required:
-        type: "boolean"
-        description: "Required"
-      propertyDesc:
-        type: "string"
-        description: "Property Desc"
-      propertyValue:
-        type: "string"
-        description: "Property Value"
-      valueType:
-        type: "string"
-        description: "Value Type"
-      propertyFile:
-        type: "string"
-        description: "Property File"
-      resourceType:
-        type: "string"
-        description: "Resource Type"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
+  getFreshConfigPropertyRequest:
+    title: "Get Config Property"
+    type: "object"
+    properties:
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "propertyId"
+    - "aggregateVersion"
   getConfigIdApiAppLabelRequest:
     title: "Get Config Id Api App Label"
     type: "object"
@@ -163,27 +147,40 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      environment:
+      filters:
         type: "string"
-        description: "Environment"
-      configId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Config Id"
-      configName:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Config Name"
-      propertyId:
-        type: "string"
-        description: "Property Id"
-      propertyName:
-        type: "string"
-        description: "Property Name"
-      propertyValue:
-        type: "string"
-        description: "Property Value"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
+    - "hostId"
+  getFreshConfigEnvironmentRequest:
+    title: "Get Config Environment"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      environment:
+        type: "string"
+        description: "Environment"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "environment"
+    - "propertyId"
+    - "aggregateVersion"
   getConfigInstanceApiRequest:
     title: "Get Config Instance Api"
     type: "object"
@@ -197,43 +194,40 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      instanceApiId:
+      filters:
         type: "string"
-        description: "Instance Api Id"
-      instanceId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Instance Id"
-      instanceName:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Instance Name"
-      apiVersionId:
-        type: "string"
-        description: "Api Version Id"
-      apiId:
-        type: "string"
-        description: "Api Id"
-      apiVersion:
-        type: "string"
-        description: "Api Version"
-      configId:
-        type: "string"
-        description: "Config Id"
-      configName:
-        type: "string"
-        description: "Config Name"
-      propertyId:
-        type: "string"
-        description: "Property Id"
-      propertyName:
-        type: "string"
-        description: "Property Name"
-      propertyValue:
-        type: "string"
-        description: "Property Value"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshConfigInstanceApiRequest:
+    title: "Get Config Instance Api"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceApiId:
+        type: "string"
+        description: "Instance Api Id"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "instanceApiId"
+    - "propertyId"
+    - "aggregateVersion"
   getConfigInstanceAppRequest:
     title: "Get Config Instance App"
     type: "object"
@@ -247,42 +241,394 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      instanceAppId:
+      filters:
         type: "string"
-        description: "Instance App Id"
-      instanceId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Instance Id"
-      instanceName:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Instance Name"
-      appId:
-        type: "string"
-        description: "App Id"
-      appVersion:
-        type: "string"
-        description: "App Version"
-      configId:
-        type: "string"
-        description: "Config Id"
-      configName:
-        type: "string"
-        description: "Config Name"
-      propertyId:
-        type: "string"
-        description: "Property Id"
-      propertyName:
-        type: "string"
-        description: "Property Name"
-      propertyValue:
-        type: "string"
-        description: "Property Value"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshConfigInstanceAppRequest:
+    title: "Get Config Instance App"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceAppId:
+        type: "string"
+        description: "Instance App Id"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "instanceAppId"
+    - "propertyId"
+    - "aggregateVersion"
   getConfigInstanceAppApiRequest:
     title: "Get Config Instance App Api"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshConfigInstanceAppApiRequest:
+    title: "Get Config Instance App Api"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceAppId:
+        type: "string"
+        description: "Instance App Id"
+      instanceApiId:
+        type: "string"
+        description: "Instance Api Id"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "instanceAppId"
+    - "instanceApiId"
+    - "propertyId"
+    - "aggregateVersion"
+  getConfigInstanceFileRequest:
+    title: "Config Instance File"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshConfigInstanceFileRequest:
+    title: "Config Instance File"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceFileId:
+        type: "string"
+        description: "Instance File Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "instanceFileId"
+    - "aggregateVersion"
+  getConfigDeploymentInstanceRequest:
+    title: "Config Deployment Instance"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshConfigDeploymentInstanceRequest:
+    title: "Config Deployment Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      deploymentInstanceId:
+        type: "string"
+        description: "Deployment Instance Id"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "deploymentInstanceId"
+    - "propertyId"
+    - "aggregateVersion"
+  getConfigInstanceRequest:
+    title: "Get Config Instance"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshConfigInstanceRequest:
+    title: "Get Config Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "propertyId"
+    - "aggregateVersion"
+  getConfigProductRequest:
+    title: "Get Config Product"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "offset"
+    - "limit"
+  getFreshConfigProductRequest:
+    title: "Get Config Product"
+    type: "object"
+    properties:
+      productId:
+        type: "string"
+        description: "Product Id"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "productId"
+    - "propertyId"
+    - "aggregateVersion"
+  getConfigProductVersionRequest:
+    title: "Get Config Product Version"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshConfigProductVersionRequest:
+    title: "Get Config Product Version"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "productVersionId"
+    - "propertyId"
+    - "aggregateVersion"
+  getApplicableConfigPropertiesForInstanceRequest:
+    title: "Get Applicable Config Properties for Instance"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      resourceTypes:
+        type: "array"
+        items:
+          type: "string"
+        description: "The allowed resource type for the property. One or combination of none, api, app, api|app_api, app|app_api, app_api, all"
+      configTypes:
+        type: "array"
+        items:
+          type: "string"
+        description: "The type of configuration. One or a combination of Module, Handler, Template"
+      propertyTypes:
+        type: "array"
+        items:
+          type: "string"
+        description: "The type of property. One or a combination of Config, File, Cert."
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+    - "instanceId"
+  getApplicableConfigPropertiesForInstanceApiRequest:
+    title: "Get Applicable Config Properties for Instance Api"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceApiId:
+        type: "string"
+        description: "Instance API Id"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+    - "instanceApiId"
+  getApplicableConfigPropertiesForInstanceAppRequest:
+    title: "Get Applicable Config Properties for Instance App"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceAppId:
+        type: "string"
+        description: "Instance App Id"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+    - "instanceAppId"
+  getApplicableConfigPropertiesForInstanceAppApiRequest:
+    title: "Get Applicable Config Properties for Instance App-Api"
     type: "object"
     properties:
       offset:
@@ -300,250 +646,48 @@ schemas:
       instanceApiId:
         type: "string"
         description: "Instance Api Id"
-      instanceId:
-        type: "string"
-        description: "Instance Id"
-      instanceName:
-        type: "string"
-        description: "Instance Name"
-      appId:
-        type: "string"
-        description: "App Id"
-      appVersion:
-        type: "string"
-        description: "App Version"
-      apiVersionId:
-        type: "string"
-        description: "Api Version Id"
-      apiId:
-        type: "string"
-        description: "Api Id"
-      apiVersion:
-        type: "string"
-        description: "Api Version"
-      configId:
-        type: "string"
-        description: "Config Id"
-      configName:
-        type: "string"
-        description: "Config Name"
-      propertyId:
-        type: "string"
-        description: "Property Id"
-      propertyName:
-        type: "string"
-        description: "Property Name"
-      propertyValue:
-        type: "string"
-        description: "Property Value"
     required:
     - "offset"
     - "limit"
     - "hostId"
-  getConfigInstanceFileRequest:
-    title: "Config Instance File"
+    - "instanceAppId"
+    - "instanceApiId"
+  downloadInstanceRuntimeConfigsRequest:
+    title: "Download instance runtime configs as a zip"
     type: "object"
     properties:
-      offset:
-        type: "integer"
-        description: "Offset"
-      limit:
-        type: "integer"
-        description: "Limit"
-      hostId:
-        type: "string"
-        description: "Host Id"
-      instanceFileId:
-        type: "string"
-        description: "Instance File Id"
-      instanceId:
-        type: "string"
-        description: "Instance Id"
-      instanceName:
-        type: "string"
-        description: "Instance Name"
-      fileType:
-        type: "string"
-        description: "File Type"
-      fileName:
-        type: "string"
-        description: "File Name"
-      fileValue:
-        type: "string"
-        description: "File Value"
-      fileDesc:
-        type: "string"
-        description: "File Desc"
-      expirationTs:
-        type: "string"
-        description: "Expiration Ts"
-    required:
-    - "offset"
-    - "limit"
-    - "hostId"
-  getConfigDeploymentInstanceRequest:
-    title: "Config Deployment Instance"
-    type: "object"
-    properties:
-      offset:
-        type: "integer"
-        description: "Offset"
-      limit:
-        type: "integer"
-        description: "Limit"
-      hostId:
-        type: "string"
-        description: "Host Id"
-      deploymentInstanceId:
-        type: "string"
-        description: "Deployment Instance Id"
-      instanceId:
-        type: "string"
-        description: "Instance Id"
-      instanceName:
-        type: "string"
-        description: "Instance Name"
-      serviceId:
-        type: "string"
-        description: "Service Id"
-      ipAddress:
-        type: "string"
-        description: "Ip Address"
-      portNumber:
-        type: "string"
-        description: "Port Number"
-      configId:
-        type: "string"
-        description: "Config Id"
-      configName:
-        type: "string"
-        description: "Config Name"
-      propertyId:
-        type: "string"
-        description: "Property Id"
-      propertyName:
-        type: "string"
-        description: "Property Name"
-      propertyValue:
-        type: "string"
-        description: "Property Value"
-    required:
-    - "offset"
-    - "limit"
-    - "hostId"
-  getConfigInstanceRequest:
-    title: "Get Config Instance"
-    type: "object"
-    properties:
-      offset:
-        type: "integer"
-        description: "Offset"
-      limit:
-        type: "integer"
-        description: "Limit"
       hostId:
         type: "string"
         description: "Host Id"
       instanceId:
         type: "string"
         description: "Instance Id"
-      configId:
-        type: "string"
-        description: "Config Id"
-      configName:
-        type: "string"
-        description: "Config Name"
-      propertyId:
-        type: "string"
-        description: "Property Id"
-      propertyName:
-        type: "string"
-        description: "Property Name"
-      propertyValue:
-        type: "string"
-        description: "Property Value"
-      propertyFile:
-        type: "string"
-        description: "Property File"
     required:
-    - "offset"
-    - "limit"
     - "hostId"
-  getConfigProductRequest:
-    title: "Get Config Product"
+    - "instanceId"
+  downloadInstanceRuntimePromotableConfigsRequest:
+    title: "Download instance runtime promotable configs as a zip"
     type: "object"
     properties:
-      offset:
-        type: "integer"
-        description: "Offset"
-      limit:
-        type: "integer"
-        description: "Limit"
-      productId:
-        type: "string"
-        description: "Product Id"
-      configId:
-        type: "string"
-        description: "Config Id"
-      configName:
-        type: "string"
-        description: "Config Name"
-      propertyId:
-        type: "string"
-        description: "Property Id"
-      propertyName:
-        type: "string"
-        description: "Property Name"
-      propertyValue:
-        type: "string"
-        description: "Property Value"
-      propertyFile:
-        type: "string"
-        description: "Property File"
-    required:
-    - "offset"
-    - "limit"
-  getConfigProductVersionRequest:
-    title: "Get Config Product Version"
-    type: "object"
-    properties:
-      offset:
-        type: "integer"
-        description: "Offset"
-      limit:
-        type: "integer"
-        description: "Limit"
       hostId:
         type: "string"
         description: "Host Id"
-      productId:
+      instanceId:
         type: "string"
-        description: "Product Id"
-      productVersion:
-        type: "string"
-        description: "Product Version"
-      configId:
-        type: "string"
-        description: "Config Id"
-      configName:
-        type: "string"
-        description: "Config Name"
-      propertyId:
-        type: "string"
-        description: "Property Id"
-      propertyName:
-        type: "string"
-        description: "Property Name"
-      propertyValue:
-        type: "string"
-        description: "Property Value"
-      propertyFile:
-        type: "string"
-        description: "Property File"
+        description: "Instance Id"
+      propertyNames:
+        type: "array"
+        items:
+          type: "string"
+        description: "The property names which should be included for filter. If you do not want this key to participate, provide the value of 'none' as a single item in the array"
+      apiUids:
+        type: "array"
+        items:
+          type: "string"
+        description: "The apiUids that should be included for filter, provide the value of 'none' as a single item in the array. The apiUids format is usually 'apiId-apiVersion', an example being 'api-1.0.0'"
     required:
-    - "offset"
-    - "limit"
     - "hostId"
+    - "instanceId"
 action:
 - name: "getConfig"
   version: "0.1.0"
@@ -555,6 +699,16 @@ action:
     example:
       offset: 0
       limit: 10
+- name: "getFreshConfig"
+  version: "0.1.0"
+  handler: "GetFreshConfig"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigRequest"
+    example:
+      configId: config123
+      aggregateVersion: 1
 - name: "getConfigById"
   version: "0.1.0"
   handler: "GetConfigById"
@@ -601,6 +755,16 @@ action:
     example:
       offset: 0
       limit: 10
+- name: "getFreshConfigProperty"
+  version: "0.1.0"
+  handler: "GetFreshConfigProperty"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigPropertyRequest"
+    example:
+      propertyId: property123
+      aggregateVersion: 1
 - name: "getConfigPropertyByConfigId"
   version: "0.1.0"
   handler: "GetConfigPropertyByConfigId"
@@ -630,6 +794,18 @@ action:
     example:
       offset: 0
       limit: 10
+- name: "getFreshConfigEnvironment"
+  version: "0.1.0"
+  handler: "GetFreshConfigEnvironment"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigEnvironmentRequest"
+    example:
+      hostId: host123
+      environment: test
+      propertyId: property123
+      aggregateVersion: 1
 - name: "getConfigInstanceApi"
   version: "0.1.0"
   handler: "GetConfigInstanceApi"
@@ -641,6 +817,18 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshConfigInstanceApi"
+  version: "0.1.0"
+  handler: "GetFreshConfigInstanceApi"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigInstanceApiRequest"
+    example:
+      hostId: host123
+      instanceApiId: "instanceApi123"
+      propertyId: "property123"
+      aggregateVersion: 1
 - name: "getConfigInstanceApp"
   version: "0.1.0"
   handler: "GetConfigInstanceApp"
@@ -652,6 +840,18 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshConfigInstanceApp"
+  version: "0.1.0"
+  handler: "GetFreshConfigInstanceApp"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigInstanceAppRequest"
+    example:
+      hostId: "host123"
+      instanceAppId: "instanceApp123"
+      propertyId: "property123"
+      aggregateVersion: 1
 - name: "getConfigInstanceAppApi"
   version: "0.1.0"
   handler: "GetConfigInstanceAppApi"
@@ -663,6 +863,19 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshConfigInstanceAppApi"
+  version: "0.1.0"
+  handler: "GetFreshConfigInstanceAppApi"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigInstanceAppApiRequest"
+    example:
+      hostId: "host123"
+      instanceAppId: "instanceApp123"
+      instanceApiId: "instanceApi123"
+      propertyId: "property123"
+      aggregateVersion: 1
 - name: "getConfigInstanceFile"
   version: "0.1.0"
   handler: "GetConfigInstanceFile"
@@ -674,6 +887,17 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshConfigInstanceFile"
+  version: "0.1.0"
+  handler: "GetFreshConfigInstanceFile"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigInstanceFileRequest"
+    example:
+      hostId: "host123"
+      instanceFileId: "instanceFile123"
+      aggregateVersion: 1
 - name: "getConfigDeploymentInstance"
   version: "0.1.0"
   handler: "GetConfigDeploymentInstance"
@@ -685,6 +909,18 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshConfigDeploymentInstance"
+  version: "0.1.0"
+  handler: "GetFreshConfigDeploymentInstance"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigDeploymentInstanceRequest"
+    example:
+      hostId: "host123"
+      deploymentInstanceId: "deploymentInstance123"
+      propertyId: "property123"
+      aggregateVersion: 1
 - name: "getConfigInstance"
   version: "0.1.0"
   handler: "GetConfigInstance"
@@ -696,6 +932,18 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshConfigInstance"
+  version: "0.1.0"
+  handler: "GetFreshConfigInstance"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      propertyId: "property123"
+      aggregateVersion: 1
 - name: "getConfigProduct"
   version: "0.1.0"
   handler: "GetConfigProduct"
@@ -706,6 +954,17 @@ action:
     example:
       offset: 0
       limit: 10
+- name: "getFreshConfigProduct"
+  version: "0.1.0"
+  handler: "GetFreshConfigProduct"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigProductRequest"
+    example:
+      productId: "product123"
+      propertyId: "property123"
+      aggregateVersion: 1
 - name: "getConfigProductVersion"
   version: "0.1.0"
   handler: "GetConfigProductVersion"
@@ -717,3 +976,94 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshConfigProductVersion"
+  version: "0.1.0"
+  handler: "GetFreshConfigProductVersion"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshConfigProductVersionRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersion123"
+      propertyId: "property123"
+      aggregateVersion: 1
+- name: "getApplicableConfigPropertiesForInstance"
+  version: "0.1.0"
+  handler: "GetApplicableConfigPropertiesForInstance"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getApplicableConfigPropertiesForInstanceRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+      resourceTypes:
+      - api
+      - app
+      configTypes:
+      - Handler
+      - Module
+      - Template
+      propertyTypes:
+      - Cert
+      - Config
+      - File
+- name: "getApplicableConfigPropertiesForInstanceApi"
+  version: "0.1.0"
+  handler: "GetApplicableConfigPropertiesForInstanceApi"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getApplicableConfigPropertiesForInstanceApiRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "uuid of host"
+      instanceApiId: "uuid of instance api"
+- name: "getApplicableConfigPropertiesForInstanceApp"
+  version: "0.1.0"
+  handler: "GetApplicableConfigPropertiesForInstanceApp"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getApplicableConfigPropertiesForInstanceAppRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "uuid of host"
+      instanceAppId: "uuid of instance app"
+- name: "getApplicableConfigPropertiesForInstanceAppApi"
+  version: "0.1.0"
+  handler: "GetApplicableConfigPropertiesForInstanceAppApi"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getApplicableConfigPropertiesForInstanceAppApiRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "uuid of host"
+      instanceApiId: "uuid of instance api"
+      instanceAppId: "uuid of instance app"
+- name: "downloadInstanceRuntimeConfigs"
+  version: "0.1.0"
+  handler: "DownloadInstanceRuntimeConfigs"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/downloadInstanceRuntimeConfigsRequest"
+    example:
+      hostId: "uuid of host"
+      instanceId: "uuid of instance api"
+- name: "downloadInstanceRuntimePromotableConfigs"
+  version: "0.1.0"
+  handler: "DownloadInstanceRuntimePromotableConfigs"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/downloadInstanceRuntimePromotableConfigsRequest"
+    example:
+      hostId: "uuid of host"
+      instanceId: "uuid of instance api"

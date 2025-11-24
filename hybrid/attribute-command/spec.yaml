@@ -1,538 +1,550 @@
 ---
-host: lightapi.net
-service: attribute
+host: "lightapi.net"
+service: "attribute"
 schemas:
   createAttributeRequest:
-    title: Attribute
-    type: object
+    title: "Attribute"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       attributeId:
-        type: string
-        description: Attribute Id
+        type: "string"
+        description: "Attribute Id"
       attributeDesc:
-        title: Attribute Desc
-        type: string
+        title: "Attribute Desc"
+        type: "string"
       attributeType:
-        title: Attribute Type
-        type: string
+        title: "Attribute Type"
+        type: "string"
     required:
-    - hostId
-    - attributeId
-    - attributeType
+    - "hostId"
+    - "attributeId"
+    - "attributeType"
   updateAttributeRequest:
-    title: Attribute
-    type: object
+    title: "Attribute"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       attributeId:
-        type: string
-        description: Attribute Id
+        type: "string"
+        description: "Attribute Id"
       attributeDesc:
-        title: Attribute Desc
-        type: string
+        title: "Attribute Desc"
+        type: "string"
       attributeType:
-        title: Attribute Type
-        type: string
+        title: "Attribute Type"
+        type: "string"
     required:
-    - hostId
-    - attributeId
-    - attributeType
-    - attributeDesc
+    - "hostId"
+    - "attributeId"
+    - "attributeType"
+    - "attributeDesc"
   deleteAttributeRequest:
-    title: Attribute
-    type: object
+    title: "Attribute"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       attributeId:
-        type: string
-        description: Attribute Id
+        type: "string"
+        description: "Attribute Id"
     required:
-    - hostId
-    - attributeId
+    - "hostId"
+    - "attributeId"
   createAttributeUserRequest:
-    title: Attribute User
-    type: object
+    title: "Attribute User"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       attributeId:
-        title: Attribute Id
-        type: string
+        title: "Attribute Id"
+        type: "string"
       attributeValue:
-        title: Attribute Value
-        type: string
+        title: "Attribute Value"
+        type: "string"
       userId:
-        title: User Id
-        type: string
+        title: "User Id"
+        type: "string"
       startTs:
-        title: Start Timestamp
-        type: string
-        format: date-time
+        title: "Start Timestamp"
+        type: "string"
+        format: "date-time"
       endTs:
-        title: End Timestamp
-        type: string
-        format: date-time
+        title: "End Timestamp"
+        type: "string"
+        format: "date-time"
     required:
-    - hostId
-    - attributeId
-    - attributeValue
-    - userId
-  deleteAttributeUserRequest:
-    title: Attribute User
-    type: object
+    - "hostId"
+    - "attributeId"
+    - "attributeValue"
+    - "userId"
+  updateAttributeUserRequest:
+    title: "Attribute User"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       attributeId:
-        title: Attribute Id
-        type: string
+        title: "Attribute Id"
+        type: "string"
+      attributeValue:
+        title: "Attribute Value"
+        type: "string"
       userId:
-        title: User Id
-        type: string
+        title: "User Id"
+        type: "string"
+      startTs:
+        title: "Start Timestamp"
+        type: "string"
+        format: "date-time"
+      endTs:
+        title: "End Timestamp"
+        type: "string"
+        format: "date-time"
     required:
-    - hostId
-    - attributeId
-    - userId
+      - "hostId"
+      - "attributeId"
+      - "attributeValue"
+      - "userId"
+  deleteAttributeUserRequest:
+    title: "Attribute User"
+    type: "object"
+    properties:
+      hostId:
+        title: "Host Id"
+        type: "string"
+      attributeId:
+        title: "Attribute Id"
+        type: "string"
+      userId:
+        title: "User Id"
+        type: "string"
+    required:
+    - "hostId"
+    - "attributeId"
+    - "userId"
   createAttributePermissionRequest:
-    title: Attribute Permission
-    type: object
+    title: "Attribute Permission"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       attributeId:
-        title: Attribute Id
-        type: string
+        title: "Attribute Id"
+        type: "string"
       attributeValue:
-        title: Attribute Value
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Attribute Value"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
     required:
-    - hostId
-    - attributeId
-    - attributeValue
-    - apiId
-    - apiVersion
-    - endpoint
+    - "hostId"
+    - "attributeId"
+    - "attributeValue"
+    - "apiVersionId"
+    - "endpointId"
+  updateAttributePermissionRequest:
+    title: "Attribute Permission"
+    type: "object"
+    properties:
+      hostId:
+        title: "Host Id"
+        type: "string"
+      attributeId:
+        title: "Attribute Id"
+        type: "string"
+      attributeValue:
+        title: "Attribute Value"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
+    required:
+    - "hostId"
+    - "attributeId"
+    - "attributeValue"
+    - "endpointId"
   deleteAttributePermissionRequest:
-    title: Attribute Permission
-    type: object
+    title: "Attribute Permission"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       attributeId:
-        title: Attribute Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Attribute Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
     required:
-    - hostId
-    - attributeId
-    - apiId
-    - apiVersion
-    - endpoint
+    - "hostId"
+    - "attributeId"
+    - "endpointId"
   createAttributeRowFilterRequest:
-    title: Attribute Row Filter
-    type: object
+    title: "Attribute Row Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       attributeId:
-        title: Attribute Id
-        type: string
+        title: "Attribute Id"
+        type: "string"
       attributeValue:
-        title: Attribute Value
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Attribute Value"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       colName:
-        title: Column Name
-        type: string
+        title: "Column Name"
+        type: "string"
       operator:
-        title: Operator
-        type: string
+        title: "Operator"
+        type: "string"
       colValue:
-        title: Column Value
-        type: string
+        title: "Column Value"
+        type: "string"
     required:
-    - hostId
-    - attributeId
-    - attributeValue
-    - apiId
-    - apiVersion
-    - endpoint
-    - colName
-    - operator
-    - colValue
+    - "hostId"
+    - "attributeId"
+    - "attributeValue"
+    - "apiVersionId"
+    - "endpointId"
+    - "colName"
+    - "operator"
+    - "colValue"
   updateAttributeRowFilterRequest:
-    title: Attribute Row Filter
-    type: object
+    title: "Attribute Row Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       attributeId:
-        title: Attribute Id
-        type: string
+        title: "Attribute Id"
+        type: "string"
       attributeValue:
-        title: Attribute Value
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Attribute Value"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       colName:
-        title: Column Name
-        type: string
+        title: "Column Name"
+        type: "string"
       operator:
-        title: Operator
-        type: string
+        title: "Operator"
+        type: "string"
       colValue:
-        title: Column Value
-        type: string
+        title: "Column Value"
+        type: "string"
     required:
-    - hostId
-    - attributeId
-    - attributeValue
-    - apiId
-    - apiVersion
-    - endpoint
-    - colName
-    - operator
-    - colValue
+    - "hostId"
+    - "attributeId"
+    - "attributeValue"
+    - "endpointId"
+    - "colName"
+    - "operator"
+    - "colValue"
   deleteAttributeRowFilterRequest:
-    title: Attribute Row Filter
-    type: object
+    title: "Attribute Row Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       attributeId:
-        title: Attribute Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Attribute Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       colName:
-        title: Column Name
-        type: string
+        title: "Column Name"
+        type: "string"
     required:
-    - hostId
-    - attributeId
-    - apiId
-    - apiVersion
-    - endpoint
-    - colName
+    - "hostId"
+    - "attributeId"
+    - "endpointId"
+    - "colName"
   createAttributeColFilterRequest:
-    title: Attribute Column Filter
-    type: object
+    title: "Attribute Column Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       attributeId:
-        title: Attribute Id
-        type: string
+        title: "Attribute Id"
+        type: "string"
       attributeValue:
-        title: Attribute Value
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Attribute Value"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       columns:
-        title: Columns
-        type: string
+        title: "Columns"
+        type: "string"
     required:
-    - hostId
-    - attributeId
-    - attributeValue
-    - apiId
-    - apiVersion
-    - endpoint
-    - columns
+    - "hostId"
+    - "attributeId"
+    - "attributeValue"
+    - "apiVersionId"
+    - "endpointId"
+    - "columns"
   updateAttributeColFilterRequest:
-    title: Attribute Col Filter
-    type: object
+    title: "Attribute Col Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       attributeId:
-        title: Attribute Id
-        type: string
+        title: "Attribute Id"
+        type: "string"
       attributeValue:
-        title: Attribute Value
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Attribute Value"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       columns:
-        title: Columns
-        type: string
+        title: "Columns"
+        type: "string"
     required:
-    - hostId
-    - attributeId
-    - attributeValue
-    - apiId
-    - apiVersion
-    - endpoint
-    - columns
+    - "hostId"
+    - "attributeId"
+    - "attributeValue"
+    - "endpointId"
+    - "columns"
   deleteAttributeColFilterRequest:
-    title: Attribute Col Filter
-    type: object
+    title: "Attribute Col Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       attributeId:
-        title: Attribute Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Attribute Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
     required:
-    - hostId
-    - attributeId
-    - apiId
-    - apiVersion
-    - endpoint
+    - "hostId"
+    - "attributeId"
+    - "endpointId"
 action:
-- name: createAttribute
-  version: 0.1.0
-  handler: CreateAttribute
-  scope: portal.w
+- name: "createAttribute"
+  version: "0.1.0"
+  handler: "CreateAttribute"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createAttributeRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      attributeType: string
-      attributeDesc: This is a sample attribute
-- name: updateAttribute
-  version: 0.1.0
-  handler: UpdateAttribute
-  scope: portal.w
+      $ref: "#/schemas/createAttributeRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      attributeType: "string"
+      attributeDesc: "This is a sample attribute"
+- name: "updateAttribute"
+  version: "0.1.0"
+  handler: "UpdateAttribute"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateAttributeRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      attributeType: boolean
-      attributeDesc: This is an updated description
-- name: deleteAttribute
-  version: 0.1.0
-  handler: DeleteAttribute
-  scope: portal.w
+      $ref: "#/schemas/updateAttributeRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      attributeType: "boolean"
+      attributeDesc: "This is an updated description"
+- name: "deleteAttribute"
+  version: "0.1.0"
+  handler: "DeleteAttribute"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteAttributeRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-- name: createAttributeUser
-  version: 0.1.0
-  handler: CreateAttributeUser
-  scope: portal.w
+      $ref: "#/schemas/deleteAttributeRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+- name: "createAttributeUser"
+  version: "0.1.0"
+  handler: "CreateAttributeUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createAttributeUserRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      userId: user123
-      attributeValue: test
-      startTs: 2024-04-01T10:00:00Z
-      endTs: 2024-04-30T10:00:00Z
-- name: deleteAttributeUser
-  version: 0.1.0
-  handler: DeleteAttributeUser
-  scope: portal.w
+      $ref: "#/schemas/createAttributeUserRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      userId: "user123"
+      attributeValue: "test"
+      startTs: "2024-04-01T10:00:00Z"
+      endTs: "2024-04-30T10:00:00Z"
+- name: "updateAttributeUser"
+  version: "0.1.0"
+  handler: "UpdateAttributeUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteAttributeUserRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      userId: user123
-- name: createAttributePermission
-  version: 0.1.0
-  handler: CreateAttributePermission
-  scope: portal.w
+      $ref: "#/schemas/updateAttributeUserRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      userId: "user123"
+      attributeValue: "test"
+      startTs: "2024-04-01T10:00:00Z"
+      endTs: "2024-04-30T10:00:00Z"
+- name: "deleteAttributeUser"
+  version: "0.1.0"
+  handler: "DeleteAttributeUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createAttributePermissionRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      attributeValue: test
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-- name: deleteAttributePermission
-  version: 0.1.0
-  handler: DeleteAttributePermission
-  scope: portal.w
+      $ref: "#/schemas/deleteAttributeUserRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      userId: "user123"
+- name: "createAttributePermission"
+  version: "0.1.0"
+  handler: "CreateAttributePermission"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteAttributePermissionRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-- name: createAttributeRowFilter
-  version: 0.1.0
-  handler: CreateAttributeRowFilter
-  scope: portal.w
+      $ref: "#/schemas/createAttributePermissionRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      attributeValue: "test"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+- name: "updateAttributePermission"
+  version: "0.1.0"
+  handler: "UpdateAttributePermission"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createAttributeRowFilterRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      attributeValue: test
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      colName: name
-      operator: equals
-      colValue: test
-- name: updateAttributeRowFilter
-  version: 0.1.0
-  handler: UpdateAttributeRowFilter
-  scope: portal.w
+      $ref: "#/schemas/updateAttributePermissionRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      attributeValue: "test"
+      endpointId: "endpoint123"
+- name: "deleteAttributePermission"
+  version: "0.1.0"
+  handler: "DeleteAttributePermission"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateAttributeRowFilterRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      attributeValue: test2
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      colName: name
-      operator: contains
-      colValue: test
-- name: deleteAttributeRowFilter
-  version: 0.1.0
-  handler: DeleteAttributeRowFilter
-  scope: portal.w
+      $ref: "#/schemas/deleteAttributePermissionRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+- name: "createAttributeRowFilter"
+  version: "0.1.0"
+  handler: "CreateAttributeRowFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteAttributeRowFilterRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      colName: name
-- name: createAttributeColFilter
-  version: 0.1.0
-  handler: CreateAttributeColFilter
-  scope: portal.w
+      $ref: "#/schemas/createAttributeRowFilterRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      attributeValue: "test"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+      colName: "name"
+      operator: "equals"
+      colValue: "test"
+- name: "updateAttributeRowFilter"
+  version: "0.1.0"
+  handler: "UpdateAttributeRowFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createAttributeColFilterRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      attributeValue: test
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      columns: col1, col2
-- name: updateAttributeColFilter
-  version: 0.1.0
-  handler: UpdateAttributeColFilter
-  scope: portal.w
+      $ref: "#/schemas/updateAttributeRowFilterRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      attributeValue: "test2"
+      endpointId: "endpoint123"
+      colName: "name"
+      operator: "contains"
+      colValue: "test"
+- name: "deleteAttributeRowFilter"
+  version: "0.1.0"
+  handler: "DeleteAttributeRowFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateAttributeColFilterRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      attributeValue: test2
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      columns: col2, col3
-- name: deleteAttributeColFilter
-  version: 0.1.0
-  handler: DeleteAttributeColFilter
-  scope: portal.w
+      $ref: "#/schemas/deleteAttributeRowFilterRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      endpointId: "endpoint123"
+      colName: "name"
+- name: "createAttributeColFilter"
+  version: "0.1.0"
+  handler: "CreateAttributeColFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteAttributeColFilterRequest'
-    example: 
-      hostId: host123
-      attributeId: attr123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
+      $ref: "#/schemas/createAttributeColFilterRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      attributeValue: "test"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+      columns: "col1, col2"
+- name: "updateAttributeColFilter"
+  version: "0.1.0"
+  handler: "UpdateAttributeColFilter"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateAttributeColFilterRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      attributeValue: "test2"
+      endpointId: "endpoint123"
+      columns: "col2, col3"
+- name: "deleteAttributeColFilter"
+  version: "0.1.0"
+  handler: "DeleteAttributeColFilter"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteAttributeColFilterRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      endpointId: "endpoint123"

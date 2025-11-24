@@ -1,247 +1,341 @@
 ---
-host: lightapi.net
-service: role
+host: "lightapi.net"
+service: "role"
 schemas:
   getRoleRequest:
-    title: Role
-    type: object
+    title: "Role"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      roleId:
-        type: string
-        description: Role Id
-      roleDesc:
-        type: string
-        description: Role Desc
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshRoleRequest:
+    title: "Role"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      roleId:
+        type: "string"
+        description: "Role Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "roleId"
+    - "aggregateVersion"
   queryRolePermissionRequest:
-    title: Role Permission
-    type: object
+    title: "Role Permission"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      roleId:
-        type: string
-        description: Role Id
-      apiId:
-        type: string
-        description: Api Id
-      apiVersion:
-        type: string
-        description: Api Version
-      endpoint:
-        type: string
-        description: Endpoint
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
   queryRoleUserRequest:
-    title: Role User
-    type: object
+    title: "Role User"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshRoleUserRequest:
+    title: "Role User"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
       roleId:
-        type: string
-        description: Role Id
+        type: "string"
+        description: "Role Id"
       userId:
-        type: string
-        description: User Id
-      entityId:
-        type: string
-        description: Entity Id
-      email:
-        type: string
-        description: Email
-      firstName:
-        type: string
-        description: First Name
-      lastName:
-        type: string
-        description: Last Name
-      userType:
-        type: string
-        description: User Type
+        type: "string"
+        description: "User Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
     required:
-    - offset
-    - limit
-    - hostId
+    - "hostId"
+    - "roleId"
+    - "userId"
+    - "aggregateVersion"
   getRoleLabelRequest:
-    title: Role Label
-    type: object
+    title: "Role Label"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
     required:
-    - hostId
+    - "hostId"
   queryRoleRowFilterRequest:
-    title: Role Row Filter
-    type: object
+    title: "Role Row Filter"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      roleId:
-        type: string
-        description: Role Id
-      apiId:
-        type: string
-        description: Api Id
-      apiVersion:
-        type: string
-        description: Api Version
-      endpoint:
-        type: string
-        description: Endpoint
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshRoleRowFilterRequest:
+    title: "Role Row Filter"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      roleId:
+        type: "string"
+        description: "Role Id"
+      endpointId:
+        type: "string"
+        description: "Endpoint Id"
+      colName:
+        type: "string"
+        description: "Col Name"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "roleId"
+    - "endpointId"
+    - "colName"
+    - "aggregateVersion"
   queryRoleColFilterRequest:
-    title: Role Col Filter
-    type: object
+    title: "Role Col Filter"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      roleId:
-        type: string
-        description: Role Id
-      apiId:
-        type: string
-        description: Api Id
-      apiVersion:
-        type: string
-        description: Api Version
-      endpoint:
-        type: string
-        description: Endpoint
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshRoleColFilterRequest:
+    title: "Role Col Filter"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      roleId:
+        type: "string"
+        description: "Role Id"
+      endpointId:
+        type: "string"
+        description: "Endpoint Id"
+      aggregateVersion:
+        type: "string"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "roleId"
+    - "endpointId"
+    - "aggregateVersion"
 action:
-- name: getRole
-  version: 0.1.0
-  handler: GetRole
-  scope: portal.r
+- name: "getRole"
+  version: "0.1.0"
+  handler: "GetRole"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getRoleRequest'
-    example: 
+      $ref: "#/schemas/getRoleRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      roleId: role123
-      roleDesc: "This is a role"
-- name: queryRolePermission
-  version: 0.1.0
-  handler: QueryRolePermission
-  scope: portal.r
+      hostId: "host123"
+- name: "getFreshRole"
+  version: "0.1.0"
+  handler: "GetFreshRole"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryRolePermissionRequest'
-    example: 
-      offset: 0
-      limit: 10
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: "endpoint"
-- name: queryRoleUser
-  version: 0.1.0
-  handler: QueryRoleUser
-  scope: portal.r
+      $ref: "#/schemas/getFreshRoleRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      aggregateVersion: 1
+- name: "queryRolePermission"
+  version: "0.1.0"
+  handler: "QueryRolePermission"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryRoleUserRequest'
-    example: 
+      $ref: "#/schemas/queryRolePermissionRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      roleId: role123
-      userId: user123
-      entityId: cust123
-      email: test@example.com
-      firstName: John
-      lastName: Doe
-      userType: C
-- name: getRoleLabel
-  version: 0.1.0
-  handler: GetRoleLabel
+      hostId: "host123"
+- name: "queryRoleUser"
+  version: "0.1.0"
+  handler: "QueryRoleUser"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/queryRoleUserRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getFreshRoleUser"
+  version: "0.1.0"
+  handler: "GetFreshRoleUser"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshRoleUserRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      userId: "user123"
+      aggregateVersion: 1
+- name: "getRoleLabel"
+  version: "0.1.0"
+  handler: "GetRoleLabel"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/getRoleLabelRequest'
-    example: 
-      hostId: host123
-- name: queryRoleRowFilter
-  version: 0.1.0
-  handler: QueryRoleRowFilter
-  scope: portal.r
+      $ref: "#/schemas/getRoleLabelRequest"
+    example:
+      hostId: "host123"
+- name: "queryRoleRowFilter"
+  version: "0.1.0"
+  handler: "QueryRoleRowFilter"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryRoleRowFilterRequest'
-    example: 
+      $ref: "#/schemas/queryRoleRowFilterRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-- name: queryRoleColFilter
-  version: 0.1.0
-  handler: QueryRoleColFilter
-  scope: portal.r
+      hostId: "host123"
+- name: "getFreshRoleRowFilter"
+  version: "0.1.0"
+  handler: "GetFreshRoleRowFilter"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryRoleColFilterRequest'
-    example: 
+      $ref: "#/schemas/getFreshRoleRowFilterRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      endpointId: "endpoint123"
+      colName: "col123"
+      aggregateVersion: 1
+- name: "queryRoleColFilter"
+  version: "0.1.0"
+  handler: "QueryRoleColFilter"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/queryRoleColFilterRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
+      hostId: "host123"
+- name: "getFreshRoleColFilter"
+  version: "0.1.0"
+  handler: "GetFreshRoleColFilter"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshRoleColFilterRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      endpointId: "endpoint123"
+      aggregateVersion: 1
+

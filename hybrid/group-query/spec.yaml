@@ -1,247 +1,340 @@
 ---
-host: lightapi.net
-service: group
+host: "lightapi.net"
+service: "group"
 schemas:
   getGroupRequest:
-    title: Group
-    type: object
+    title: "Group"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      groupId:
-        type: string
-        description: Group Id
-      groupDesc:
-        type: string
-        description: Group Desc
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshGroupRequest:
+    title: "Group"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      groupId:
+        type: "string"
+        description: "Group Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "groupId"
+    - "aggregateVersion"
   queryGroupPermissionRequest:
-    title: Group Permission
-    type: object
+    title: "Group Permission"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      groupId:
-        type: string
-        description: Group Id
-      apiId:
-        type: string
-        description: Api Id
-      apiVersion:
-        type: string
-        description: Api Version
-      endpoint:
-        type: string
-        description: Endpoint
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
   queryGroupUserRequest:
-    title: Group User
-    type: object
+    title: "Group User"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshGroupUserRequest:
+    title: "Group User"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
       groupId:
-        type: string
-        description: Group Id
+        type: "string"
+        description: "Group Id"
       userId:
-        type: string
-        description: User Id
-      entityId:
-        type: string
-        description: Entity Id
-      email:
-        type: string
-        description: Email
-      firstName:
-        type: string
-        description: First Name
-      lastName:
-        type: string
-        description: Last Name
-      userType:
-        type: string
-        description: User Type
+        type: "string"
+        description: "User Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
     required:
-    - offset
-    - limit
-    - hostId
+    - "hostId"
+    - "groupId"
+    - "userId"
+    - "aggregateVersion"
   getGroupLabelRequest:
-    title: Group Label
-    type: object
+    title: "Group Label"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
     required:
-    - hostId
+    - "hostId"
   queryGroupRowFilterRequest:
-    title: Group Row Filter
-    type: object
+    title: "Group Row Filter"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      groupId:
-        type: string
-        description: Group Id
-      apiId:
-        type: string
-        description: Api Id
-      apiVersion:
-        type: string
-        description: Api Version
-      endpoint:
-        type: string
-        description: Endpoint
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshGroupRowFilterRequest:
+    title: "Group Row Filter"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      groupId:
+        type: "string"
+        description: "Group Id"
+      endpointId:
+        type: "string"
+        description: "Endpoint Id"
+      colName:
+        type: "string"
+        description: "Col Name"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "groupId"
+    - "endpointId"
+    - "colName"
+    - "aggregateVersion"
   queryGroupColFilterRequest:
-    title: Group Col Filter
-    type: object
+    title: "Group Col Filter"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      groupId:
-        type: string
-        description: Group Id
-      apiId:
-        type: string
-        description: Api Id
-      apiVersion:
-        type: string
-        description: Api Version
-      endpoint:
-        type: string
-        description: Endpoint
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshGroupColFilterRequest:
+    title: "Group Col Filter"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      groupId:
+        type: "string"
+        description: "Group Id"
+      endpointId:
+        type: "string"
+        description: "Endpoint Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "groupId"
+    - "endpointId"
+    - "aggregateVersion"
 action:
-- name: getGroup
-  version: 0.1.0
-  handler: GetGroup
-  scope: portal.r
+- name: "getGroup"
+  version: "0.1.0"
+  handler: "GetGroup"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getGroupRequest'
-    example: 
+      $ref: "#/schemas/getGroupRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      groupId: group123
-      groupDesc: "This is a group"
-- name: queryGroupPermission
-  version: 0.1.0
-  handler: QueryGroupPermission
-  scope: portal.r
+      hostId: "host123"
+- name: "getFreshGroup"
+  version: "0.1.0"
+  handler: "GetFreshGroup"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryGroupPermissionRequest'
-    example: 
-      offset: 0
-      limit: 10
-      hostId: host123
-      groupId: group123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: "endpoint"
-- name: queryGroupUser
-  version: 0.1.0
-  handler: QueryGroupUser
-  scope: portal.r
+      $ref: "#/schemas/getFreshGroupRequest"
+    example:
+      hostId: "host123"
+      groupId: "group123"
+      aggregateVersion: 1
+- name: "queryGroupPermission"
+  version: "0.1.0"
+  handler: "QueryGroupPermission"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryGroupUserRequest'
-    example: 
+      $ref: "#/schemas/queryGroupPermissionRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      groupId: group123
-      userId: user123
-      entityId: cust123
-      email: test@example.com
-      firstName: John
-      lastName: Doe
-      userType: C
-- name: getGroupLabel
-  version: 0.1.0
-  handler: GetGroupLabel
+      hostId: "host123"
+- name: "queryGroupUser"
+  version: "0.1.0"
+  handler: "QueryGroupUser"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/queryGroupUserRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getFreshGroupUser"
+  version: "0.1.0"
+  handler: "GetFreshGroupUser"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshGroupUserRequest"
+    example:
+      hostId: "host123"
+      groupId: "group123"
+      userId: "user123"
+      aggregateVersion: 1
+- name: "getGroupLabel"
+  version: "0.1.0"
+  handler: "GetGroupLabel"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/getGroupLabelRequest'
-    example: 
-      hostId: host123
-- name: queryGroupRowFilter
-  version: 0.1.0
-  handler: QueryGroupRowFilter
-  scope: portal.r
+      $ref: "#/schemas/getGroupLabelRequest"
+    example:
+      hostId: "host123"
+- name: "queryGroupRowFilter"
+  version: "0.1.0"
+  handler: "QueryGroupRowFilter"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryGroupRowFilterRequest'
-    example: 
+      $ref: "#/schemas/queryGroupRowFilterRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      groupId: group123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-- name: queryGroupColFilter
-  version: 0.1.0
-  handler: QueryGroupColFilter
-  scope: portal.r
+      hostId: "host123"
+- name: "getFreshGroupRowFilter"
+  version: "0.1.0"
+  handler: "GetFreshGroupRowFilter"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryGroupColFilterRequest'
-    example: 
+      $ref: "#/schemas/getFreshGroupRowFilterRequest"
+    example:
+      hostId: "host123"
+      groupId: "group123"
+      endpointId: "endpoint123"
+      colName: "col123"
+      aggregateVersion: 1
+- name: "queryGroupColFilter"
+  version: "0.1.0"
+  handler: "QueryGroupColFilter"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/queryGroupColFilterRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      groupId: group123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
+      hostId: "host123"
+- name: "getFreshGroupColFilter"
+  version: "0.1.0"
+  handler: "GetFreshGroupColFilter"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshGroupColFilterRequest"
+    example:
+      hostId: "host123"
+      groupId: "group123"
+      endpointId: "endpoint123"
+      aggregateVersion: 1

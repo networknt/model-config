@@ -2,7 +2,7 @@
 host: "lightapi.net"
 service: "service"
 schemas:
-  getServiceRequest:
+  getApiRequest:
     title: "Service"
     type: "object"
     properties:
@@ -15,20 +15,20 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
     - "limit"
     - "offset"
     - "hostId"
-  getServiceByIdRequest:
-    title: "Service"
-    type: "object"
-    properties:
-      serviceId:
-        type: "string"
-        description: "Service Id"
-    required:
-    - "serviceId"
-  getServiceVersionRequest:
+  getApiByIdRequest:
     title: "Service"
     type: "object"
     properties:
@@ -41,8 +41,55 @@ schemas:
     required:
     - "hostId"
     - "apiId"
-  getServiceEndpointRequest:
-    title: "Service Endpoint"
+  getFreshApiRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "apiId"
+    - "aggregateVersion"
+  getApiVersionRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+    required:
+    - "hostId"
+    - "apiId"
+  getFreshApiVersionRequest:
+    title: "Service"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      apiVersionId:
+        type: "string"
+        description: "Api Version Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "apiVersionId"
+    - "aggregateVersion"
+  getApiEndpointRequest:
+    title: "Api Endpoint"
     type: "object"
     properties:
       limit:
@@ -54,31 +101,20 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      apiId:
+      filters:
         type: "string"
-        description: "Api Id"
-      apiVersion:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Api Version"
-      endpoint:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Endpoint"
-      method:
-        type: "string"
-        description: "Method"
-      path:
-        type: "string"
-        description: "Path"
-      desc:
-        type: "string"
-        description: "Desc"
+        description: "Sorting"
     required:
     - "limit"
     - "offset"
     - "hostId"
-    - "apiId"
-    - "apiVersion"
-  getEndpointScopeRequest:
+  getApiEndpointScopeRequest:
     title: "Endpoint Scope"
     type: "object"
     properties:
@@ -99,27 +135,19 @@ schemas:
     - "apiId"
     - "apiVersion"
     - "endpoint"
-  getEndpointRuleRequest:
+  getApiEndpointRuleRequest:
     title: "Endpoint Rule"
     type: "object"
     properties:
       hostId:
         type: "string"
         description: "Host Id"
-      apiId:
+      endpointId:
         type: "string"
-        description: "Api Id"
-      apiVersion:
-        type: "string"
-        description: "Api Version"
-      endpoint:
-        type: "string"
-        description: "Endpoint"
+        description: "Endpoint Id"
     required:
     - "hostId"
-    - "apiId"
-    - "apiVersion"
-    - "endpoint"
+    - "endpointId"
   getServiceRuleRequest:
     title: "Service Rule"
     type: "object"
@@ -137,7 +165,7 @@ schemas:
     - "hostId"
     - "apiId"
     - "apiVersion"
-  getServicePermissionRequest:
+  getApiPermissionRequest:
     title: "Service Permission"
     type: "object"
     properties:
@@ -154,15 +182,6 @@ schemas:
     - "hostId"
     - "apiId"
     - "apiVersion"
-  getServiceRoleByIdRequest:
-    title: "Service"
-    type: "object"
-    properties:
-      serviceId:
-        type: "string"
-        description: "Service Id"
-    required:
-    - "serviceId"
   getApiVersionIdLabelRequest:
     title: "Api Version Id"
     type: "object"
@@ -201,16 +220,12 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      apiId:
+      apiVersionId:
         type: "string"
-        description: "Api Id"
-      apiVersion:
-        type: "string"
-        description: "Api Version"
+        description: "Api Version Id"
     required:
     - "hostId"
-    - "apiId"
-    - "apiVersion"
+    - "apiVersionId"
   getServiceIdLabelRequest:
     title: "Service Id"
     type: "object"
@@ -221,73 +236,94 @@ schemas:
     required:
     - "hostId"
 action:
-- name: "getService"
+- name: "getApi"
   version: "0.1.0"
-  handler: "GetService"
+  handler: "GetApi"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getServiceRequest"
+      $ref: "#/schemas/getApiRequest"
     example:
       offset: 0
       limit: 10
       hostId: "host123"
-- name: "getServiceById"
+- name: "getApiById"
   version: "0.1.0"
-  handler: "GetServiceById"
+  handler: "GetApiById"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getServiceByIdRequest"
-    example:
-      serviceId: "service123"
-- name: "getServiceVersion"
-  version: "0.1.0"
-  handler: "GetServiceVersion"
-  scope: "portal.r"
-  request:
-    schema:
-      $ref: "#/schemas/getServiceVersionRequest"
+      $ref: "#/schemas/getApiByIdRequest"
     example:
       hostId: "host123"
       apiId: "api123"
-- name: "getServiceEndpoint"
+- name: "getFreshApi"
   version: "0.1.0"
-  handler: "GetServiceEndpoint"
+  handler: "GetFreshApi"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getServiceEndpointRequest"
+      $ref: "#/schemas/getFreshApiRequest"
+    example:
+      hostId: "host123"
+      apiId: "api123"
+      aggregateVersion: 1
+- name: "getApiVersion"
+  version: "0.1.0"
+  handler: "GetApiVersion"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getApiVersionRequest"
+    example:
+      hostId: "host123"
+      apiId: "api123"
+- name: "getFreshApiVersion"
+  version: "0.1.0"
+  handler: "GetFreshApiVersion"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshApiVersionRequest"
+    example:
+      hostId: "host123"
+      apiVersionId: "apiVersion123"
+      aggregateVersion: 1
+- name: "getApiEndpoint"
+  version: "0.1.0"
+  handler: "GetApiEndpoint"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getApiEndpointRequest"
     example:
       offset: 0
       limit: 10
       hostId: "host123"
       apiId: "api123"
       apiVersion: "1.0.0"
-- name: "getEndpointScope"
+- name: "getApiEndpointScope"
   version: "0.1.0"
-  handler: "GetEndpointScope"
+  handler: "GetApiEndpointScope"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getEndpointScopeRequest"
+      $ref: "#/schemas/getApiEndpointScopeRequest"
     example:
       hostId: "host123"
       apiId: "api123"
       apiVersion: "1.0.0"
       endpoint: "test"
-- name: "getEndpointRule"
+- name: "getApiEndpointRule"
   version: "0.1.0"
-  handler: "GetEndpointRule"
+  handler: "GetApiEndpointRule"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getEndpointRuleRequest"
+      $ref: "#/schemas/getApiEndpointRuleRequest"
     example:
       hostId: "host123"
-      apiId: "api123"
-      apiVersion: "1.0.0"
-      endpoint: "test"
+      endpointId: "endpoint123"
 - name: "getServiceRule"
   version: "0.1.0"
   handler: "GetServiceRule"
@@ -299,26 +335,17 @@ action:
       hostId: "host123"
       apiId: "api123"
       apiVersion: "1.0.0"
-- name: "getServicePermission"
+- name: "getApiPermission"
   version: "0.1.0"
-  handler: "GetServicePermission"
+  handler: "GetApiPermission"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getServicePermissionRequest"
+      $ref: "#/schemas/getApiPermissionRequest"
     example:
       hostId: "host123"
       apiId: "api123"
       apiVersion: "1.0.0"
-- name: "getServiceRoleById"
-  version: "0.1.0"
-  handler: "GetServiceRoleById"
-  skipAuth: true
-  request:
-    schema:
-      $ref: "#/schemas/getServiceRoleByIdRequest"
-    example:
-      serviceId: "service123"
 - name: "getApiVersionIdLabel"
   version: "0.1.0"
   handler: "GetApiVersionIdLabel"

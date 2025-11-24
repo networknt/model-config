@@ -199,6 +199,74 @@ schemas:
     required:
     - "hostId"
     - "providerId"
+  createProviderApiRequest:
+    title: "OAuth Provider Api"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+    required:
+    - "hostId"
+    - "providerId"
+    - "apiId"
+  deleteProviderApiRequest:
+    title: "OAuth Provider Api"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "HostId"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+      apiId:
+        type: "string"
+        description: "Api Id"
+    required:
+    - "hostId"
+    - "providerId"
+    - "apiId"
+  createProviderClientRequest:
+    title: "OAuth Provider Client"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+      clientId:
+        type: "string"
+        description: "Client Id"
+    required:
+    - "hostId"
+    - "providerId"
+    - "clientId"
+  deleteProviderClientRequest:
+    title: "OAuth Provider Client"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "HostId"
+      providerId:
+        type: "string"
+        description: "Provider Id"
+      clientId:
+        type: "string"
+        description: "Client Id"
+    required:
+    - "hostId"
+    - "providerId"
+    - "clientId"
   createClientRequest:
     title: "Service"
     type: "object"
@@ -420,6 +488,50 @@ action:
     example:
       hostId: "host123"
       providerId: "provider123"
+- name: "createProviderApi"
+  version: "0.1.0"
+  handler: "CreateProviderApi"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createProviderApiRequest"
+    example:
+      hostId: "host123"
+      providerId: "provider123"
+      apiId: "apiId123"
+- name: "deleteProviderApi"
+  version: "0.1.0"
+  handler: "DeleteProviderApi"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteProviderApiRequest"
+    example:
+      hostId: "host123"
+      providerId: "provider123"
+      apiId: "apiId123"
+- name: "createProviderClient"
+  version: "0.1.0"
+  handler: "CreateProviderClient"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createProviderClientRequest"
+    example:
+      hostId: "host123"
+      providerId: "provider123"
+      clientId: "client123"
+- name: "deleteProviderClient"
+  version: "0.1.0"
+  handler: "DeleteProviderClient"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteProviderClientRequest"
+    example:
+      hostId: "host123"
+      providerId: "provider123"
+      clientId: "clientId123"
 - name: "createClient"
   version: "0.1.0"
   handler: "CreateClient"

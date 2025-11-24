@@ -1,275 +1,374 @@
 ---
-host: lightapi.net
-service: attribute
+host: "lightapi.net"
+service: "attribute"
 schemas:
   getAttributeRequest:
-    title: Attribute
-    type: object
+    title: "Attribute"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      attributeId:
-        type: string
-        description: Attribute Id
-      attributeType:
-        type: string
-        description: Attribute Type
-      attributeDesc:
-        type: string
-        description: Attribute Desc
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshAttributeRequest:
+    title: "Attribute"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      attributeId:
+        type: "string"
+        description: "Attribute Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "attributeId"
+    - "aggregateVersion"
   queryAttributePermissionRequest:
-    title: Attribute Permission
-    type: object
+    title: "Attribute Permission"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      attributeId:
-        type: string
-        description: Attribute Id
-      attributeType:
-        type: string
-        description: Attribute Type
-      attributeValue:
-        type: string
-        description: Attribute Value
-      apiId:
-        type: string
-        description: Api Id
-      apiVersion:
-        type: string
-        description: Api Version
-      endpoint:
-        type: string
-        description: Endpoint
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshAttributePermissionRequest:
+    title: "Attribute Permission"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      attributeId:
+        type: "string"
+        description: "Attribute Id"
+      endpointId:
+        type: "string"
+        description: "Endpoint Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "attributeId"
+    - "endpointId"
+    - "aggregateVersion"
   queryAttributeUserRequest:
-    title: Attribute User
-    type: object
+    title: "Attribute User"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshAttributeUserRequest:
+    title: "Attribute User"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
       attributeId:
-        type: string
-        description: Attribute Id
-      attributeType:
-        type: string
-        description: Attribute Type
-      attributeValue:
-        type: string
-        description: Attribute Value
+        type: "string"
+        description: "Attribute Id"
       userId:
-        type: string
-        description: User Id
-      entityId:
-        type: string
-        description: Entity Id
-      email:
-        type: string
-        description: Email
-      firstName:
-        type: string
-        description: First Name
-      lastName:
-        type: string
-        description: Last Name
-      userType:
-        type: string
-        description: User Type
+        type: "string"
+        description: "User Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
     required:
-    - offset
-    - limit
-    - hostId
+    - "hostId"
+    - "attributeId"
+    - "userId"
+    - "aggregateVersion"
   getAttributeLabelRequest:
-    title: Attribute Label
-    type: object
+    title: "Attribute Label"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
     required:
-    - hostId
+    - "hostId"
   queryAttributeRowFilterRequest:
-    title: Attribute Row Filter
-    type: object
+    title: "Attribute Row Filter"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      attributeId:
-        type: string
-        description: Attribute Id
-      attributeValue:
-        type: string
-        description: Attribute Value
-      apiId:
-        type: string
-        description: Api Id
-      apiVersion:
-        type: string
-        description: Api Version
-      endpoint:
-        type: string
-        description: Endpoint
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshAttributeRowFilterRequest:
+    title: "Attribute Row Filter"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      attributeId:
+        type: "string"
+        description: "Attribute Id"
+      endpointId:
+        type: "string"
+        description: "Endpoint Id"
+      colName:
+        type: "string"
+        description: "Col Name"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "attributeId"
+    - "endpointId"
+    - "colName"
+    - "aggregateVersion"
   queryAttributeColFilterRequest:
-    title: Attribute Col Filter
-    type: object
+    title: "Attribute Col Filter"
+    type: "object"
     properties:
       offset:
-        type: integer
-        description: Offset
+        type: "integer"
+        description: "Offset"
       limit:
-        type: integer
-        description: Limit
+        type: "integer"
+        description: "Limit"
       hostId:
-        type: string
-        description: Host Id
-      attributeId:
-        type: string
-        description: Attribute Id
-      attributeValue:
-        type: string
-        description: Attribute Value
-      apiId:
-        type: string
-        description: Api Id
-      apiVersion:
-        type: string
-        description: Api Version
-      endpoint:
-        type: string
-        description: Endpoint
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
     required:
-    - offset
-    - limit
-    - hostId
+    - "offset"
+    - "limit"
+    - "hostId"
+  getFreshAttributeColFilterRequest:
+    title: "Attribute Col Filter"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      attributeId:
+        type: "string"
+        description: "Attribute Id"
+      endpointId:
+        type: "string"
+        description: "Endpoint Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "attributeId"
+    - "endpointId"
+    - "aggregateVersion"
 action:
-- name: getAttribute
-  version: 0.1.0
-  handler: GetAttribute
-  scope: portal.r
+- name: "getAttribute"
+  version: "0.1.0"
+  handler: "GetAttribute"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/getAttributeRequest'
-    example: 
+      $ref: "#/schemas/getAttributeRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      attributeId: attr123
-      attributeType: string
-      attributeDesc: "This is a sample attribute"
-- name: queryAttributePermission
-  version: 0.1.0
-  handler: QueryAttributePermission
-  scope: portal.r
+      hostId: "host123"
+- name: "getFreshAttribute"
+  version: "0.1.0"
+  handler: "GetFreshAttribute"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryAttributePermissionRequest'
-    example: 
-      offset: 0
-      limit: 10
-      hostId: host123
-      attributeId: attr123
-      attributeType: string
-      attributeValue: test
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: "endpoint"
-- name: queryAttributeUser
-  version: 0.1.0
-  handler: QueryAttributeUser
-  scope: portal.r
+      $ref: "#/schemas/getFreshAttributeRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      aggregateVersion: 1
+- name: "queryAttributePermission"
+  version: "0.1.0"
+  handler: "QueryAttributePermission"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryAttributeUserRequest'
-    example: 
+      $ref: "#/schemas/queryAttributePermissionRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      attributeId: attr123
-      attributeType: string
-      attributeValue: test
-      userId: user123
-      entityId: cust123
-      email: test@example.com
-      firstName: John
-      lastName: Doe
-      userType: C
-- name: getAttributeLabel
-  version: 0.1.0
-  handler: GetAttributeLabel
+      hostId: "host123"
+- name: "getFreshAttributePermission"
+  version: "0.1.0"
+  handler: "GetFreshAttributePermission"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshAttributePermissionRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      endpointId: "endpointId123"
+      aggregateVersion: 1
+- name: "queryAttributeUser"
+  version: "0.1.0"
+  handler: "QueryAttributeUser"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/queryAttributeUserRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getFreshAttributeUser"
+  version: "0.1.0"
+  handler: "GetFreshAttributeUser"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshAttributeUserRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      userId: "user123"
+      aggregateVersion: 1
+- name: "getAttributeLabel"
+  version: "0.1.0"
+  handler: "GetAttributeLabel"
   skipAuth: true
   request:
     schema:
-      $ref: '#/schemas/getAttributeLabelRequest'
-    example: 
-      hostId: host123
-- name: queryAttributeRowFilter
-  version: 0.1.0
-  handler: QueryAttributeRowFilter
-  scope: portal.r
+      $ref: "#/schemas/getAttributeLabelRequest"
+    example:
+      hostId: "host123"
+- name: "queryAttributeRowFilter"
+  version: "0.1.0"
+  handler: "QueryAttributeRowFilter"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryAttributeRowFilterRequest'
-    example: 
+      $ref: "#/schemas/queryAttributeRowFilterRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      attributeId: attr123
-      attributeValue: test
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-- name: queryAttributeColFilter
-  version: 0.1.0
-  handler: QueryAttributeColFilter
-  scope: portal.r
+      hostId: "host123"
+- name: "getFreshAttributeRowFilter"
+  version: "0.1.0"
+  handler: "GetFreshAttributeRowFilter"
+  scope: "portal.r"
   request:
     schema:
-      $ref: '#/schemas/queryAttributeColFilterRequest'
-    example: 
+      $ref: "#/schemas/getFreshAttributeRowFilterRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      endpoint: "endpoint"
+      colName: "colName"
+      aggregateVersion: 1
+- name: "queryAttributeColFilter"
+  version: "0.1.0"
+  handler: "QueryAttributeColFilter"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/queryAttributeColFilterRequest"
+    example:
       offset: 0
       limit: 10
-      hostId: host123
-      attributeId: attr123
-      attributeValue: test
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
+      hostId: "host123"
+- name: "getFreshAttributeColFilter"
+  version: "0.1.0"
+  handler: "GetFreshAttributeColFilter"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshAttributeColFilterRequest"
+    example:
+      hostId: "host123"
+      attributeId: "attr123"
+      endpointId: "endpoint123"
+      aggregateVersion: 1
+

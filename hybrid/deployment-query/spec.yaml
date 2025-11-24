@@ -15,49 +15,32 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      pipelineId:
+      filters:
         type: "string"
-        description: "Pipeline Id"
-      platformId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Platform Id"
-      platformName:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Platform Name"
-      platformVersion:
-        type: "string"
-        description: "Platform Version"
-      pipelineVersion:
-        title: "Pipeline Version"
-        type: "string"
-      pipelineName:
-        title: "Pipeline Name"
-        type: "string"
-      current:
-        title: "Current"
-        type: "boolean"
-      endpoint:
-        type: "string"
-        description: "Endpoint"
-      versionStatus:
-        title: "Version Status"
-        type: "string"
-      systemEnv:
-        title: "System Env"
-        type: "string"
-      runtimeEnv:
-        title: "Runtime Env"
-        type: "string"
-      requestSchema:
-        title: "Request Schema"
-        type: "string"
-      responseSchema:
-        title: "Response Schema"
-        type: "string"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshPipelineRequest:
+    title: "Pipeline"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
+    required:
+    - "hostId"
+    - "pipelineId"
   getPipelineLabelRequest:
     title: "Pipeline Label"
     type: "object"
@@ -80,52 +63,32 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      platformId:
+      filters:
         type: "string"
-        description: "Platform Id"
-      platformName:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Platform Name"
-      platformVersion:
-        title: "Platform Version"
+        description: "Global Filter"
+      sorting:
         type: "string"
-      clientType:
-        title: "Client Type"
-        type: "string"
-      clientUrl:
-        title: "Client Url"
-        type: "string"
-      credentials:
-        title: "Credentials"
-        type: "string"
-      proxyUrl:
-        title: "Proxy Url"
-        type: "string"
-      proxyPort:
-        title: "Proxy Port"
-        type: "integer"
-      handlerClass:
-        title: "Handler Class"
-        type: "string"
-      consoleUrl:
-        title: "Console Url"
-        type: "string"
-      environment:
-        title: "Environment"
-        type: "string"
-      zone:
-        title: "Zone"
-        type: "string"
-      region:
-        title: "Region"
-        type: "string"
-      lob:
-        title: "Lob"
-        type: "string"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshPlatformRequest:
+    title: "Platform"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      platformId:
+        type: "string"
+        description: "Platform Id"
+    required:
+    - "hostId"
+    - "platformId"
   getPlatformLabelRequest:
     title: "Platform Label"
     type: "object"
@@ -148,46 +111,32 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      instanceId:
+      filters:
         type: "string"
-        description: "Instance Id"
-      instanceName:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Instance Name"
-      deploymentInstanceId:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Deployment Instance Id"
-      serviceId:
-        type: "string"
-        description: "Service Id"
-      ipAddress:
-        title: "IP Address"
-        type: "string"
-      portNumber:
-        title: "Port Number"
-        type: "integer"
-      systemEnv:
-        title: "System Env"
-        type: "string"
-      runtimeEnv:
-        title: "Runtime Env"
-        type: "string"
-      pipelineId:
-        type: "string"
-        description: "Pipeline Id"
-      pipelineName:
-        type: "string"
-        description: "Pipeline Name"
-      pipelineVersion:
-        type: "string"
-        description: "Pipeline Version"
-      deployStatus:
-        title: "Deploy Status"
-        type: "string"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshDeploymentInstanceRequest:
+    title: "Deployment Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      deploymentInstanceId:
+        type: "string"
+        description: "Deployment Instance Id"
+    required:
+    - "hostId"
+    - "deploymentInstanceId"
   getDeploymentInstanceLabelRequest:
     title: "Deployment Instance Label"
     type: "object"
@@ -195,6 +144,9 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
     required:
     - "hostId"
   getDeploymentInstancePipelineRequest:
@@ -231,26 +183,32 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      deploymentInstanceId:
+      filters:
         type: "string"
-        description: "Deployment Instance Id"
-      deploymentStatus:
-        title: "Deployment Status"
+        description: "Filters"
+      globalFilter:
         type: "string"
-      deploymentType:
-        title: "Deployment Type"
+        description: "Global Filter"
+      sorting:
         type: "string"
-      scheduleTs:
-        title: "Schedule Timestamp"
-        type: "string"
-        format: "date-time"
-      platformJobId:
-        title: "Platform Job Id"
-        type: "string"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshDeploymentRequest:
+    title: "Deployment"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      deploymentId:
+        type: "string"
+        description: "Deployment Id"
+    required:
+    - "hostId"
+    - "deploymentId"
 action:
 - name: "getPipeline"
   version: "0.1.0"
@@ -263,6 +221,16 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshPipeline"
+  version: "0.1.0"
+  handler: "GetFreshPipeline"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshPipelineRequest"
+    example:
+      hostId: "host123"
+      pipelineId: "pipeline123"
 - name: "getPipelineLabel"
   version: "0.1.0"
   handler: "GetPipelineLabel"
@@ -283,6 +251,16 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshPlatform"
+  version: "0.1.0"
+  handler: "GetFreshPlatform"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshPlatformRequest"
+    example:
+      hostId: "host123"
+      platformId: "platform123"
 - name: "getPlatformLabel"
   version: "0.1.0"
   handler: "GetPlatformLabel"
@@ -303,6 +281,16 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshDeploymentInstance"
+  version: "0.1.0"
+  handler: "GetFreshDeploymentInstance"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshDeploymentInstanceRequest"
+    example:
+      hostId: "host123"
+      deploymentInstanceId: "deploymentInstance123"
 - name: "getDeploymentInstanceLabel"
   version: "0.1.0"
   handler: "GetDeploymentInstanceLabel"
@@ -335,3 +323,13 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshDeployment"
+  version: "0.1.0"
+  handler: "GetFreshDeployment"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshDeploymentRequest"
+    example:
+      hostId: "host123"
+      deploymentId: "deployment123"

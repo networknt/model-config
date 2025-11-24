@@ -2,7 +2,7 @@
 host: "lightapi.net"
 service: "service"
 schemas:
-  createServiceRequest:
+  createApiRequest:
     title: "Service"
     type: "object"
     properties:
@@ -57,7 +57,7 @@ schemas:
     - "apiName"
     - "apiType"
     - "apiStatus"
-  updateServiceRequest:
+  updateApiRequest:
     title: "Service"
     type: "object"
     properties:
@@ -71,8 +71,8 @@ schemas:
         type: "string"
         description: "Api Name"
       apiType:
-        title: Api Type
-        type: string
+        title: "Api Type"
+        type: "string"
       apiDesc:
         title: "Api Desc"
         type: "string"
@@ -112,7 +112,7 @@ schemas:
     - "apiName"
     - "apiType"
     - "apiStatus"
-  deleteServiceRequest:
+  deleteApiRequest:
     title: "Service"
     type: "object"
     properties:
@@ -125,7 +125,7 @@ schemas:
     required:
     - "hostId"
     - "apiId"
-  updateServiceSpecRequest:
+  updateApiVersionSpecRequest:
     title: "Service"
     type: "object"
     properties:
@@ -155,7 +155,7 @@ schemas:
     - "apiId"
     - "apiVersion"
     - "spec"
-  createServiceVersionRequest:
+  createApiVersionRequest:
     title: "Service Version"
     type: "object"
     properties:
@@ -186,7 +186,7 @@ schemas:
     - "apiVersion"
     - "apiType"
     - "serviceId"
-  updateServiceVersionRequest:
+  updateApiVersionRequest:
     title: "Service Version"
     type: "object"
     properties:
@@ -217,7 +217,7 @@ schemas:
     - "apiVersion"
     - "apiType"
     - "serviceId"
-  deleteServiceVersionRequest:
+  deleteApiVersionRequest:
     title: "Service Version"
     type: "object"
     properties:
@@ -234,7 +234,7 @@ schemas:
     - "hostId"
     - "apiId"
     - "apiVersion"
-  createEndpointRuleRequest:
+  createApiEndpointRuleRequest:
     title: "Service Endpoint Rule"
     type: "object"
     properties:
@@ -259,7 +259,7 @@ schemas:
     - "apiVersion"
     - "endpoint"
     - "ruleId"
-  deleteEndpointRuleRequest:
+  deleteApiEndpointRuleRequest:
     title: "Service Endpoint Rule"
     type: "object"
     properties:
@@ -285,64 +285,49 @@ schemas:
     - "endpoint"
     - "ruleId"
 action:
-- name: "createService"
+- name: "createApi"
   version: "0.1.0"
-  handler: "CreateService"
+  handler: "CreateApi"
   scope: "portal.w"
   request:
     schema:
-      $ref: "#/schemas/createServiceRequest"
+      $ref: "#/schemas/createApiRequest"
     example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiName: "myapi"
       apiType: "openapi"
       apiStatus: "draft"
-- name: "updateService"
+- name: "updateApi"
   version: "0.1.0"
-  handler: "UpdateService"
+  handler: "UpdateApi"
   scope: "portal.w"
   request:
     schema:
-      $ref: "#/schemas/updateServiceRequest"
+      $ref: "#/schemas/updateApiRequest"
     example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiName: "myapi"
       apiType: "graphql"
       apiStatus: "published"
-- name: "deleteService"
+- name: "deleteApi"
   version: "0.1.0"
-  handler: "DeleteService"
+  handler: "DeleteApi"
   scope: "portal.w"
   request:
     schema:
-      $ref: "#/schemas/deleteServiceRequest"
+      $ref: "#/schemas/deleteApiRequest"
     example:
       apiId: "api123"
       hostId: "lightapi.net"
-- name: "updateServiceSpec"
+- name: "updateApiVersionSpec"
   version: "0.1.0"
-  handler: "UpdateServiceSpec"
+  handler: "UpdateApiVersionSpec"
   scope: "portal.w"
   request:
     schema:
-      $ref: "#/schemas/updateServiceSpecRequest"
-    example:
-      hostId: "lightapi.net"
-      apiId: "api123"
-      apiVersion: "1.0.0"
-      serviceId: "service123"
-      apiVersionDesc: "This is my first spec."
-      specLink: "example.com"
-      spec: "spec"
-- name: "createServiceVersion"
-  version: "0.1.0"
-  handler: "CreateServiceVersion"
-  scope: "portal.w"
-  request:
-    schema:
-      $ref: "#/schemas/createServiceVersionRequest"
+      $ref: "#/schemas/updateApiVersionSpecRequest"
     example:
       hostId: "lightapi.net"
       apiId: "api123"
@@ -351,13 +336,28 @@ action:
       apiVersionDesc: "This is my first spec."
       specLink: "example.com"
       spec: "spec"
-- name: "updateServiceVersion"
+- name: "createApiVersion"
   version: "0.1.0"
-  handler: "UpdateServiceVersion"
+  handler: "CreateApiVersion"
   scope: "portal.w"
   request:
     schema:
-      $ref: "#/schemas/updateServiceVersionRequest"
+      $ref: "#/schemas/createApiVersionRequest"
+    example:
+      hostId: "lightapi.net"
+      apiId: "api123"
+      apiVersion: "1.0.0"
+      serviceId: "service123"
+      apiVersionDesc: "This is my first spec."
+      specLink: "example.com"
+      spec: "spec"
+- name: "updateApiVersion"
+  version: "0.1.0"
+  handler: "UpdateApiVersion"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateApiVersionRequest"
     example:
       hostId: "lightapi.net"
       apiId: "api123"
@@ -366,37 +366,37 @@ action:
       apiVersionDesc: "This is my second spec."
       specLink: "example.com"
       spec: "spec"
-- name: "deleteServiceVersion"
+- name: "deleteApiVersion"
   version: "0.1.0"
-  handler: "DeleteServiceVersion"
+  handler: "DeleteApiVersion"
   scope: "portal.w"
   request:
     schema:
-      $ref: "#/schemas/deleteServiceVersionRequest"
+      $ref: "#/schemas/deleteApiVersionRequest"
     example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiVersion: "1.0.0"
-- name: "createEndpointRule"
+- name: "createApiEndpointRule"
   version: "0.1.0"
-  handler: "CreateEndpointRule"
+  handler: "CreateApiEndpointRule"
   scope: "portal.w"
   request:
     schema:
-      $ref: "#/schemas/createEndpointRuleRequest"
+      $ref: "#/schemas/createApiEndpointRuleRequest"
     example:
       hostId: "lightapi.net"
       apiId: "api123"
       apiVersion: "1.0.0"
       endpoint: "pets"
       ruleId: "rule123"
-- name: "deleteEndpointRule"
+- name: "deleteApiEndpointRule"
   version: "0.1.0"
-  handler: "DeleteEndpointRule"
+  handler: "DeleteApiEndpointRule"
   scope: "portal.w"
   request:
     schema:
-      $ref: "#/schemas/deleteEndpointRuleRequest"
+      $ref: "#/schemas/deleteApiEndpointRuleRequest"
     example:
       hostId: "lightapi.net"
       apiId: "api123"

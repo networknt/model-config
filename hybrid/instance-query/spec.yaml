@@ -15,64 +15,36 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      instanceId:
+      filters:
         type: "string"
-        description: "Instance Id"
-      instanceName:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Instance Name"
-      productVersionId:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Product Version Id"
-      productId:
-        type: "string"
-        description: "Product Id"
-      productVersion:
-        type: "string"
-        description: "Product Version"
-      serviceId:
-        type: "string"
-        description: "Service Id"
-      current:
-        title: "Current"
-        type: "boolean"
-      readonly:
-        title: "Readonly"
-        type: "boolean"
-      environment:
-        type: "string"
-        description: "Environment"
-      serviceDesc:
-        type: "string"
-        description: "Service Desc"
-      instanceDesc:
-        type: "string"
-        description: "Instance Desc"
-      zone:
-        type: "string"
-        description: "Zone"
-      region:
-        type: "string"
-        description: "Region"
-      lob:
-        type: "string"
-        description: "Lob"
-      resourceName:
-        type: "string"
-        description: "Resource Name"
-      businessName:
-        type: "string"
-        description: "Business Name"
-      envTag:
-        type: "string"
-        description: "Env Tag"
-      topicClassification:
-        type: "string"
-        description: "Topic Classification"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshInstanceRequest:
+    title: "Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "aggregateVersion"
   getInstanceApiRequest:
     title: "Instance Api"
     type: "object"
@@ -86,37 +58,39 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      instanceApiId:
-        type: "string"
-        description: "Instance Api Id"
       instanceId:
         type: "string"
         description: "Instance Id"
-      instanceName:
+      filters:
         type: "string"
-        description: "Instance Name"
-      productId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Product Id"
-      productVersion:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Product Version"
-      apiVersionId:
-        type: "string"
-        description: "Api Version Id"
-      apiId:
-        type: "string"
-        description: "Api Id"
-      apiVersion:
-        type: "string"
-        description: "Api Version"
-      active:
-        type: "string"
-        description: "Active"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshInstanceApiRequest:
+    title: "Instance Api"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceApiId:
+        type: "string"
+        description: "Instance Api Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "instanceApiId"
+    - "aggregateVersion"
   getInstanceApiPathPrefixRequest:
     title: "Instance Api Path Prefix"
     type: "object"
@@ -130,37 +104,40 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      instanceApiId:
+      filters:
         type: "string"
-        description: "Instance Api Id"
-      instanceId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Instance Id"
-      instanceName:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Instance Name"
-      productId:
-        type: "string"
-        description: "Product Id"
-      productVersion:
-        type: "string"
-        description: "Product Version"
-      apiVersionId:
-        type: "string"
-        description: "Api Version Id"
-      apiId:
-        type: "string"
-        description: "Api Id"
-      apiVersion:
-        type: "string"
-        description: "Api Version"
-      pathPrefix:
-        type: "string"
-        description: "Path Prefix"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshInstanceApiPathPrefixRequest:
+    title: "Instance Api Path Prefix"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceApiId:
+        type: "string"
+        description: "Instance Id"
+      pathPrefix:
+        type: "string"
+        description: "Path Prefix"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "instanceApiId"
+    - "pathPrefix"
+    - "aggregateVersion"
   getInstanceAppRequest:
     title: "Instance App"
     type: "object"
@@ -174,34 +151,36 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      instanceAppId:
+      filters:
         type: "string"
-        description: "Instance App Id"
-      instanceId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Instance Id"
-      instanceName:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Instance Name"
-      productId:
-        type: "string"
-        description: "Product Id"
-      productVersion:
-        type: "string"
-        description: "Product Version"
-      appId:
-        type: "string"
-        description: "App Id"
-      appVersion:
-        type: "string"
-        description: "App Version"
-      active:
-        type: "string"
-        description: "Active"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshInstanceAppRequest:
+    title: "Instance App"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceAppId:
+        type: "string"
+        description: "Instance App Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "instanceAppId"
+    - "aggregateVersion"
   getInstanceAppApiRequest:
     title: "Instance App Api"
     type: "object"
@@ -215,84 +194,40 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      instanceAppId:
+      filters:
         type: "string"
-        description: "Instance App Id"
-      appId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "App Id"
-      appVersion:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "App Version"
-      instanceApiId:
-        type: "string"
-        description: "Instance Api Id"
-      instanceName:
-        type: "string"
-        description: "Instance Name"
-      productId:
-        type: "string"
-        description: "Product Id"
-      productVersion:
-        type: "string"
-        description: "Product Version"
-      apiId:
-        type: "string"
-        description: "Api Id"
-      apiVersion:
-        type: "string"
-        description: "Api Version"
-      active:
-        type: "string"
-        description: "Active"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
-  getInstancePipelineRequest:
-    title: "Instance Pipeline"
+  getFreshInstanceAppApiRequest:
+    title: "Instance App Api"
     type: "object"
     properties:
-      offset:
-        type: "integer"
-        description: "Offset"
-      limit:
-        type: "integer"
-        description: "Limit"
       hostId:
         type: "string"
         description: "Host Id"
-      instanceId:
+      instanceAppId:
         type: "string"
-        description: "Instance Id"
-      instanceName:
+        description: "Instance App Id"
+      instanceApiId:
         type: "string"
-        description: "Instance Name"
-      productId:
-        type: "string"
-        description: "Product Id"
-      productVersion:
-        type: "string"
-        description: "Product Version"
-      pipelineId:
-        type: "string"
-        description: "Pipeline Id"
-      platformName:
-        type: "string"
-        description: "Platform Name"
-      platformVersion:
-        type: "string"
-        description: "Platform Version"
-      pipelineName:
-        type: "string"
-        description: "Pipeline Name"
-      pipelineVersion:
-        type: "string"
-        description: "Pipeline Version"
+        description: "Instance Api Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
     required:
-    - "offset"
-    - "limit"
     - "hostId"
+    - "instanceAppId"
+    - "instanceApiId"
+    - "aggregateVersion"
   getInstanceLabelRequest:
     title: "Instance Label"
     type: "object"
@@ -338,6 +273,17 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshInstance"
+  version: "0.1.0"
+  handler: "GetFreshInstance"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      aggregateVersion: 1
 - name: "getInstanceApi"
   version: "0.1.0"
   handler: "GetInstanceApi"
@@ -349,6 +295,17 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshInstanceApi"
+  version: "0.1.0"
+  handler: "GetFreshInstanceApi"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshInstanceApiRequest"
+    example:
+      hostId: "host123"
+      instanceApiId: "instanceApi123"
+      aggregateVersion: 1
 - name: "getInstanceApiPathPrefix"
   version: "0.1.0"
   handler: "GetInstanceApiPathPrefix"
@@ -360,6 +317,17 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshInstanceApiPathPrefix"
+  version: "0.1.0"
+  handler: "GetFreshInstanceApiPathPrefix"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshInstanceApiPathPrefixRequest"
+    example:
+      hostId: "host123"
+      instanceApiId: "instanceApi123"
+      pathPrefix: "pathPrefix123"
 - name: "getInstanceApp"
   version: "0.1.0"
   handler: "GetInstanceApp"
@@ -371,6 +339,17 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshInstanceApp"
+  version: "0.1.0"
+  handler: "GetFreshInstanceApp"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshInstanceAppRequest"
+    example:
+      hostId: "host123"
+      instanceAppId: "instanceApp123"
+      aggregateVersion: 1
 - name: "getInstanceAppApi"
   version: "0.1.0"
   handler: "GetInstanceAppApi"
@@ -382,17 +361,18 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
-- name: "getInstancePipeline"
+- name: "getFreshInstanceAppApi"
   version: "0.1.0"
-  handler: "GetInstancePipeline"
+  handler: "GetFreshInstanceAppApi"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getInstancePipelineRequest"
+      $ref: "#/schemas/getFreshInstanceAppApiRequest"
     example:
-      offset: 0
-      limit: 10
       hostId: "host123"
+      instanceAppId: "instanceApp123"
+      instanceApiId: "instanceApi123"
+      aggregateVersion: 1
 - name: "getInstanceLabel"
   version: "0.1.0"
   handler: "GetInstanceLabel"

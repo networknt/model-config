@@ -1,514 +1,487 @@
 ---
-host: lightapi.net
-service: position
+host: "lightapi.net"
+service: "position"
 schemas:
   createPositionRequest:
-    title: Position
-    type: object
+    title: "Position"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       positionId:
-        type: string
-        description: Position Id
+        type: "string"
+        description: "Position Id"
       positionDesc:
-        title: Position Desc
-        type: string
+        title: "Position Desc"
+        type: "string"
       inheritToAncestor:
-        title: Inherit To Ancestor
-        type: string
+        title: "Inherit To Ancestor"
+        type: "string"
       inheritToSibling:
-        title: Inherit To Sibling
-        type: string
+        title: "Inherit To Sibling"
+        type: "string"
     required:
-    - hostId
-    - positionId
+    - "hostId"
+    - "positionId"
   updatePositionRequest:
-    title: Position
-    type: object
+    title: "Position"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       positionId:
-        type: string
-        description: Position Id
+        type: "string"
+        description: "Position Id"
       positionDesc:
-        title: Position Desc
-        type: string
+        title: "Position Desc"
+        type: "string"
       inheritToAncestor:
-        title: Inherit To Ancestor
-        type: string
+        title: "Inherit To Ancestor"
+        type: "string"
       inheritToSibling:
-        title: Inherit To Sibling
-        type: string
+        title: "Inherit To Sibling"
+        type: "string"
     required:
-    - hostId
-    - positionId
-    - positionDesc
+    - "hostId"
+    - "positionId"
+    - "positionDesc"
   deletePositionRequest:
-    title: Position
-    type: object
+    title: "Position"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       positionId:
-        type: string
-        description: Position Id
+        type: "string"
+        description: "Position Id"
     required:
-    - hostId
-    - positionId
+    - "hostId"
+    - "positionId"
   createPositionUserRequest:
-    title: Position User
-    type: object
+    title: "Position User"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       positionId:
-        title: Position Id
-        type: string
+        title: "Position Id"
+        type: "string"
       userId:
-        title: User Id
-        type: string
+        title: "User Id"
+        type: "string"
       startTs:
-        title: Start Timestamp
-        type: string
-        format: date-time
+        title: "Start Timestamp"
+        type: "string"
+        format: "date-time"
       endTs:
-        title: End Timestamp
-        type: string
-        format: date-time
+        title: "End Timestamp"
+        type: "string"
+        format: "date-time"
     required:
-    - hostId
-    - positionId
-    - userId
-  deletePositionUserRequest:
-    title: Position User
-    type: object
+    - "hostId"
+    - "positionId"
+    - "userId"
+  updatePositionUserRequest:
+    title: "Position User"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       positionId:
-        title: Position Id
-        type: string
+        title: "Position Id"
+        type: "string"
       userId:
-        title: User Id
-        type: string
+        title: "User Id"
+        type: "string"
+      startTs:
+        title: "Start Timestamp"
+        type: "string"
+        format: "date-time"
+      endTs:
+        title: "End Timestamp"
+        type: "string"
+        format: "date-time"
     required:
-    - hostId
-    - positionId
-    - userId
+      - "hostId"
+      - "positionId"
+      - "userId"
+  deletePositionUserRequest:
+    title: "Position User"
+    type: "object"
+    properties:
+      hostId:
+        title: "Host Id"
+        type: "string"
+      positionId:
+        title: "Position Id"
+        type: "string"
+      userId:
+        title: "User Id"
+        type: "string"
+    required:
+    - "hostId"
+    - "positionId"
+    - "userId"
   createPositionRowFilterRequest:
-    title: Position Row Filter
-    type: object
+    title: "Position Row Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       positionId:
-        title: Position Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Position Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       colName:
-        title: Column Name
-        type: string
+        title: "Column Name"
+        type: "string"
       operator:
-        title: Operator
-        type: string
+        title: "Operator"
+        type: "string"
       colValue:
-        title: Column Value
-        type: string
+        title: "Column Value"
+        type: "string"
     required:
-    - hostId
-    - positionId
-    - apiId
-    - apiVersion
-    - endpoint
-    - colName
-    - operator
-    - colValue
+    - "hostId"
+    - "positionId"
+    - "apiVersionId"
+    - "endpointId"
+    - "colName"
+    - "operator"
+    - "colValue"
   updatePositionRowFilterRequest:
-    title: Position Row Filter
-    type: object
+    title: "Position Row Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       positionId:
-        title: Position Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Position Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       colName:
-        title: Column Name
-        type: string
+        title: "Column Name"
+        type: "string"
       operator:
-        title: Operator
-        type: string
+        title: "Operator"
+        type: "string"
       colValue:
-        title: Column Value
-        type: string
+        title: "Column Value"
+        type: "string"
     required:
-    - hostId
-    - positionId
-    - apiId
-    - apiVersion
-    - endpoint
-    - colName
-    - operator
-    - colValue
+    - "hostId"
+    - "positionId"
+    - "endpointId"
+    - "colName"
+    - "operator"
+    - "colValue"
   deletePositionRowFilterRequest:
-    title: Position Row Filter
-    type: object
+    title: "Position Row Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       positionId:
-        title: Position Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Position Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       colName:
-        title: Column Name
-        type: string
+        title: "Column Name"
+        type: "string"
     required:
-    - hostId
-    - positionId
-    - apiId
-    - apiVersion
-    - endpoint
-    - colName
+    - "hostId"
+    - "positionId"
+    - "endpointId"
+    - "colName"
   createPositionColFilterRequest:
-    title: Position Column Filter
-    type: object
+    title: "Position Column Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       positionId:
-        title: Position Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Position Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       columns:
-        title: Columns
-        type: string
+        title: "Columns"
+        type: "string"
     required:
-    - hostId
-    - positionId
-    - apiId
-    - apiVersion
-    - endpoint
-    - columns
+    - "hostId"
+    - "positionId"
+    - "apiVersionId"
+    - "endpointId"
+    - "columns"
   updatePositionColFilterRequest:
-    title: Position Col Filter
-    type: object
+    title: "Position Col Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       positionId:
-        title: Position Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Position Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       columns:
-        title: Columns
-        type: string
+        title: "Columns"
+        type: "string"
     required:
-    - hostId
-    - positionId
-    - apiId
-    - apiVersion
-    - endpoint
-    - columns
+    - "hostId"
+    - "positionId"
+    - "endpointId"
+    - "columns"
   deletePositionColFilterRequest:
-    title: Position Col Filter
-    type: object
+    title: "Position Col Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       positionId:
-        title: Position Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Position Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
     required:
-    - hostId
-    - positionId
-    - apiId
-    - apiVersion
-    - endpoint
+    - "hostId"
+    - "positionId"
+    - "endpointId"
   createPositionPermissionRequest:
-    title: Position Permission
-    type: object
+    title: "Position Permission"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       positionId:
-        title: Position Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Position Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
     required:
-    - hostId
-    - positionId
-    - apiId
-    - apiVersion
-    - endpoint
+    - "hostId"
+    - "positionId"
+    - "apiVersionId"
+    - "endpointId"
   deletePositionPermissionRequest:
-    title: Position Permission
-    type: object
+    title: "Position Permission"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       positionId:
-        title: Position Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Position Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
     required:
-    - hostId
-    - positionId
-    - apiId
-    - apiVersion
-    - endpoint
+    - "hostId"
+    - "positionId"
+    - "endpointId"
 action:
-- name: createPosition
-  version: 0.1.0
-  handler: CreatePosition
-  scope: portal.w
+- name: "createPosition"
+  version: "0.1.0"
+  handler: "CreatePosition"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createPositionRequest'
-    example: 
-      hostId: host123
-      positionId: position123
+      $ref: "#/schemas/createPositionRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
       positionDesc: "This is a sample position"
       inheritToAncestor: "true"
       inheritToSibling: "false"
-- name: updatePosition
-  version: 0.1.0
-  handler: UpdatePosition
-  scope: portal.w
+- name: "updatePosition"
+  version: "0.1.0"
+  handler: "UpdatePosition"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updatePositionRequest'
-    example: 
-      hostId: host123
-      positionId: position123
+      $ref: "#/schemas/updatePositionRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
       positionDesc: "This is my updated position"
       inheritToAncestor: "false"
       inheritToSibling: "true"
-- name: deletePosition
-  version: 0.1.0
-  handler: DeletePosition
-  scope: portal.w
+- name: "deletePosition"
+  version: "0.1.0"
+  handler: "DeletePosition"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deletePositionRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-- name: createPositionUser
-  version: 0.1.0
-  handler: CreatePositionUser
-  scope: portal.w
+      $ref: "#/schemas/deletePositionRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+- name: "createPositionUser"
+  version: "0.1.0"
+  handler: "CreatePositionUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createPositionUserRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-      userId: user123
-      startTs: 2024-04-01T10:00:00Z
-      endTs: 2024-04-30T10:00:00Z
-- name: deletePositionUser
-  version: 0.1.0
-  handler: DeletePositionUser
-  scope: portal.w
+      $ref: "#/schemas/createPositionUserRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      userId: "user123"
+      startTs: "2024-04-01T10:00:00Z"
+      endTs: "2024-04-30T10:00:00Z"
+- name: "updatePositionUser"
+  version: "0.1.0"
+  handler: "UpdatePositionUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deletePositionUserRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-      userId: user123
-- name: createPositionRowFilter
-  version: 0.1.0
-  handler: CreatePositionRowFilter
-  scope: portal.w
+      $ref: "#/schemas/updatePositionUserRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      userId: "user123"
+      startTs: "2024-04-01T10:00:00Z"
+      endTs: "2024-04-30T10:00:00Z"
+- name: "deletePositionUser"
+  version: "0.1.0"
+  handler: "DeletePositionUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createPositionRowFilterRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      colName: name
-      operator: equals
-      colValue: test
-- name: updatePositionRowFilter
-  version: 0.1.0
-  handler: UpdatePositionRowFilter
-  scope: portal.w
+      $ref: "#/schemas/deletePositionUserRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      userId: "user123"
+- name: "createPositionRowFilter"
+  version: "0.1.0"
+  handler: "CreatePositionRowFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updatePositionRowFilterRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      colName: name
-      operator: contains
-      colValue: test
-- name: deletePositionRowFilter
-  version: 0.1.0
-  handler: DeletePositionRowFilter
-  scope: portal.w
+      $ref: "#/schemas/createPositionRowFilterRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+      colName: "name"
+      operator: "equals"
+      colValue: "test"
+- name: "updatePositionRowFilter"
+  version: "0.1.0"
+  handler: "UpdatePositionRowFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deletePositionRowFilterRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      colName: name
-- name: createPositionColFilter
-  version: 0.1.0
-  handler: CreatePositionColFilter
-  scope: portal.w
+      $ref: "#/schemas/updatePositionRowFilterRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      endpointId: "endpoint123"
+      colName: "name"
+      operator: "contains"
+      colValue: "test"
+- name: "deletePositionRowFilter"
+  version: "0.1.0"
+  handler: "DeletePositionRowFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createPositionColFilterRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      columns: col1, col2
-- name: updatePositionColFilter
-  version: 0.1.0
-  handler: UpdatePositionColFilter
-  scope: portal.w
+      $ref: "#/schemas/deletePositionRowFilterRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      endpointId: "endpoint123"
+      colName: "name"
+- name: "createPositionColFilter"
+  version: "0.1.0"
+  handler: "CreatePositionColFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updatePositionColFilterRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      columns: col2, col3
-- name: deletePositionColFilter
-  version: 0.1.0
-  handler: DeletePositionColFilter
-  scope: portal.w
+      $ref: "#/schemas/createPositionColFilterRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+      columns: "col1, col2"
+- name: "updatePositionColFilter"
+  version: "0.1.0"
+  handler: "UpdatePositionColFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deletePositionColFilterRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-- name: createPositionPermission
-  version: 0.1.0
-  handler: CreatePositionPermission
-  scope: portal.w
+      $ref: "#/schemas/updatePositionColFilterRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      endpointId: "endpoint123"
+      columns: "col2, col3"
+- name: "deletePositionColFilter"
+  version: "0.1.0"
+  handler: "DeletePositionColFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createPositionPermissionRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-- name: deletePositionPermission
-  version: 0.1.0
-  handler: DeletePositionPermission
-  scope: portal.w
+      $ref: "#/schemas/deletePositionColFilterRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      endpointId: "endpoint123"
+- name: "createPositionPermission"
+  version: "0.1.0"
+  handler: "CreatePositionPermission"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deletePositionPermissionRequest'
-    example: 
-      hostId: host123
-      positionId: position123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
+      $ref: "#/schemas/createPositionPermissionRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+- name: "deletePositionPermission"
+  version: "0.1.0"
+  handler: "DeletePositionPermission"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deletePositionPermissionRequest"
+    example:
+      hostId: "host123"
+      positionId: "position123"
+      endpointId: "endpoint123"

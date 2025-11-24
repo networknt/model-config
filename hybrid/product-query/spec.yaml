@@ -15,31 +15,124 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      productVersionId:
+      filters:
         type: "string"
-        description: "Product Version Id"
-      productId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Product Id"
-      productVersion:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Product Version"
-      light4jVersion:
-        type: "string"
-        description: "Light-4j Version"
-      versionDesc:
-        type: "string"
-        description: "Version Desc"
-      currentFlag:
-        type: "boolean"
-        description: "Current Flag"
-      versionStatus:
-        type: "string"
-        description: "Version Status"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
     - "hostId"
+  getFreshProductVersionRequest:
+    title: "Product Version"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "productVersionId"
+    - "aggregateVersion"
+  getFreshProductVersionConfigRequest:
+    title: "Product Version Config"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      configId:
+        type: "string"
+        description: "Config Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+      - "hostId"
+      - "productVersionId"
+      - "configId"
+      - "aggregateVersion"
+  getFreshProductVersionConfigPropertyRequest:
+    title: "Product Version Config Property"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      propertyId:
+        type: "string"
+        description: "Property Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+      - "hostId"
+      - "productVersionId"
+      - "propertyId"
+      - "aggregateVersion"
+  getFreshProductVersionEnvironmentRequest:
+    title: "Product Version Environment"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      systemEnv:
+        type: "string"
+        description: "System Env"
+      runtimeEnv:
+        type: "string"
+        description: "Runtime Env"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+      - "hostId"
+      - "productVersionId"
+      - "systemEnv"
+      - "runtimeEnv"
+      - "aggregateVersion"
+  getFreshProductVersionPipelineRequest:
+    title: "Product Version Pipeline"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      pipelineId:
+        type: "string"
+        description: "Pipeline Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+      - "hostId"
+      - "productVersionId"
+      - "pipelineId"
+      - "aggregateVersion"
   getProductVersionEnvironmentRequest:
     title: "Product Version Environment"
     type: "object"
@@ -53,21 +146,15 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      productVersionId:
+      filters:
         type: "string"
-        description: "Product Version Id"
-      productId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Product Id"
-      productVersion:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Product Version"
-      systemEnv:
-        type: "string"
-        description: "System Env"
-      runtimeEnv:
-        type: "string"
-        description: "Runtime Env"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
@@ -85,24 +172,15 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      productVersionId:
+      filters:
         type: "string"
-        description: "Product Version Id"
-      productId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Product Id"
-      productVersion:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Product Version"
-      pipelineId:
-        type: "string"
-        description: "Pipeline Id"
-      pipelineName:
-        type: "string"
-        description: "Pipeline Name"
-      pipelineVersion:
-        type: "string"
-        description: "Pipeline Version"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
@@ -120,21 +198,15 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      productVersionId:
+      filters:
         type: "string"
-        description: "Product Version Id"
-      productId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Product Id"
-      productVersion:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Product Version"
-      configId:
-        type: "string"
-        description: "Config Id"
-      configName:
-        type: "string"
-        description: "Config Name"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
@@ -152,27 +224,15 @@ schemas:
       hostId:
         type: "string"
         description: "Host Id"
-      productVersionId:
+      filters:
         type: "string"
-        description: "Product Version Id"
-      productId:
+        description: "Filters"
+      globalFilter:
         type: "string"
-        description: "Product Id"
-      productVersion:
+        description: "Global Filter"
+      sorting:
         type: "string"
-        description: "Product Version"
-      configId:
-        type: "string"
-        description: "Config Id"
-      configName:
-        type: "string"
-        description: "Config Name"
-      propertyId:
-        type: "string"
-        description: "Property Id"
-      propertyName:
-        type: "string"
-        description: "Property Name"
+        description: "Sorting"
     required:
     - "offset"
     - "limit"
@@ -220,6 +280,66 @@ action:
       offset: 0
       limit: 10
       hostId: "host123"
+- name: "getFreshProductVersion"
+  version: "0.1.0"
+  handler: "GetFreshProductVersion"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshProductVersionRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersion123"
+      aggregateVersion: 1
+- name: "getFreshProductVersionConfig"
+  version: "0.1.0"
+  handler: "GetFreshProductVersionConfig"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshProductVersionConfigRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersion123"
+      configId: "config123"
+      aggregateVersion: 1
+- name: "getFreshProductVersionConfigProperty"
+  version: "0.1.0"
+  handler: "GetFreshProductVersionConfigProperty"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshProductVersionConfigPropertyRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersion123"
+      propertyId: "property123"
+      aggregateVersion: 1
+- name: "getFreshProductVersionEnvironment"
+  version: "0.1.0"
+  handler: "GetFreshProductVersionEnvironment"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshProductVersionEnvironmentRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersion123"
+      systemEnv: "system123"
+      runtimeEnv: "runtime123"
+      aggregateVersion: 1
+- name: "getFreshProductVersionPipeline"
+  version: "0.1.0"
+  handler: "GetFreshProductVersionPipeline"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshProductVersionPipelineRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersion123"
+      pipelineId: "pipeline123"
+      aggregateVersion: 1
 - name: "getProductVersionEnvironment"
   version: "0.1.0"
   handler: "GetProductVersionEnvironment"

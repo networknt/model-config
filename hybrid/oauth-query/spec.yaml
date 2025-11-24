@@ -182,6 +182,76 @@ schemas:
         description: "Update Timestamp"
     required:
     - "providerId"
+  getProviderIdLabelRequest:
+    title: "Provider Id Label"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "HostId"
+    required:
+    - "hostId"
+  getClientIdLabelRequest:
+    title: "Client Id Label"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "HostId"
+    required:
+    - "hostId"
+  getProviderApiRequest:
+    title: "OAuth Provider Api"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "HostId"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "limit"
+    - "offset"
+    - "hostId"
+  getProviderClientRequest:
+    title: "OAuth Provider Client"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Record Offset"
+      limit:
+        type: "integer"
+        description: "Record Limit"
+      hostId:
+        type: "string"
+        description: "HostId"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+    required:
+    - "limit"
+    - "offset"
+    - "hostId"
   getClientRequest:
     title: "Service"
     type: "object"
@@ -342,6 +412,46 @@ action:
       $ref: "#/schemas/getProviderKeyRequest"
     example:
       providerId: "provider123"
+- name: "getProviderIdLabel"
+  version: "0.1.0"
+  handler: "GetProviderIdLabel"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProviderIdLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getClientIdLabel"
+  version: "0.1.0"
+  handler: "GetClientIdLabel"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getClientIdLabelRequest"
+    example:
+      hostId: "host123"
+- name: "getProviderApi"
+  version: "0.1.0"
+  handler: "GetProviderApi"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProviderApiRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
+- name: "getProviderClient"
+  version: "0.1.0"
+  handler: "GetProviderClient"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProviderClientRequest"
+    example:
+      offset: 0
+      limit: 10
+      hostId: "host123"
 - name: "getClient"
   version: "0.1.0"
   handler: "GetClient"

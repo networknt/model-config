@@ -1,548 +1,496 @@
 ---
-host: lightapi.net
-service: role
+host: "lightapi.net"
+service: "role"
 schemas:
   createRoleRequest:
-    title: Role
-    type: object
+    title: "Role"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       roleId:
-        type: string
-        description: Role Id
+        type: "string"
+        description: "Role Id"
       roleDesc:
-        title: Role Desc
-        type: string
+        title: "Role Desc"
+        type: "string"
     required:
-    - hostId
-    - roleId
+    - "hostId"
+    - "roleId"
   updateRoleRequest:
-    title: Role
-    type: object
+    title: "Role"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       roleId:
-        type: string
-        description: Role Id
+        type: "string"
+        description: "Role Id"
       roleDesc:
-        title: Role Desc
-        type: string
+        title: "Role Desc"
+        type: "string"
     required:
-    - hostId
-    - roleId
-    - roleDesc
+    - "hostId"
+    - "roleId"
+    - "roleDesc"
   deleteRoleRequest:
-    title: Role
-    type: object
+    title: "Role"
+    type: "object"
     properties:
       hostId:
-        type: string
-        description: Host Id
+        type: "string"
+        description: "Host Id"
       roleId:
-        type: string
-        description: Role Id
+        type: "string"
+        description: "Role Id"
     required:
-    - hostId
-    - roleId
+    - "hostId"
+    - "roleId"
   createRoleUserRequest:
-    title: Role User
-    type: object
+    title: "Role User"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       roleId:
-        title: Role Id
-        type: string
+        title: "Role Id"
+        type: "string"
       userId:
-        title: User Id
-        type: string
+        title: "User Id"
+        type: "string"
       startTs:
-        title: Start Timestamp
-        type: string
-        format: date-time
+        title: "Start Timestamp"
+        type: "string"
+        format: "date-time"
       endTs:
-        title: End Timestamp
-        type: string
-        format: date-time
+        title: "End Timestamp"
+        type: "string"
+        format: "date-time"
     required:
-    - hostId
-    - roleId
-    - userId
-  deleteRoleUserRequest:
-    title: Role User
-    type: object
+    - "hostId"
+    - "roleId"
+    - "userId"
+  updateRoleUserRequest:
+    title: "Role User"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       roleId:
-        title: Role Id
-        type: string
+        title: "Role Id"
+        type: "string"
       userId:
-        title: User Id
-        type: string
+        title: "User Id"
+        type: "string"
+      startTs:
+        title: "Start Timestamp"
+        type: "string"
+        format: "date-time"
+      endTs:
+        title: "End Timestamp"
+        type: "string"
+        format: "date-time"
     required:
-    - hostId
-    - roleId
-    - userId
+      - "hostId"
+      - "roleId"
+      - "userId"
+  deleteRoleUserRequest:
+    title: "Role User"
+    type: "object"
+    properties:
+      hostId:
+        title: "Host Id"
+        type: "string"
+      roleId:
+        title: "Role Id"
+        type: "string"
+      userId:
+        title: "User Id"
+        type: "string"
+    required:
+    - "hostId"
+    - "roleId"
+    - "userId"
   createRolePermissionRequest:
-    title: Role Permission
-    type: object
+    title: "Role Permission"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       roleId:
-        title: Role Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Role Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
     required:
-    - hostId
-    - roleId
-    - apiId
-    - apiVersion
-    - endpoint
+    - "hostId"
+    - "roleId"
+    - "apiVersionId"
+    - "endpointId"
   deleteRolePermissionRequest:
-    title: Role Permission
-    type: object
+    title: "Role Permission"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       roleId:
-        title: Role Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Role Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "EndpointId"
+        type: "string"
     required:
-    - hostId
-    - roleId
-    - apiId
-    - apiVersion
-    - endpoint
+    - "hostId"
+    - "roleId"
+    - "apiVersionId"
+    - "endpointId"
   createRoleRowFilterRequest:
-    title: Role Row Filter
-    type: object
+    title: "Role Row Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       roleId:
-        title: Role Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Role Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       colName:
-        title: Column Name
-        type: string
+        title: "Column Name"
+        type: "string"
       operator:
-        title: Operator
-        type: string
+        title: "Operator"
+        type: "string"
       colValue:
-        title: Column Value
-        type: string
+        title: "Column Value"
+        type: "string"
     required:
-    - hostId
-    - roleId
-    - apiId
-    - apiVersion
-    - endpoint
-    - colName
-    - operator
-    - colValue
+    - "hostId"
+    - "roleId"
+    - "apiVersionId"
+    - "endpointId"
+    - "colName"
+    - "operator"
+    - "colValue"
   updateRoleRowFilterRequest:
-    title: Role Row Filter
-    type: object
+    title: "Role Row Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       roleId:
-        title: Role Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Role Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       colName:
-        title: Column Name
-        type: string
+        title: "Column Name"
+        type: "string"
       operator:
-        title: Operator
-        type: string
+        title: "Operator"
+        type: "string"
       colValue:
-        title: Column Value
-        type: string
+        title: "Column Value"
+        type: "string"
     required:
-    - hostId
-    - roleId
-    - apiId
-    - apiVersion
-    - endpoint
-    - colName
-    - operator
-    - colValue
+    - "hostId"
+    - "roleId"
+    - "apiVersionId"
+    - "endpointId"
+    - "colName"
+    - "operator"
+    - "colValue"
   deleteRoleRowFilterRequest:
-    title: Role Row Filter
-    type: object
+    title: "Role Row Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       roleId:
-        title: Role Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Role Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       colName:
-        title: Column Name
-        type: string
+        title: "Column Name"
+        type: "string"
     required:
-    - hostId
-    - roleId
-    - apiId
-    - apiVersion
-    - endpoint
-    - colName
+    - "hostId"
+    - "roleId"
+    - "apiVersionId"
+    - "endpointId"
+    - "colName"
   createRoleColFilterRequest:
-    title: Role Column Filter
-    type: object
+    title: "Role Column Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       roleId:
-        title: Role Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Role Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       columns:
-        title: Columns
-        type: string
+        title: "Columns"
+        type: "string"
     required:
-    - hostId
-    - roleId
-    - apiId
-    - apiVersion
-    - endpoint
-    - columns
+    - "hostId"
+    - "roleId"
+    - "apiVersionId"
+    - "endpointId"
+    - "columns"
   updateRoleColFilterRequest:
-    title: Role Col Filter
-    type: object
+    title: "Role Col Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       roleId:
-        title: Role Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Role Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
       columns:
-        title: Columns
-        type: string
+        title: "Columns"
+        type: "string"
     required:
-    - hostId
-    - roleId
-    - apiId
-    - apiVersion
-    - endpoint
-    - columns
+    - "hostId"
+    - "roleId"
+    - "apiVersionId"
+    - "endpointId"
+    - "columns"
   deleteRoleColFilterRequest:
-    title: Role Col Filter
-    type: object
+    title: "Role Col Filter"
+    type: "object"
     properties:
       hostId:
-        title: Host Id
-        type: string
+        title: "Host Id"
+        type: "string"
       roleId:
-        title: Role Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
+        title: "Role Id"
+        type: "string"
+      apiVersionId:
+        title: "Api Version Id"
+        type: "string"
+      endpointId:
+        title: "Endpoint Id"
+        type: "string"
     required:
-    - hostId
-    - roleId
-    - apiId
-    - apiVersion
-    - endpoint
-  createRolePermissionRequest:
-    title: Role Permission
-    type: object
-    properties:
-      hostId:
-        title: Host Id
-        type: string
-      roleId:
-        title: Role Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
-    required:
-    - hostId
-    - roleId
-    - apiId
-    - apiVersion
-    - endpoint
-  deleteRolePermissionRequest:
-    title: Role Permission
-    type: object
-    properties:
-      hostId:
-        title: Host Id
-        type: string
-      roleId:
-        title: Role Id
-        type: string
-      apiId:
-        title: Api Id
-        type: string
-      apiVersion:
-        title: Api Version
-        type: string
-      endpoint:
-        title: Endpoint
-        type: string
-    required:
-    - hostId
-    - roleId
-    - apiId
-    - apiVersion
-    - endpoint
+    - "hostId"
+    - "roleId"
+    - "apiVersionId"
+    - "endpointId"
 action:
-- name: createRole
-  version: 0.1.0
-  handler: CreateRole
-  scope: portal.w
+- name: "createRole"
+  version: "0.1.0"
+  handler: "CreateRole"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createRoleRequest'
-    example: 
-      hostId: host123
-      roleId: role123
+      $ref: "#/schemas/createRoleRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
       roleDesc: "This is my role"
-- name: updateRole
-  version: 0.1.0
-  handler: UpdateRole
-  scope: portal.w
+- name: "updateRole"
+  version: "0.1.0"
+  handler: "UpdateRole"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateRoleRequest'
-    example: 
-      hostId: host123
-      roleId: role123
+      $ref: "#/schemas/updateRoleRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
       roleDesc: "This is my updated role"
-- name: deleteRole
-  version: 0.1.0
-  handler: DeleteRole
-  scope: portal.w
+- name: "deleteRole"
+  version: "0.1.0"
+  handler: "DeleteRole"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteRoleRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-- name: createRoleUser
-  version: 0.1.0
-  handler: CreateRoleUser
-  scope: portal.w
+      $ref: "#/schemas/deleteRoleRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+- name: "createRoleUser"
+  version: "0.1.0"
+  handler: "CreateRoleUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createRoleUserRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-      userId: user123
-      startTs: 2024-04-01T10:00:00Z
-      endTs: 2024-04-30T10:00:00Z
-- name: deleteRoleUser
-  version: 0.1.0
-  handler: DeleteRoleUser
-  scope: portal.w
+      $ref: "#/schemas/createRoleUserRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      userId: "user123"
+      startTs: "2024-04-01T10:00:00Z"
+      endTs: "2024-04-30T10:00:00Z"
+- name: "updateRoleUser"
+  version: "0.1.0"
+  handler: "UpdateRoleUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteRoleUserRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-      userId: user123
-- name: createRolePermission
-  version: 0.1.0
-  handler: CreateRolePermission
-  scope: portal.w
+      $ref: "#/schemas/updateRoleUserRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      userId: "user123"
+      startTs: "2024-04-01T10:00:00Z"
+      endTs: "2024-04-30T10:00:00Z"
+- name: "deleteRoleUser"
+  version: "0.1.0"
+  handler: "DeleteRoleUser"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createRolePermissionRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-- name: deleteRolePermission
-  version: 0.1.0
-  handler: DeleteRolePermission
-  scope: portal.w
+      $ref: "#/schemas/deleteRoleUserRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      userId: "user123"
+- name: "createRolePermission"
+  version: "0.1.0"
+  handler: "CreateRolePermission"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteRolePermissionRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-- name: createRoleRowFilter
-  version: 0.1.0
-  handler: CreateRoleRowFilter
-  scope: portal.w
+      $ref: "#/schemas/createRolePermissionRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+- name: "deleteRolePermission"
+  version: "0.1.0"
+  handler: "DeleteRolePermission"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createRoleRowFilterRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      colName: name
-      operator: equals
-      colValue: test
-- name: updateRoleRowFilter
-  version: 0.1.0
-  handler: UpdateRoleRowFilter
-  scope: portal.w
+      $ref: "#/schemas/deleteRolePermissionRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+- name: "createRoleRowFilter"
+  version: "0.1.0"
+  handler: "CreateRoleRowFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateRoleRowFilterRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      colName: name
-      operator: contains
-      colValue: test
-- name: deleteRoleRowFilter
-  version: 0.1.0
-  handler: DeleteRoleRowFilter
-  scope: portal.w
+      $ref: "#/schemas/createRoleRowFilterRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+      colName: "name"
+      operator: "equals"
+      colValue: "test"
+- name: "updateRoleRowFilter"
+  version: "0.1.0"
+  handler: "UpdateRoleRowFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteRoleRowFilterRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      colName: name
-- name: createRoleColFilter
-  version: 0.1.0
-  handler: CreateRoleColFilter
-  scope: portal.w
+      $ref: "#/schemas/updateRoleRowFilterRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+      colName: "name"
+      operator: "contains"
+      colValue: "test"
+- name: "deleteRoleRowFilter"
+  version: "0.1.0"
+  handler: "DeleteRoleRowFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/createRoleColFilterRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      columns: col1, col2
-- name: updateRoleColFilter
-  version: 0.1.0
-  handler: UpdateRoleColFilter
-  scope: portal.w
+      $ref: "#/schemas/deleteRoleRowFilterRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+      colName: "name"
+- name: "createRoleColFilter"
+  version: "0.1.0"
+  handler: "CreateRoleColFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/updateRoleColFilterRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
-      columns: col2, col3
-- name: deleteRoleColFilter
-  version: 0.1.0
-  handler: DeleteRoleColFilter
-  scope: portal.w
+      $ref: "#/schemas/createRoleColFilterRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+      columns: "col1, col2"
+- name: "updateRoleColFilter"
+  version: "0.1.0"
+  handler: "UpdateRoleColFilter"
+  scope: "portal.w"
   request:
     schema:
-      $ref: '#/schemas/deleteRoleColFilterRequest'
-    example: 
-      hostId: host123
-      roleId: role123
-      apiId: api123
-      apiVersion: 1.0.0
-      endpoint: endpoint
+      $ref: "#/schemas/updateRoleColFilterRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
+      columns: "col2, col3"
+- name: "deleteRoleColFilter"
+  version: "0.1.0"
+  handler: "DeleteRoleColFilter"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteRoleColFilterRequest"
+    example:
+      hostId: "host123"
+      roleId: "role123"
+      apiVersionId: "apiVersion123"
+      endpointId: "endpoint123"
