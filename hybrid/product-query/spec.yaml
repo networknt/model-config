@@ -62,10 +62,10 @@ schemas:
         type: "integer"
         description: "Aggregate Version"
     required:
-      - "hostId"
-      - "productVersionId"
-      - "configId"
-      - "aggregateVersion"
+    - "hostId"
+    - "productVersionId"
+    - "configId"
+    - "aggregateVersion"
   getFreshProductVersionConfigPropertyRequest:
     title: "Product Version Config Property"
     type: "object"
@@ -83,10 +83,10 @@ schemas:
         type: "integer"
         description: "Aggregate Version"
     required:
-      - "hostId"
-      - "productVersionId"
-      - "propertyId"
-      - "aggregateVersion"
+    - "hostId"
+    - "productVersionId"
+    - "propertyId"
+    - "aggregateVersion"
   getFreshProductVersionEnvironmentRequest:
     title: "Product Version Environment"
     type: "object"
@@ -107,11 +107,11 @@ schemas:
         type: "integer"
         description: "Aggregate Version"
     required:
-      - "hostId"
-      - "productVersionId"
-      - "systemEnv"
-      - "runtimeEnv"
-      - "aggregateVersion"
+    - "hostId"
+    - "productVersionId"
+    - "systemEnv"
+    - "runtimeEnv"
+    - "aggregateVersion"
   getFreshProductVersionPipelineRequest:
     title: "Product Version Pipeline"
     type: "object"
@@ -129,10 +129,10 @@ schemas:
         type: "integer"
         description: "Aggregate Version"
     required:
-      - "hostId"
-      - "productVersionId"
-      - "pipelineId"
-      - "aggregateVersion"
+    - "hostId"
+    - "productVersionId"
+    - "pipelineId"
+    - "aggregateVersion"
   getProductVersionEnvironmentRequest:
     title: "Product Version Environment"
     type: "object"

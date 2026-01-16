@@ -148,6 +148,27 @@ schemas:
     - "productVersionId"
     - "systemEnv"
     - "runtimeEnv"
+  updateProductVersionEnvironmentRequest:
+    title: "Product Version Environment"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      productVersionId:
+        type: "string"
+        description: "Product Version Id"
+      systemEnv:
+        title: "System Env"
+        type: "string"
+      runtimeEnv:
+        title: "Runtime Env"
+        type: "string"
+    required:
+      - "hostId"
+      - "productVersionId"
+      - "systemEnv"
+      - "runtimeEnv"
   deleteProductVersionEnvironmentRequest:
     title: "Product Version Environment"
     type: "object"
@@ -322,6 +343,18 @@ action:
   request:
     schema:
       $ref: "#/schemas/createProductVersionEnvironmentRequest"
+    example:
+      hostId: "host123"
+      productVersionId: "productVersionId123"
+      systemEnv: "VM Ubuntu 24.04"
+      runtimeEnv: "OpenJDK 21"
+- name: "updateProductVersionEnvironment"
+  version: "0.1.0"
+  handler: "UpdateProductVersionEnvironment"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateProductVersionEnvironmentRequest"
     example:
       hostId: "host123"
       productVersionId: "productVersionId123"

@@ -21,9 +21,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
   getFreshConfigRequest:
     title: "Get Config"
     type: "object"
@@ -65,9 +69,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
   getFreshConfigPropertyRequest:
     title: "Get Config Property"
     type: "object"
@@ -156,9 +164,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
   getFreshConfigEnvironmentRequest:
     title: "Get Config Environment"
@@ -203,9 +215,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
   getFreshConfigInstanceApiRequest:
     title: "Get Config Instance Api"
@@ -250,9 +266,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
   getFreshConfigInstanceAppRequest:
     title: "Get Config Instance App"
@@ -297,9 +317,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
   getFreshConfigInstanceAppApiRequest:
     title: "Get Config Instance App Api"
@@ -348,9 +372,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
   getFreshConfigInstanceFileRequest:
     title: "Config Instance File"
@@ -391,9 +419,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
   getFreshConfigDeploymentInstanceRequest:
     title: "Config Deployment Instance"
@@ -438,9 +470,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
   getFreshConfigInstanceRequest:
     title: "Get Config Instance"
@@ -482,9 +518,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
   getFreshConfigProductRequest:
     title: "Get Config Product"
     type: "object"
@@ -524,10 +564,44 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
+  getConfigSnapshotRequest:
+    title: "Get Config Snapshot"
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
+    required:
+      - "offset"
+      - "limit"
+      - "active"
+      - "hostId"
   getFreshConfigProductVersionRequest:
     title: "Get Config Product Version"
     type: "object"
@@ -559,6 +633,9 @@ schemas:
       limit:
         type: "integer"
         description: "Limit"
+      active:
+        type: "boolean"
+        description: "Active"
       hostId:
         type: "string"
         description: "Host Id"
@@ -583,6 +660,7 @@ schemas:
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
     - "instanceId"
   getApplicableConfigPropertiesForInstanceApiRequest:
@@ -601,9 +679,13 @@ schemas:
       instanceApiId:
         type: "string"
         description: "Instance API Id"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
     - "instanceApiId"
   getApplicableConfigPropertiesForInstanceAppRequest:
@@ -616,6 +698,9 @@ schemas:
       limit:
         type: "integer"
         description: "Limit"
+      active:
+        type: "boolean"
+        description: "Active"
       hostId:
         type: "string"
         description: "Host Id"
@@ -625,6 +710,7 @@ schemas:
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
     - "instanceAppId"
   getApplicableConfigPropertiesForInstanceAppApiRequest:
@@ -637,6 +723,9 @@ schemas:
       limit:
         type: "integer"
         description: "Limit"
+      active:
+        type: "boolean"
+        description: "Active"
       hostId:
         type: "string"
         description: "Host Id"
@@ -649,6 +738,7 @@ schemas:
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
     - "instanceAppId"
     - "instanceApiId"
@@ -699,6 +789,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
 - name: "getFreshConfig"
   version: "0.1.0"
   handler: "GetFreshConfig"
@@ -755,6 +846,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
 - name: "getFreshConfigProperty"
   version: "0.1.0"
   handler: "GetFreshConfigProperty"
@@ -794,6 +886,8 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
+      hostId: host123
 - name: "getFreshConfigEnvironment"
   version: "0.1.0"
   handler: "GetFreshConfigEnvironment"
@@ -816,6 +910,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
 - name: "getFreshConfigInstanceApi"
   version: "0.1.0"
@@ -839,6 +934,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
 - name: "getFreshConfigInstanceApp"
   version: "0.1.0"
@@ -862,6 +958,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
 - name: "getFreshConfigInstanceAppApi"
   version: "0.1.0"
@@ -886,6 +983,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
 - name: "getFreshConfigInstanceFile"
   version: "0.1.0"
@@ -908,6 +1006,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
 - name: "getFreshConfigDeploymentInstance"
   version: "0.1.0"
@@ -931,6 +1030,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
 - name: "getFreshConfigInstance"
   version: "0.1.0"
@@ -954,6 +1054,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
 - name: "getFreshConfigProduct"
   version: "0.1.0"
   handler: "GetFreshConfigProduct"
@@ -975,6 +1076,19 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
+      hostId: "host123"
+- name: "getConfigSnapshot"
+  version: "0.1.0"
+  handler: "GetConfigSnapshot"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getConfigSnapshotRequest"
+    example:
+      offset: 0
+      limit: 10
+      active: true
       hostId: "host123"
 - name: "getFreshConfigProductVersion"
   version: "0.1.0"
@@ -998,6 +1112,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
       resourceTypes:
       - api
@@ -1020,6 +1135,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "uuid of host"
       instanceApiId: "uuid of instance api"
 - name: "getApplicableConfigPropertiesForInstanceApp"
@@ -1032,6 +1148,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "uuid of host"
       instanceAppId: "uuid of instance app"
 - name: "getApplicableConfigPropertiesForInstanceAppApi"
@@ -1044,6 +1161,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "uuid of host"
       instanceApiId: "uuid of instance api"
       instanceAppId: "uuid of instance app"
