@@ -1,0 +1,462 @@
+---
+host: "lightapi.net"
+service: "genai"
+schemas:
+  # Base Query Request
+  baseQueryRequest:
+    type: "object"
+    properties:
+      offset: { type: "integer", description: "Offset" }
+      limit: { type: "integer", description: "Limit" }
+      hostId: { type: "string", description: "Host Id" }
+      filters: { type: "string", description: "Filters" }
+      globalFilter: { type: "string", description: "Global Filter" }
+      sorting: { type: "string", description: "Sorting" }
+      active: { type: "boolean", description: "Active" }
+    required: ["offset", "limit", "active", "hostId"]
+
+  # Base Fresh Request
+  baseFreshRequest:
+    type: "object"
+    properties:
+      hostId: { type: "string", description: "Host Id" }
+      aggregateVersion: { type: "integer", description: "Aggregate Version" }
+    required: ["hostId", "aggregateVersion"]
+
+  # Workflow Definition
+  getWfDefinitionRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshWfDefinitionRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          wfDefId: { type: "string" }
+        required: ["wfDefId"]
+  getWfDefinitionLabelRequest:
+    type: "object"
+    properties:
+      hostId: { type: "string" }
+    required: ["hostId"]
+
+  # Worklist
+  getWorklistRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshWorklistRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          assigneeId: { type: "string" }
+          categoryId: { type: "string" }
+        required: ["assigneeId", "categoryId"]
+  getWorklistLabelRequest:
+    type: "object"
+    properties:
+      hostId: { type: "string" }
+    required: ["hostId"]
+
+  # Worklist Column
+  getWorklistColumnRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshWorklistColumnRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          assigneeId: { type: "string" }
+          categoryId: { type: "string" }
+          sequenceId: { type: "integer" }
+        required: ["assigneeId", "categoryId", "sequenceId"]
+
+  # Process Info
+  getProcessInfoRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshProcessInfoRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          processId: { type: "string" }
+        required: ["processId"]
+  getProcessInfoLabelRequest:
+    type: "object"
+    properties:
+      hostId: { type: "string" }
+    required: ["hostId"]
+
+  # Agent Definition
+  getAgentDefinitionRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshAgentDefinitionRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          agentDefId: { type: "string" }
+        required: ["agentDefId"]
+  getAgentDefinitionLabelRequest:
+    type: "object"
+    properties:
+      hostId: { type: "string" }
+    required: ["hostId"]
+
+  # Task Info
+  getTaskInfoRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshTaskInfoRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          taskId: { type: "string" }
+        required: ["taskId"]
+  getTaskInfoLabelRequest:
+    type: "object"
+    properties:
+      hostId: { type: "string" }
+    required: ["hostId"]
+
+  # Task Asst
+  getTaskAsstRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshTaskAsstRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          taskAsstId: { type: "string" }
+        required: ["taskAsstId"]
+
+  # Audit Log
+  getAuditLogRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+    required: ["offset", "limit", "hostId"] # active might not apply to audit logs
+
+  # Skill
+  getSkillRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshSkillRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          skillId: { type: "string" }
+        required: ["skillId"]
+  getSkillLabelRequest:
+    type: "object"
+    properties:
+      hostId: { type: "string" }
+    required: ["hostId"]
+
+  # Skill Param
+  getSkillParamRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshSkillParamRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          paramId: { type: "string" }
+        required: ["paramId"]
+
+  # Skill Dependency
+  getSkillDependencyRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshSkillDependencyRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          skillId: { type: "string" }
+          dependsOnSkillId: { type: "string" }
+        required: ["skillId", "dependsOnSkillId"]
+
+  # Agent Skill
+  getAgentSkillRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshAgentSkillRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          agentDefId: { type: "string" }
+          skillId: { type: "string" }
+        required: ["agentDefId", "skillId"]
+
+  # Agent Session History
+  getAgentSessionHistoryRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+      - type: "object"
+        properties:
+          processId: { type: "string" }
+        required: ["processId"]
+
+  # Session Memory
+  getSessionMemoryRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshSessionMemoryRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          memId: { type: "string" }
+        required: ["memId"]
+
+  # User Memory
+  getUserMemoryRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshUserMemoryRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          memId: { type: "string" }
+        required: ["memId"]
+
+  # Agent Memory
+  getAgentMemoryRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshAgentMemoryRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          memId: { type: "string" }
+        required: ["memId"]
+
+  # Org Memory
+  getOrgMemoryRequest:
+    allOf:
+      - $ref: "#/schemas/baseQueryRequest"
+  getFreshOrgMemoryRequest:
+    allOf:
+      - $ref: "#/schemas/baseFreshRequest"
+      - type: "object"
+        properties:
+          memId: { type: "string" }
+        required: ["memId"]
+
+action:
+  - name: "getWfDefinition"
+    version: "0.1.0"
+    handler: "GetWfDefinition"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getWfDefinitionRequest" } }
+  - name: "getFreshWfDefinition"
+    version: "0.1.0"
+    handler: "GetFreshWfDefinition"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshWfDefinitionRequest" } }
+  - name: "getWfDefinitionLabel"
+    version: "0.1.0"
+    handler: "GetWfDefinitionLabel"
+    skipAuth: true
+    request: { schema: { $ref: "#/schemas/getWfDefinitionLabelRequest" } }
+
+  - name: "getWorklist"
+    version: "0.1.0"
+    handler: "GetWorklist"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getWorklistRequest" } }
+  - name: "getFreshWorklist"
+    version: "0.1.0"
+    handler: "GetFreshWorklist"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshWorklistRequest" } }
+  - name: "getWorklistLabel"
+    version: "0.1.0"
+    handler: "GetWorklistLabel"
+    skipAuth: true
+    request: { schema: { $ref: "#/schemas/getWorklistLabelRequest" } }
+
+  - name: "getWorklistColumn"
+    version: "0.1.0"
+    handler: "GetWorklistColumn"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getWorklistColumnRequest" } }
+  - name: "getFreshWorklistColumn"
+    version: "0.1.0"
+    handler: "GetFreshWorklistColumn"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshWorklistColumnRequest" } }
+
+  - name: "getProcessInfo"
+    version: "0.1.0"
+    handler: "GetProcessInfo"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getProcessInfoRequest" } }
+  - name: "getFreshProcessInfo"
+    version: "0.1.0"
+    handler: "GetFreshProcessInfo"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshProcessInfoRequest" } }
+  - name: "getProcessInfoLabel"
+    version: "0.1.0"
+    handler: "GetProcessInfoLabel"
+    skipAuth: true
+    request: { schema: { $ref: "#/schemas/getProcessInfoLabelRequest" } }
+
+  - name: "getAgentDefinition"
+    version: "0.1.0"
+    handler: "GetAgentDefinition"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getAgentDefinitionRequest" } }
+  - name: "getFreshAgentDefinition"
+    version: "0.1.0"
+    handler: "GetFreshAgentDefinition"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshAgentDefinitionRequest" } }
+  - name: "getAgentDefinitionLabel"
+    version: "0.1.0"
+    handler: "GetAgentDefinitionLabel"
+    skipAuth: true
+    request: { schema: { $ref: "#/schemas/getAgentDefinitionLabelRequest" } }
+
+  - name: "getTaskInfo"
+    version: "0.1.0"
+    handler: "GetTaskInfo"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getTaskInfoRequest" } }
+  - name: "getFreshTaskInfo"
+    version: "0.1.0"
+    handler: "GetFreshTaskInfo"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshTaskInfoRequest" } }
+  - name: "getTaskInfoLabel"
+    version: "0.1.0"
+    handler: "GetTaskInfoLabel"
+    skipAuth: true
+    request: { schema: { $ref: "#/schemas/getTaskInfoLabelRequest" } }
+
+  - name: "getTaskAsst"
+    version: "0.1.0"
+    handler: "GetTaskAsst"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getTaskAsstRequest" } }
+  - name: "getFreshTaskAsst"
+    version: "0.1.0"
+    handler: "GetFreshTaskAsst"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshTaskAsstRequest" } }
+
+  - name: "getAuditLog"
+    version: "0.1.0"
+    handler: "GetAuditLog"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getAuditLogRequest" } }
+
+  - name: "getSkill"
+    version: "0.1.0"
+    handler: "GetSkill"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getSkillRequest" } }
+  - name: "getFreshSkill"
+    version: "0.1.0"
+    handler: "GetFreshSkill"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshSkillRequest" } }
+  - name: "getSkillLabel"
+    version: "0.1.0"
+    handler: "GetSkillLabel"
+    skipAuth: true
+    request: { schema: { $ref: "#/schemas/getSkillLabelRequest" } }
+
+  - name: "getSkillParam"
+    version: "0.1.0"
+    handler: "GetSkillParam"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getSkillParamRequest" } }
+  - name: "getFreshSkillParam"
+    version: "0.1.0"
+    handler: "GetFreshSkillParam"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshSkillParamRequest" } }
+
+  - name: "getSkillDependency"
+    version: "0.1.0"
+    handler: "GetSkillDependency"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getSkillDependencyRequest" } }
+  - name: "getFreshSkillDependency"
+    version: "0.1.0"
+    handler: "GetFreshSkillDependency"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshSkillDependencyRequest" } }
+
+  - name: "getAgentSkill"
+    version: "0.1.0"
+    handler: "GetAgentSkill"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getAgentSkillRequest" } }
+  - name: "getFreshAgentSkill"
+    version: "0.1.0"
+    handler: "GetFreshAgentSkill"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshAgentSkillRequest" } }
+
+  - name: "getAgentSessionHistory"
+    version: "0.1.0"
+    handler: "GetAgentSessionHistory"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getAgentSessionHistoryRequest" } }
+
+  - name: "getSessionMemory"
+    version: "0.1.0"
+    handler: "GetSessionMemory"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getSessionMemoryRequest" } }
+  - name: "getFreshSessionMemory"
+    version: "0.1.0"
+    handler: "GetFreshSessionMemory"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshSessionMemoryRequest" } }
+
+  - name: "getUserMemory"
+    version: "0.1.0"
+    handler: "GetUserMemory"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getUserMemoryRequest" } }
+  - name: "getFreshUserMemory"
+    version: "0.1.0"
+    handler: "GetFreshUserMemory"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshUserMemoryRequest" } }
+
+  - name: "getAgentMemory"
+    version: "0.1.0"
+    handler: "GetAgentMemory"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getAgentMemoryRequest" } }
+  - name: "getFreshAgentMemory"
+    version: "0.1.0"
+    handler: "GetFreshAgentMemory"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshAgentMemoryRequest" } }
+
+  - name: "getOrgMemory"
+    version: "0.1.0"
+    handler: "GetOrgMemory"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getOrgMemoryRequest" } }
+  - name: "getFreshOrgMemory"
+    version: "0.1.0"
+    handler: "GetFreshOrgMemory"
+    scope: "portal.r"
+    request: { schema: { $ref: "#/schemas/getFreshOrgMemoryRequest" } }
