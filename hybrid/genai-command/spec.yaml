@@ -2,865 +2,1579 @@
 host: "lightapi.net"
 service: "genai"
 schemas:
-  # Workflow Definition
   createWfDefinitionRequest:
     title: "Workflow Definition"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      wfDefId: { type: "string" }
-      namespace: { type: "string" }
-      name: { type: "string" }
-      version: { type: "string" }
-      definition: { type: "string" }
-    required: ["hostId", "wfDefId", "namespace", "name", "version", "definition"]
+      hostId:
+        type: "string"
+      wfDefId:
+        type: "string"
+      namespace:
+        type: "string"
+      name:
+        type: "string"
+      version:
+        type: "string"
+      definition:
+        type: "string"
+    required:
+    - "hostId"
+    - "wfDefId"
+    - "namespace"
+    - "name"
+    - "version"
+    - "definition"
   updateWfDefinitionRequest:
     title: "Workflow Definition"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      wfDefId: { type: "string" }
-      namespace: { type: "string" }
-      name: { type: "string" }
-      version: { type: "string" }
-      definition: { type: "string" }
-      active: { type: "boolean" }
-    required: ["hostId", "wfDefId"]
+      hostId:
+        type: "string"
+      wfDefId:
+        type: "string"
+      namespace:
+        type: "string"
+      name:
+        type: "string"
+      version:
+        type: "string"
+      definition:
+        type: "string"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "wfDefId"
   deleteWfDefinitionRequest:
     title: "Workflow Definition"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      wfDefId: { type: "string" }
-    required: ["hostId", "wfDefId"]
-
-  # Worklist
+      hostId:
+        type: "string"
+      wfDefId:
+        type: "string"
+    required:
+    - "hostId"
+    - "wfDefId"
   createWorklistRequest:
     title: "Worklist"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      assigneeId: { type: "string" }
-      categoryId: { type: "string" }
-      statusCode: { type: "string" }
-      appId: { type: "string" }
-    required: ["hostId", "assigneeId", "categoryId"]
+      hostId:
+        type: "string"
+      assigneeId:
+        type: "string"
+      categoryId:
+        type: "string"
+      statusCode:
+        type: "string"
+      appId:
+        type: "string"
+    required:
+    - "hostId"
+    - "assigneeId"
+    - "categoryId"
   updateWorklistRequest:
     title: "Worklist"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      assigneeId: { type: "string" }
-      categoryId: { type: "string" }
-      statusCode: { type: "string" }
-      appId: { type: "string" }
-      active: { type: "boolean" }
-    required: ["hostId", "assigneeId", "categoryId"]
+      hostId:
+        type: "string"
+      assigneeId:
+        type: "string"
+      categoryId:
+        type: "string"
+      statusCode:
+        type: "string"
+      appId:
+        type: "string"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "assigneeId"
+    - "categoryId"
   deleteWorklistRequest:
     title: "Worklist"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      assigneeId: { type: "string" }
-      categoryId: { type: "string" }
-    required: ["hostId", "assigneeId", "categoryId"]
-
-  # Worklist Column
+      hostId:
+        type: "string"
+      assigneeId:
+        type: "string"
+      categoryId:
+        type: "string"
+    required:
+    - "hostId"
+    - "assigneeId"
+    - "categoryId"
   createWorklistColumnRequest:
     title: "Worklist Column"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      assigneeId: { type: "string" }
-      categoryId: { type: "string" }
-      sequenceId: { type: "integer" }
-      columnId: { type: "string" }
-    required: ["hostId", "assigneeId", "categoryId", "sequenceId", "columnId"]
+      hostId:
+        type: "string"
+      assigneeId:
+        type: "string"
+      categoryId:
+        type: "string"
+      sequenceId:
+        type: "integer"
+      columnId:
+        type: "string"
+    required:
+    - "hostId"
+    - "assigneeId"
+    - "categoryId"
+    - "sequenceId"
+    - "columnId"
   updateWorklistColumnRequest:
     title: "Worklist Column"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      assigneeId: { type: "string" }
-      categoryId: { type: "string" }
-      sequenceId: { type: "integer" }
-      columnId: { type: "string" }
-      active: { type: "boolean" }
-    required: ["hostId", "assigneeId", "categoryId", "sequenceId"]
+      hostId:
+        type: "string"
+      assigneeId:
+        type: "string"
+      categoryId:
+        type: "string"
+      sequenceId:
+        type: "integer"
+      columnId:
+        type: "string"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "assigneeId"
+    - "categoryId"
+    - "sequenceId"
   deleteWorklistColumnRequest:
     title: "Worklist Column"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      assigneeId: { type: "string" }
-      categoryId: { type: "string" }
-      sequenceId: { type: "integer" }
-    required: ["hostId", "assigneeId", "categoryId", "sequenceId"]
-
-  # Process Info
+      hostId:
+        type: "string"
+      assigneeId:
+        type: "string"
+      categoryId:
+        type: "string"
+      sequenceId:
+        type: "integer"
+    required:
+    - "hostId"
+    - "assigneeId"
+    - "categoryId"
+    - "sequenceId"
   createProcessInfoRequest:
     title: "Process Info"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      processId: { type: "string" }
-      wfDefId: { type: "string" }
-      wfInstanceId: { type: "string" }
-      appId: { type: "string" }
-      processType: { type: "string" }
-      statusCode: { type: "string" }
-      exTriggerTs: { type: "string", format: "date-time" }
-      customStatusCode: { type: "string" }
-      sourceId: { type: "string" }
-      branchCode: { type: "string" }
-      rrCode: { type: "string" }
-      partyId: { type: "string" }
-      partyName: { type: "string" }
-      counterPartyId: { type: "string" }
-      counterPartyName: { type: "string" }
-      txnId: { type: "string" }
-      txnName: { type: "string" }
-      productId: { type: "string" }
-      productName: { type: "string" }
-      productType: { type: "string" }
-      groupName: { type: "string" }
-      subgroupName: { type: "string" }
-      eventStartTs: { type: "string", format: "date-time" }
-      eventEndTs: { type: "string", format: "date-time" }
-      eventOtherTs: { type: "string", format: "date-time" }
-      eventOther: { type: "string" }
-      risk: { type: "number" }
-      riskScale: { type: "integer" }
-      price: { type: "number" }
-      priceScale: { type: "integer" }
-      productQy: { type: "number" }
-      currencyCode: { type: "string" }
-      exRefId: { type: "string" }
-      exRefCode: { type: "string" }
-      productQyScale: { type: "integer" }
-      parentProcessId: { type: "string" }
-      deadlineTs: { type: "string", format: "date-time" }
-      parentGroupId: { type: "number" }
-      processSubtypeCode: { type: "string" }
-      owningGroupName: { type: "string" }
-    required: ["hostId", "processId", "wfDefId", "wfInstanceId", "appId", "processType", "statusCode", "exTriggerTs"]
+      hostId:
+        type: "string"
+      processId:
+        type: "string"
+      wfDefId:
+        type: "string"
+      wfInstanceId:
+        type: "string"
+      appId:
+        type: "string"
+      processType:
+        type: "string"
+      statusCode:
+        type: "string"
+      exTriggerTs:
+        type: "string"
+        format: "date-time"
+      customStatusCode:
+        type: "string"
+      sourceId:
+        type: "string"
+      branchCode:
+        type: "string"
+      rrCode:
+        type: "string"
+      partyId:
+        type: "string"
+      partyName:
+        type: "string"
+      counterPartyId:
+        type: "string"
+      counterPartyName:
+        type: "string"
+      txnId:
+        type: "string"
+      txnName:
+        type: "string"
+      productId:
+        type: "string"
+      productName:
+        type: "string"
+      productType:
+        type: "string"
+      groupName:
+        type: "string"
+      subgroupName:
+        type: "string"
+      eventStartTs:
+        type: "string"
+        format: "date-time"
+      eventEndTs:
+        type: "string"
+        format: "date-time"
+      eventOtherTs:
+        type: "string"
+        format: "date-time"
+      eventOther:
+        type: "string"
+      risk:
+        type: "number"
+      riskScale:
+        type: "integer"
+      price:
+        type: "number"
+      priceScale:
+        type: "integer"
+      productQy:
+        type: "number"
+      currencyCode:
+        type: "string"
+      exRefId:
+        type: "string"
+      exRefCode:
+        type: "string"
+      productQyScale:
+        type: "integer"
+      parentProcessId:
+        type: "string"
+      deadlineTs:
+        type: "string"
+        format: "date-time"
+      parentGroupId:
+        type: "number"
+      processSubtypeCode:
+        type: "string"
+      owningGroupName:
+        type: "string"
+    required:
+    - "hostId"
+    - "processId"
+    - "wfDefId"
+    - "wfInstanceId"
+    - "appId"
+    - "processType"
+    - "statusCode"
+    - "exTriggerTs"
   updateProcessInfoRequest:
     title: "Process Info"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      processId: { type: "string" }
-      statusCode: { type: "string" }
-      customStatusCode: { type: "string" }
-      completedTs: { type: "string", format: "date-time" }
-      resultCode: { type: "string" }
-      active: { type: "boolean" }
-    required: ["hostId", "processId"]
+      hostId:
+        type: "string"
+      processId:
+        type: "string"
+      statusCode:
+        type: "string"
+      customStatusCode:
+        type: "string"
+      completedTs:
+        type: "string"
+        format: "date-time"
+      resultCode:
+        type: "string"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "processId"
   deleteProcessInfoRequest:
     title: "Process Info"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      processId: { type: "string" }
-    required: ["hostId", "processId"]
-
-  # Agent Definition
+      hostId:
+        type: "string"
+      processId:
+        type: "string"
+    required:
+    - "hostId"
+    - "processId"
   createAgentDefinitionRequest:
     title: "Agent Definition"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      agentDefId: { type: "string" }
-      agentName: { type: "string" }
-      modelProvider: { type: "string" }
-      modelName: { type: "string" }
-      apiKeyRef: { type: "string" }
-      temperature: { type: "number" }
-      maxTokens: { type: "integer" }
-    required: ["hostId", "agentDefId", "agentName", "modelProvider", "modelName"]
+      hostId:
+        type: "string"
+      agentDefId:
+        type: "string"
+      agentName:
+        type: "string"
+      modelProvider:
+        type: "string"
+      modelName:
+        type: "string"
+      apiKeyRef:
+        type: "string"
+      temperature:
+        type: "number"
+      maxTokens:
+        type: "integer"
+    required:
+    - "hostId"
+    - "agentDefId"
+    - "agentName"
+    - "modelProvider"
+    - "modelName"
   updateAgentDefinitionRequest:
     title: "Agent Definition"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      agentDefId: { type: "string" }
-      agentName: { type: "string" }
-      modelProvider: { type: "string" }
-      modelName: { type: "string" }
-      apiKeyRef: { type: "string" }
-      temperature: { type: "number" }
-      maxTokens: { type: "integer" }
-      active: { type: "boolean" }
-    required: ["hostId", "agentDefId"]
+      hostId:
+        type: "string"
+      agentDefId:
+        type: "string"
+      agentName:
+        type: "string"
+      modelProvider:
+        type: "string"
+      modelName:
+        type: "string"
+      apiKeyRef:
+        type: "string"
+      temperature:
+        type: "number"
+      maxTokens:
+        type: "integer"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "agentDefId"
   deleteAgentDefinitionRequest:
     title: "Agent Definition"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      agentDefId: { type: "string" }
-    required: ["hostId", "agentDefId"]
-
-  # Task Info
+      hostId:
+        type: "string"
+      agentDefId:
+        type: "string"
+    required:
+    - "hostId"
+    - "agentDefId"
   createTaskInfoRequest:
     title: "Task Info"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      taskId: { type: "string" }
-      agentDefId: { type: "string" }
-      taskType: { type: "string" }
-      processId: { type: "string" }
-      wfInstanceId: { type: "string" }
-      wfTaskId: { type: "string" }
-      statusCode: { type: "string" }
-      locked: { type: "string" }
-      priority: { type: "integer" }
-      deadlineTs: { type: "string", format: "date-time" }
-    required: ["hostId", "taskId", "agentDefId", "taskType", "processId", "wfInstanceId", "wfTaskId", "statusCode", "locked", "priority"]
+      hostId:
+        type: "string"
+      taskId:
+        type: "string"
+      agentDefId:
+        type: "string"
+      taskType:
+        type: "string"
+      processId:
+        type: "string"
+      wfInstanceId:
+        type: "string"
+      wfTaskId:
+        type: "string"
+      statusCode:
+        type: "string"
+      locked:
+        type: "string"
+      priority:
+        type: "integer"
+      deadlineTs:
+        type: "string"
+        format: "date-time"
+    required:
+    - "hostId"
+    - "taskId"
+    - "agentDefId"
+    - "taskType"
+    - "processId"
+    - "wfInstanceId"
+    - "wfTaskId"
+    - "statusCode"
+    - "locked"
+    - "priority"
   updateTaskInfoRequest:
     title: "Task Info"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      taskId: { type: "string" }
-      statusCode: { type: "string" }
-      completedTs: { type: "string", format: "date-time" }
-      completedUser: { type: "string" }
-      resultCode: { type: "string" }
-      lockingUser: { type: "string" }
-      lockingRole: { type: "string" }
-      lockGroup: { type: "string" }
-      active: { type: "boolean" }
-    required: ["hostId", "taskId"]
+      hostId:
+        type: "string"
+      taskId:
+        type: "string"
+      statusCode:
+        type: "string"
+      completedTs:
+        type: "string"
+        format: "date-time"
+      completedUser:
+        type: "string"
+      resultCode:
+        type: "string"
+      lockingUser:
+        type: "string"
+      lockingRole:
+        type: "string"
+      lockGroup:
+        type: "string"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "taskId"
   deleteTaskInfoRequest:
     title: "Task Info"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      taskId: { type: "string" }
-    required: ["hostId", "taskId"]
-
-  # Task Asst
+      hostId:
+        type: "string"
+      taskId:
+        type: "string"
+    required:
+    - "hostId"
+    - "taskId"
   createTaskAsstRequest:
     title: "Task Assistant"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      taskAsstId: { type: "string" }
-      taskId: { type: "string" }
-      assigneeId: { type: "string" }
-      reasonCode: { type: "string" }
-      categoryCode: { type: "string" }
-    required: ["hostId", "taskAsstId", "taskId", "assigneeId", "reasonCode"]
+      hostId:
+        type: "string"
+      taskAsstId:
+        type: "string"
+      taskId:
+        type: "string"
+      assigneeId:
+        type: "string"
+      reasonCode:
+        type: "string"
+      categoryCode:
+        type: "string"
+    required:
+    - "hostId"
+    - "taskAsstId"
+    - "taskId"
+    - "assigneeId"
+    - "reasonCode"
   updateTaskAsstRequest:
     title: "Task Assistant"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      taskAsstId: { type: "string" }
-      unassignedTs: { type: "string", format: "date-time" }
-      unassignedReason: { type: "string" }
-      active: { type: "boolean" }
-    required: ["hostId", "taskAsstId"]
+      hostId:
+        type: "string"
+      taskAsstId:
+        type: "string"
+      unassignedTs:
+        type: "string"
+        format: "date-time"
+      unassignedReason:
+        type: "string"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "taskAsstId"
   deleteTaskAsstRequest:
     title: "Task Assistant"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      taskAsstId: { type: "string" }
-    required: ["hostId", "taskAsstId"]
-
-  # Audit Log
+      hostId:
+        type: "string"
+      taskAsstId:
+        type: "string"
+    required:
+    - "hostId"
+    - "taskAsstId"
   createAuditLogRequest:
     title: "Audit Log"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      auditLogId: { type: "string" }
-      sourceTypeId: { type: "string" }
-      correlationId: { type: "string" }
-      userId: { type: "string" }
-      success: { type: "string" }
-      message0: { type: "string" }
-      message1: { type: "string" }
-      message2: { type: "string" }
-      message3: { type: "string" }
-      message: { type: "string" }
-      userComment: { type: "string" }
-    required: ["hostId", "auditLogId"]
-
-  # Skill
+      hostId:
+        type: "string"
+      auditLogId:
+        type: "string"
+      sourceTypeId:
+        type: "string"
+      correlationId:
+        type: "string"
+      userId:
+        type: "string"
+      success:
+        type: "string"
+      message0:
+        type: "string"
+      message1:
+        type: "string"
+      message2:
+        type: "string"
+      message3:
+        type: "string"
+      message:
+        type: "string"
+      userComment:
+        type: "string"
+    required:
+    - "hostId"
+    - "auditLogId"
   createSkillRequest:
     title: "Skill"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      skillId: { type: "string" }
-      parentSkillId: { type: "string" }
-      name: { type: "string" }
-      description: { type: "string" }
-      contentMarkdown: { type: "string" }
-      implementationType: { type: "string" }
-      implementationClass: { type: "string" }
-      scriptContent: { type: "string" }
-      apiEndpoint: { type: "string" }
-      apiMethod: { type: "string" }
-      author: { type: "string" }
-      version: { type: "string" }
-    required: ["hostId", "skillId", "name", "contentMarkdown", "implementationClass"]
+      hostId:
+        type: "string"
+      skillId:
+        type: "string"
+      parentSkillId:
+        type: "string"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      contentMarkdown:
+        type: "string"
+      version:
+        type: "string"
+    required:
+    - "hostId"
+    - "skillId"
+    - "name"
+    - "contentMarkdown"
   updateSkillRequest:
     title: "Skill"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      skillId: { type: "string" }
-      parentSkillId: { type: "string" }
-      name: { type: "string" }
-      description: { type: "string" }
-      contentMarkdown: { type: "string" }
-      implementationType: { type: "string" }
-      implementationClass: { type: "string" }
-      scriptContent: { type: "string" }
-      apiEndpoint: { type: "string" }
-      apiMethod: { type: "string" }
-      author: { type: "string" }
-      version: { type: "string" }
-      active: { type: "boolean" }
-    required: ["hostId", "skillId"]
+      hostId:
+        type: "string"
+      skillId:
+        type: "string"
+      parentSkillId:
+        type: "string"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      contentMarkdown:
+        type: "string"
+      version:
+        type: "string"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "skillId"
   deleteSkillRequest:
     title: "Skill"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      skillId: { type: "string" }
-    required: ["hostId", "skillId"]
-
-  # Skill Param
-  createSkillParamRequest:
-    title: "Skill Parameter"
+      hostId:
+        type: "string"
+      skillId:
+        type: "string"
+    required:
+    - "hostId"
+    - "skillId"
+  createToolRequest:
+    title: "Tool"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      paramId: { type: "string" }
-      skillId: { type: "string" }
-      name: { type: "string" }
-      paramType: { type: "string" }
-      required: { type: "boolean" }
-      defaultValue: { type: "object" }
-      description: { type: "string" }
-      validationSchema: { type: "object" }
-      orderIndex: { type: "integer" }
-    required: ["hostId", "paramId", "skillId", "name", "paramType"]
-  updateSkillParamRequest:
-    title: "Skill Parameter"
+      hostId:
+        type: "string"
+      toolId:
+        type: "string"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      implementationType:
+        type: "string"
+        enum:
+          - "java"
+          - "mcp_server"
+          - "rest"
+          - "python"
+          - "javascript"
+      implementationClass:
+        type: "string"
+      mcpServerName:
+        type: "string"
+      apiEndpoint:
+        type: "string"
+      apiMethod:
+        type: "string"
+        enum:
+          - "GET"
+          - "POST"
+      scriptContent:
+        type: "string"
+      version:
+        type: "string"
+    required:
+    - "hostId"
+    - "toolId"
+    - "name"
+    - "description"
+  updateToolRequest:
+    title: "Tool"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      paramId: { type: "string" }
-      name: { type: "string" }
-      paramType: { type: "string" }
-      required: { type: "boolean" }
-      defaultValue: { type: "object" }
-      description: { type: "string" }
-      validationSchema: { type: "object" }
-      orderIndex: { type: "integer" }
-      active: { type: "boolean" }
-    required: ["hostId", "paramId"]
-  deleteSkillParamRequest:
-    title: "Skill Parameter"
+      hostId:
+        type: "string"
+      toolId:
+        type: "string"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      implementationType:
+        type: "string"
+        enum:
+          - "java"
+          - "mcp_server"
+          - "rest"
+          - "python"
+          - "javascript"
+      implementationClass:
+        type: "string"
+      mcpServerName:
+        type: "string"
+      apiEndpoint:
+        type: "string"
+      apiMethod:
+        type: "string"
+        enum:
+          - "GET"
+          - "POST"
+      scriptContent:
+        type: "string"
+      version:
+        type: "string"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "toolId"
+  deleteToolRequest:
+    title: "Tool"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      paramId: { type: "string" }
-    required: ["hostId", "paramId"]
-
-  # Skill Dependency
+      hostId:
+        type: "string"
+      toolId:
+        type: "string"
+    required:
+    - "hostId"
+    - "toolId"
+  createToolParamRequest:
+    title: "Tool Parameter"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+      paramId:
+        type: "string"
+      toolId:
+        type: "string"
+      name:
+        type: "string"
+      paramType:
+        type: "string"
+      required:
+        type: "boolean"
+      defaultValue:
+        type: "object"
+      description:
+        type: "string"
+      validationSchema:
+        type: "object"
+      orderIndex:
+        type: "integer"
+    required:
+    - "hostId"
+    - "paramId"
+    - "toolId"
+    - "name"
+    - "paramType"
+  updateToolParamRequest:
+    title: "Tool Parameter"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+      paramId:
+        type: "string"
+      toolId:
+        type: "string"
+      name:
+        type: "string"
+      paramType:
+        type: "string"
+      required:
+        type: "boolean"
+      defaultValue:
+        type: "object"
+      description:
+        type: "string"
+      validationSchema:
+        type: "object"
+      orderIndex:
+        type: "integer"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "paramId"
+  deleteToolParamRequest:
+    title: "Tool Parameter"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+      paramId:
+        type: "string"
+    required:
+    - "hostId"
+    - "paramId"
   createSkillDependencyRequest:
     title: "Skill Dependency"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      skillId: { type: "string" }
-      dependsOnSkillId: { type: "string" }
-      required: { type: "boolean" }
-    required: ["hostId", "skillId", "dependsOnSkillId"]
+      hostId:
+        type: "string"
+      skillId:
+        type: "string"
+      dependsOnSkillId:
+        type: "string"
+      required:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "skillId"
+    - "dependsOnSkillId"
   updateSkillDependencyRequest:
     title: "Skill Dependency"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      skillId: { type: "string" }
-      dependsOnSkillId: { type: "string" }
-      required: { type: "boolean" }
-      active: { type: "boolean" }
-    required: ["hostId", "skillId", "dependsOnSkillId"]
+      hostId:
+        type: "string"
+      skillId:
+        type: "string"
+      dependsOnSkillId:
+        type: "string"
+      required:
+        type: "boolean"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "skillId"
+    - "dependsOnSkillId"
   deleteSkillDependencyRequest:
-    title: "Skill Dependency"
     type: "object"
+    required:
+    - "hostId"
+    - "skillId"
+    - "dependencyId"
     properties:
-      hostId: { type: "string" }
-      skillId: { type: "string" }
-      dependsOnSkillId: { type: "string" }
-    required: ["hostId", "skillId", "dependsOnSkillId"]
-
-  # Agent Skill
+      hostId:
+        type: "string"
+      skillId:
+        type: "string"
+      dependencyId:
+        type: "string"
+  createSkillToolRequest:
+    type: "object"
+    required:
+    - "hostId"
+    - "skillId"
+    - "toolId"
+    properties:
+      hostId:
+        type: "string"
+        description: "portal host id"
+      skillId:
+        type: "string"
+        description: "skill id"
+      toolId:
+        type: "string"
+        description: "tool id"
+      config:
+        type: "string"
+        description: "config as a json string"
+      accessLevel:
+        type: "string"
+        description: "access level"
+  updateSkillToolRequest:
+    type: "object"
+    required:
+    - "hostId"
+    - "skillId"
+    - "toolId"
+    properties:
+      hostId:
+        type: "string"
+        description: "portal host id"
+      skillId:
+        type: "string"
+        description: "skill id"
+      toolId:
+        type: "string"
+        description: "tool id"
+      config:
+        type: "string"
+        description: "config as a json string"
+      accessLevel:
+        type: "string"
+        description: "access level"
+  deleteSkillToolRequest:
+    type: "object"
+    required:
+    - "hostId"
+    - "skillId"
+    - "toolId"
+    properties:
+      hostId:
+        type: "string"
+        description: "portal host id"
+      skillId:
+        type: "string"
+        description: "skill id"
+      toolId:
+        type: "string"
+        description: "tool id"
   createAgentSkillRequest:
     title: "Agent Skill"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      agentDefId: { type: "string" }
-      skillId: { type: "string" }
-      config: { type: "object" }
-      priority: { type: "integer" }
-      timeoutSeconds: { type: "integer" }
-      maxRetries: { type: "integer" }
-      sequenceId: { type: "integer" }
-    required: ["hostId", "agentDefId", "skillId"]
+      hostId:
+        type: "string"
+      agentDefId:
+        type: "string"
+      skillId:
+        type: "string"
+      config:
+        type: "object"
+      priority:
+        type: "integer"
+      sequenceId:
+        type: "integer"
+    required:
+    - "hostId"
+    - "agentDefId"
+    - "skillId"
   updateAgentSkillRequest:
     title: "Agent Skill"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      agentDefId: { type: "string" }
-      skillId: { type: "string" }
-      config: { type: "object" }
-      priority: { type: "integer" }
-      timeoutSeconds: { type: "integer" }
-      maxRetries: { type: "integer" }
-      sequenceId: { type: "integer" }
-      active: { type: "boolean" }
-    required: ["hostId", "agentDefId", "skillId"]
+      hostId:
+        type: "string"
+      agentDefId:
+        type: "string"
+      skillId:
+        type: "string"
+      config:
+        type: "object"
+      priority:
+        type: "integer"
+      sequenceId:
+        type: "integer"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "agentDefId"
+    - "skillId"
   deleteAgentSkillRequest:
     title: "Agent Skill"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      agentDefId: { type: "string" }
-      skillId: { type: "string" }
-    required: ["hostId", "agentDefId", "skillId"]
-
-  # Agent Session History
+      hostId:
+        type: "string"
+      agentDefId:
+        type: "string"
+      skillId:
+        type: "string"
+    required:
+    - "hostId"
+    - "agentDefId"
+    - "skillId"
   createAgentSessionHistoryRequest:
     title: "Agent Session History"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      sessionHistoryId: { type: "string" }
-      processId: { type: "string" }
-      taskId: { type: "string" }
-      role: { type: "string" }
-      content: { type: "string" }
-      toolCallId: { type: "string" }
-    required: ["hostId", "sessionHistoryId", "processId", "role", "content"]
+      hostId:
+        type: "string"
+      sessionHistoryId:
+        type: "string"
+      processId:
+        type: "string"
+      taskId:
+        type: "string"
+      role:
+        type: "string"
+      content:
+        type: "string"
+      toolCallId:
+        type: "string"
+    required:
+    - "hostId"
+    - "sessionHistoryId"
+    - "processId"
+    - "role"
+    - "content"
   deleteAgentSessionHistoryRequest:
     title: "Agent Session History"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      sessionHistoryId: { type: "string" }
-    required: ["hostId", "sessionHistoryId"]
-
-  # Session Memory
+      hostId:
+        type: "string"
+      sessionHistoryId:
+        type: "string"
+    required:
+    - "hostId"
+    - "sessionHistoryId"
   createSessionMemoryRequest:
     title: "Session Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-      sessionId: { type: "string" }
-      agentDefId: { type: "string" }
-      userId: { type: "string" }
-      content: { type: "string" }
-      embedding: { type: "array", items: { type: "number" } }
-      importanceScore: { type: "number" }
-      expiresAt: { type: "string", format: "date-time" }
-      metadata: { type: "object" }
-    required: ["hostId", "memId", "sessionId", "agentDefId", "content"]
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+      sessionId:
+        type: "string"
+      agentDefId:
+        type: "string"
+      userId:
+        type: "string"
+      content:
+        type: "string"
+      embedding:
+        type: "array"
+        items:
+          type: "number"
+      importanceScore:
+        type: "number"
+      expiresAt:
+        type: "string"
+        format: "date-time"
+      metadata:
+        type: "object"
+    required:
+    - "hostId"
+    - "memId"
+    - "sessionId"
+    - "agentDefId"
+    - "content"
   updateSessionMemoryRequest:
     title: "Session Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-      content: { type: "string" }
-      embedding: { type: "array", items: { type: "number" } }
-      importanceScore: { type: "number" }
-      expiresAt: { type: "string", format: "date-time" }
-      metadata: { type: "object" }
-      active: { type: "boolean" }
-    required: ["hostId", "memId"]
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+      content:
+        type: "string"
+      embedding:
+        type: "array"
+        items:
+          type: "number"
+      importanceScore:
+        type: "number"
+      expiresAt:
+        type: "string"
+        format: "date-time"
+      metadata:
+        type: "object"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "memId"
   deleteSessionMemoryRequest:
     title: "Session Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-    required: ["hostId", "memId"]
-
-  # User Memory
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+    required:
+    - "hostId"
+    - "memId"
   createUserMemoryRequest:
     title: "User Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-      userId: { type: "string" }
-      agentDefId: { type: "string" }
-      content: { type: "string" }
-      embedding: { type: "array", items: { type: "number" } }
-      memoryType: { type: "string" }
-      importanceScore: { type: "number" }
-      metadata: { type: "object" }
-    required: ["hostId", "memId", "userId", "content"]
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+      userId:
+        type: "string"
+      agentDefId:
+        type: "string"
+      content:
+        type: "string"
+      embedding:
+        type: "array"
+        items:
+          type: "number"
+      memoryType:
+        type: "string"
+      importanceScore:
+        type: "number"
+      metadata:
+        type: "object"
+    required:
+    - "hostId"
+    - "memId"
+    - "userId"
+    - "content"
   updateUserMemoryRequest:
     title: "User Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-      content: { type: "string" }
-      embedding: { type: "array", items: { type: "number" } }
-      memoryType: { type: "string" }
-      importanceScore: { type: "number" }
-      accessCount: { type: "integer" }
-      lastAccessed: { type: "string", format: "date-time" }
-      metadata: { type: "object" }
-      active: { type: "boolean" }
-    required: ["hostId", "memId"]
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+      content:
+        type: "string"
+      embedding:
+        type: "array"
+        items:
+          type: "number"
+      memoryType:
+        type: "string"
+      importanceScore:
+        type: "number"
+      accessCount:
+        type: "integer"
+      lastAccessed:
+        type: "string"
+        format: "date-time"
+      metadata:
+        type: "object"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "memId"
   deleteUserMemoryRequest:
     title: "User Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-    required: ["hostId", "memId"]
-
-  # Agent Memory
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+    required:
+    - "hostId"
+    - "memId"
   createAgentMemoryRequest:
     title: "Agent Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-      agentDefId: { type: "string" }
-      content: { type: "string" }
-      embedding: { type: "array", items: { type: "number" } }
-      memoryType: { type: "string" }
-      metadata: { type: "object" }
-    required: ["hostId", "memId", "agentDefId", "content"]
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+      agentDefId:
+        type: "string"
+      content:
+        type: "string"
+      embedding:
+        type: "array"
+        items:
+          type: "number"
+      memoryType:
+        type: "string"
+      metadata:
+        type: "object"
+    required:
+    - "hostId"
+    - "memId"
+    - "agentDefId"
+    - "content"
   updateAgentMemoryRequest:
     title: "Agent Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-      content: { type: "string" }
-      embedding: { type: "array", items: { type: "number" } }
-      memoryType: { type: "string" }
-      metadata: { type: "object" }
-      active: { type: "boolean" }
-    required: ["hostId", "memId"]
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+      content:
+        type: "string"
+      embedding:
+        type: "array"
+        items:
+          type: "number"
+      memoryType:
+        type: "string"
+      metadata:
+        type: "object"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "memId"
   deleteAgentMemoryRequest:
     title: "Agent Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-    required: ["hostId", "memId"]
-
-  # Org Memory
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+    required:
+    - "hostId"
+    - "memId"
   createOrgMemoryRequest:
     title: "Org Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-      domain: { type: "string" }
-      source: { type: "string" }
-      content: { type: "string" }
-      embedding: { type: "array", items: { type: "number" } }
-      chunkIndex: { type: "integer" }
-      documentId: { type: "string" }
-      metadata: { type: "object" }
-    required: ["hostId", "memId", "domain", "content"]
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+      domain:
+        type: "string"
+      source:
+        type: "string"
+      content:
+        type: "string"
+      embedding:
+        type: "array"
+        items:
+          type: "number"
+      chunkIndex:
+        type: "integer"
+      documentId:
+        type: "string"
+      metadata:
+        type: "object"
+    required:
+    - "hostId"
+    - "memId"
+    - "domain"
+    - "content"
   updateOrgMemoryRequest:
     title: "Org Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-      domain: { type: "string" }
-      source: { type: "string" }
-      content: { type: "string" }
-      embedding: { type: "array", items: { type: "number" } }
-      chunkIndex: { type: "integer" }
-      documentId: { type: "string" }
-      metadata: { type: "object" }
-      active: { type: "boolean" }
-    required: ["hostId", "memId"]
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+      domain:
+        type: "string"
+      source:
+        type: "string"
+      content:
+        type: "string"
+      embedding:
+        type: "array"
+        items:
+          type: "number"
+      chunkIndex:
+        type: "integer"
+      documentId:
+        type: "string"
+      metadata:
+        type: "object"
+      active:
+        type: "boolean"
+    required:
+    - "hostId"
+    - "memId"
   deleteOrgMemoryRequest:
     title: "Org Memory"
     type: "object"
     properties:
-      hostId: { type: "string" }
-      memId: { type: "string" }
-    required: ["hostId", "memId"]
-
+      hostId:
+        type: "string"
+      memId:
+        type: "string"
+    required:
+    - "hostId"
+    - "memId"
 action:
-  - name: "createWfDefinition"
-    version: "0.1.0"
-    handler: "CreateWfDefinition"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createWfDefinitionRequest" } }
-  - name: "updateWfDefinition"
-    version: "0.1.0"
-    handler: "UpdateWfDefinition"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateWfDefinitionRequest" } }
-  - name: "deleteWfDefinition"
-    version: "0.1.0"
-    handler: "DeleteWfDefinition"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteWfDefinitionRequest" } }
-
-  - name: "createWorklist"
-    version: "0.1.0"
-    handler: "CreateWorklist"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createWorklistRequest" } }
-  - name: "updateWorklist"
-    version: "0.1.0"
-    handler: "UpdateWorklist"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateWorklistRequest" } }
-  - name: "deleteWorklist"
-    version: "0.1.0"
-    handler: "DeleteWorklist"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteWorklistRequest" } }
-
-  - name: "createWorklistColumn"
-    version: "0.1.0"
-    handler: "CreateWorklistColumn"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createWorklistColumnRequest" } }
-  - name: "updateWorklistColumn"
-    version: "0.1.0"
-    handler: "UpdateWorklistColumn"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateWorklistColumnRequest" } }
-  - name: "deleteWorklistColumn"
-    version: "0.1.0"
-    handler: "DeleteWorklistColumn"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteWorklistColumnRequest" } }
-
-  - name: "createProcessInfo"
-    version: "0.1.0"
-    handler: "CreateProcessInfo"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createProcessInfoRequest" } }
-  - name: "updateProcessInfo"
-    version: "0.1.0"
-    handler: "UpdateProcessInfo"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateProcessInfoRequest" } }
-  - name: "deleteProcessInfo"
-    version: "0.1.0"
-    handler: "DeleteProcessInfo"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteProcessInfoRequest" } }
-
-  - name: "createAgentDefinition"
-    version: "0.1.0"
-    handler: "CreateAgentDefinition"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createAgentDefinitionRequest" } }
-  - name: "updateAgentDefinition"
-    version: "0.1.0"
-    handler: "UpdateAgentDefinition"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateAgentDefinitionRequest" } }
-  - name: "deleteAgentDefinition"
-    version: "0.1.0"
-    handler: "DeleteAgentDefinition"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteAgentDefinitionRequest" } }
-
-  - name: "createTaskInfo"
-    version: "0.1.0"
-    handler: "CreateTaskInfo"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createTaskInfoRequest" } }
-  - name: "updateTaskInfo"
-    version: "0.1.0"
-    handler: "UpdateTaskInfo"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateTaskInfoRequest" } }
-  - name: "deleteTaskInfo"
-    version: "0.1.0"
-    handler: "DeleteTaskInfo"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteTaskInfoRequest" } }
-
-  - name: "createTaskAsst"
-    version: "0.1.0"
-    handler: "CreateTaskAsst"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createTaskAsstRequest" } }
-  - name: "updateTaskAsst"
-    version: "0.1.0"
-    handler: "UpdateTaskAsst"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateTaskAsstRequest" } }
-  - name: "deleteTaskAsst"
-    version: "0.1.0"
-    handler: "DeleteTaskAsst"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteTaskAsstRequest" } }
-
-  - name: "createAuditLog"
-    version: "0.1.0"
-    handler: "CreateAuditLog"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createAuditLogRequest" } }
-
-  - name: "createSkill"
-    version: "0.1.0"
-    handler: "CreateSkill"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createSkillRequest" } }
-  - name: "updateSkill"
-    version: "0.1.0"
-    handler: "UpdateSkill"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateSkillRequest" } }
-  - name: "deleteSkill"
-    version: "0.1.0"
-    handler: "DeleteSkill"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteSkillRequest" } }
-
-  - name: "createSkillParam"
-    version: "0.1.0"
-    handler: "CreateSkillParam"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createSkillParamRequest" } }
-  - name: "updateSkillParam"
-    version: "0.1.0"
-    handler: "UpdateSkillParam"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateSkillParamRequest" } }
-  - name: "deleteSkillParam"
-    version: "0.1.0"
-    handler: "DeleteSkillParam"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteSkillParamRequest" } }
-
-  - name: "createSkillDependency"
-    version: "0.1.0"
-    handler: "CreateSkillDependency"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createSkillDependencyRequest" } }
-  - name: "updateSkillDependency"
-    version: "0.1.0"
-    handler: "UpdateSkillDependency"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateSkillDependencyRequest" } }
-  - name: "deleteSkillDependency"
-    version: "0.1.0"
-    handler: "DeleteSkillDependency"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteSkillDependencyRequest" } }
-
-  - name: "createAgentSkill"
-    version: "0.1.0"
-    handler: "CreateAgentSkill"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createAgentSkillRequest" } }
-  - name: "updateAgentSkill"
-    version: "0.1.0"
-    handler: "UpdateAgentSkill"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateAgentSkillRequest" } }
-  - name: "deleteAgentSkill"
-    version: "0.1.0"
-    handler: "DeleteAgentSkill"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteAgentSkillRequest" } }
-
-  - name: "createAgentSessionHistory"
-    version: "0.1.0"
-    handler: "CreateAgentSessionHistory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createAgentSessionHistoryRequest" } }
-  - name: "deleteAgentSessionHistory"
-    version: "0.1.0"
-    handler: "DeleteAgentSessionHistory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteAgentSessionHistoryRequest" } }
-
-  - name: "createSessionMemory"
-    version: "0.1.0"
-    handler: "CreateSessionMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createSessionMemoryRequest" } }
-  - name: "updateSessionMemory"
-    version: "0.1.0"
-    handler: "UpdateSessionMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateSessionMemoryRequest" } }
-  - name: "deleteSessionMemory"
-    version: "0.1.0"
-    handler: "DeleteSessionMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteSessionMemoryRequest" } }
-
-  - name: "createUserMemory"
-    version: "0.1.0"
-    handler: "CreateUserMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createUserMemoryRequest" } }
-  - name: "updateUserMemory"
-    version: "0.1.0"
-    handler: "UpdateUserMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateUserMemoryRequest" } }
-  - name: "deleteUserMemory"
-    version: "0.1.0"
-    handler: "DeleteUserMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteUserMemoryRequest" } }
-
-  - name: "createAgentMemory"
-    version: "0.1.0"
-    handler: "CreateAgentMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createAgentMemoryRequest" } }
-  - name: "updateAgentMemory"
-    version: "0.1.0"
-    handler: "UpdateAgentMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateAgentMemoryRequest" } }
-  - name: "deleteAgentMemory"
-    version: "0.1.0"
-    handler: "DeleteAgentMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteAgentMemoryRequest" } }
-
-  - name: "createOrgMemory"
-    version: "0.1.0"
-    handler: "CreateOrgMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/createOrgMemoryRequest" } }
-  - name: "updateOrgMemory"
-    version: "0.1.0"
-    handler: "UpdateOrgMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/updateOrgMemoryRequest" } }
-  - name: "deleteOrgMemory"
-    version: "0.1.0"
-    handler: "DeleteOrgMemory"
-    scope: "portal.w"
-    request: { schema: { $ref: "#/schemas/deleteOrgMemoryRequest" } }
+- name: "createWfDefinition"
+  version: "0.1.0"
+  handler: "CreateWfDefinition"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createWfDefinitionRequest"
+- name: "updateWfDefinition"
+  version: "0.1.0"
+  handler: "UpdateWfDefinition"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateWfDefinitionRequest"
+- name: "deleteWfDefinition"
+  version: "0.1.0"
+  handler: "DeleteWfDefinition"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteWfDefinitionRequest"
+- name: "createWorklist"
+  version: "0.1.0"
+  handler: "CreateWorklist"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createWorklistRequest"
+- name: "updateWorklist"
+  version: "0.1.0"
+  handler: "UpdateWorklist"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateWorklistRequest"
+- name: "deleteWorklist"
+  version: "0.1.0"
+  handler: "DeleteWorklist"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteWorklistRequest"
+- name: "createWorklistColumn"
+  version: "0.1.0"
+  handler: "CreateWorklistColumn"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createWorklistColumnRequest"
+- name: "updateWorklistColumn"
+  version: "0.1.0"
+  handler: "UpdateWorklistColumn"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateWorklistColumnRequest"
+- name: "deleteWorklistColumn"
+  version: "0.1.0"
+  handler: "DeleteWorklistColumn"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteWorklistColumnRequest"
+- name: "createProcessInfo"
+  version: "0.1.0"
+  handler: "CreateProcessInfo"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createProcessInfoRequest"
+- name: "updateProcessInfo"
+  version: "0.1.0"
+  handler: "UpdateProcessInfo"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateProcessInfoRequest"
+- name: "deleteProcessInfo"
+  version: "0.1.0"
+  handler: "DeleteProcessInfo"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteProcessInfoRequest"
+- name: "createAgentDefinition"
+  version: "0.1.0"
+  handler: "CreateAgentDefinition"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createAgentDefinitionRequest"
+- name: "updateAgentDefinition"
+  version: "0.1.0"
+  handler: "UpdateAgentDefinition"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateAgentDefinitionRequest"
+- name: "deleteAgentDefinition"
+  version: "0.1.0"
+  handler: "DeleteAgentDefinition"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteAgentDefinitionRequest"
+- name: "createTaskInfo"
+  version: "0.1.0"
+  handler: "CreateTaskInfo"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createTaskInfoRequest"
+- name: "updateTaskInfo"
+  version: "0.1.0"
+  handler: "UpdateTaskInfo"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateTaskInfoRequest"
+- name: "deleteTaskInfo"
+  version: "0.1.0"
+  handler: "DeleteTaskInfo"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteTaskInfoRequest"
+- name: "createTaskAsst"
+  version: "0.1.0"
+  handler: "CreateTaskAsst"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createTaskAsstRequest"
+- name: "updateTaskAsst"
+  version: "0.1.0"
+  handler: "UpdateTaskAsst"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateTaskAsstRequest"
+- name: "deleteTaskAsst"
+  version: "0.1.0"
+  handler: "DeleteTaskAsst"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteTaskAsstRequest"
+- name: "createAuditLog"
+  version: "0.1.0"
+  handler: "CreateAuditLog"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createAuditLogRequest"
+- name: "createSkill"
+  version: "0.1.0"
+  handler: "CreateSkill"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createSkillRequest"
+- name: "updateSkill"
+  version: "0.1.0"
+  handler: "UpdateSkill"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateSkillRequest"
+- name: "deleteSkill"
+  version: "0.1.0"
+  handler: "DeleteSkill"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteSkillRequest"
+- name: "createTool"
+  version: "0.1.0"
+  handler: "CreateTool"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createToolRequest"
+- name: "updateTool"
+  version: "0.1.0"
+  handler: "UpdateTool"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateToolRequest"
+- name: "deleteTool"
+  version: "0.1.0"
+  handler: "DeleteTool"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteToolRequest"
+- name: "createToolParam"
+  version: "0.1.0"
+  handler: "CreateToolParam"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createToolParamRequest"
+- name: "updateToolParam"
+  version: "0.1.0"
+  handler: "UpdateToolParam"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateToolParamRequest"
+- name: "deleteToolParam"
+  version: "0.1.0"
+  handler: "DeleteToolParam"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteToolParamRequest"
+- name: "createSkillDependency"
+  version: "0.1.0"
+  handler: "CreateSkillDependency"
+  request:
+    schema:
+      $ref: "#/schemas/createSkillDependencyRequest"
+- name: "updateSkillDependency"
+  version: "0.1.0"
+  handler: "UpdateSkillDependency"
+  request:
+    schema:
+      $ref: "#/schemas/updateSkillDependencyRequest"
+- name: "deleteSkillDependency"
+  version: "0.1.0"
+  handler: "DeleteSkillDependency"
+  request:
+    schema:
+      $ref: "#/schemas/deleteSkillDependencyRequest"
+- name: "createSkillTool"
+  version: "0.1.0"
+  handler: "CreateSkillTool"
+  request:
+    schema:
+      $ref: "#/schemas/createSkillToolRequest"
+- name: "updateSkillTool"
+  version: "0.1.0"
+  handler: "UpdateSkillTool"
+  request:
+    schema:
+      $ref: "#/schemas/updateSkillToolRequest"
+- name: "deleteSkillTool"
+  version: "0.1.0"
+  handler: "DeleteSkillTool"
+  request:
+    schema:
+      $ref: "#/schemas/deleteSkillToolRequest"
+- name: "createAgentSkill"
+  version: "0.1.0"
+  handler: "CreateAgentSkill"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createAgentSkillRequest"
+- name: "updateAgentSkill"
+  version: "0.1.0"
+  handler: "UpdateAgentSkill"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateAgentSkillRequest"
+- name: "deleteAgentSkill"
+  version: "0.1.0"
+  handler: "DeleteAgentSkill"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteAgentSkillRequest"
+- name: "createAgentSessionHistory"
+  version: "0.1.0"
+  handler: "CreateAgentSessionHistory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createAgentSessionHistoryRequest"
+- name: "deleteAgentSessionHistory"
+  version: "0.1.0"
+  handler: "DeleteAgentSessionHistory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteAgentSessionHistoryRequest"
+- name: "createSessionMemory"
+  version: "0.1.0"
+  handler: "CreateSessionMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createSessionMemoryRequest"
+- name: "updateSessionMemory"
+  version: "0.1.0"
+  handler: "UpdateSessionMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateSessionMemoryRequest"
+- name: "deleteSessionMemory"
+  version: "0.1.0"
+  handler: "DeleteSessionMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteSessionMemoryRequest"
+- name: "createUserMemory"
+  version: "0.1.0"
+  handler: "CreateUserMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createUserMemoryRequest"
+- name: "updateUserMemory"
+  version: "0.1.0"
+  handler: "UpdateUserMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateUserMemoryRequest"
+- name: "deleteUserMemory"
+  version: "0.1.0"
+  handler: "DeleteUserMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteUserMemoryRequest"
+- name: "createAgentMemory"
+  version: "0.1.0"
+  handler: "CreateAgentMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createAgentMemoryRequest"
+- name: "updateAgentMemory"
+  version: "0.1.0"
+  handler: "UpdateAgentMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateAgentMemoryRequest"
+- name: "deleteAgentMemory"
+  version: "0.1.0"
+  handler: "DeleteAgentMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteAgentMemoryRequest"
+- name: "createOrgMemory"
+  version: "0.1.0"
+  handler: "CreateOrgMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createOrgMemoryRequest"
+- name: "updateOrgMemory"
+  version: "0.1.0"
+  handler: "UpdateOrgMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateOrgMemoryRequest"
+- name: "deleteOrgMemory"
+  version: "0.1.0"
+  handler: "DeleteOrgMemory"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteOrgMemoryRequest"
