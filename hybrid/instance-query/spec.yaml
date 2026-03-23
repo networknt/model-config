@@ -24,9 +24,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
   getFreshInstanceRequest:
     title: "Instance"
@@ -70,27 +74,14 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
-  getFreshInstanceApiRequest:
-    title: "Instance Api"
-    type: "object"
-    properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
-      instanceApiId:
-        type: "string"
-        description: "Instance Api Id"
-      aggregateVersion:
-        type: "integer"
-        description: "Aggregate Version"
-    required:
-    - "hostId"
-    - "instanceApiId"
-    - "aggregateVersion"
   getInstanceApiPathPrefixRequest:
     title: "Instance Api Path Prefix"
     type: "object"
@@ -113,9 +104,13 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
   getFreshInstanceApiPathPrefixRequest:
     title: "Instance Api Path Prefix"
@@ -138,6 +133,23 @@ schemas:
     - "instanceApiId"
     - "pathPrefix"
     - "aggregateVersion"
+  getInstanceApiMcpToolRequest:
+    title: "Instance Api Mcp Tool"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceApiId:
+        type: "string"
+        description: "Instance Id"
+      apiVersionId:
+        type: "string"
+        description: "Api Version Id"
+    required:
+      - "hostId"
+      - "instanceApiId"
+      - "apiVersionId"
   getInstanceAppRequest:
     title: "Instance App"
     type: "object"
@@ -160,27 +172,14 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
-  getFreshInstanceAppRequest:
-    title: "Instance App"
-    type: "object"
-    properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
-      instanceAppId:
-        type: "string"
-        description: "Instance App Id"
-      aggregateVersion:
-        type: "integer"
-        description: "Aggregate Version"
-    required:
-    - "hostId"
-    - "instanceAppId"
-    - "aggregateVersion"
   getInstanceAppApiRequest:
     title: "Instance App Api"
     type: "object"
@@ -203,31 +202,14 @@ schemas:
       sorting:
         type: "string"
         description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
     required:
     - "offset"
     - "limit"
+    - "active"
     - "hostId"
-  getFreshInstanceAppApiRequest:
-    title: "Instance App Api"
-    type: "object"
-    properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
-      instanceAppId:
-        type: "string"
-        description: "Instance App Id"
-      instanceApiId:
-        type: "string"
-        description: "Instance Api Id"
-      aggregateVersion:
-        type: "integer"
-        description: "Aggregate Version"
-    required:
-    - "hostId"
-    - "instanceAppId"
-    - "instanceApiId"
-    - "aggregateVersion"
   getInstanceLabelRequest:
     title: "Instance Label"
     type: "object"
@@ -272,6 +254,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
 - name: "getFreshInstance"
   version: "0.1.0"
@@ -294,18 +277,8 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
-- name: "getFreshInstanceApi"
-  version: "0.1.0"
-  handler: "GetFreshInstanceApi"
-  scope: "portal.r"
-  request:
-    schema:
-      $ref: "#/schemas/getFreshInstanceApiRequest"
-    example:
-      hostId: "host123"
-      instanceApiId: "instanceApi123"
-      aggregateVersion: 1
 - name: "getInstanceApiPathPrefix"
   version: "0.1.0"
   handler: "GetInstanceApiPathPrefix"
@@ -316,6 +289,7 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
 - name: "getFreshInstanceApiPathPrefix"
   version: "0.1.0"
@@ -328,6 +302,17 @@ action:
       hostId: "host123"
       instanceApiId: "instanceApi123"
       pathPrefix: "pathPrefix123"
+- name: "getInstanceApiMcpTool"
+  version: "0.1.0"
+  handler: "GetInstanceApiMcpTool"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getInstanceApiMcpToolRequest"
+    example:
+      hostId: "host123"
+      instanceApiId: "instanceApi123"
+      apiVersionId: "apiVersion123"
 - name: "getInstanceApp"
   version: "0.1.0"
   handler: "GetInstanceApp"
@@ -338,18 +323,8 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
-- name: "getFreshInstanceApp"
-  version: "0.1.0"
-  handler: "GetFreshInstanceApp"
-  scope: "portal.r"
-  request:
-    schema:
-      $ref: "#/schemas/getFreshInstanceAppRequest"
-    example:
-      hostId: "host123"
-      instanceAppId: "instanceApp123"
-      aggregateVersion: 1
 - name: "getInstanceAppApi"
   version: "0.1.0"
   handler: "GetInstanceAppApi"
@@ -360,19 +335,8 @@ action:
     example:
       offset: 0
       limit: 10
+      active: true
       hostId: "host123"
-- name: "getFreshInstanceAppApi"
-  version: "0.1.0"
-  handler: "GetFreshInstanceAppApi"
-  scope: "portal.r"
-  request:
-    schema:
-      $ref: "#/schemas/getFreshInstanceAppApiRequest"
-    example:
-      hostId: "host123"
-      instanceAppId: "instanceApp123"
-      instanceApiId: "instanceApi123"
-      aggregateVersion: 1
 - name: "getInstanceLabel"
   version: "0.1.0"
   handler: "GetInstanceLabel"

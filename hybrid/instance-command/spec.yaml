@@ -48,6 +48,9 @@ schemas:
       businessName:
         title: "Business Name"
         type: "string"
+      envTag:
+        title: "Env Tag"
+        type: "string"
       topicClassification:
         title: "Topic Classification"
         type: "string"
@@ -117,6 +120,9 @@ schemas:
       businessName:
         title: "Business Name"
         type: "string"
+      envTag:
+        title: "Env Tag"
+        type: "string"
       topicClassification:
         title: "Topic Classification"
         type: "string"
@@ -151,6 +157,82 @@ schemas:
     required:
     - "hostId"
     - "instanceId"
+  lockInstanceRequest:
+    title: "Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      aggregateVersion:
+        type: "long"
+        description: "The current aggregate version"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "aggregateVersion"
+  unlockInstanceRequest:
+    title: "Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id"
+      aggregateVersion:
+        type: "long"
+        description: "The current aggregate version"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "aggregateVersion"
+  cloneInstanceRequest:
+    title: "Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      sourceInstanceId:
+        type: "string"
+        description: "Instance Id of the source"
+      targetInstanceId:
+        type: "string"
+        description: "Instance Id of the target"
+      aggregateVersion:
+        type: "long"
+        description: "The current aggregate version of the target instance"
+    required:
+    - "hostId"
+    - "sourceInstanceId"
+    - "targetInstanceId"
+    - "aggregateVersion"
+  promotedInstanceRequest:
+    title: "Instance"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceId:
+        type: "string"
+        description: "Instance Id of the instance which would get data promoted"
+      aggregateVersion:
+        type: "long"
+        description: "The current aggregate version of the instance"
+      promotableConfigs:
+        type: "object"
+        description: "The configs downloaded from download promotable configs as promotable-configs.yml file"
+    required:
+    - "hostId"
+    - "instanceId"
+    - "aggregateVersion"
+    - "promotableConfigs"
   createInstanceApiRequest:
     title: "Instance Api"
     type: "object"
@@ -169,30 +251,6 @@ schemas:
         type: "boolean"
     required:
     - "hostId"
-    - "instanceId"
-    - "apiVersionId"
-  updateInstanceApiRequest:
-    title: "Instance Api"
-    type: "object"
-    properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
-      instanceApiId:
-        title: "Instance Api Id"
-        type: "string"
-      instanceId:
-        type: "string"
-        description: "Instance Id"
-      apiVersionId:
-        title: "Api Version Id"
-        type: "string"
-      active:
-        title: "Active"
-        type: "boolean"
-    required:
-    - "hostId"
-    - "instanceApiId"
     - "instanceId"
     - "apiVersionId"
   deleteInstanceApiRequest:
@@ -222,9 +280,9 @@ schemas:
         title: "Path Prefix"
         type: "string"
     required:
-      - "hostId"
-      - "instanceApiId"
-      - "pathPrefix"
+    - "hostId"
+    - "instanceApiId"
+    - "pathPrefix"
   updateInstanceApiPathPrefixRequest:
     title: "Instance Api Path Prefix"
     type: "object"
@@ -239,9 +297,9 @@ schemas:
         type: "string"
         description: "Path Prefix"
     required:
-      - "hostId"
-      - "instanceApiId"
-      - "pathPrefix"
+    - "hostId"
+    - "instanceApiId"
+    - "pathPrefix"
   deleteInstanceApiPathPrefixRequest:
     title: "Instance Api Path Prefix"
     type: "object"
@@ -256,9 +314,30 @@ schemas:
         type: "string"
         description: "Path Prefix"
     required:
+    - "hostId"
+    - "instanceApiId"
+    - "pathPrefix"
+  updateInstanceApiMcpToolRequest:
+    title: "Instance Api Mcp Tool"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      instanceApiId:
+        title: "Instance Api Id"
+        type: "string"
+      apiVersionId:
+        type: "string"
+        description: "Api Version Id"
+      tools:
+        type: "string"
+        description: "MCP Tools"
+    required:
       - "hostId"
       - "instanceApiId"
-      - "pathPrefix"
+      - "apiVersionId"
+      - "tools"
   createInstanceAppRequest:
     title: "Instance App"
     type: "object"
@@ -280,34 +359,6 @@ schemas:
         type: "boolean"
     required:
     - "hostId"
-    - "instanceId"
-    - "appId"
-    - "appVersion"
-  updateInstanceAppRequest:
-    title: "Instance App"
-    type: "object"
-    properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
-      instanceAppId:
-        title: "Instance App Id"
-        type: "string"
-      instanceId:
-        type: "string"
-        description: "Instance Id"
-      appId:
-        title: "App Id"
-        type: "string"
-      appVersion:
-        title: "App Version"
-        type: "string"
-      active:
-        title: "Active"
-        type: "boolean"
-    required:
-    - "hostId"
-    - "instanceAppId"
     - "instanceId"
     - "appId"
     - "appVersion"
@@ -341,29 +392,9 @@ schemas:
         title: "Active"
         type: "boolean"
     required:
-      - "hostId"
-      - "instanceAppId"
-      - "instanceApiId"
-  updateInstanceAppApiRequest:
-    title: "Instance App Api"
-    type: "object"
-    properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
-      instanceAppId:
-        description: "Instance App Id"
-        type: "string"
-      instanceApiId:
-        type: "string"
-        description: "Instance Api Id"
-      active:
-        title: "Active"
-        type: "boolean"
-    required:
-      - "hostId"
-      - "instanceAppId"
-      - "instanceApiId"
+    - "hostId"
+    - "instanceAppId"
+    - "instanceApiId"
   deleteInstanceAppApiRequest:
     title: "Instance App Api"
     type: "object"
@@ -378,60 +409,124 @@ schemas:
         type: "string"
         description: "Instance Api Id"
     required:
-      - "hostId"
-      - "instanceAppId"
-      - "instanceApiId"
-  createInstancePipelineRequest:
-    title: "Instance Pipeline"
+    - "hostId"
+    - "instanceAppId"
+    - "instanceApiId"
+  compositeCreateInstanceAppRequest:
+    title: "Composite Create Instance App"
     type: "object"
     properties:
+      appId:
+        type: "string"
+        description: "App Id"
       hostId:
-        type: "string"
         description: "Host Id"
-      instanceId:
         type: "string"
-        description: "Instance Id"
-      pipelineId:
-        title: "Pipeline Id"
+      appName:
+        type: "string"
+        description: "App Name"
+      appVersion:
+        type: "string"
+        description: "App Version"
+      appDesc:
+        title: "App Description"
+        type: "string"
+      isKafkaApp:
+        title: "KafkaApp"
+        type: "boolean"
+      operationOwner:
+        title: "Operation owner"
+        type: "string"
+      deliveryOwner:
+        title: "Delivery owner"
         type: "string"
     required:
     - "hostId"
-    - "instanceId"
-    - "pipelineId"
-  updateInstancePipelineRequest:
-    title: "Instance Pipeline"
+    - "appId"
+    - "appVersion"
+  compositeCreateInstanceApiRequest:
+    title: "Composite Create Instance Api"
     type: "object"
     properties:
+      apiId:
+        type: "string"
+        description: "Api Id"
       hostId:
-        type: "string"
         description: "Host Id"
+        type: "string"
       instanceId:
+        title: "Instance Id"
         type: "string"
-        description: "Instance Id"
-      pipelineId:
-        title: "Pipeline Id"
+      apiVersion:
         type: "string"
+        description: "Api Version"
+      apiDesc:
+        title: "Api Description"
+        type: "string"
+      apiName:
+        title: "Api Name"
+        type: "string"
+      operationOwner:
+        title: "Operation owner"
+        type: "string"
+      deliveryOwner:
+        title: "Delivery owner"
+        type: "string"
+      region:
+        title: "Region"
+        type: "string"
+      businessGroup:
+        title: "Business Group"
+        type: "string"
+      lob:
+        title: "lob"
+        type: "string"
+      platform:
+        title: "Platform"
+        type: "string"
+      capability:
+        title: "capability"
+        type: "string"
+      gitRepo:
+        title: "gitRepo"
+        type: "string"
+      apiTags:
+        title: "Api Tags"
+        type: "string"
+      apiStatus:
+        title: "Api Status"
+        type: "string"
+      serviceId:
+        title: "service Id"
+        type: "string"
+      apiType:
+        title: "Api Type"
+        type: "string"
+      apiVersionDesc:
+        title: "Api Version Description"
+        type: "string"
+      specLink:
+        title: "Spec Link"
+        type: "string"
+      spec:
+        title: "Spec"
+        type: "string"
+      pathPrefix:
+        title: "Path Prefix"
+        type: "string"
+      active:
+        title: "Active"
+        type: "boolean"
     required:
     - "hostId"
     - "instanceId"
-    - "pipelineId"
-  deleteInstancePipelineRequest:
-    title: "Instance Pipeline"
-    type: "object"
-    properties:
-      hostId:
-        type: "string"
-        description: "Host Id"
-      instanceId:
-        type: "string"
-        description: "Instance Id"
-      pipelineId:
-        title: "Pipeline Id"
-        type: "string"
-    required:
-    - "hostId"
-    - "instanceId"
-    - "pipelineId"
+    - "apiId"
+    - "apiVersion"
+    - "apiName"
+    - "apiStatus"
+    - "serviceId"
+    - "apiType"
+    - "pathPrefix"
 action:
 - name: "createInstance"
   version: "0.1.0"
@@ -474,6 +569,50 @@ action:
     example:
       hostId: "host123"
       instanceId: "instance123"
+- name: "lockInstance"
+  version: "0.1.0"
+  handler: "LockInstance"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/lockInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+- name: "unlockInstance"
+  version: "0.1.0"
+  handler: "UnlockInstance"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/unlockInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+- name: "cloneInstance"
+  version: "0.1.0"
+  handler: "CloneInstance"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/cloneInstanceRequest"
+    example:
+      hostId: "host123"
+      sourceInstanceId: "instance123"
+      targetInstanceId: "instance456"
+      aggregateVersion: 5
+- name: "promoteInstance"
+  version: "0.1.0"
+  handler: "PromoteInstance"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/promoteInstanceRequest"
+    example:
+      hostId: "host123"
+      instanceId: "instance123"
+      aggregateVersion: 5
+      promotableConfigs: {configs:{}, apis: [], apps: []}
 - name: "createInstanceApi"
   version: "0.1.0"
   handler: "CreateInstanceApi"
@@ -481,18 +620,6 @@ action:
   request:
     schema:
       $ref: "#/schemas/createInstanceApiRequest"
-    example:
-      hostId: "host123"
-      instanceId: "instance123"
-      apiId: "api123"
-      apiVersion: "1.0.0"
-- name: "updateInstanceApi"
-  version: "0.1.0"
-  handler: "UpdateInstanceApi"
-  scope: "portal.w"
-  request:
-    schema:
-      $ref: "#/schemas/updateInstanceApiRequest"
     example:
       hostId: "host123"
       instanceId: "instance123"
@@ -543,6 +670,18 @@ action:
       hostId: "host123"
       instanceApiId: "instanceApi123"
       pathPrefix: "pathPrefix123"
+- name: "updateInstanceApiMcpTool"
+  version: "0.1.0"
+  handler: "UpdateInstanceApiMcpTool"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateInstanceApiMcpToolRequest"
+    example:
+      hostId: "host123"
+      instanceApiId: "instanceApi123"
+      apiVersionId: "apiVersionId123"
+      tools: "tools123"
 - name: "createInstanceApp"
   version: "0.1.0"
   handler: "CreateInstanceApp"
@@ -550,18 +689,6 @@ action:
   request:
     schema:
       $ref: "#/schemas/createInstanceAppRequest"
-    example:
-      hostId: "host123"
-      instanceId: "instance123"
-      apiId: "api123"
-      apiVersion: "1.0.0"
-- name: "updateInstanceApp"
-  version: "0.1.0"
-  handler: "UpdateInstanceApp"
-  scope: "portal.w"
-  request:
-    schema:
-      $ref: "#/schemas/updateInstanceAppRequest"
     example:
       hostId: "host123"
       instanceId: "instance123"
@@ -590,17 +717,6 @@ action:
       hostId: "host123"
       instanceAppId: "instanceApp123"
       instanceApiId: "instanceApi123"
-- name: "updateInstanceAppApi"
-  version: "0.1.0"
-  handler: "UpdateInstanceAppApi"
-  scope: "portal.w"
-  request:
-    schema:
-      $ref: "#/schemas/updateInstanceAppApiRequest"
-    example:
-      hostId: "host123"
-      instanceAppId: "instanceApp123"
-      instanceApiId: "instanceApi123"
 - name: "deleteInstanceAppApi"
   version: "0.1.0"
   handler: "DeleteInstanceAppApi"
@@ -612,36 +728,31 @@ action:
       hostId: "host123"
       instanceAppId: "instanceApp123"
       instanceApiId: "instanceApi123"
-- name: "createInstancePipeline"
+- name: "compositeCreateInstanceApp"
   version: "0.1.0"
-  handler: "CreateInstancePipeline"
+  handler: "CompositeCreateInstanceApp"
   scope: "portal.w"
   request:
     schema:
-      $ref: "#/schemas/createInstancePipelineRequest"
+      $ref: "#/schemas/compositeCreateInstanceAppRequest"
     example:
       hostId: "host123"
-      instanceId: "instance123"
-      pipelineId: "pipeline123"
-- name: "updateInstancePipeline"
+      appId: "appId123"
+      appVersion: "appVersion123"
+- name: "compositeCreateInstanceApi"
   version: "0.1.0"
-  handler: "UpdateInstancePipeline"
+  handler: "CompositeCreateInstanceApi"
   scope: "portal.w"
   request:
     schema:
-      $ref: "#/schemas/updateInstancePipelineRequest"
+      $ref: "#/schemas/compositeCreateInstanceApiRequest"
     example:
       hostId: "host123"
       instanceId: "instance123"
-      pipelineId: "pipeline123"
-- name: "deleteInstancePipeline"
-  version: "0.1.0"
-  handler: "DeleteInstancePipeline"
-  scope: "portal.w"
-  request:
-    schema:
-      $ref: "#/schemas/deleteInstancePipelineRequest"
-    example:
-      hostId: "host123"
-      instanceId: "instance123"
-      pipelineId: "pipeline123"
+      apiId: "apiId123"
+      apiVersion: "apiVersion123"
+      apiName: "apiName123"
+      apiStatus: "apiStatus123"
+      serviceId: "serviceId123"
+      apiType: "apiType123"
+      pathPrefix: "pathPrefix123"
