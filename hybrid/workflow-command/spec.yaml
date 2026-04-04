@@ -1,0 +1,157 @@
+---
+host: "lightapi.net"
+service: "workflow"
+schemas:
+  createWorkflowDefinitionRequest:
+    title: "Create Workflow Definition"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      wfDefId:
+        type: "string"
+        description: "Workflow Definition Id"
+      namespace:
+        type: "string"
+        description: "Namespace"
+      name:
+        type: "string"
+        description: "Name"
+      version:
+        type: "string"
+        description: "Version"
+      definition:
+        type: "string"
+        description: "Definition YAML"
+    required:
+    - "hostId"
+    - "wfDefId"
+    - "namespace"
+    - "name"
+    - "version"
+    - "definition"
+  updateWorkflowDefinitionRequest:
+    title: "Update Workflow Definition"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      wfDefId:
+        type: "string"
+        description: "Workflow Definition Id"
+      namespace:
+        type: "string"
+        description: "Namespace"
+      name:
+        type: "string"
+        description: "Name"
+      version:
+        type: "string"
+        description: "Version"
+      definition:
+        type: "string"
+        description: "Definition YAML"
+      aggregateVersion:
+        type: "integer"
+        format: "int64"
+        description: "Current Aggregate Version"
+    required:
+    - "hostId"
+    - "wfDefId"
+    - "namespace"
+    - "name"
+    - "version"
+    - "definition"
+    - "aggregateVersion"
+  deleteWorkflowDefinitionRequest:
+    title: "Delete Workflow Definition"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      wfDefId:
+        type: "string"
+        description: "Workflow Definition Id"
+      aggregateVersion:
+        type: "integer"
+        format: "int64"
+        description: "Current Aggregate Version"
+    required:
+    - "hostId"
+    - "wfDefId"
+    - "aggregateVersion"
+  startWorkflowRequest:
+    title: "Start Workflow Manually"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      wfDefId:
+        type: "string"
+        description: "Workflow Definition Id"
+      input:
+        type: "object"
+        description: "Workflow Input Data"
+    required:
+    - "hostId"
+    - "wfDefId"
+    - "input"
+
+action:
+- name: "createWorkflowDefinition"
+  version: "0.1.0"
+  handler: "CreateWorkflowDefinition"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/createWorkflowDefinitionRequest"
+    example:
+      hostId: "3dc90e11-0188-4224-a8a3-e75ac19c40d2"
+      wfDefId: "2695cdee-cb82-4b34-a2d8-f69093c733e3"
+      namespace: "net.lightapi"
+      name: "claims-processing"
+      version: "1.0.0"
+      definition: "version: '1.0'\nname: claims-processing\nstates: []"
+- name: "updateWorkflowDefinition"
+  version: "0.1.0"
+  handler: "UpdateWorkflowDefinition"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/updateWorkflowDefinitionRequest"
+    example:
+      hostId: "3dc90e11-0188-4224-a8a3-e75ac19c40d2"
+      wfDefId: "2695cdee-cb82-4b34-a2d8-f69093c733e3"
+      namespace: "net.lightapi"
+      name: "claims-processing"
+      version: "1.0.1"
+      definition: "version: '1.0'\nname: claims-processing\nstates: []"
+      aggregateVersion: 1
+- name: "deleteWorkflowDefinition"
+  version: "0.1.0"
+  handler: "DeleteWorkflowDefinition"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/deleteWorkflowDefinitionRequest"
+    example:
+      hostId: "3dc90e11-0188-4224-a8a3-e75ac19c40d2"
+      wfDefId: "2695cdee-cb82-4b34-a2d8-f69093c733e3"
+      aggregateVersion: 1
+- name: "startWorkflow"
+  version: "0.1.0"
+  handler: "StartWorkflow"
+  scope: "portal.w"
+  request:
+    schema:
+      $ref: "#/schemas/startWorkflowRequest"
+    example:
+      hostId: "3dc90e11-0188-4224-a8a3-e75ac19c40d2"
+      wfDefId: "2695cdee-cb82-4b34-a2d8-f69093c733e3"
+      input:
+        claimId: "CLAIM-123"
+        amount: 5000

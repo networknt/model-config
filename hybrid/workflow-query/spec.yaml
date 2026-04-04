@@ -1,0 +1,100 @@
+---
+host: "lightapi.net"
+service: "workflow"
+schemas:
+  getWorkflowDefinitionRequest:
+    title: "Get Workflow Definitions"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
+    required:
+    - "hostId"
+    - "offset"
+    - "limit"
+    - "active"
+  getFreshWorkflowDefinitionRequest:
+    title: "Get Fresh Workflow Definition"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      wfDefId:
+        type: "string"
+        description: "Workflow Definition Id"
+      aggregateVersion:
+        type: "integer"
+        format: "int64"
+        description: "Current Aggregate Version"
+    required:
+    - "hostId"
+    - "wfDefId"
+    - "aggregateVersion"
+  getWorkflowDefinitionByIdRequest:
+    title: "Get Workflow Definition By Id"
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      wfDefId:
+        type: "string"
+        description: "Workflow Definition Id"
+    required:
+    - "hostId"
+    - "wfDefId"
+
+action:
+- name: "getWorkflowDefinition"
+  version: "0.1.0"
+  handler: "GetWorkflowDefinition"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getWorkflowDefinitionRequest"
+    example:
+      hostId: "3dc90e11-0188-4224-a8a3-e75ac19c40d2"
+      offset: 0
+      limit: 10
+      active: true
+- name: "getFreshWorkflowDefinition"
+  version: "0.1.0"
+  handler: "GetFreshWorkflowDefinition"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshWorkflowDefinitionRequest"
+    example:
+      hostId: "3dc90e11-0188-4224-a8a3-e75ac19c40d2"
+      wfDefId: "2695cdee-cb82-4b34-a2d8-f69093c733e3"
+      aggregateVersion: 1
+- name: "getWorkflowDefinitionById"
+  version: "0.1.0"
+  handler: "GetWorkflowDefinitionById"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getWorkflowDefinitionByIdRequest"
+    example:
+      hostId: "3dc90e11-0188-4224-a8a3-e75ac19c40d2"
+      wfDefId: "2695cdee-cb82-4b34-a2d8-f69093c733e3"
