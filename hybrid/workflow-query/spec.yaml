@@ -2,7 +2,48 @@
 host: "lightapi.net"
 service: "workflow"
 schemas:
-  getWorkflowDefinitionRequest:
+  baseQueryRequest:
+    type: "object"
+    properties:
+      offset:
+        type: "integer"
+        description: "Offset"
+      limit:
+        type: "integer"
+        description: "Limit"
+      hostId:
+        type: "string"
+        description: "Host Id"
+      filters:
+        type: "string"
+        description: "Filters"
+      globalFilter:
+        type: "string"
+        description: "Global Filter"
+      sorting:
+        type: "string"
+        description: "Sorting"
+      active:
+        type: "boolean"
+        description: "Active"
+    required:
+    - "offset"
+    - "limit"
+    - "active"
+    - "hostId"
+  baseFreshRequest:
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+      aggregateVersion:
+        type: "integer"
+        description: "Aggregate Version"
+    required:
+    - "hostId"
+    - "aggregateVersion"
+  getWfDefinitionRequest:
     title: "Get Workflow Definitions"
     type: "object"
     properties:
@@ -32,7 +73,7 @@ schemas:
     - "offset"
     - "limit"
     - "active"
-  getFreshWorkflowDefinitionRequest:
+  getFreshWfDefinitionRequest:
     title: "Get Fresh Workflow Definition"
     type: "object"
     properties:
@@ -50,51 +91,241 @@ schemas:
     - "hostId"
     - "wfDefId"
     - "aggregateVersion"
-  getWorkflowDefinitionByIdRequest:
-    title: "Get Workflow Definition By Id"
+  getWfDefinitionLabelRequest:
+    title: "Get Workflow Definition Label"
     type: "object"
     properties:
       hostId:
         type: "string"
         description: "Host Id"
-      wfDefId:
-        type: "string"
-        description: "Workflow Definition Id"
     required:
     - "hostId"
-    - "wfDefId"
-
+  getWorklistRequest:
+    allOf:
+    - $ref: "#/schemas/baseQueryRequest"
+  getFreshWorklistRequest:
+    allOf:
+    - $ref: "#/schemas/baseFreshRequest"
+    - type: "object"
+      properties:
+        assigneeId:
+          type: "string"
+        categoryId:
+          type: "string"
+      required:
+      - "assigneeId"
+      - "categoryId"
+  getWorklistLabelRequest:
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+        description: "Host Id"
+    required:
+    - "hostId"
+  getWorklistColumnRequest:
+    allOf:
+    - $ref: "#/schemas/baseQueryRequest"
+  getFreshWorklistColumnRequest:
+    allOf:
+    - $ref: "#/schemas/baseFreshRequest"
+    - type: "object"
+      properties:
+        assigneeId:
+          type: "string"
+        categoryId:
+          type: "string"
+        sequenceId:
+          type: "integer"
+      required:
+      - "assigneeId"
+      - "categoryId"
+      - "sequenceId"
+  getProcessInfoRequest:
+    allOf:
+    - $ref: "#/schemas/baseQueryRequest"
+  getFreshProcessInfoRequest:
+    allOf:
+    - $ref: "#/schemas/baseFreshRequest"
+    - type: "object"
+      properties:
+        processId:
+          type: "string"
+      required:
+      - "processId"
+  getProcessInfoLabelRequest:
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+    required:
+    - "hostId"
+  getTaskInfoRequest:
+    allOf:
+    - $ref: "#/schemas/baseQueryRequest"
+  getFreshTaskInfoRequest:
+    allOf:
+    - $ref: "#/schemas/baseFreshRequest"
+    - type: "object"
+      properties:
+        taskId:
+          type: "string"
+      required:
+      - "taskId"
+  getTaskInfoLabelRequest:
+    type: "object"
+    properties:
+      hostId:
+        type: "string"
+    required:
+    - "hostId"
+  getTaskAsstRequest:
+    allOf:
+    - $ref: "#/schemas/baseQueryRequest"
+  getFreshTaskAsstRequest:
+    allOf:
+    - $ref: "#/schemas/baseFreshRequest"
+    - type: "object"
+      properties:
+        taskAsstId:
+          type: "string"
+      required:
+      - "taskAsstId"
+  getAuditLogRequest:
+    allOf:
+    - $ref: "#/schemas/baseQueryRequest"
+    required:
+    - "offset"
+    - "limit"
+    - "hostId"
 action:
-- name: "getWorkflowDefinition"
+- name: "getWfDefinition"
   version: "0.1.0"
-  handler: "GetWorkflowDefinition"
+  handler: "GetWfDefinition"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getWorkflowDefinitionRequest"
+      $ref: "#/schemas/getWfDefinitionRequest"
     example:
       hostId: "3dc90e11-0188-4224-a8a3-e75ac19c40d2"
       offset: 0
       limit: 10
       active: true
-- name: "getFreshWorkflowDefinition"
+- name: "getFreshWfDefinition"
   version: "0.1.0"
-  handler: "GetFreshWorkflowDefinition"
+  handler: "GetFreshWfDefinition"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getFreshWorkflowDefinitionRequest"
+      $ref: "#/schemas/getFreshWfDefinitionRequest"
     example:
       hostId: "3dc90e11-0188-4224-a8a3-e75ac19c40d2"
       wfDefId: "2695cdee-cb82-4b34-a2d8-f69093c733e3"
       aggregateVersion: 1
-- name: "getWorkflowDefinitionById"
+- name: "getWfDefinitionLabel"
   version: "0.1.0"
-  handler: "GetWorkflowDefinitionById"
+  handler: "GetWfDefinitionLabel"
   scope: "portal.r"
   request:
     schema:
-      $ref: "#/schemas/getWorkflowDefinitionByIdRequest"
+      $ref: "#/schemas/getWfDefinitionLabelRequest"
     example:
       hostId: "3dc90e11-0188-4224-a8a3-e75ac19c40d2"
-      wfDefId: "2695cdee-cb82-4b34-a2d8-f69093c733e3"
+- name: "getWorklist"
+  version: "0.1.0"
+  handler: "GetWorklist"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getWorklistRequest"
+- name: "getFreshWorklist"
+  version: "0.1.0"
+  handler: "GetFreshWorklist"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshWorklistRequest"
+- name: "getWorklistLabel"
+  version: "0.1.0"
+  handler: "GetWorklistLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getWorklistLabelRequest"
+- name: "getWorklistColumn"
+  version: "0.1.0"
+  handler: "GetWorklistColumn"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getWorklistColumnRequest"
+- name: "getFreshWorklistColumn"
+  version: "0.1.0"
+  handler: "GetFreshWorklistColumn"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshWorklistColumnRequest"
+- name: "getProcessInfo"
+  version: "0.1.0"
+  handler: "GetProcessInfo"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getProcessInfoRequest"
+- name: "getFreshProcessInfo"
+  version: "0.1.0"
+  handler: "GetFreshProcessInfo"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshProcessInfoRequest"
+- name: "getProcessInfoLabel"
+  version: "0.1.0"
+  handler: "GetProcessInfoLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getProcessInfoLabelRequest"
+- name: "getTaskInfo"
+  version: "0.1.0"
+  handler: "GetTaskInfo"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getTaskInfoRequest"
+- name: "getFreshTaskInfo"
+  version: "0.1.0"
+  handler: "GetFreshTaskInfo"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshTaskInfoRequest"
+- name: "getTaskInfoLabel"
+  version: "0.1.0"
+  handler: "GetTaskInfoLabel"
+  skipAuth: true
+  request:
+    schema:
+      $ref: "#/schemas/getTaskInfoLabelRequest"
+- name: "getTaskAsst"
+  version: "0.1.0"
+  handler: "GetTaskAsst"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getTaskAsstRequest"
+- name: "getFreshTaskAsst"
+  version: "0.1.0"
+  handler: "GetFreshTaskAsst"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getFreshTaskAsstRequest"
+- name: "getAuditLog"
+  version: "0.1.0"
+  handler: "GetAuditLog"
+  scope: "portal.r"
+  request:
+    schema:
+      $ref: "#/schemas/getAuditLogRequest"
